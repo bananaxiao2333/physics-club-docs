@@ -17,11 +17,13 @@ extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/t
 # 所以英文站名与版权行放在这里，由模板按页面语言取用
 # （见 overrides/partials/header.html、footer.html、main.html）。
 # ⚠️ 同样必须在 [[project.extra.alternate]] 之前，否则会被归入该表。
+# 键名后缀：默认语言（zh-hans）留空，其余语言用 _en / _zh_hant。
+# 模板里用 `config.extra["site_name" ~ L]` 取用，L 由页面语言决定。
 [project.extra]
 site_name_en = "Freedom Was Here"
 copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 site_author_en = "ASJ Yingdong Physics Club"
-# 英文页面包屑的根（对应中文的「序章」）
+# 页面包屑的根（对应中文的「序章」）
 nav_root_label_en = "Prologue"
 site_description_en = "A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands."
 # 主题切换按钮的提示文案（config.theme.palette 里的 toggle.name 是全站唯一的）
@@ -29,15 +31,31 @@ palette_toggle_auto_en = "Toggle light/dark"
 palette_toggle_light_en = "Switch to dark"
 palette_toggle_dark_en = "Switch to light"
 
+# 繁体（zh-hant）。站名「自由曾在此」与「序章」简繁同形，沿用默认值即可。
+copyright_zh_hant = "英東物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
+site_author_zh_hant = "英東物理社"
+site_description_zh_hant = "英東物理社數位紀念館 —— 一張社牌，一頁講稿，一次把想法交給雙手的嘗試。"
+nav_root_label_zh_hant = "序章"
+palette_toggle_auto_zh_hant = "切換深淺色"
+palette_toggle_light_zh_hant = "切換到深色"
+palette_toggle_dark_zh_hant = "切換到淺色"
+
+# 语言代码用**文字**标签（zh-Hans / zh-Hant），不用 zh-CN / zh-TW 这类**地区**标签：
+# 地区标签会把用词一起改掉，那是替读者选定某一地的用法。
+[[project.extra.alternate]]
+name = "简体中文"
+link = "./"
+lang = "zh-Hans"
+
+[[project.extra.alternate]]
+name = "繁體中文"
+link = "zh-hant/"
+lang = "zh-Hant"
+
 [[project.extra.alternate]]
 name = "English"
 link = "en/"
 lang = "en"
-
-[[project.extra.alternate]]
-name = "中文"
-link = "./"
-lang = "zh"
 
 
 [project.plugins]

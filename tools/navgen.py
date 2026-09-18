@@ -28,9 +28,23 @@ from pathlib import Path
 
 import yaml
 
+from langs import DEFAULT_LANG, other_languages
+
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-EN_DIR = DOCS / "en"
+#: 默认语言在 docs/ 根，其余语言各占一个子目录（docs/en、docs/zh-hant …）。
+#: 这些目录不出现在默认语言的导航里，改由 build_nav 统一挂在末尾。
+#: ⚠️ 只能按语言代码识别——docs/ 下每个内容分区（story、flight…）也有 index.md，
+#: 用「有 index.md」当判据会把所有分区都当成语言目录。
+OTHER_LANG_DIRS = tuple(DOCS / lang for lang in other_languages() if (DOCS / lang).is_dir())
+
+#: 语言分区的标记名。语言分区本身**从不显示**——列表由模板按页面语言决定
+#: 只渲染其中一支（overrides/partials/nav.html），面包屑也会跳过它
+#: （overrides/partials/path.html）。所以这里刻意用一个可机器识别的标记前缀，
+#: 而不是会随人改动的显示名：模板靠 `"__lang:" in title` 认出语言分区。
+LANG_MARKER = "__lang:"
+
+
 
 BANNER = (
     "# ⚠️ 本文件由 tools/navgen.py 自动生成，请勿手改。\n"
@@ -89,7 +103,7 @@ def discover(directory: Path, *, root: bool) -> list[Path]:
         if entry.name.startswith((".", "_")):
             continue
         if entry.is_dir():
-            if root and entry == EN_DIR:
+            if root and entry in OTHER_LANG_DIRS:
                 continue
             if (entry / "index.md").exists():
                 found.append(entry)
@@ -151,12 +165,13 @@ def build_nav(directory: Path, *, root: bool) -> tuple[list, list[str]]:
         else:
             nav.append({nav_label(child): child.name})
 
-    # 英文分区挂在中文树的末尾，具体显示哪一支由模板按页面语言决定
+    # 其它语言分区挂在默认语言树的末尾，具体显示哪一支由模板按页面语言决定
     # （见 overrides/partials/nav.html）。
-    # ⚠️ 这一项的标题固定为 English：overrides/partials/path.html 靠它把
-    # 语言分区那一层从面包屑里去掉。改名要同时改那处。
-    if root and EN_DIR.is_dir():
-        nav.append({"English": "en"})
+    # ⚠️ 标题带 LANG_MARKER 前缀：overrides/partials/nav.html 与 path.html 靠它
+    # 认出语言分区（nav 里只渲染当前语言那一支，面包屑里跳过这一层）。
+    if root:
+        for directory in OTHER_LANG_DIRS:
+            nav.append({LANG_MARKER + directory.name: directory.name})
 
     if not nav:
         warnings.append(f"{rel(directory)}: 没有可导航的内容")
@@ -178,7 +193,8 @@ def render(nav: list) -> str:
 def targets() -> list[tuple[Path, bool]]:
     """需要生成 .nav.yml 的目录：docs 本体、docs/en，以及它们下面每个含 index.md 的目录。"""
     out: list[tuple[Path, bool]] = []
-    for base, root in ((DOCS, True), (EN_DIR, False)):
+    roots = [(DOCS, True), *((d, False) for d in OTHER_LANG_DIRS)]
+    for base, root in roots:
         if not base.is_dir():
             continue
         out.append((base, root))

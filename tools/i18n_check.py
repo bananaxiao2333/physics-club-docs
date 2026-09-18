@@ -1,29 +1,22 @@
 #!/usr/bin/env python3
-"""翻译度检查器：中英两版内容的对照体检。
+"""翻译度检查器：默认语言（简体）与各语种之间的对照体检。
 
-它回答三个问题：
+它回答四个问题：
 
-1. **有没有漏翻** —— 中文有的篇目，英文有没有；
-2. **有没有过期** —— 英文是不是照着当前的中文版翻的；
-3. **结构对不对得上** —— 译文的章节、表格、提示框、链接是否与原文一一对应
-   （漏掉一段、少一行表格，光看字符数是看不出来的）。
+1. **有没有漏翻** —— 简体有的篇目，某个语种有没有；
+2. **有没有过期** —— 该语种是不是照着当前的简体版做的；
+3. **结构对不对得上** —— 各语种的章节、表格、提示框、链接是否与简体一一对应
+   （漏掉一段、少一行表格，光看字符数是看不出来的）；
+4. **派生语种有没有跟上** —— 繁体不是翻译，是从简体**脚本转换**出来的，
+   所以它必须**逐字节等于**对当前简体原文做一次转换的结果。
 
-判定方式
---------
-`content/` 下同名不同语言后缀的文件视为同一篇：
-
-    content/story/index.zh.md   ← 原文
-    content/story/index.en.md   ← 译文
-
-英文页在前置元数据里记下它所依据的中文源的内容指纹：
-
-    ---
-    title: The Club's Story
-    source_sha256: 3f9c…            # content/story/index.zh.md 当时的 sha256
-    translated: 2026-09-19
-    ---
-
-中文源一改，指纹就对不上，该页立刻被标为 `stale`——不需要人工维护清单。
+两种语种，两套判据
+------------------
+* **手写语种**（英文）：在该语种文件的前置元数据里记下所依据的简体原文指纹
+      source_sha256: 3f9c…      # content/story/index.zh-hans.md 当时的 sha256
+  简体一改指纹就对不上，该页立刻报「已过期」，不需要人工维护清单。
+* **派生日志**（繁体，见 tools/langs.py 的 DERIVATIONS）：没有手写源文件，
+  由 tools/docsgen.py 从简体转换而来，因此判据是「转换结果是否与产物一致」。
 
 输出
 ----
@@ -49,20 +42,24 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
-CONTENT = ROOT / "content"
+from docsgen import depth_of, rewrite_shared
+from hant import to_hant
+from langs import CONTENT, DEFAULT_LANG, DERIVATIONS, LANG_RE, ROOT, other_languages
+
+DOCS = ROOT / "docs"
 REPORT_JSON = ROOT / "i18n-report.json"
 REPORT_MD = ROOT / "i18n-report.md"
 
-DEFAULT_LANG = "zh"
-OTHER_LANG = "en"
-
-#: 落地页是手工维护的一对模板，用同一套指纹机制盯住
-PARTIAL_SRC = ROOT / "overrides/partials/landing.html"
-PARTIAL_EN = ROOT / "overrides/partials/landing.en.html"
+#: 落地页模板：简体手写，其余语种
+LANDING_SRC = ROOT / "overrides/partials/landing.html"
+LANDING_TARGETS = {
+    "en": ROOT / "overrides/partials/landing.en.html",
+    "zh-hant": ROOT / "overrides/partials/landing.zh-hant.html",
+}
 
 CJK_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff]")
 PLACEHOLDER_RE = re.compile(r"^\s*(?:<!--.*?-->\s*)*TODO\s*$", re.S | re.I)
+BANNER_RE = re.compile(r"^# ⚠️ 由 tools/docsgen\.py .*$\n?", re.M)
 
 #: 正文里 CJK 占比超过这个值，基本可以断定没翻
 CJK_UNTRANSLATED = 0.08
@@ -86,6 +83,11 @@ def split_front_matter(text: str) -> tuple[dict, str]:
     return (data if isinstance(data, dict) else {}), body
 
 
+def strip_banner(text: str) -> str:
+    """去掉生成器插在前置元数据里的横幅，便于逐字节比对。"""
+    return BANNER_RE.sub("", text)
+
+
 def cjk_ratio(body: str) -> float:
     stripped = re.sub(r"\s+", "", body)
     if not stripped:
@@ -94,7 +96,7 @@ def cjk_ratio(body: str) -> float:
 
 
 def structure(body: str) -> dict:
-    """译文结构比对用的骨架：只取与语言无关的形态特征。"""
+    """结构比对用的骨架：只取与语言无关的形态特征。"""
     levels = []
     for line in body.splitlines():
         match = re.match(r"^(#+)\s", line)
@@ -145,18 +147,21 @@ def source_pages() -> list[Path]:
     return sorted(CONTENT.rglob(f"*.{DEFAULT_LANG}.md"))
 
 
-def target_of(source: Path) -> Path:
+def target_of(source: Path, lang: str) -> Path:
     """同一目录、同一名字、换语言后缀。"""
     stem = source.name[: -len(f".{DEFAULT_LANG}.md")]
-    return source.with_name(f"{stem}.{OTHER_LANG}.md")
+    return source.with_name(f"{stem}.{lang}.md")
 
 
-def inspect(source: Path, *, sync: bool) -> dict:
-    target = target_of(source)
+def inspect_translation(source: Path, lang: str, *, sync: bool) -> dict:
+    """手写语种：查漏翻、过期、结构。"""
+    target = target_of(source, lang)
     digest = sha256(source)
     record: dict = {
         "source": source.relative_to(ROOT).as_posix(),
         "target": target.relative_to(ROOT).as_posix(),
+        "lang": lang,
+        "kind": "translation",
         "source_sha256": digest,
     }
 
@@ -185,7 +190,7 @@ def inspect(source: Path, *, sync: bool) -> dict:
         problems.append("译文缺少 title")
     if not fm.get("description"):
         problems.append("译文缺少 description")
-    if ratio > CJK_UNTRANSLATED and not fm.get("allow_cjk"):
+    if lang != "zh-hant" and ratio > CJK_UNTRANSLATED and not fm.get("allow_cjk"):
         problems.append(f"正文中文字符占比 {ratio:.0%}，疑似未翻译")
     if not is_placeholder:
         problems.extend(structure_diff(structure(source_body), structure(body)))
@@ -207,7 +212,7 @@ def inspect(source: Path, *, sync: bool) -> dict:
     elif recorded != digest:
         record["status"] = "stale"
         record["next"] = (
-            f"中文源 {record['source']} 已改动。重读源文件，更新 {record['target']}，"
+            f"原文 {record['source']} 已改动。重读源文件，更新 {record['target']}，"
             f"然后把 source_sha256 改为 {digest}"
         )
     elif problems:
@@ -217,6 +222,50 @@ def inspect(source: Path, *, sync: bool) -> dict:
         record["status"] = "ok"
         record["next"] = ""
 
+    return record
+
+
+def inspect_derived(source: Path, lang: str) -> dict:
+    """派生语种：产物必须逐字节等于「对当前原文做一次转换」的结果。"""
+    target = DOCS / lang / source.relative_to(CONTENT).with_name(
+        source.name[: -len(f".{DEFAULT_LANG}.md")] + ".md").relative_to(".")
+    record: dict = {
+        "source": source.relative_to(ROOT).as_posix(),
+        "target": target.relative_to(ROOT).as_posix(),
+        "lang": lang,
+        "kind": "derived",
+    }
+
+    if not target.exists():
+        record["status"] = "missing"
+        record["next"] = f"产物的 {lang} 版缺失；跑 make gen（docsgen 会从简体转换生成）"
+        return record
+
+    # 期望值要按 docsgen 的同一条流水线算：先补共享资产的相对层级，再转换
+    base = source.parent.relative_to(CONTENT).as_posix()
+    base = "" if base == "." else base
+    expected = strip_banner(to_hant(rewrite_shared(
+        source.read_text(encoding="utf-8"), base, depth_of(lang))))
+    actual = strip_banner(target.read_text(encoding="utf-8"))
+    if expected == actual:
+        record["status"] = "ok"
+        record["next"] = ""
+        return record
+
+    # 找出第一处差异，方便定位
+    limit = min(len(expected), len(actual))
+    pos = next((i for i in range(limit) if expected[i] != actual[i]), limit)
+    record["status"] = "drift"
+    record["first_diff"] = {
+        "offset": pos,
+        "expected": expected[max(0, pos - 30): pos + 30],
+        "actual": actual[max(0, pos - 30): pos + 30],
+    }
+    record["next"] = (
+        f"{record['target']} 与「{record['source']} 的脚本转换结果」不一致"
+        f"（首处差异在第 {pos} 字符）。该文件是生成物，跑 make gen 覆盖即可；"
+        f"若 make gen 之后仍不一致，说明有人改了 docs/ 下的生成物。"
+    )
     return record
 
 
@@ -240,49 +289,54 @@ def create_stub(source: Path, target: Path, digest: str) -> None:
     )
 
 
-def inspect_partial() -> dict | None:
-    """落地页模板这一对也纳入检查。"""
-    if not PARTIAL_EN.exists():
-        return {
-            "source": str(PARTIAL_SRC.relative_to(ROOT)),
-            "target": str(PARTIAL_EN.relative_to(ROOT)),
-            "status": "missing",
-            "next": f"按 {PARTIAL_SRC.name} 的结构写英文落地页 {PARTIAL_EN.name}",
-        }
-    digest = sha256(PARTIAL_SRC)
-    head = PARTIAL_EN.read_text(encoding="utf-8")[:2000]
+def inspect_landing(lang: str) -> dict:
+    """落地页模板这一组也纳入检查。"""
+    target = LANDING_TARGETS[lang]
+    record = {
+        "source": str(LANDING_SRC.relative_to(ROOT)),
+        "target": str(target.relative_to(ROOT)),
+        "lang": lang,
+        "kind": "derived" if lang in DERIVATIONS else "translation",
+    }
+    if not target.exists():
+        record["status"] = "missing"
+        record["next"] = f"缺 {target.name}；手写语种需另写，派生语种跑 make gen 生成"
+        return record
+
+    if lang in DERIVATIONS:
+        expected = to_hant(LANDING_SRC.read_text(encoding="utf-8"))
+        actual = target.read_text(encoding="utf-8")
+        # 产物头部有一段生成说明，比对时去掉
+        actual = re.sub(r"^\{#-.*?-#\}\n", "", actual, count=1, flags=re.S)
+        record["status"] = "ok" if expected == actual else "drift"
+        record["next"] = "" if expected == actual else f"{target.name} 与简体版的转换结果不一致，跑 make gen"
+        return record
+
+    digest = sha256(LANDING_SRC)
+    head = target.read_text(encoding="utf-8")[:2000]
     match = re.search(r"source_sha256:\s*([0-9a-f]{64})", head)
     recorded = match.group(1) if match else ""
     if not recorded:
-        return {
-            "source": str(PARTIAL_SRC.relative_to(ROOT)),
-            "target": str(PARTIAL_EN.relative_to(ROOT)),
-            "status": "untracked",
-            "source_sha256": digest,
-            "next": "英文落地页存在但未记录 source_sha256；核对后在文件首个注释里补上",
-        }
-    if recorded != digest:
-        return {
-            "source": str(PARTIAL_SRC.relative_to(ROOT)),
-            "target": str(PARTIAL_EN.relative_to(ROOT)),
-            "status": "stale",
-            "source_sha256": digest,
-            "recorded_sha256": recorded,
-            "next": "中文落地页已改动，英文落地页需要同步",
-        }
-    return {
-        "source": str(PARTIAL_SRC.relative_to(ROOT)),
-        "target": str(PARTIAL_EN.relative_to(ROOT)),
-        "status": "ok",
-        "next": "",
-    }
+        record["status"] = "untracked"
+        record["source_sha256"] = digest
+        record["next"] = "英文落地页存在但未记录 source_sha256；核对后在文件首个注释里补上"
+    elif recorded != digest:
+        record["status"] = "stale"
+        record["source_sha256"] = digest
+        record["recorded_sha256"] = recorded
+        record["next"] = "中文落地页已改动，英文落地页需要同步"
+    else:
+        record["status"] = "ok"
+        record["next"] = ""
+    return record
 
 
-ORDER = ["missing", "placeholder", "created", "stale", "untracked", "partial", "ok"]
+ORDER = ["missing", "placeholder", "created", "drift", "stale", "untracked", "partial", "ok"]
 LABEL = {
     "missing": "缺失",
     "placeholder": "待翻译",
     "created": "已建骨架",
+    "drift": "派生失同步",
     "stale": "已过期",
     "untracked": "未记录指纹",
     "partial": "结构待核",
@@ -291,15 +345,23 @@ LABEL = {
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="检查译文相对原文的完成度")
+    parser = argparse.ArgumentParser(description="检查各语种相对默认语言的完成度")
     parser.add_argument("--sync", action="store_true", help="为缺失的译文建立骨架")
     parser.add_argument("--quiet", action="store_true", help="只输出汇总")
     args = parser.parse_args()
 
-    pages = [inspect(p, sync=args.sync) for p in source_pages()]
-    partial = inspect_partial()
-    if partial:
-        pages.append(partial)
+    languages = other_languages()
+    declared = set(languages) - set(DERIVATIONS)
+
+    pages: list[dict] = []
+    for source in source_pages():
+        for lang in languages:
+            if lang in declared:
+                pages.append(inspect_translation(source, lang, sync=args.sync))
+            else:
+                pages.append(inspect_derived(source, lang))
+    for lang in languages:
+        pages.append(inspect_landing(lang))
 
     counts: dict[str, int] = {}
     for page in pages:
@@ -309,14 +371,16 @@ def main() -> int:
 
     report = {
         "generated": date.today().isoformat(),
-        "languages": {"source": DEFAULT_LANG, "target": OTHER_LANG},
+        "languages": {"default": DEFAULT_LANG, "others": languages,
+                      "derived": sorted(DERIVATIONS)},
         "summary": {
             "total": len(pages),
             "counts": {k: counts.get(k, 0) for k in ORDER if k in counts},
             "complete": not todolist,
         },
         "todo": [
-            {"source": p["source"], "target": p["target"], "status": p["status"], "next": p["next"]}
+            {"lang": p["lang"], "source": p["source"], "target": p["target"],
+             "status": p["status"], "next": p["next"]}
             for p in todolist
         ],
         "pages": pages,
@@ -324,9 +388,10 @@ def main() -> int:
     REPORT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     lines = [
-        "# 翻译度报告",
+        "# 多语种报告",
         "",
-        f"生成日期：{report['generated']}　·　共 {len(pages)} 个条目　·　待办 {len(todolist)}",
+        f"生成日期：{report['generated']}　·　默认语言 `{DEFAULT_LANG}`　·　"
+        f"语种 {'、'.join('`' + x + '`' for x in languages)}　·　共 {len(pages)} 个条目　·　待办 {len(todolist)}",
         "",
         "| 状态 | 数量 |",
         "| --- | --- |",
@@ -336,18 +401,18 @@ def main() -> int:
             lines.append(f"| {LABEL[status]} `{status}` | {counts[status]} |")
     lines += ["", "## 待办", ""]
     if todolist:
-        lines += ["| 状态 | 译文 | 原文 | 下一步 |", "| --- | --- | --- | --- |"]
+        lines += ["| 语种 | 状态 | 文件 | 来源 | 下一步 |", "| --- | --- | --- | --- | --- |"]
         for p in todolist:
             cell = re.sub(r"\s+", " ", p["next"]).replace("|", "\\|")
-            lines.append(f"| {LABEL[p['status']]} | `{p['target']}` | `{p['source']}` | {cell} |")
+            lines.append(f"| `{p['lang']}` | {LABEL[p['status']]} | `{p['target']}` | `{p['source']}` | {cell} |")
     else:
-        lines.append("英文站与中文源完全同步。")
+        lines.append("各语种与默认语言完全同步。")
     lines.append("")
     REPORT_MD.write_text("\n".join(lines), encoding="utf-8")
 
     if not args.quiet:
         for page in todolist:
-            print(f"[{LABEL[page['status']]}] {page['target']}\n    {page['next']}")
+            print(f"[{page['lang']} · {LABEL[page['status']]}] {page['target']}\n    {page['next']}")
 
     summary = "　".join(f"{LABEL[s]} {counts[s]}" for s in ORDER if s in counts)
     print(f"\n翻译度：{summary}")

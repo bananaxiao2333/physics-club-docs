@@ -1,21 +1,29 @@
 {
   "generated": "2026-09-18",
   "languages": {
-    "source": "zh",
-    "target": "en"
+    "default": "zh-hans",
+    "others": [
+      "en",
+      "zh-hant"
+    ],
+    "derived": [
+      "zh-hant"
+    ]
   },
   "summary": {
-    "total": 27,
+    "total": 54,
     "counts": {
-      "ok": 27
+      "ok": 54
     },
     "complete": true
   },
   "todo": [],
   "pages": [
     {
-      "source": "content/archive/index.zh.md",
+      "source": "content/archive/index.zh-hans.md",
       "target": "content/archive/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "e6eb58b993908c5e3e1f841f71238e80414b7e07cbc4afba1d25a8f686005edf",
       "recorded_sha256": "e6eb58b993908c5e3e1f841f71238e80414b7e07cbc4afba1d25a8f686005edf",
       "cjk_ratio": 0.0024,
@@ -24,8 +32,18 @@
       "next": ""
     },
     {
-      "source": "content/design/index.zh.md",
+      "source": "content/archive/index.zh-hans.md",
+      "target": "docs/zh-hant/archive/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/design/index.zh-hans.md",
       "target": "content/design/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "1f3034249fcb1ba01282d1d9f7dbe7a75dbadbfe97bd356f6b51310c97aa4deb",
       "recorded_sha256": "1f3034249fcb1ba01282d1d9f7dbe7a75dbadbfe97bd356f6b51310c97aa4deb",
       "cjk_ratio": 0.0128,
@@ -34,8 +52,18 @@
       "next": ""
     },
     {
-      "source": "content/flight/index.zh.md",
+      "source": "content/design/index.zh-hans.md",
+      "target": "docs/zh-hant/design/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/flight/index.zh-hans.md",
       "target": "content/flight/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "2519c9f1e15a881a56a0d5e57ea73aadd3fde61b6f5a92904fd1be2191b068ff",
       "recorded_sha256": "2519c9f1e15a881a56a0d5e57ea73aadd3fde61b6f5a92904fd1be2191b068ff",
       "cjk_ratio": 0.0132,
@@ -44,8 +72,18 @@
       "next": ""
     },
     {
-      "source": "content/flight/materials.zh.md",
+      "source": "content/flight/index.zh-hans.md",
+      "target": "docs/zh-hant/flight/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/flight/materials.zh-hans.md",
       "target": "content/flight/materials.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "3a3e3b9d19e018d269432be544074448cf25665d8f006d7ccc91c06f607a8d00",
       "recorded_sha256": "3a3e3b9d19e018d269432be544074448cf25665d8f006d7ccc91c06f607a8d00",
       "cjk_ratio": 0.0233,
@@ -54,8 +92,18 @@
       "next": ""
     },
     {
-      "source": "content/flight/runbook.zh.md",
+      "source": "content/flight/materials.zh-hans.md",
+      "target": "docs/zh-hant/flight/materials.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/flight/runbook.zh-hans.md",
       "target": "content/flight/runbook.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "726d746e92b2f3d6401bfc07a64acd7e070f2138b4bb19007623ec0192eb8fcf",
       "recorded_sha256": "726d746e92b2f3d6401bfc07a64acd7e070f2138b4bb19007623ec0192eb8fcf",
       "cjk_ratio": 0.0094,
@@ -64,8 +112,18 @@
       "next": ""
     },
     {
-      "source": "content/gatherings/0421.zh.md",
+      "source": "content/flight/runbook.zh-hans.md",
+      "target": "docs/zh-hant/flight/runbook.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/gatherings/0421.zh-hans.md",
       "target": "content/gatherings/0421.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
       "recorded_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
       "cjk_ratio": 0.0975,
@@ -74,8 +132,18 @@
       "next": ""
     },
     {
-      "source": "content/gatherings/0427.zh.md",
+      "source": "content/gatherings/0421.zh-hans.md",
+      "target": "docs/zh-hant/gatherings/0421.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/gatherings/0427.zh-hans.md",
       "target": "content/gatherings/0427.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
       "recorded_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
       "cjk_ratio": 0.063,
@@ -84,8 +152,18 @@
       "next": ""
     },
     {
-      "source": "content/gatherings/0512.zh.md",
+      "source": "content/gatherings/0427.zh-hans.md",
+      "target": "docs/zh-hant/gatherings/0427.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/gatherings/0512.zh-hans.md",
       "target": "content/gatherings/0512.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
       "recorded_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
       "cjk_ratio": 0.0807,
@@ -94,8 +172,18 @@
       "next": ""
     },
     {
-      "source": "content/gatherings/index.zh.md",
+      "source": "content/gatherings/0512.zh-hans.md",
+      "target": "docs/zh-hant/gatherings/0512.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/gatherings/index.zh-hans.md",
       "target": "content/gatherings/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "917f4d5eda342c30d6f4b83adf98090d698a485b7243e77405b7e7eec348d653",
       "recorded_sha256": "917f4d5eda342c30d6f4b83adf98090d698a485b7243e77405b7e7eec348d653",
       "cjk_ratio": 0.0,
@@ -104,8 +192,18 @@
       "next": ""
     },
     {
-      "source": "content/governance/fees.zh.md",
+      "source": "content/gatherings/index.zh-hans.md",
+      "target": "docs/zh-hant/gatherings/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/governance/fees.zh-hans.md",
       "target": "content/governance/fees.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "8d6ea2e8c472fc0bc326d457fa3e97848ac38abd758f19fb43b50c250b8674cf",
       "recorded_sha256": "8d6ea2e8c472fc0bc326d457fa3e97848ac38abd758f19fb43b50c250b8674cf",
       "cjk_ratio": 0.0049,
@@ -114,8 +212,18 @@
       "next": ""
     },
     {
-      "source": "content/governance/index.zh.md",
+      "source": "content/governance/fees.zh-hans.md",
+      "target": "docs/zh-hant/governance/fees.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/governance/index.zh-hans.md",
       "target": "content/governance/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "8c5403cab1f1a2a2da40e8520fed2bfb1b14e71353afe15beb820876dab550b3",
       "recorded_sha256": "8c5403cab1f1a2a2da40e8520fed2bfb1b14e71353afe15beb820876dab550b3",
       "cjk_ratio": 0.0023,
@@ -124,8 +232,18 @@
       "next": ""
     },
     {
-      "source": "content/governance/roster.zh.md",
+      "source": "content/governance/index.zh-hans.md",
+      "target": "docs/zh-hant/governance/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/governance/roster.zh-hans.md",
       "target": "content/governance/roster.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "60f700a563c2099061df176eb2bbc45ff115f9b9419c392e6482a2cdfbc61b5a",
       "recorded_sha256": "60f700a563c2099061df176eb2bbc45ff115f9b9419c392e6482a2cdfbc61b5a",
       "cjk_ratio": 0.1825,
@@ -134,8 +252,18 @@
       "next": ""
     },
     {
-      "source": "content/index.zh.md",
+      "source": "content/governance/roster.zh-hans.md",
+      "target": "docs/zh-hant/governance/roster.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/index.zh-hans.md",
       "target": "content/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "5f8cf3440b9555d06b426eb20d99b1341e07eccd370f60c73c1a47f7897d999d",
       "recorded_sha256": "5f8cf3440b9555d06b426eb20d99b1341e07eccd370f60c73c1a47f7897d999d",
       "cjk_ratio": 0.0,
@@ -144,8 +272,18 @@
       "next": ""
     },
     {
-      "source": "content/merit/glossary.zh.md",
+      "source": "content/index.zh-hans.md",
+      "target": "docs/zh-hant/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/merit/glossary.zh-hans.md",
       "target": "content/merit/glossary.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "b27bc5b009f9edceeeba95b9d53e4ede0802a3f303471852002e08c7ded87977",
       "recorded_sha256": "b27bc5b009f9edceeeba95b9d53e4ede0802a3f303471852002e08c7ded87977",
       "cjk_ratio": 0.0173,
@@ -154,8 +292,18 @@
       "next": ""
     },
     {
-      "source": "content/merit/index.zh.md",
+      "source": "content/merit/glossary.zh-hans.md",
+      "target": "docs/zh-hant/merit/glossary.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/merit/index.zh-hans.md",
       "target": "content/merit/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "ffea03b81b91c1970b4c16ff1e43a3afcdfa59cd2c961e3f818d46649ee0daff",
       "recorded_sha256": "ffea03b81b91c1970b4c16ff1e43a3afcdfa59cd2c961e3f818d46649ee0daff",
       "cjk_ratio": 0.0094,
@@ -164,8 +312,18 @@
       "next": ""
     },
     {
-      "source": "content/merit/ledger.zh.md",
+      "source": "content/merit/index.zh-hans.md",
+      "target": "docs/zh-hant/merit/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/merit/ledger.zh-hans.md",
       "target": "content/merit/ledger.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "ec4e89bafe1e0c957b4d26c02de1a2c2d05505542329f2ab32ee6dc5162e776b",
       "recorded_sha256": "ec4e89bafe1e0c957b4d26c02de1a2c2d05505542329f2ab32ee6dc5162e776b",
       "cjk_ratio": 0.0095,
@@ -174,8 +332,18 @@
       "next": ""
     },
     {
-      "source": "content/merit/member-rules.zh.md",
+      "source": "content/merit/ledger.zh-hans.md",
+      "target": "docs/zh-hant/merit/ledger.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/merit/member-rules.zh-hans.md",
       "target": "content/merit/member-rules.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "f23a99760547c6f6b195fc7be803d96dd7c957428fc59202dff1038d60370a76",
       "recorded_sha256": "f23a99760547c6f6b195fc7be803d96dd7c957428fc59202dff1038d60370a76",
       "cjk_ratio": 0.0015,
@@ -184,8 +352,18 @@
       "next": ""
     },
     {
-      "source": "content/merit/whitepapers.zh.md",
+      "source": "content/merit/member-rules.zh-hans.md",
+      "target": "docs/zh-hant/merit/member-rules.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/merit/whitepapers.zh-hans.md",
       "target": "content/merit/whitepapers.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "ebbe417547f5c3096b05b30b180a0edc09ab9d78cfebd09d443231299edffc0e",
       "recorded_sha256": "ebbe417547f5c3096b05b30b180a0edc09ab9d78cfebd09d443231299edffc0e",
       "cjk_ratio": 0.0138,
@@ -194,8 +372,18 @@
       "next": ""
     },
     {
-      "source": "content/sources/index.zh.md",
+      "source": "content/merit/whitepapers.zh-hans.md",
+      "target": "docs/zh-hant/merit/whitepapers.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/sources/index.zh-hans.md",
       "target": "content/sources/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "d6fd58b23964cc7188418355251a9fbd3c5a361e3f7be6ddb05b6c7cfe3baf64",
       "recorded_sha256": "d6fd58b23964cc7188418355251a9fbd3c5a361e3f7be6ddb05b6c7cfe3baf64",
       "cjk_ratio": 0.0432,
@@ -204,8 +392,18 @@
       "next": ""
     },
     {
-      "source": "content/story/egg-drop.zh.md",
+      "source": "content/sources/index.zh-hans.md",
+      "target": "docs/zh-hant/sources/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/egg-drop.zh-hans.md",
       "target": "content/story/egg-drop.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "34a53995270a0956b36011a9daa946e9f66475af8b8e10e0adaa10ff0044c2c3",
       "recorded_sha256": "34a53995270a0956b36011a9daa946e9f66475af8b8e10e0adaa10ff0044c2c3",
       "cjk_ratio": 0.0106,
@@ -214,8 +412,18 @@
       "next": ""
     },
     {
-      "source": "content/story/festival-0430.zh.md",
+      "source": "content/story/egg-drop.zh-hans.md",
+      "target": "docs/zh-hant/story/egg-drop.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/festival-0430.zh-hans.md",
       "target": "content/story/festival-0430.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "2b15498e709e576627f3536f01b031387c2b0cd254f73903f9382b50533ce0a5",
       "recorded_sha256": "2b15498e709e576627f3536f01b031387c2b0cd254f73903f9382b50533ce0a5",
       "cjk_ratio": 0.0161,
@@ -224,8 +432,18 @@
       "next": ""
     },
     {
-      "source": "content/story/gathering-0421.zh.md",
+      "source": "content/story/festival-0430.zh-hans.md",
+      "target": "docs/zh-hant/story/festival-0430.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/gathering-0421.zh-hans.md",
       "target": "content/story/gathering-0421.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "0b78543bf64303f210874c7b4e74b586dda48caee603b9e793f82390583f19e9",
       "recorded_sha256": "0b78543bf64303f210874c7b4e74b586dda48caee603b9e793f82390583f19e9",
       "cjk_ratio": 0.0167,
@@ -234,8 +452,18 @@
       "next": ""
     },
     {
-      "source": "content/story/index.zh.md",
+      "source": "content/story/gathering-0421.zh-hans.md",
+      "target": "docs/zh-hant/story/gathering-0421.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/index.zh-hans.md",
       "target": "content/story/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "1eeb024d36c4e0b4c778f88d05dbba371866db6c809b1143be5ea0e294d2221e",
       "recorded_sha256": "1eeb024d36c4e0b4c778f88d05dbba371866db6c809b1143be5ea0e294d2221e",
       "cjk_ratio": 0.0028,
@@ -244,8 +472,18 @@
       "next": ""
     },
     {
-      "source": "content/story/ipc-2026.zh.md",
+      "source": "content/story/index.zh-hans.md",
+      "target": "docs/zh-hant/story/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/ipc-2026.zh-hans.md",
       "target": "content/story/ipc-2026.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "873a1be6ba8e1a9669a1324a0a25f545647a545e3bf8ca0acdfdf1a82d079e8f",
       "recorded_sha256": "873a1be6ba8e1a9669a1324a0a25f545647a545e3bf8ca0acdfdf1a82d079e8f",
       "cjk_ratio": 0.0186,
@@ -254,8 +492,18 @@
       "next": ""
     },
     {
-      "source": "content/story/suspension-0529.zh.md",
+      "source": "content/story/ipc-2026.zh-hans.md",
+      "target": "docs/zh-hant/story/ipc-2026.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/story/suspension-0529.zh-hans.md",
       "target": "content/story/suspension-0529.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "62ffb07c463d2ffa75ea2a869a0dab7bea20802d0edc6360d5ef96363dc2aaf5",
       "recorded_sha256": "62ffb07c463d2ffa75ea2a869a0dab7bea20802d0edc6360d5ef96363dc2aaf5",
       "cjk_ratio": 0.0112,
@@ -264,8 +512,18 @@
       "next": ""
     },
     {
-      "source": "content/thanks/index.zh.md",
+      "source": "content/story/suspension-0529.zh-hans.md",
+      "target": "docs/zh-hant/story/suspension-0529.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "content/thanks/index.zh-hans.md",
       "target": "content/thanks/index.en.md",
+      "lang": "en",
+      "kind": "translation",
       "source_sha256": "7e28e1382dc8e1109b3942a04a0fff98e6ba3f63eb94ece31f351be34de87275",
       "recorded_sha256": "7e28e1382dc8e1109b3942a04a0fff98e6ba3f63eb94ece31f351be34de87275",
       "cjk_ratio": 0.0659,
@@ -274,8 +532,26 @@
       "next": ""
     },
     {
+      "source": "content/thanks/index.zh-hans.md",
+      "target": "docs/zh-hant/thanks/index.md",
+      "lang": "zh-hant",
+      "kind": "derived",
+      "status": "ok",
+      "next": ""
+    },
+    {
       "source": "overrides/partials/landing.html",
       "target": "overrides/partials/landing.en.html",
+      "lang": "en",
+      "kind": "translation",
+      "status": "ok",
+      "next": ""
+    },
+    {
+      "source": "overrides/partials/landing.html",
+      "target": "overrides/partials/landing.zh-hant.html",
+      "lang": "zh-hant",
+      "kind": "derived",
       "status": "ok",
       "next": ""
     }

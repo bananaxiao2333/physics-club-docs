@@ -4,7 +4,7 @@ kind: milestone
 order: 1
 place: 实验楼
 summary: 结构设计与缓冲优化 —— 让最脆弱的鸡蛋从高空落地后完好无损。
-# ⚠️ 由 tools/docsgen.py 从 content/story/egg-drop.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/story/egg-drop.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 鸡蛋撞地球

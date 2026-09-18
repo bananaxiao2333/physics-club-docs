@@ -3,7 +3,7 @@ nav_label: 制度与名单
 title: 制度与名单 · 概览
 description: 会费与贡献积分制度、组织架构与名单 —— 全部据 资料/ 原始件整理，不使用二手转述。
 nav: ["fees", "roster"]
-# ⚠️ 由 tools/docsgen.py 从 content/governance/index.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/governance/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 制度与名单

@@ -1,7 +1,7 @@
 ---
 title: 白皮书与留存边界
 description: 功勋系统的文档谱系，以及本站为什么只公开其中一部分。
-# ⚠️ 由 tools/docsgen.py 从 content/merit/whitepapers.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/merit/whitepapers.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 白皮书与留存边界

@@ -2,7 +2,7 @@
 nav_label: "资料出处"
 title: 资料出处
 description: 本站全部内容的原始材料清单与编后说明。
-# ⚠️ 由 tools/docsgen.py 从 content/sources/index.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/sources/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 资料出处

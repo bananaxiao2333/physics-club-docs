@@ -1,11 +1,12 @@
 {#-
   模板覆盖：徽标的替代文字按页面语言显示。
-  主题原版写死 config.site_name（"自由曾在此"）。
+  主题原版写死 config.site_name（"自由曾在此"），英文页上就成了中文 alt。
 
   本文件其余部分与主题的 partials/logo.html 保持一致。
 -#}
-{% set is_en = (page.url | default("", true))[:3] == "en/" %}
-{% set site_name = config.extra.site_name_en | d(config.site_name, true) if is_en else config.site_name %}
+{% set here = page.url | default("", true) %}
+{% set L = "_zh_hant" if here[:8] == "zh-hant/" else ("_en" if here[:3] == "en/" else "") %}
+{% set site_name = config.extra["site_name" ~ L] | d(config.site_name, true) %}
 {% if config.theme.logo %}
   <img src="{{ config.theme.logo | url }}" alt="{{ site_name }}">
 {% else %}

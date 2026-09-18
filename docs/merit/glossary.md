@@ -1,7 +1,7 @@
 ---
 title: 术语表
 description: 功勋系统术语的纪念版解释。
-# ⚠️ 由 tools/docsgen.py 从 content/merit/glossary.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/merit/glossary.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 术语表

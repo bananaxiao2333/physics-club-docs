@@ -1,7 +1,7 @@
 ---
 title: 组织架构与名单
 description: 管理层、组别与顾问 —— 全部据 资料/ 原始件整理。
-# ⚠️ 由 tools/docsgen.py 从 content/governance/roster.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/governance/roster.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 组织架构与名单

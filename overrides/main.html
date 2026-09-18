@@ -1,22 +1,25 @@
 {#-
-  模板覆盖：让落地页使用文档站的主题外壳（页眉、导航、页脚）。
+  模板覆盖：三种语言各自的入口与外壳。
 
-  正文位置注入原站的沉浸式落地页，中英各一份：
-    /        → partials/landing.html      （中文）
-    /en/     → partials/landing.en.html   （英文）
+  落地页（沉浸式首页）有三种语言：
+      /            → partials/landing.html          （简体，手写）
+      /zh-hant/    → partials/landing.zh-hant.html  （繁体，由简体脚本转换，见 docsgen）
+      /en/         → partials/landing.en.html       （英文，手写）
 
-  其余页面不受影响。
+  站名、版权、站点描述等全站唯一的配置，另一语言的值放在 zensical.toml 的
+  [project.extra] 里，用键名后缀取用（默认语言留空）。
 
   注意：Zensical 的模板上下文里 `page.is_homepage` 未定义
-  （主题 base.html 自己也依赖它为空），因此用 `page.url` 判别：
-  中文首页为 ''，英文首页为 'en/'。
+  （主题 base.html 自己也依赖它为空），因此一律用 `page.url` 判别。
 -#}
 {% extends "base.html" %}
 
-{% set is_home = not page.url %}
-{% set is_en = (page.url | default("", true))[:3] == "en/" %}
-{% set is_landing = is_home or page.url == "en/" %}
-{% set site_name = config.extra.site_name_en | d(config.site_name, true) if is_en else config.site_name %}
+{% set here = page.url | default("", true) %}
+{% set is_en = here[:3] == "en/" %}
+{% set is_hant = here[:8] == "zh-hant/" %}
+{% set L = "_zh_hant" if is_hant else ("_en" if is_en else "") %}
+{% set site_name = config.extra["site_name" ~ L] | d(config.site_name, true) %}
+{% set is_landing = here in ("", "en/", "zh-hant/") %}
 
 {% block extrahead %}
   {% if is_landing %}
@@ -28,26 +31,27 @@
 {% endblock %}
 
 {# 站点 meta：描述、作者、hreflang 与 prev/next 都按页面语言取，
-   并避免上一页/下一页跨语言串台（中英文是两棵独立的树） #}
+   并避免上一页/下一页跨语言串台（三种语言是三棵独立的树） #}
 {% block site_meta %}
-  {% set here = page.url | default("", true) %}
-  {% set counterpart = here[3:] if is_en else "en/" ~ here %}
-  {% if not counterpart %}{% set counterpart = nav.homepage.url %}{% endif %}
-  {% set prev_page = page.previous_page if page.previous_page and ((page.previous_page.url | default("", true))[:3] == "en/") == is_en else none %}
-  {% set next_page = page.next_page if page.next_page and ((page.next_page.url | default("", true))[:3] == "en/") == is_en else none %}
+{#- 当前页面在语言树内的相对路径（去掉语言前缀）-#}
+{% if is_hant %}{% set tail = here[8:] %}{% elif is_en %}{% set tail = here[3:] %}{% else %}{% set tail = here %}{% endif %}
+{#- 「同语言」判据：默认语言的页面网址不带语言前缀，其余语言带 -#}
+{% macro same_lang(url) %}{% set u = url | default("", true) %}{{ (u[:8] == "zh-hant/") if is_hant else ((u[:3] == "en/") if is_en else (u[:8] != "zh-hant/" and u[:3] != "en/")) }}{% endmacro %}
+  {% set prev_page = page.previous_page if page.previous_page and same_lang(page.previous_page.url) | trim == "True" else none %}
+  {% set next_page = page.next_page if page.next_page and same_lang(page.next_page.url) | trim == "True" else none %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {% if page.meta and page.meta.description %}
     <meta name="description" content="{{ page.meta.description }}">
-  {% elif is_en %}
-    <meta name="description" content="{{ config.extra.site_description_en | d(config.site_description, true) }}">
+  {% elif config.extra["site_description" ~ L] %}
+    <meta name="description" content="{{ config.extra["site_description" ~ L] }}">
   {% elif config.site_description %}
     <meta name="description" content="{{ config.site_description }}">
   {% endif %}
   {% if page.meta and page.meta.author %}
     <meta name="author" content="{{ page.meta.author }}">
-  {% elif is_en %}
-    <meta name="author" content="{{ config.extra.site_author_en | d(config.site_author, true) }}">
+  {% elif config.extra["site_author" ~ L] %}
+    <meta name="author" content="{{ config.extra["site_author" ~ L] }}">
   {% elif config.site_author %}
     <meta name="author" content="{{ config.site_author }}">
   {% endif %}
@@ -60,9 +64,16 @@
   {% if next_page %}
     <link rel="next" href="{{ next_page.url | url }}">
   {% endif %}
-  {#- hreflang 指向对应页，而不是语言首页 #}
+  {#- hreflang 指向对应页，而不是语言首页；也标出当前页自身 #}
   {% for alt in config.extra.alternate %}
-    <link rel="alternate" href="{{ './' if (alt.lang == "en") == is_en else (counterpart | url) }}" hreflang="{{ alt.lang }}">
+    {% set alt_is_en = alt.lang == "en" %}
+    {% set alt_is_hant = alt.lang == "zh-Hant" %}
+    {% set is_current = (alt_is_en == is_en) and (alt_is_hant == is_hant) %}
+    {% if alt_is_en %}{% set target = "en/" ~ tail %}
+    {% elif alt_is_hant %}{% set target = "zh-hant/" ~ tail %}
+    {% else %}{% set target = tail %}{% endif %}
+    {% if not target %}{% set target = nav.homepage.url %}{% endif %}
+    <link rel="alternate" href="{{ './' if is_current else (target | url) }}" hreflang="{{ alt.lang }}">
   {% endfor %}
   {% set href = config.theme.favicon | d("assets/images/favicon.png") %}
   <link rel="icon" href="{{ href | url }}">
@@ -87,6 +98,8 @@
   {% if is_landing %}
     {% if is_en %}
       {% include "partials/landing.en.html" %}
+    {% elif is_hant %}
+      {% include "partials/landing.zh-hant.html" %}
     {% else %}
       {% include "partials/landing.html" %}
     {% endif %}

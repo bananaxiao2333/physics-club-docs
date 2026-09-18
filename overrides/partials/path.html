@@ -1,15 +1,15 @@
 {#-
   模板覆盖：面包屑按页面语言走。
 
-  主题原版第一格永远渲染 nav.homepage——那是**中文**首页（序章 → /），
-  英文页因此会看到「序章 › English › The Club's Story」这样一串：
-  根是中文的，中间还夹着语言分区那一层。
+  主题原版第一格永远渲染 nav.homepage——那是**默认语言**的首页，
+  其余语言的页面因此会看到「序章 › __lang:en › The Club's Story」这样一串：
+  根是别种语言的，中间还夹着语言分区那一层。
 
-  这里对英文页做两件事：
-    1. 根改成指向 /en/ 的「Prologue」（文案见 config.extra.nav_root_label_en）；
-    2. 跳过语言分区那一层——它是挂了 en 子树的空 url 节点，不是页面。
+  这里对其他语言做两件事：
+    1. 根改成指向该语言首页（文案见 config.extra.nav_root_label_*）；
+    2. 跳过语言分区那一层——它是挂了该语言的空 url 节点，不是页面。
 
-  中文页保持主题原样。
+  默认语言保持主题原样。
 
   本文件其余部分与主题的 partials/path.html 保持一致。
 -#}
@@ -17,7 +17,11 @@
 {% if page.meta and page.meta.hide %}
   {% set hidden = "hidden" if "path" in page.meta.hide %}
 {% endif %}
-{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+{% set here = page.url | default("", true) %}
+{% set is_en = here[:3] == "en/" %}
+{% set is_hant = here[:8] == "zh-hant/" %}
+{% set lang_dir = "zh-hant" if is_hant else ("en" if is_en else "") %}
+{% set L = "_zh_hant" if is_hant else ("_en" if is_en else "") %}
 {% set depth = page.ancestors | length %}
 {% if nav.homepage %}
   {% set depth = depth + 1 %}
@@ -25,17 +29,15 @@
 {% if depth > 1 %}
   <nav class="md-path" aria-label="{{ lang.t('nav') }}" {{ hidden }}>
     <ol class="md-path__list">
-      {% if is_en %}
+      {% if lang_dir %}
         <li class="md-path__item">
-          <a href="{{ 'en/' | url }}" class="md-path__link">
-            <span class="md-ellipsis">{{ config.extra.nav_root_label_en | d(config.site_name, true) }}</span>
+          <a href="{{ lang_dir ~ '/' | url }}" class="md-path__link">
+            <span class="md-ellipsis">{{ config.extra["nav_root_label" ~ L] | d(config.site_name, true) }}</span>
           </a>
         </li>
         {% for nav_item in page.ancestors | reverse %}
-          {#- 跳过语言分区那一层。注意不能按「没有 url」判断：
-             分区节点本身也没有 url，path-item.html 会下潜到它的 index 子页。
-             语言分区是 navgen 生成的根导航末尾那一项，标题固定为 English。 -#}
-          {% if nav_item.title != "English" %}
+          {#- 语言分区不是页面，跳过；其余分区交给 path-item 下潜到它的 index 子页 -#}
+          {% if not ("__lang:" in (nav_item.title | default("", true))) %}
             {{ item.render(nav_item) }}
           {% endif %}
         {% endfor %}

@@ -16,7 +16,7 @@ ASJ 英东物理社数字纪念馆 —— 以 **Zensical** 为基层、以**文�
 | 内容格式 | Markdown（YAML 前置元数据）+ `zensical.toml` |
 | 主题 | Zensical `modern`（浅色 `default` / 深色 `slate`） |
 | 公式 | MathJax 3（`pymdownx.arithmatex` generic 模式） |
-| 语言 | 中文（默认，`/`）与英文（`/en/`） |
+| 语言 | 简体中文（默认，`/`）、繁體中文（`/zh-hant/`）、English（`/en/`） |
 
 ## 快速开始
 
@@ -60,6 +60,35 @@ docs/             ← 构建层。.md 是生成物；assets/ 等仍是手写的
 
 语言后缀只认**裸语言码**（`zh` / `en`），不用 `zh-CN`、`zh-HK`、`zh-TW` 这类地区标签。
 
+### 三种语言
+
+| 语言 | 代码 | 手写还是派生 | 网址 |
+| --- | --- | --- | --- |
+| 简体中文 | `zh-hans` | 手写（**默认语言**） | `/story/` |
+| 繁體中文 | `zh-hant` | **派生**：由简体脚本转换 | `/zh-hant/story/` |
+| English | `en` | 手写翻译 | `/en/story/` |
+
+语言代码一律用**文字**标签，**不用** `zh-CN` / `zh-TW` / `zh-HK` 这类**地区**标签。
+地区标签会把用词一起改掉（`激光→雷射`、`链接→連結`、`文件→檔案`），那是替读者
+选定了某一地的用法；本站不做这个选择。`<html lang>` 用 BCP-47 的
+`zh-Hans` / `zh-Hant` / `en`。
+
+繁体**不是翻译，是脚本转换**，所以它没有手写源文件：`tools/docsgen.py` 在生成
+简体产物时顺带派生一份繁体（`tools/hant.py`），落地页同理
+（`landing.zh-hant.html` 由 `landing.html` 派生）。派生意味着不可能出现
+「简体改了、繁体没跟上」——这一点由 `i18n_check.py` 逐字节比对守着。
+
+转换刻意跳过两处，否则会篡改原件：
+
+- **逐字引文**（`>` 块引用）：中文页声明「引文一律保留原文」，那是原始幻灯片上的
+  繁体原文；
+- **反引号内的内容**：真实文件名必须逐字保留（转换表会把 `签到表` 转成`籤到表`，
+  连繁体都转错了）。
+
+另外把转换表里偏古或前后不一致的写法统一到现代通行繁体
+（`爲→為`、`羣→群`、`裏→裡`、`籤→簽` 等），并**刻意保留**确实存在地区分歧的字
+（如 `賬/帳`），不替读者选边。
+
 ### 为什么要有这一层
 
 Zensical 没有 i18n 插件，也没有按语言分导航的机制（官方[语言文档](https://github.com/zensical/docs/blob/master/docs/setup/language.md)
@@ -98,9 +127,11 @@ URL 跳转桩）都是手写的，生成器不碰。
 
 | 工具 | 作用 |
 | --- | --- |
-| `tools/docsgen.py` | 从 `content/` 生成 `docs/`；改写共享资产路径；清理失效产物（`.docsgen.json` 记manifest） |
+| `tools/langs.py` | 语言清单与派生关系的**唯一出处**，从 `content/` 的文件名后缀推导 |
+| `tools/hant.py` | 简体→繁体脚本转换（跳过引文与文件名） |
+| `tools/docsgen.py` | 从 `content/` 生成 `docs/`（含派生语种）；改写共享资产路径；清理失效产物 |
 | `tools/navgen.py` | 从文件树生成各目录的 `.nav.yml` |
-| `tools/i18n_check.py` | 翻译度检查，产出 `i18n-report.json` / `i18n-report.md` |
+| `tools/i18n_check.py` | 多语种检查，产出 `i18n-report.json` / `i18n-report.md` |
 
 三个工具都支持 `--check` / `--quiet` 之类的只读模式，可以挂到 CI 上。
 
@@ -184,7 +215,7 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 | 机制 | 位置 |
 | --- | --- |
 | 语言声明与页眉语言选择器 | `zensical.toml` 的 `[[project.extra.alternate]]` |
-| 内容分语言 | `content/**/name.zh.md` 与 `name.en.md` |
+| 内容分语言 | `content/**/name.zh-hans.md` 与 `name.en.md`（繁体由简体派生） |
 | 界面文案分语言 | `overrides/partials/language.html` |
 | 站名 / 版权分语言 | `zensical.toml` 的 `[project.extra]` |
 | 主导航分语言 | `overrides/partials/nav.html` |
@@ -201,8 +232,15 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 - **主导航按语言过滤。** `nav.html` 里同一棵树同时挂着中文与英文分区
   （根 `.nav.yml` 末尾一项是 `English: en`），模板按 `page.url` 前缀只渲染其中一支；
   英文页直接铺开英文分区的子项，不显示「English」这一层。
-- **语言切换器指向对应页**而不是语言首页：两棵树结构镜像，把路径换个前缀即可。
-- **站名与版权是全站唯一的配置**，所以英文版放在 `[project.extra]` 里由模板取用。
+- **语言切换器指向对应页**而不是语言首页：三棵树结构镜像，把路径换个前缀即可。
+- **站名与版权是全站唯一的配置**，所以其余语种放在 `[project.extra]` 里由模板取用，
+  键名后缀 `_en` / `_zh_hant`（默认语言留空），模板用 `config.extra["site_name" ~ L]` 取。
+- **`<html lang>` 跟着页面走**：主题用 `<html lang="{{ lang.t('language') }}">`，
+  而自带的 `zh` 语言包返回裸 `"zh"`，所以在 `language.html` 里按页面改写成
+  `zh-Hans` / `zh-Hant` / `en`。
+- **导航里的语言分区带 `__lang:` 前缀**（`tools/navgen.py` 生成）。分区本身从不显示：
+  `nav.html` 按页面语言只渲染其中一支，`path.html` 在面包屑里跳过这一层。
+  用机器可识别的标记而不是会随人改动的显示名，模板靠 `"__lang:" in title` 认出它。
 
 !!! 注意
     MiniJinja 没有字符串的 `startswith`。判断语言用切片：
@@ -258,7 +296,8 @@ physics-club-docs/
 ├── Makefile                 # 构建流程
 ├── TRANSLATION-GUIDE.md     # 中英翻译规范（语气、术语表、结构要求、验收）
 ├── content/                 # 手写层：index.zh.md / index.en.md
-│   ├── index.*.md           #   序章（正文由落地页承载）
+│   ├── index.zh-hans.md     #   序章（简体，正文由落地页承载）
+│   ├── index.en.md          #   序章（英文）
 │   ├── story/               #   社团故事：概览 + 五篇正文
 │   ├── flight/              #   飞行计划：总览 / 执行流程 / 采购与物料
 │   ├── gatherings/          #   集会原稿：概览 + 三份逐页实录

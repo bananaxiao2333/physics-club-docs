@@ -5,7 +5,7 @@ kind: major
 order: 4
 place: 学校大操场
 summary: 全校性的纸飞机挑战赛筹备 —— 折纸教学、全校竞猜、激光测距、实时投屏、颁奖与纪录发布。
-# ⚠️ 由 tools/docsgen.py 从 content/story/festival-0430.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
+# ⚠️ 由 tools/docsgen.py 从 content/story/festival-0430.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # A4 纸飞行节

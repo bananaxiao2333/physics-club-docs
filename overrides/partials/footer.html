@@ -3,16 +3,21 @@
   并在其上方保留主题的「上一页 / 下一页」导航。
 
   全站统一使用本模板（覆盖主题的 partials/footer.html）。
-  页脚文案分中英两份，按 page.url 取用；站名与版权来自
-  zensical.toml 的 [project.extra]（Zensical 的 site_name 是全站唯一的）。
+  页脚文案按页面语言取；站名与版权来自 zensical.toml 的 [project.extra]
+  （Zensical 的 site_name 是全站唯一的）。三语是三棵独立的导航树，
+  主题的 page.previous_page / next_page 会跨过去，这里按语言过滤。
 -#}
-{% set is_en = (page.url | default("", true))[:3] == "en/" %}
-{% set site_name = config.extra.site_name_en | d(config.site_name, true) if is_en else config.site_name %}
-{% set home_url = "en/" if is_en else nav.homepage.url %}
-{#- 中英是两棵独立的树，主题的 page.previous_page / next_page 会跨过去，
-    这里按语言过滤，避免英文页底部出现中文篇名（反之亦然）。 -#}
-{% set prev_page = page.previous_page if page.previous_page and ((page.previous_page.url | default("", true))[:3] == "en/") == is_en else none %}
-{% set next_page = page.next_page if page.next_page and ((page.next_page.url | default("", true))[:3] == "en/") == is_en else none %}
+{% set here = page.url | default("", true) %}
+{% set is_en = here[:3] == "en/" %}
+{% set is_hant = here[:8] == "zh-hant/" %}
+{% set lang_dir = "zh-hant" if is_hant else ("en" if is_en else "") %}
+{% set L = "_zh_hant" if is_hant else ("_en" if is_en else "") %}
+{% set site_name = config.extra["site_name" ~ L] | d(config.site_name, true) %}
+{% set home_url = lang_dir ~ "/" if lang_dir else nav.homepage.url %}
+{#- 「同语言」判据：默认语言的页面网址不带语言前缀，其余语言带 -#}
+{% macro same_lang(url) %}{% set u = url | default("", true) %}{{ (u[:8] == "zh-hant/") if is_hant else ((u[:3] == "en/") if is_en else (u[:8] != "zh-hant/" and u[:3] != "en/")) }}{% endmacro %}
+{% set prev_page = page.previous_page if page.previous_page and same_lang(page.previous_page.url) | trim == "True" else none %}
+{% set next_page = page.next_page if page.next_page and same_lang(page.next_page.url) | trim == "True" else none %}
 <footer class="md-footer">
   {% if "navigation.footer" in features %}
     {% if prev_page or next_page %}
@@ -63,19 +68,19 @@
     <div class="memorial-footer__brand">
       <a class="memorial-footer__title" href="{{ home_url | url }}">
         <img class="memorial-footer__logo" src="{{ 'assets/club-logo.png' | url }}"
-             alt="{{ 'ASJ Yingdong Physics Club emblem' if is_en else 'ASJ 英东物理社社徽' }}">
+             alt="{% if is_en %}ASJ Yingdong Physics Club emblem{% elif is_hant %}ASJ 英東物理社社徽{% else %}ASJ 英东物理社社徽{% endif %}">
         {{ site_name }}<span>↗</span>
       </a>
-      <p>{% if is_en %}For the ASJ Yingdong Physics Club, and for everyone who once came here to ask.{% else %}献给 ASJ 英东物理社，和每一个曾经在这里发问的人。{% endif %}</p>
+      <p>{% if is_en %}For the ASJ Yingdong Physics Club, and for everyone who once came here to ask.{% elif is_hant %}獻給 ASJ 英東物理社，和每一個曾經在這裡發問的人。{% else %}献给 ASJ 英东物理社，和每一个曾经在这里发问的人。{% endif %}</p>
     </div>
     <div class="memorial-footer__meta">
       THE CLUB HAS ENDED.<br>
       THE CURIOSITY HAS NOT.<br>
-      <a href="{{ 'sources/' | url }}">{% if is_en %}Sources &amp; editorial notes ↗{% else %}资料与编后说明 ↗{% endif %}</a>
+      <a href="{{ 'sources/' | url }}">{% if is_en %}Sources &amp; editorial notes ↗{% elif is_hant %}資料與編後說明 ↗{% else %}资料与编后说明 ↗{% endif %}</a>
     </div>
     <div class="memorial-footer__bottom">
-      <span>ASJ YINGDONG PHYSICS CLUB · {% if is_en %}MEMORIAL{% else %}纪念站{% endif %}</span>
-      <a href="#top">{% if is_en %}Back to top ↑{% else %}回到顶部 ↑{% endif %}</a>
+      <span>ASJ YINGDONG PHYSICS CLUB · {% if is_en %}MEMORIAL{% elif is_hant %}紀念站{% else %}纪念站{% endif %}</span>
+      <a href="#top">{% if is_en %}Back to top ↑{% elif is_hant %}回到頂部 ↑{% else %}回到顶部 ↑{% endif %}</a>
     </div>
   </div>
 </footer>
