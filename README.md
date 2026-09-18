@@ -358,6 +358,10 @@ physics-club-docs/
 - **`theme.palette.accent` 只接受 Material 的颜色名**。写十六进制会被原样塞进
   `data-md-color-accent` 属性而匹配不到任何规则，反而丢掉强调色。
 - **Zensical 构建会清空 `site_dir`**，因此不能把两个语言拆成两次构建写进同一个目录。
+- **`zensical serve` 是从 `site/` 直接提供文件的**，而 `zensical build` 会先清空 `site/`。
+  所以 dev server 跑着的时候**不要再单独跑 `make build` / `zensical build`**——
+  那几百毫秒里样式表会 404，页面会掉成裸 HTML（看着像「CSS 炸了」）。
+  `serve` 自己会重建，改完 `content/` 只需跑 `make gen`。
 - **`redirects` 插件**在承接旧扁平 URL（`story.html`）时会报
   `redirect output collides with a page`，因为 `/story.html` 会被规范化成
   `/story/index.html`。本站改用**静态跳转桩**：`docs/*.html` 六个 meta-refresh 文件。
