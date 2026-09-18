@@ -29,3 +29,13 @@ function drawSilk(now,force=false){if(document.hidden&&!force)return;const delta
 let lastFrame=0;function animateSilk(now){if(now-lastFrame>32){drawSilk(now);lastFrame=now;}if(!motionPaused&&!document.hidden)raf=requestAnimationFrame(animateSilk);}
 drawSilk(performance.now(),true);if(!motionPaused)raf=requestAnimationFrame(animateSilk);
 document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);lastTime=0;if(!document.hidden&&!motionPaused)raf=requestAnimationFrame(animateSilk);});addEventListener('resize',()=>{if(motionPaused)drawSilk(performance.now(),true);});
+
+// 首页标签栏：滚下来才滑出，回到顶部再收起。
+// 主题把 tabs 排在 hero 之后，落地页整页都在 hero 里，标签栏因此原本落在
+// 15000px 之外——读者滚完首页也不知道这个站有十个分区。这里按滚动位置揭开它。
+// 窄屏不做：那里靠页眉的抽屉进导航（CSS 里 .landing-tabs 直接 display:none）。
+const landingTabs=document.querySelector('[data-landing-tabs]');
+if(landingTabs&&matchMedia('(min-width: 60em)')){
+  const syncTabs=()=>{landingTabs.toggleAttribute('data-visible',scrollY>innerHeight*.7);};
+  addEventListener('scroll',syncTabs,{passive:true});syncTabs();
+}

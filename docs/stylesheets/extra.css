@@ -99,6 +99,56 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
+   首页的标签栏：滚下来才出现（桌面端）
+
+   主题把 tabs 排在 hero 之后，而落地页整页都在 hero 里，于是标签栏原本
+   落在 15000px 之外，等于没有——读者不知道这个站还有十个分区。
+   这里把它固定到页眉下方，默认收在视口上方，滚动后滑下来。
+
+   窄屏不参与：那里靠页眉的抽屉按钮进导航，再压一条标签栏只剩拥挤。
+   ══════════════════════════════════════════════════════════════ */
+.landing-tabs {
+  display: none;
+}
+
+@media screen and (min-width: 60em) {
+  .landing-tabs {
+    display: block;
+    position: fixed;
+    /* 页眉高度。Material 把 html 的基准字号设成 125%（1rem = 20px），
+       页眉是 2.4rem = 48px——写 3rem 会多出 12px 的缝。 */
+    top: 2.4rem;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    /* 收起：推到视口上方。除了位移再关掉不透明度与命中，
+       免得它只是「藏在页眉后面」——那样仍然能点到、也可能漏出边。 */
+    transform: translateY(-130%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.25s;
+  }
+
+  .landing-tabs[data-visible] {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 主题的 .md-tabs 自带定位，这里交回本包装层 */
+  .landing-tabs .md-tabs {
+    position: static;
+    box-shadow: 0 0.2rem 0.4rem rgb(0 0 0 / 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-tabs {
+    transition: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
    页脚：原站落地页的三段式版式，全站统一
    （样式放在这里而不是 landing.css，因为文档页也要用）
    ══════════════════════════════════════════════════════════════ */

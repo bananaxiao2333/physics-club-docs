@@ -157,6 +157,23 @@
   {% endif %}
 {% endblock %}
 
+{#- 顶部标签栏。
+
+   主题的 base.html 把 tabs 排在 hero **之后**（header → hero → tabs），
+   而落地页整页都塞在 hero 里——于是首页的标签栏被推到 15000px 开外，
+   等于不存在：读者滚完整个沉浸式首页也看不到「这个站有十个分区」。
+
+   这里把落地页的标签栏包一层，交给 CSS 固定到页眉下方、
+   并默认藏在视口上方，滚动后再滑下来（桌面端；窄屏交给抽屉）。
+   非落地页保持主题原样。 -#}
+{% block tabs %}
+  {% if is_landing %}
+    <div class="landing-tabs" data-landing-tabs>{{ super() }}</div>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
 {# 落地页不渲染 index.md 的正文（其内容已由落地页承载） #}
 {% block container %}
   {% if not is_landing %}{{ super() }}{% endif %}
