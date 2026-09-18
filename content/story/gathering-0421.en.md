@@ -1,7 +1,7 @@
 ---
 title: "The First Assembly and Recruitment of the Term"
 description: "Badges, competition results, recruitment, the social media department, membership dues — the club's whole hand laid out in one evening."
-source_sha256: 0a114d858ffc87ee7dec3eae115b4e4dcc69019c8c5b2526d9e410cac225c5e4
+source_sha256: 8c932a5069d084601677b8ac4e11fa31b7e6665adbbf7073179cc46d47b7dcbe
 translated: 2026-09-18
 tags:
   - 2026-04-21
@@ -32,7 +32,7 @@ and advisor badges to the honorary advisors, the founding teacher and the teache
 | Honorary advisor | 周晓鹏 | Jason |
 | Honorary advisor | 李佳佳 | Cathy |
 
-The full list of all 14 is in [Governance and Roster](../governance/roster.md).
+The full list of all 14 is in [Governance and Roster](../system/governance/roster.md).
 
 > This members' badge is not just a small mark. It is more like a sense of who you are,
 > and it means that from today everyone here is formally a member of the physics club.
@@ -101,7 +101,7 @@ Source: `物理集会4.21final.pptx`, page 9, “Notes on the social media depar
 Paying dues this time was **entirely voluntary**; paying was not a condition of joining the club,
 and not paying did not affect a student's taking part in the club's ordinary activities.
 
-The rules on use, oversight and accounts are in [Membership Dues and Contribution Credits](../governance/fees.md).
+The rules on use, oversight and accounts are in [Membership Dues and Contribution Credits](../system/governance/fees.md).
 
 ## Closing
 
@@ -114,5 +114,5 @@ The rules on use, oversight and accounts are in [Membership Dues and Contributio
 
 ## Related pages
 
-- The assembly's three page-by-page scripts: [Assembly Scripts](../gatherings/index.md)
-- The full list of material: [Sources](../sources/index.md)
+- The assembly's three page-by-page scripts: [Assembly Scripts](../collection/gatherings/index.md)
+- The full list of material: [Sources](../about/sources/index.md)

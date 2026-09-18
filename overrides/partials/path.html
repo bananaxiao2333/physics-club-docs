@@ -33,7 +33,7 @@
         <li class="md-path__item">
           {#- 括号不能省：Jinja 里 `|` 比 `~` 结合得紧，写成 lang_dir ~ '/' | url
               实际是 lang_dir ~ ('/' | url)，等于没过滤——页面上就出现 href="en/"，
-              在 /en/design/ 这类内页里解析成 /en/design/en/，面包屑根节点点了 404。-#}
+              在 /en/collection/design/ 这类内页里解析成 /en/design/en/，面包屑根节点点了 404。-#}
           <a href="{{ (lang_dir ~ '/') | url }}" class="md-path__link">
             <span class="md-ellipsis">{{ config.extra["nav_root_label" ~ L] | d(config.site_name, true) }}</span>
           </a>

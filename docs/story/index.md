@@ -105,4 +105,4 @@ icon: lucide/book-open
     组别在留存材料中**首次出现于 2026 年 5 月 12 日的集会**
     （`资料/演示文稿1.pptx` 第 2 页分组表）。4.21 集会时还没有组别划分。
 
-完整组员与班级名单见 [组织架构与名单](../governance/roster.md)。
+完整组员与班级名单见 [组织架构与名单](../system/governance/roster.md)。

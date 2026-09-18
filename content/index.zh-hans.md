@@ -2,7 +2,7 @@
 nav_label: "序章"
 icon: lucide/sparkles
 description: 英东物理社数字纪念馆 —— 一张社牌，一页讲稿，一次把想法交给双手的尝试。
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
+nav: ["story", "flight", "collection", "system", "about"]
 ---
 
 # 自由曾在此
@@ -43,37 +43,29 @@ ASJ 英东物理社曾希望创造一个平台：**让学生用自己的方式�
 
     [:octicons-arrow-right-24: 进入飞行计划](flight/index.md)
 
--   __有些瞬间，不会散场__
+-   __保留当时的样子__
 
     ---
 
-    影像档案 / 看见曾经的我们
+    留存的原档 / 影像、设计与集会原稿
 
-    [:octicons-arrow-right-24: 翻开影像档案](archive/index.md)
+    [:octicons-arrow-right-24: 翻开留存的原档](collection/index.md)
 
--   __让原设计，自己讲述__
-
-    ---
-
-    设计原档 / 蓝色社徽的轨道
-
-    [:octicons-arrow-right-24: 查看设计原档](design/index.md)
-
--   __把时间，翻回那一页__
+-   __钱怎么收，谁在什么位置__
 
     ---
 
-    集会原稿 / 三份演示文稿
+    制度与功勋 / 会费、名单与记录机制
 
-    [:octicons-arrow-right-24: 走进集会原稿](gatherings/index.md)
+    [:octicons-arrow-right-24: 查看制度与功勋](system/index.md)
 
--   __谢谢你，曾在此__
+-   __这份记述是怎么来的__
 
     ---
 
-    致谢与后记 / 愿意付出时间的人
+    关于本站 / 原始件清单与编后说明
 
-    [:octicons-arrow-right-24: 读致谢与后记](thanks/index.md)
+    [:octicons-arrow-right-24: 读关于本站](about/index.md)
 
 </div>
 
@@ -89,4 +81,4 @@ ASJ 英东物理社曾希望创造一个平台：**让学生用自己的方式�
     - 材料之间时间口径不一致时，**并列保留各版本**，不推定最终执行结果；
     - 过期设计目录中的草案**仅作草案**存档，不推定为实际发放版本。
 
-    详见 [致谢与后记 · 记述说明](thanks/index.md)。
+    详见 [致谢与后记 · 记述说明](about/thanks/index.md)。

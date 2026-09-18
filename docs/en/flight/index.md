@@ -4,7 +4,7 @@ title: "A4 Paper Flight Festival · Event Overview"
 subtitle: "Paper for sails, a flight path over Yingdong"
 tagline: "How far can one sheet of A4 paper fly? Come and find out."
 description: "Overview of the A4 Paper Flight Festival: basic information, the three planned moments, the site layout, the awards, and what the surviving material does not record."
-source_sha256: c21ed80c12be96201b1969f713aa9c7b2a871cc2175be3ea82af73f4c1020c99
+source_sha256: b3ef933c8e53637e07851633af9ce6a14afe7ebe867f302ff7c49499838d8863
 translated: 2026-09-18
 nav: ["runbook", "materials"]
 icon: lucide/send
@@ -47,7 +47,7 @@ This was not “an origami activity”. It put physics, engineering, competition
     the run of show says “groups **of at most six**, prizes awarded by group”.
 
     This site keeps them side by side and does not merge them into one “correct” version.
-    The full comparison is in [Sources](../sources/index.md).
+    The full comparison is in [Sources](../about/sources/index.md).
 
 ## The three moments in the original plan
 
@@ -69,7 +69,7 @@ The boundary was marked out with isolation posts and warning tape (5 cm × 46 m)
 the entrance, the start baseline, the test-flight area and the direction of the toilets were each indicated by one of **7 guide signs**.
 
 - [Site layout map](../../assets/flight-map.jpg)
-- The original guide signs are in the [Design Archive](../design/index.md)
+- The original guide signs are in the [Design Archive](../collection/design/index.md)
 - Vector original `资料/飞行比赛地图.svgz`
 
 ## Awards

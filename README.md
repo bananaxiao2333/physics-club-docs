@@ -183,8 +183,8 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 
 | 页面 | 为什么 |
 | --- | --- |
-| `content/governance/roster.en.md` | 名单里的姓名是原文数据，没有可译的英文名 |
-| `content/gatherings/0427.en.md`、`0512.en.md` | 逐页实录要逐字引用原幻灯片的繁体中文标题 |
+| `content/system/governance/roster.en.md` | 名单里的姓名是原文数据，没有可译的英文名 |
+| `content/collection/gatherings/0427.en.md`、`0512.en.md` | 逐页实录要逐字引用原幻灯片的繁体中文标题 |
 
 这不是「翻译没做完」的遮羞布：写了这个标记的页面，`source_sha256` 与结构比对
 仍然照常生效。
@@ -316,13 +316,16 @@ physics-club-docs/
 │   ├── index.en.md          #   序章（英文）
 │   ├── story/               #   社团故事：概览 + 五篇正文
 │   ├── flight/              #   飞行计划：总览 / 执行流程 / 采购与物料
-│   ├── gatherings/          #   集会原稿：概览 + 三份逐页实录
-│   ├── design/              #   设计原档
-│   ├── archive/             #   影像档案
-│   ├── governance/          #   制度与名单：会费与贡献积分 / 组织架构
-│   ├── merit/               #   功勋系统：概览 / 规则全文 / 模型 / 术语 / 边界
-│   ├── sources/             #   资料出处
-│   └── thanks/              #   致谢与后记
+│   ├── collection/          #   留存的原档：影像档案 / 设计原档 / 集会原稿
+│   │   ├── archive/         #     影像档案
+│   │   ├── design/          #     设计原档
+│   │   └── gatherings/      #     集会原稿：概览 + 三份逐页实录
+│   ├── system/              #   制度与功勋：制度与名单 / 功勋系统
+│   │   ├── governance/      #     制度与名单：会费与贡献积分 / 组织架构
+│   │   └── merit/           #     功勋系统：概览 / 规则全文 / 模型 / 术语 / 边界
+│   └── about/               #   关于本站：资料出处 / 致谢与后记
+│       ├── sources/         #     资料出处
+│       └── thanks/          #     致谢与后记
 ├── docs/                    # 构建层（.md 为生成物）
 │   ├── assets/              #   手写：图片、原站落地页 CSS/JS、下载文档
 │   ├── stylesheets/         #   手写：extra.css（站点微调）/ landing.css（落地页适配）

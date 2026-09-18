@@ -1,7 +1,7 @@
 ---
 title: "A4 Paper Flight Festival"
 description: "Preparation for a whole-school paper plane challenge — folding lessons, a school-wide guessing contest, laser ranging, live projection, awards and the release of the record."
-source_sha256: d599c913dad04c9a8249dc1e7146955de0cbb73a4f586bc86ce4e8db28900476
+source_sha256: 3bb471fd3e0f37e2eef8675728b87f07b1e696a588904b9c7271f05ba4168a9c
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -21,7 +21,7 @@ tags:
 
     The activity's time, format and some arrangements exist in several versions across the material;
     this site keeps them side by side, see
-    [Sources · Conflicting statements of time](../sources/index.md).
+    [Sources · Conflicting statements of time](../about/sources/index.md).
 
 ## What kind of event this was meant to be
 
@@ -118,6 +118,6 @@ The value of an event is not only in the day itself. The wrap-up plan also inclu
     The three on-site forms are all blank templates.
 
     This site does not fill in results. The form layouts and the full list of originals are in
-    [Sources](../sources/index.md).
+    [Sources](../about/sources/index.md).
 
 The complete run of show, the role assignments and the materials list are in the [Run of Show](../flight/runbook.md).

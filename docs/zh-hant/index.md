@@ -2,7 +2,7 @@
 nav_label: "序章"
 icon: lucide/sparkles
 description: 英東物理社數字紀念館 —— 一張社牌，一頁講稿，一次把想法交給雙手的嘗試。
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
+nav: ["story", "flight", "collection", "system", "about"]
 # ⚠️ 由 tools/docsgen.py 從 content/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 
@@ -44,37 +44,29 @@ ASJ 英東物理社曾希望創造一個平臺：**讓學生用自己的方式�
 
     [:octicons-arrow-right-24: 進入飛行計劃](flight/index.md)
 
--   __有些瞬間，不會散場__
+-   __保留當時的樣子__
 
     ---
 
-    影像檔案 / 看見曾經的我們
+    留存的原檔 / 影像、設計與集會原稿
 
-    [:octicons-arrow-right-24: 翻開影像檔案](archive/index.md)
+    [:octicons-arrow-right-24: 翻開留存的原檔](collection/index.md)
 
--   __讓原設計，自己講述__
-
-    ---
-
-    設計原檔 / 藍色社徽的軌道
-
-    [:octicons-arrow-right-24: 查看設計原檔](design/index.md)
-
--   __把時間，翻回那一頁__
+-   __錢怎麼收，誰在什麼位置__
 
     ---
 
-    集會原稿 / 三份演示文稿
+    制度與功勳 / 會費、名單與記錄機制
 
-    [:octicons-arrow-right-24: 走進集會原稿](gatherings/index.md)
+    [:octicons-arrow-right-24: 查看制度與功勳](system/index.md)
 
--   __謝謝你，曾在此__
+-   __這份記述是怎麼來的__
 
     ---
 
-    致謝與後記 / 願意付出時間的人
+    關於本站 / 原始件清單與編後說明
 
-    [:octicons-arrow-right-24: 讀致謝與後記](thanks/index.md)
+    [:octicons-arrow-right-24: 讀關於本站](about/index.md)
 
 </div>
 
@@ -90,4 +82,4 @@ ASJ 英東物理社曾希望創造一個平臺：**讓學生用自己的方式�
     - 材料之間時間口徑不一致時，**並列保留各版本**，不推定最終執行結果；
     - 過期設計目錄中的草案**僅作草案**存檔，不推定為實際發放版本。
 
-    詳見 [致謝與後記 · 記述說明](thanks/index.md)。
+    詳見 [致謝與後記 · 記述說明](about/thanks/index.md)。

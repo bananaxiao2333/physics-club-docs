@@ -67,7 +67,7 @@ summary: 留存资料截止于 2026 年 5 月 12 日。本页是这场纪事的�
 
     社牌参数化模板、引导牌、场地划分图、海报。
 
-    [:octicons-arrow-right-24: 设计原档](../design/index.md)
+    [:octicons-arrow-right-24: 设计原档](../collection/design/index.md)
 
 -   __一个能自证的赛事方案__
 
@@ -83,7 +83,7 @@ summary: 留存资料截止于 2026 年 5 月 12 日。本页是这场纪事的�
 
     会费自愿、账目公开、积分不作货币。
 
-    [:octicons-arrow-right-24: 会费与贡献积分](../governance/fees.md)
+    [:octicons-arrow-right-24: 会费与贡献积分](../system/governance/fees.md)
 
 -   __28 位同学的竞赛成绩__
 
@@ -107,7 +107,7 @@ summary: 留存资料截止于 2026 年 5 月 12 日。本页是这场纪事的�
 
     会费记录、资金池、公开账本与奖励多签，并且**真的做出了电子系统**。
 
-    [:octicons-arrow-right-24: 功勋系统](../merit/index.md)
+    [:octicons-arrow-right-24: 功勋系统](../system/merit/index.md)
 
 </div>
 

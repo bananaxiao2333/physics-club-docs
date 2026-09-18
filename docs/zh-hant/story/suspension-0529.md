@@ -68,7 +68,7 @@ summary: 留存資料截止於 2026 年 5 月 12 日。本頁是這場紀事的�
 
     社牌參數化模板、引導牌、場地劃分圖、海報。
 
-    [:octicons-arrow-right-24: 設計原檔](../design/index.md)
+    [:octicons-arrow-right-24: 設計原檔](../collection/design/index.md)
 
 -   __一個能自證的賽事方案__
 
@@ -84,7 +84,7 @@ summary: 留存資料截止於 2026 年 5 月 12 日。本頁是這場紀事的�
 
     會費自願、賬目公開、積分不作貨幣。
 
-    [:octicons-arrow-right-24: 會費與貢獻積分](../governance/fees.md)
+    [:octicons-arrow-right-24: 會費與貢獻積分](../system/governance/fees.md)
 
 -   __28 位同學的競賽成績__
 
@@ -108,7 +108,7 @@ summary: 留存資料截止於 2026 年 5 月 12 日。本頁是這場紀事的�
 
     會費記錄、資金池、公開賬本與獎勵多簽，並且**真的做出了電子系統**。
 
-    [:octicons-arrow-right-24: 功勳系統](../merit/index.md)
+    [:octicons-arrow-right-24: 功勳系統](../system/merit/index.md)
 
 </div>
 

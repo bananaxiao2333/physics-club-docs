@@ -3,7 +3,7 @@ nav_label: "The Club's Story"
 title: "The Club's Story · Overview"
 description: "It begins with a “why” — the ideas and the trail of the ASJ Yingdong Physics Club."
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
-source_sha256: 1bd89dca6d025c57bfa09b642db26fcd8584bad1c3149718990a168b3eb2d047
+source_sha256: 2e43a175bfadab345229a5d4343eeb7246c08e907f38e401adde974fbc46dec4
 translated: 2026-09-18
 icon: lucide/book-open
 ---
@@ -107,4 +107,4 @@ Each with its own light, and once gathered together.
     In the surviving material the groups **first appear at the assembly of 12 May 2026**
     (the group table on page 2 of `资料/演示文稿1.pptx`). At the 4.21 assembly there was no division into groups yet.
 
-The full list of group members and classes is in [Governance and Roster](../governance/roster.md).
+The full list of group members and classes is in [Governance and Roster](../system/governance/roster.md).

@@ -35,7 +35,7 @@ tags:
 | 荣誉顾问 | 周晓鹏 | Jason |
 | 荣誉顾问 | 李佳佳 | Cathy |
 
-完整 14 人名单见 [组织架构与名单](../governance/roster.md)。
+完整 14 人名单见 [组织架构与名单](../system/governance/roster.md)。
 
 > 这个成员牌，不只是一个小小的标识。它更像是一种身份感，
 > 也代表着大家从今天开始，正式成为物理社团的一员。
@@ -99,7 +99,7 @@ tags:
 本次会费缴纳**完全遵循自愿原则**；缴纳会费不是加入社团的前提，
 不缴纳也不会影响同学参与社团日常活动。
 
-用途、监管与账目规则详见 [会费与贡献积分制度](../governance/fees.md)。
+用途、监管与账目规则详见 [会费与贡献积分制度](../system/governance/fees.md)。
 
 ## 尾声
 
@@ -112,5 +112,5 @@ tags:
 
 ## 相关章节
 
-- 集会的三份逐页原稿：[集会原稿](../gatherings/index.md)
-- 全部材料清单：[资料出处](../sources/index.md)
+- 集会的三份逐页原稿：[集会原稿](../collection/gatherings/index.md)
+- 全部材料清单：[资料出处](../about/sources/index.md)

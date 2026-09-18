@@ -1,7 +1,7 @@
 ---
 title: "Run of Show"
 description: "The A4 Paper Flight Festival · who was responsible for what, from preparation to wrap-up (based on the original run of show document)."
-source_sha256: 8df71c00ec8325eabb959ca87221822d75291362e9ba067a870265f2c0d7468b
+source_sha256: ea6438e3b0c9d2c99d20bfe92364b7c91033b934717be26396c854078d851bf0
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -28,7 +28,7 @@ tags:
 
 !!! warning "Why this page says “month X, day X”"
     The date field of the original run of show document is left blank. The other surviving material gives **four mutually conflicting dates and time slots**;
-    this site keeps them side by side and does not merge them into one “correct” time. See [Sources · Conflicting time statements](../sources/index.md#time-conflicts).
+    this site keeps them side by side and does not merge them into one “correct” time. See [Sources · Conflicting time statements](../about/sources/index.md#time-conflicts).
 
 ## Preparation period (3 weeks to 1 day before the event)
 
@@ -123,7 +123,7 @@ tags:
 !!! note "There is a second version of the competition format"
     `资料/飞行节分工安排 2.docx` records **1 preliminary flight + 2 official flights**, and **3** flights in the final for the top 8.
     The two original documents disagree; they are kept side by side here and not merged.
-    See [Sources](../sources/index.md).
+    See [Sources](../about/sources/index.md).
 
 ### 15:20–15:40 Awards ceremony + announcement of the school record
 
@@ -266,9 +266,9 @@ The 11 items listed in the original document:
 10. Warning tape, isolation posts
 11. Several guide signs
 
-Purchasing details and unit prices are in `资料/纸飞机采购表.xlsx`; the list of originals is in [Sources](../sources/index.md).
+Purchasing details and unit prices are in `资料/纸飞机采购表.xlsx`; the list of originals is in [Sources](../about/sources/index.md).
 
 ## Related pages
 
 - Event overview and visual material: [The Flight Project](index.md)
-- Full comparison of the conflicting time statements: [Sources](../sources/index.md)
+- Full comparison of the conflicting time statements: [Sources](../about/sources/index.md)

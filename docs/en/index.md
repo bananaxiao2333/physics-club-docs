@@ -3,8 +3,8 @@ nav_label: "Prologue"
 icon: lucide/sparkles
 title: Freedom Was Here
 description: A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands.
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
-source_sha256: 5f8cf3440b9555d06b426eb20d99b1341e07eccd370f60c73c1a47f7897d999d
+nav: ["story", "flight", "collection", "system", "about"]
+source_sha256: bbc5221c4c338992cb118736b0903a32db71c2a4a22ad4b988534f11315680ec
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -47,37 +47,29 @@ What it left behind is collected here — speech scripts, event plans, design wo
 
     [:octicons-arrow-right-24: Enter the Flight Project](flight/index.md)
 
--   __Some moments never end__
+-   __Kept as it was__
 
     ---
 
-    Photo Archive / seeing who we were
+    Surviving Originals / photographs, designs and assembly scripts
 
-    [:octicons-arrow-right-24: Open the Photo Archive](archive/index.md)
+    [:octicons-arrow-right-24: Open the surviving originals](collection/index.md)
 
--   __Letting the original designs speak__
-
-    ---
-
-    Design Archive / the orbit inside a blue badge
-
-    [:octicons-arrow-right-24: View the Design Archive](design/index.md)
-
--   __Turning back to that page__
+-   __How the money worked, who stood where__
 
     ---
 
-    Assembly Scripts / three sets of slides
+    Rules & Merit / dues, rosters and record-keeping
 
-    [:octicons-arrow-right-24: Walk into the Assembly Room](gatherings/index.md)
+    [:octicons-arrow-right-24: View rules and merit](system/index.md)
 
--   __Thank you for having been here__
+-   __How this account was put together__
 
     ---
 
-    Thanks and Afterword / the people who gave their time
+    About This Site / the list of sources and the editorial notes
 
-    [:octicons-arrow-right-24: Read the thanks and afterword](thanks/index.md)
+    [:octicons-arrow-right-24: Read about this site](about/index.md)
 
 </div>
 
@@ -93,4 +85,4 @@ A club badge, one page of a speech, one attempt to hand an idea over to two hand
     - Where the sources disagree on dates, **each version is kept side by side**; no final outcome is inferred;
     - Drafts in the expired design directory are archived **as drafts only**, and are not assumed to be the version actually issued.
 
-    See [Thanks and Afterword · editorial notes](thanks/index.md).
+    See [Thanks and Afterword · editorial notes](about/thanks/index.md).

@@ -35,7 +35,7 @@ tags:
 | 榮譽顧問 | 周曉鵬 | Jason |
 | 榮譽顧問 | 李佳佳 | Cathy |
 
-完整 14 人名單見 [組織架構與名單](../governance/roster.md)。
+完整 14 人名單見 [組織架構與名單](../system/governance/roster.md)。
 
 > 这个成员牌，不只是一个小小的标识。它更像是一种身份感，
 > 也代表着大家从今天开始，正式成为物理社团的一员。
@@ -99,7 +99,7 @@ tags:
 本次會費繳納**完全遵循自願原則**；繳納會費不是加入社團的前提，
 不繳納也不會影響同學參與社團日常活動。
 
-用途、監管與賬目規則詳見 [會費與貢獻積分制度](../governance/fees.md)。
+用途、監管與賬目規則詳見 [會費與貢獻積分制度](../system/governance/fees.md)。
 
 ## 尾聲
 
@@ -112,5 +112,5 @@ tags:
 
 ## 相關章節
 
-- 集會的三份逐頁原稿：[集會原稿](../gatherings/index.md)
-- 全部材料清單：[資料出處](../sources/index.md)
+- 集會的三份逐頁原稿：[集會原稿](../collection/gatherings/index.md)
+- 全部材料清單：[資料出處](../about/sources/index.md)

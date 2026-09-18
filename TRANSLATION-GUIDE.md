@@ -45,7 +45,7 @@ ASJ 英东物理社（一所中学的物理社团）已经解散。这个站点�
    提示框、`<div class="grid cards">` 卡片、`<p class="memorial-kicker">` 小标、
    行内 `<span style="color:#910000">■</span>` 色块。
 3. **链接目标原样保留**（它们是镜像的相对路径）：`story/index.md`、
-   `../governance/roster.md`、`../assets/originals/badge-president.jpg` 等，
+   `../system/governance/roster.md`、`../assets/originals/badge-president.jpg` 等，
    一个字符都不要改。链接**文字**才翻译。
 4. **专名与文件名保持原样**：`资料/物理社集会0427.pptx`、
    `物理社功勋系统对话史料整理_纪念网站版.docx` 是真实文件名，写在反引号里

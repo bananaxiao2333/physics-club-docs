@@ -1,7 +1,7 @@
 ---
 title: "Suspension"
 description: "The surviving material ends on 12 May 2026. This page is the last frame of this record."
-source_sha256: 62ffb07c463d2ffa75ea2a869a0dab7bea20802d0edc6360d5ef96363dc2aaf5
+source_sha256: bd6a0a87da12337ef7c7c8655e0e330c0fb7b0c5fc02382ceaa3bca53ef7ba5f
 translated: 2026-09-18
 ---
 
@@ -70,7 +70,7 @@ the merit system had just been finished. All of it is still here, nothing cleare
 
     A parametric template for the club badge, wayfinding signs, the venue layout plan, posters.
 
-    [:octicons-arrow-right-24: Design Archive](../design/index.md)
+    [:octicons-arrow-right-24: Design Archive](../collection/design/index.md)
 
 -   __A competition plan that can prove itself__
 
@@ -86,7 +86,7 @@ the merit system had just been finished. All of it is still here, nothing cleare
 
     Dues voluntary, accounts public, credits not treated as currency.
 
-    [:octicons-arrow-right-24: Membership Dues and Contribution Credits](../governance/fees.md)
+    [:octicons-arrow-right-24: Membership Dues and Contribution Credits](../system/governance/fees.md)
 
 -   __The competition results of 28 students__
 
@@ -111,7 +111,7 @@ the merit system had just been finished. All of it is still here, nothing cleare
     Membership dues records, the fund pool, a public ledger and multi-signature on rewards — and they
     **actually built the electronic system**.
 
-    [:octicons-arrow-right-24: Merit System](../merit/index.md)
+    [:octicons-arrow-right-24: Merit System](../system/merit/index.md)
 
 </div>
 

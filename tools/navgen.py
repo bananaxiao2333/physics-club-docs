@@ -226,18 +226,36 @@ def main() -> int:
 
     changed: list[Path] = []
     warnings: list[str] = []
+    wanted: set[Path] = set()
 
     for directory, root in targets():
         nav, warns = build_nav(directory, root=root)
         warnings.extend(warns)
         content = render(nav)
         target = directory / ".nav.yml"
+        wanted.add(target)
         current = target.read_text(encoding="utf-8") if target.exists() else None
         if current == content:
             continue
         changed.append(target)
         if not args.check:
             target.write_text(content, encoding="utf-8")
+
+    # 上一次生成、这次不再需要的 .nav.yml。文档树一旦挪动或合并，旧目录会
+    # 留下一个没人认领的导航文件（docsgen 的 prune 只管 .md），空目录随即
+    # 出现在构建树里，让人以为那个分区还在。判据与 docsgen 一致：只认带
+    # 生成横幅的文件，手写的不动。
+    stale: list[Path] = []
+    if not args.check:
+        for path in sorted(DOCS.rglob(".nav.yml")):
+            if path in wanted or BANNER not in path.read_text(encoding="utf-8"):
+                continue
+            stale.append(path)
+            path.unlink()
+            directory = path.parent
+            while directory not in (DOCS, ROOT) and directory.exists() and not any(directory.iterdir()):
+                directory.rmdir()
+                directory = directory.parent
 
     for warning in warnings:
         print(f"warn: {warning}", file=sys.stderr)
@@ -246,8 +264,12 @@ def main() -> int:
     print(f"{verb} {len(changed)} 个 .nav.yml" + (f"（共检查 {len(targets())} 个目录）" if changed else ""))
     for path in changed:
         print(f"  {rel(path)}")
+    if stale:
+        print(f"已删除 {len(stale)} 个失效的 .nav.yml")
+        for path in stale:
+            print(f"  {rel(path)}")
 
-    return 1 if (args.check and changed) else 0
+    return 1 if (args.check and (changed or stale)) else 0
 
 
 if __name__ == "__main__":

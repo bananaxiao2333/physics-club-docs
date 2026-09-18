@@ -1,7 +1,7 @@
 ---
 title: "Purchasing and Materials List"
 description: "The A4 Paper Flight Festival · the surviving purchasing records and the on-site materials list."
-source_sha256: 0b8ea510cb27a70c0265bdaa3a2e44fd9e813eded35bd87324e5aa30d2ea7465
+source_sha256: c957c37ed861bd44fbd757e0b7b3bc325fe8458ff7006d2baad6bd059fab6525
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -38,7 +38,7 @@ The surviving purchasing list has **4 entries**, all marked “main sports field
 ### Two key pieces of equipment
 
 **Laser rangefinder (500 m, ¥159)** — the highest unit price in the list, and the only one with a single purpose.
-Its presence corresponds directly to the scoring basis established at the [04.27 assembly](../gatherings/0427.md):
+Its presence corresponds directly to the scoring basis established at the [04.27 assembly](../collection/gatherings/0427.md):
 
 > taking the **straight-line distance between the start point and where the paper plane lands** as the final result
 
@@ -87,7 +87,7 @@ The competition prepared **3** blank forms. All are in Traditional Chinese, and 
 
     !!! note "The class code in the example"
         The `10S` in the example “**10S**胡益成” is a class code,
-        consistent with the coding system used in the [05.12 grouping table](../gatherings/0512.md)
+        consistent with the coding system used in the [05.12 grouping table](../collection/gatherings/0512.md)
         (10S / 10V / 10G / 10Z / 10J / 10A / 10H / 10K / 9V / 9Z / 7V).
 
 === "Results sheet"
@@ -147,4 +147,4 @@ The competition prepared **3** blank forms. All are in Traditional Chinese, and 
 - [A4 Paper Flight Festival · Event Overview](index.md)
 - [Run of Show](runbook.md) — the full assignment of roles and responsibilities and the preparation schedule
 - [A4 Paper Flight Festival · the story](../story/festival-0430.md)
-- [Sources](../sources/index.md)
+- [Sources](../about/sources/index.md)
