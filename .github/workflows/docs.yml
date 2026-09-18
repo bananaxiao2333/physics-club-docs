@@ -17,11 +17,35 @@ jobs:
     steps:
       - uses: actions/configure-pages@v6
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+
+      # 用 uv + uv.lock 安装，和本地开发走同一套锁定版本。
+      # （原先的 pip install zensical 会绕开 uv.lock，本地与线上可能跑不同版本。）
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: 3.x
-      - run: pip install zensical
-      - run: zensical build --clean
+          enable-cache: true
+      - run: uv sync --locked
+
+      # ⚠️ 必须先由 content/ 生成 docs/。
+      # docs/ 下的 .md 与 .nav.yml 都是生成物；直接 zensical build 会用仓库里
+      # 那份副本发站——content/ 改了而没重新生成时，线上就是旧内容。
+      - name: Generate build tree from content/
+        run: make gen
+
+      # 生成后比对：提交进仓库的 docs/ 必须与 content/ 一致。
+      # 不一致说明有人改了 content/ 却没重新生成，直接失败而不是发半成品。
+      - name: Verify generated tree is up to date
+        run: |
+          uv run python tools/docsgen.py --check
+          uv run python tools/navgen.py --check
+
+      - name: Build site
+        run: uv run zensical build --clean --strict
+
+      # 翻译度体检：漏翻 / 过期 / 译文结构对不上，非零码退出挡住部署。
+      # 只想预警不阻断的话，加 continue-on-error: true。
+      - name: Check translation coverage
+        run: uv run python tools/i18n_check.py --quiet
+
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site

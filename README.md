@@ -29,8 +29,9 @@ make check              # 只跑翻译度检查
 make gen                # 只重新生成 docs/ 与导航
 ```
 
-`uv run zensical build` 单独执行也能出站，但**不会**先从 `content/` 生成 `docs/`；
-日常请用 `make`。`zensical build -s/--strict` 在 0.0.62 尚不支持。
+`uv run zensical build` 单独执行也能出站，但**不会**先从 `content/` 生成 `docs/`，
+用的会是仓库里那份生成物副本。日常请用 `make`；CI 里也显式跑了一遍生成，
+并用 `docsgen --check` / `navgen --check` 卡住「改了 `content/` 没重新生成」的提交。
 
 ---
 
@@ -361,6 +362,9 @@ physics-club-docs/
   `redirect output collides with a page`，因为 `/story.html` 会被规范化成
   `/story/index.html`。本站改用**静态跳转桩**：`docs/*.html` 六个 meta-refresh 文件。
 - **snippets 片段文件若用 `.md` 后缀**，会被当成页面构建到 `/includes/`。需要片段时用 `.txt`。
+- **落地页的文案有一部分在 JS 里**（滚动幕字、原件查看器的缩放按钮）。这些
+  已改为从 DOM / `data-` 属性读取，文案来源是两份 partial；在 JS 里写死任意
+  一种语言都会导致另一种语言的页面被覆盖回中文。
 
 ## 部署
 

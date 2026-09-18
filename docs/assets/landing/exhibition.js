@@ -4,6 +4,11 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)');
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const originals=document.querySelector('.original-dialog');
 let opener=null;
+/* 缩放按钮的两种文案由页面提供（见 overrides/partials/landing*.html 的
+   data-label-zoom / data-label-fit），JS 不再写死任意一种语言。 */
+const sizeBtn=originals.querySelector('.original-size');
+const zoomLabel=sizeBtn.dataset.labelZoom||sizeBtn.textContent.trim();
+const fitLabel=sizeBtn.dataset.labelFit||zoomLabel;
 for(const link of document.querySelectorAll('[data-original]'))link.addEventListener('click',e=>{
  if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
  e.preventDefault();opener=link;
@@ -11,12 +16,12 @@ for(const link of document.querySelectorAll('[data-original]'))link.addEventList
  originals.querySelector('.original-dialog-title').textContent=link.dataset.title;
  originals.querySelector('.original-file').href=link.href;
  originals.querySelector('.original-dialog-image').classList.remove('zoomed');
- originals.querySelector('.original-size').setAttribute('aria-pressed','false');
- originals.querySelector('.original-size').textContent='放大细节 ＋';
+ sizeBtn.setAttribute('aria-pressed','false');
+ sizeBtn.textContent=zoomLabel;
  originals.showModal();document.body.style.overflow='hidden';
 });
 originals.querySelector('.original-close').addEventListener('click',()=>originals.close());
-originals.querySelector('.original-size').addEventListener('click',e=>{const zoom=originals.querySelector('.original-dialog-image').classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoom));e.currentTarget.textContent=zoom?'适应画面 −':'放大细节 ＋';});
+originals.querySelector('.original-size').addEventListener('click',e=>{const zoom=originals.querySelector('.original-dialog-image').classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoom));e.currentTarget.textContent=zoom?fitLabel:zoomLabel;});
 originals.addEventListener('close',()=>{document.body.style.overflow='';opener?.focus({preventScroll:true});});
 originals.addEventListener('click',e=>{if(e.target===originals){const r=originals.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)originals.close();}});
 // Preserve accessible sentences while each visual character receives its own timing.

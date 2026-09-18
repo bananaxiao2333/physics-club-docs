@@ -76,11 +76,15 @@ name = "physics-club-docs"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "pyyaml" },
     { name = "zensical" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "zensical", specifier = ">=0.0.62" }]
+requires-dist = [
+    { name = "pyyaml", specifier = ">=6.0.3" },
+    { name = "zensical", specifier = ">=0.0.62" },
+]
 
 [[package]]
 name = "pygments"
