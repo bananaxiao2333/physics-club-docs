@@ -425,6 +425,50 @@ def inspect_landing_consistency() -> dict:
     return record
 
 
+#: 构建产物里必须真的出现的东西。模板里的条件一旦恒为假（例如把布尔渲染成
+#: "True" 来比，而 MiniJinja 给的是小写 true），输出会**静默**少一块——不报错、
+#: 不警告，只有肉眼看页面才发现。这一组断言就是给这类哑失败兜底。
+#: 只在 site/ 存在时检查（CI 是 build 之后才跑；本地没构建就跳过）。
+SMOKE = [
+    ("story/egg-drop/index.html", "md-footer__link--prev", "页脚「上一页」"),
+    ("story/egg-drop/index.html", "md-footer__link--next", "页脚「下一页」"),
+    ("story/egg-drop/index.html", 'rel="prev"', "<link rel=prev>"),
+    ("story/egg-drop/index.html", 'rel="next"', "<link rel=next>"),
+    ("en/story/egg-drop/index.html", "md-footer__link--next", "英文页脚「下一页」"),
+    ("zh-hant/story/egg-drop/index.html", "md-footer__link--next", "繁体页脚「下一页」"),
+    ("index.html", "memorial-footer", "纪念站页脚"),
+    ("story/index.html", "md-path__link", "面包屑"),
+]
+
+
+def inspect_rendered_output() -> dict:
+    """对构建产物做一组「该有的东西真的在」的断言。"""
+    site = ROOT / "site"
+    record = {
+        "source": "site/（构建产物）",
+        "target": "site/",
+        "lang": "all",
+        "kind": "smoke",
+    }
+    if not site.is_dir():
+        record["status"] = "ok"
+        record["next"] = ""
+        record["skipped"] = "site/ 不存在，跳过（先跑 make build）"
+        return record
+
+    missing = []
+    for rel, needle, label in SMOKE:
+        page = site / rel
+        if not page.exists():
+            missing.append(f"{rel} 不存在，无法检查{label}")
+        elif needle not in page.read_text(encoding="utf-8"):
+            missing.append(f"{rel} 缺少{label}（模板里的条件可能恒为假）")
+
+    record["status"] = "drift" if missing else "ok"
+    record["next"] = "；".join(missing)
+    return record
+
+
 ORDER = ["missing", "placeholder", "created", "drift", "stale", "untracked", "partial", "ok"]
 LABEL = {
     "missing": "缺失",
@@ -457,6 +501,7 @@ def main() -> int:
     for lang in languages:
         pages.append(inspect_landing(lang))
     pages.append(inspect_landing_consistency())
+    pages.append(inspect_rendered_output())
 
     counts: dict[str, int] = {}
     for page in pages:
