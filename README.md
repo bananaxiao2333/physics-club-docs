@@ -55,10 +55,10 @@ docs/             ← 构建层。.md 是生成物；assets/ 等仍是手写的
 
 | 源文件 | 产物 | 网址 |
 | --- | --- | --- |
-| `content/story/index.zh.md` | `docs/story/index.md` | `/story/` |
+| `content/story/index.zh-hans.md` | `docs/story/index.md` | `/story/` |
 | `content/story/index.en.md` | `docs/en/story/index.md` | `/en/story/` |
 
-语言后缀只认**裸语言码**（`zh` / `en`），不用 `zh-CN`、`zh-HK`、`zh-TW` 这类地区标签。
+语言后缀认 `zh-hans` / `zh-hant` / `en`，**不用** `zh-CN`、`zh-HK`、`zh-TW` 这类地区标签。
 
 ### 三种语言
 
@@ -131,9 +131,14 @@ URL 跳转桩）都是手写的，生成器不碰。
 | `tools/hant.py` | 简体→繁体脚本转换（跳过引文与文件名） |
 | `tools/docsgen.py` | 从 `content/` 生成 `docs/`（含派生语种）；改写共享资产路径；清理失效产物 |
 | `tools/navgen.py` | 从文件树生成各目录的 `.nav.yml` |
-| `tools/i18n_check.py` | 多语种检查，产出 `i18n-report.json` / `i18n-report.md` |
+| `tools/i18n_check.py` | 多语种检查，按需产出 `i18n-report.json` / `i18n-report.md`（已 gitignore，不入库） |
 
 三个工具都支持 `--check` / `--quiet` 之类的只读模式，可以挂到 CI 上。
+
+> **生成物的身份写在生成物自己身上。** `docsgen` 产的每一页，前置元数据里都有一行
+> `# ⚠️ 由 tools/docsgen.py …生成，请勿手改`（`#` 是 YAML 注释，不会渲染成正文）。
+> 这一行同时就是「哪些文件是生成物」的判据——`prune` 靠它认得自己上一次的产物，
+> 所以不需要再另存一份清单。手写的 `docs/**/*.md` 不带这行，不会被误删。
 
 ### 导航从文件树生成
 

@@ -2,6 +2,15 @@
 site/
 .cache/
 
+# 体检报告：make check 现场产出，一条命令即可再生，不入库。
+# （入库只会多一份可能过期的副本，CI 又不比对它。）
+i18n-report.json
+i18n-report.md
+
+# 旧版生成清单，已由生成物自带的前置元数据横幅取代。留此一行，
+# 免得从旧分支切过来的工作区又把它提交回来。
+.docsgen.json
+
 # Python / uv
 .venv/
 __pycache__/

@@ -42,7 +42,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import posixpath
 import re
 import sys
@@ -53,7 +52,6 @@ from hant import to_hant
 from langs import CONTENT, DEFAULT_LANG, DERIVATIONS, LANG_RE, ROOT
 
 DOCS = ROOT / "docs"
-MANIFEST = ROOT / ".docsgen.json"
 
 #: 派生语言 → 转换函数。派生关系本身定义在 tools/langs.py，
 #: 那里是「本站有哪几种语言」的唯一出处；这里只负责绑定转换实现。
@@ -72,6 +70,12 @@ SHARED_PREFIXES = ("assets/",)
 
 BANNER_FMT = "# ⚠️ 由 tools/docsgen.py 从 {source} 生成，请勿手改；要改请改 content/ 下的源文件。"
 DERIVED_BANNER = "（本页由 {source_lang} 版脚本转换而来，不是另译）"
+
+#: 「这一份是生成物」的判据。横幅插在前置元数据里（`#` 是 YAML 注释，不会渲染成
+#: 正文），它本来就写着「这是生成的、别手改」——身份与出处是同一件事。
+#: 因此不再另存一份清单（原先的 .docsgen.json）来记录哪些文件是生成的：
+#: 两份记录会分叉，一份不会。与 tools/i18n_check.py 的 BANNER_RE 同一前缀。
+OWNED_RE = re.compile(r"^# ⚠️ 由 tools/docsgen\.py ", re.M)
 
 _LINK = re.compile(r'(\]\(|(?:\bsrc|\bhref)=")(?P<target>[^")\s]+)')
 
@@ -155,6 +159,20 @@ def output_of(name: str, lang: str) -> Path:
     return prefix / f"{name}.md"
 
 
+def previously_generated() -> set[str]:
+    """上一次生成留下的产物：带生成横幅的 docs/**/*.md。
+
+    取代原先的 .docsgen.json 清单——那是在文件里已经写明「这是生成物」之外，
+    再单独存一份「哪些文件是生成物」，两份会分叉。手写的 docs/**/*.md 不带
+    横幅，因此不会被误认领、也不会被 prune 删掉。
+    """
+    found: set[str] = set()
+    for path in DOCS.rglob("*.md"):
+        if OWNED_RE.search(path.read_text(encoding="utf-8")):
+            found.add(path.relative_to(ROOT).as_posix())
+    return found
+
+
 def prune(previous: set[str], current: set[str]) -> list[Path]:
     """删掉上一次生成、这次不再存在的文件，并清掉空目录。"""
     removed = []
@@ -176,9 +194,7 @@ def main() -> int:
     parser.add_argument("--check", action="store_true", help="只比对，不写盘")
     args = parser.parse_args()
 
-    previous: set[str] = set()
-    if MANIFEST.exists():
-        previous = set(json.loads(MANIFEST.read_text(encoding="utf-8")).get("generated", []))
+    previous = previously_generated()
 
     current: set[str] = set()
     changed: list[Path] = []
@@ -228,10 +244,6 @@ def main() -> int:
 
     if not args.check:
         prune(previous, current)
-        MANIFEST.write_text(
-            json.dumps({"generated": sorted(current)}, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
 
     for warning in errors:
         print(f"error: {warning}", file=sys.stderr)

@@ -24,8 +24,10 @@ nav: docs
 check:
 	$(UV) run python tools/i18n_check.py
 
+# 与 .github/workflows/docs.yml 用同一条命令：本地过得去就等于 CI 过得去。
+# ⚠️ --clean 会清空 site/，所以 serve 还开着的时候不要跑这个目标。
 build: gen
-	$(UV) run zensical build
+	$(UV) run zensical build --clean --strict
 	$(UV) run python tools/i18n_check.py
 
 serve: gen
