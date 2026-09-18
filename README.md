@@ -391,7 +391,8 @@ physics-club-docs/
 
 `docs/assets/` 下的图片、PDF、SVG 与视频均来自社团留存资料，已针对网页浏览做过
 尺寸与格式优化。`docs/assets/originals/` 保留的是原始导出件（社牌、海报、PPT 逐页图、PDF）。
-`docs/assets/landing/original/` 是落地页两张样式表**主题化转换前**的原始文件。
+落地页两张样式表**主题化转换前**的原件在仓库根的 `provenance/`（**不在** `docs/` 下，
+因此不发布——它们没有任何页面引用）。
 
 ## 其他已知坑
 
