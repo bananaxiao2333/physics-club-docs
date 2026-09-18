@@ -30,8 +30,10 @@ invalid_link_anchors = true
 # 键名后缀：默认语言（zh-hans）留空，其余语言用 _en / _zh_hant。
 # 模板里用 `config.extra["site_name" ~ L]` 取用，L 由页面语言决定。
 [project.extra]
-# 页眉站名下的副题。原站页眉就是「站名 + 英文社名」两行；
-# 罗马字三语同形，所以这一个键三语共用，不做分语种。
+# 社名的罗马字写法。**不在页面上显示**——页眉只留站名一行。
+# 仅用于结构化数据里的 alternateName（见 overrides/main.html 的 JSON-LD），
+# 让检索端把「自由曾在此」和英文社名认成同一个实体。
+# 罗马字三语同形，故一个键三语共用，不做分语种。
 site_subtitle = "ASJ YINGDONG · PHYSICS CLUB"
 
 site_name_en = "Freedom Was Here"
