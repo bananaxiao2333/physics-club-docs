@@ -40,6 +40,12 @@ site_name_en = "Freedom Was Here"
 copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 site_author_en = "ASJ Yingdong Physics Club"
 # 页面包屑的根（对应中文的「序章」）
+consent_title_en = "Data & privacy"
+consent_description_en = "This site collects no usage information: no analytics, no advertising, no third-party tracking, and no cookies at all. Fonts, styles and scripts are all served from this site's own origin, so opening any page contacts one domain only. The single thing stored in your browser is your light/dark preference (browser local storage, not a cookie); clearing your browser data removes it."
+
+consent_title_zh_hant = "資料隱私"
+consent_description_zh_hant = "本站不收集任何使用資訊：沒有統計腳本、沒有廣告、沒有第三方追蹤，也不設置任何 cookie。頁面的字型、樣式與腳本全部由本站自託管，打開任意一頁只會聯繫本站一個網域。唯一保存在你瀏覽器裡的是深淺色偏好（瀏覽器本機儲存，不是 cookie），清除瀏覽器資料即可抹掉。"
+
 nav_root_label_en = "Prologue"
 site_description_en = "A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands."
 # 主题切换按钮的提示文案（config.theme.palette 里的 toggle.name 是全站唯一的）
@@ -55,6 +61,27 @@ nav_root_label_zh_hant = "序章"
 palette_toggle_auto_zh_hant = "切換深淺色"
 palette_toggle_light_zh_hant = "切換到深色"
 palette_toggle_dark_zh_hant = "切換到淺色"
+
+# ── 数据隐私：Zensical 原生的同意表单 ─────────────────────────────────────
+# 这个表单的原意是「在向第三方发请求之前征得同意」，勾选项对应的是
+# Google Analytics / GitHub 这类 cookie。
+#
+# ⚠️ 本站**没有任何需要同意的第三方请求**：字体、样式、脚本全部自托管，
+# 不设任何 cookie（见 content/privacy/，那里还给了三条自验方法）。
+# 所以下面**刻意不列任何 cookie 勾选项**——把不存在的东西列进同意表单，
+# 才是真正的不诚实。这个表单在这里承担两件事：
+#   1. 首次访问时把「本站不收集什么」当面讲清楚；
+#   2. 提供 #__consent 这个锚点，让人随时能回到这份说明
+#      （页脚与隐私页都链过去）。
+# 将来若真的引入统计，再把对应的 cookie 加进 [project.extra.consent.cookies]。
+[project.extra.consent]
+title = "数据隐私"
+description = "本站不收集任何使用信息：没有统计脚本、没有广告、没有第三方跟踪，也不设置任何 cookie。页面的字体、样式与脚本全部由本站自托管，打开任意一页只会联系本站一个域名。唯一保存在你浏览器里的是深浅色偏好（浏览器本地存储，不是 cookie），清除浏览器数据即可抹掉。"
+# 只有一个按钮：这里没有可选项，给「拒绝」按钮是不诚实的。
+actions = ["accept"]
+
+# 同上：config 里的这套文案是全站唯一的，其余语种按 _en / _zh_hant 取用
+# （见 overrides/partials/consent.html）。
 
 # 语言代码用**文字**标签（zh-Hans / zh-Hant），不用 zh-CN / zh-TW 这类**地区**标签：
 # 地区标签会把用词一起改掉，那是替读者选定某一地的用法。

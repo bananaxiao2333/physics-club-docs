@@ -7,9 +7,8 @@ nav: []
 multilingual: true
 translated: 2026-09-18
 allow_cjk: true
-source_sha256: 7b71e929c11b64a8ce6ef7e14d529ed912f5371258b85f04a95f445cb1c5f7bb
+source_sha256: d8d667d80997cc298efa680a96e16515f3b14cff930efd8752d5dce0eb3ca86d
 ---
-
 
 # 数据隐私
 
@@ -93,6 +92,16 @@ from when they were made. Downloads go directly from your browser — no interme
 </div>
 
 </div>
+
+## 更改隐私设置
+
+首次访问本站时会出现一个说明框，把上面这段话说一遍。
+
+之后想再看一次：**页脚右下角的「隐私设置」**随时可以重新打开它。
+
+（那个入口没有放在本页正文里，是因为 `#__consent` 这个锚点是主题的 `base.html`
+注入的、不在正文中，而本站开了构建期的锚点校验——正文里写这个链接会被判为
+「anchor does not exist」并把 `--strict` 构建打掉。校验是有价值的，所以让它留在页脚。）
 
 ## 为什么写这一页
 
