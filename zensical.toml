@@ -44,6 +44,11 @@ nav = [
   { "致谢与后记" = "thanks/index.md" },
 ]
 
+# extra_css / extra_javascript 必须在任何 [[project.*]] 表之前，
+# 否则会被 TOML 归入该表，导致 project.extra_css 为空。
+extra_css = ["stylesheets/extra.css"]
+extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
+
 [[project.extra.alternate]]
 name = "English"
 link = "en/"
@@ -54,8 +59,6 @@ name = "中文"
 link = "./"
 lang = "zh"
 
-extra_css = ["stylesheets/extra.css"]
-extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
 
 [project.plugins]
 # 图片灯箱：原档与照片页点击放大
@@ -90,20 +93,29 @@ features = [
 
 # Material 默认配色：跟随系统，浅色优先，无衬线字体。
 # 落地页不另立一套主题，而是直接使用这些变量（见 stylesheets/landing.css）。
+#
+# 强调色（accent）保持 Material 默认的 indigo，具体色值在
+# stylesheets/extra.css 里按色调覆盖，原因见那里的注释。
+# 注意：Zensical 的 palette.accent 只认 Material 的**颜色名**，
+# 写十六进制会被原样塞进 data-md-color-accent 属性而匹配不到任何规则，
+# 反而丢掉强调色。所以这里必须是 "indigo"。
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
+accent = "indigo"
 toggle.icon = "lucide/sun-moon"
 toggle.name = "切换深浅色"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
+accent = "indigo"
 toggle.icon = "lucide/sun"
 toggle.name = "切换到深色"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
+accent = "indigo"
 toggle.icon = "lucide/moon"
 toggle.name = "切换到浅色"
 

@@ -51,6 +51,34 @@
   /* 原站用宋体做标题；这里统一为文档站字体，取消衬线 */
   --serif: var(--md-text-font-family, sans-serif);
   --sans: var(--md-text-font-family, sans-serif);
+
+  /* 反相表面（.paper / .stack-card / .snap-paper …）上的文字令牌。
+     这些卡片的底色是 --md-default-fg-color，也就是「前景色当底」，
+     所以它们上面的文字必须反过来用背景色系，否则两种色调下都会同色不可读
+     （浅色下深字压深底，深色下浅字压浅底）。 */
+  --on-paper: var(--md-default-bg-color);
+  --on-paper-muted: color-mix(in srgb, var(--md-default-bg-color) 76%, var(--md-default-fg-color));
+  --on-paper-line: color-mix(in srgb, var(--md-default-bg-color) 22%, transparent);
+
+  /* 标题色：浅色下就是前景色；深色下 Material 会额外把标题提亮到纯白
+     （palette 里的 [data-md-color-scheme=slate] h1…h6 规则）。
+     落地页把标题色收进令牌自己管，否则那条全局规则会击穿反相表面和
+     绸面段落里的标题，变成白字压浅底。 */
+  --heading: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] {
+  --heading: hsla(var(--md-hue), 0%, 100%, 1);
+}
+
+/* 落地页的标题一律走 --heading，由所在区域决定明暗 */
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6 {
+  color: var(--heading);
 }
 
 /* 主题字体栈（base.html 在 :root 上设过 --md-text-font） */
@@ -124,12 +152,9 @@ html {
    4. 详情
    ══════════════════════════════════════════════════════════════ */
 
-/* 页眉在首页取不透明底色。
-   主题页眉是半透明 + backdrop-blur，叠在首屏的深色光晕上会出现色差接缝，
-   文字对比度也随之漂移。首页固定为实色，颜色始终由主题变量决定。 */
-.md-header {
-  background-color: var(--md-default-bg-color);
-}
+/* 页眉在首页沿用主题的默认样式：
+   半透明底 + backdrop-blur，这是文档站本来的样子，不需要改。
+   高度也不再被污染——原站 style.css 里的 header{height:96px} 已删除。 */
 
 /* 次级文字统一走 --muted，保证深浅色下都可读 */
 .opening-meta,
@@ -155,4 +180,97 @@ button:focus-visible {
 /* 原件查看器需要在主题弹层之上 */
 .original-dialog {
   z-index: 60;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5. 反色段落与卡片
+
+   落地页有两类「底色与页面相反」的区域，它们的文字不能跟随主题前景色，
+   否则会出现同色叠同色。两类分别处理：
+     a. 绸面段落：WebGL 深蓝画布（.silk-canvas）在两种色调下都是深底；
+     b. 反相卡片：底色就是 --md-default-fg-color。
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── a. 绸面与影像段落 ───────────────────────────────────────
+   绸面：WebGL 深蓝画布（.silk-canvas）在两种色调下都是深底，
+   基色取自 app.js 里的着色器常量 vec3(.018,.044,.083) ≈ #050b15。
+   影像段落：幕字压在高亮照片上，亮度完全不可控。
+   两者都固定为深底浅字，不再跟随主题前景色。
+
+   这里整组替换令牌（而不只是 --md-*）：--accent 之类的落地页令牌
+   是在 body 上就完成 var() 替换的，不在这里重新指向就不会跟着变。
+   同时覆盖 --md-default-fg-color 系列，使段落内所有后代规则
+   （包括原站里写死 --md-default-fg-color--light 的那些）自动取到反相值。 */
+#main .opening,
+#main .closing,
+#main .story-stage {
+  --silk-bg: #050b15;
+  --silk-fg: #e8ebf5;       /* 对深底 16.3:1 */
+  --silk-fg-muted: #b9c0d2; /* 10.4:1 */
+  --silk-accent: #9fb0ff;   /* 7.9:1 */
+
+  background: var(--silk-bg);
+  color: var(--silk-fg);
+
+  --ink: var(--silk-bg);
+  --paper: var(--silk-fg);
+  --muted: var(--silk-fg-muted);
+  --line: color-mix(in srgb, var(--silk-fg) 16%, transparent);
+  --accent: var(--silk-accent);
+
+  --md-default-fg-color: var(--silk-fg);
+  --md-default-fg-color--light: var(--silk-fg-muted);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--silk-fg) 16%, transparent);
+  --md-accent-fg-color: var(--silk-accent);
+
+  --heading: var(--silk-fg);
+}
+
+/* 影像段落的底部遮罩：原稿只压到 75% 处且起点 alpha 仅 .85，
+   幕字整体（约画面下方 19%–52%）落在半透明区，压到亮照片上就不够对比。
+   实测要在纯白照片上也达到 4.5:1，遮罩 alpha 需 ≥ .55，
+   所以把深色区抬到画面中部再收尾。 */
+#main .image-shade {
+  background: linear-gradient(
+    0deg,
+    #06111e 0%,
+    #06111ef7 30%,
+    #06111ee8 52%,
+    #06111eb8 70%,
+    transparent 94%
+  );
+}
+
+/* ── b. 反相卡片 ─────────────────────────────────────────────
+   下面这些卡片自带「前景色当底」，内部文字改走反相令牌。
+   只改令牌，不动卡片自己的 background。 */
+#main .paper,
+#main .stack-card,
+#main .snap-paper,
+#main .snap-white,
+#main .flight-feature,
+#main .chapter-image > span {
+  --heading: var(--on-paper);
+}
+
+/* 段落文字：原站写死 --md-default-fg-color--light，在反相底上会变成同色系。
+   选择器需要 #main 前缀才压得过原站的 #main .stack-copy p 这一级权重。 */
+#main .stack-copy .eyebrow,
+#main .stack-copy p,
+#main .stack-copy .text-link,
+#main .snap-paper .eyebrow,
+#main .snap-paper p:not(.eyebrow),
+#main .snap-white .eyebrow,
+#main .snap-white p:not(.eyebrow) {
+  color: var(--on-paper-muted);
+}
+
+#main .stack-copy .text-link {
+  border-color: var(--on-paper-line);
+}
+
+/* 卡片左上角的编号：反相底上的文字 */
+.chapter-image > span {
+  color: var(--on-paper);
+  border-color: var(--on-paper-line);
 }
