@@ -4,8 +4,17 @@ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 // 所以原先那套 .menu-toggle / nav.open / Escape 收起菜单的逻辑已随之删除。
 const story=document.querySelector('.scroll-story'),frame=document.querySelector('.expanding-frame'),caption=document.querySelector('.stage-caption');
 const scenes=(()=>{const n=document.querySelector('script[type="application/json"][data-scene-captions]');if(!n)return [];try{return JSON.parse(n.textContent)||[]}catch{return []}})();
+/* 序章底下那三条轨道。它一直看着像可以左右拖的进度条，却完全点不动——
+   正确做法不是把轨道画得更不像控件，而是让它真的能用：每条都是 <button>，
+   点击跳到那一幕，键盘的 ←/→、Home/End 在组内移动并同样生效。
+   命中区靠 CSS 的 ::after 撑到 24px，可见的仍是那条 2px 的轨。 */
+const sceneDots=[...document.querySelectorAll('.scene-rail [data-scene-index]')];
+// 每一幕的停留范围是 p<.38 / <.7 / 其余，取各自中点作为跳转落点。
+const sceneTargets=[.19,.54,.85];
+function seekScene(i){if(!story)return;const y=scrollY+story.getBoundingClientRect().top+(story.offsetHeight-innerHeight)*sceneTargets[i];window.scrollTo({top:y,behavior:reduced.matches?'auto':'smooth'});}
+sceneDots.forEach((button,i)=>{button.addEventListener('click',()=>seekScene(i));button.addEventListener('keydown',e=>{const last=sceneDots.length-1;const next=e.key==='ArrowRight'?Math.min(last,i+1):e.key==='ArrowLeft'?Math.max(0,i-1):e.key==='Home'?0:e.key==='End'?last:undefined;if(next===undefined||next===i)return;e.preventDefault();seekScene(next);sceneDots[next].focus();});});
 let current=-1,queued=false;
-function update(){queued=false;const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.reading-progress').style.width=(max>0?scrollY/max*100:0)+'%';if(!story||reduced.matches)return;const r=story.getBoundingClientRect();const p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));const expand=Math.min(1,p/.22);const edge=innerWidth<=720?7:14;frame.style.left=frame.style.right=(edge*(1-expand))+'%';frame.style.top=10*(1-expand)+'%';frame.style.bottom=14*(1-expand)+'%';frame.style.setProperty('--frame-radius',18*(1-expand)+'px');document.querySelectorAll('.scene-image').forEach((img,i)=>{let alpha=i===0?1-clampBlend((p-.32)/.1):i===1?clampBlend((p-.32)/.1)*(1-clampBlend((p-.65)/.1)):clampBlend((p-.65)/.1);img.style.opacity=alpha;img.style.transform='scale('+(1.06-.06*expand)+')';});caption.style.opacity=Math.max(0,Math.min(1,(p-.04)*7));caption.style.transform=`translateY(${(1-expand)*20}px)`;const index=p<.38?0:p<.7?1:2;if(index!==current){current=index;document.querySelectorAll('.scene-image').forEach((el,i)=>el.classList.toggle('active',i===index));document.querySelectorAll('.scene-rail i').forEach((el,i)=>el.classList.toggle('active',i===index));caption.querySelector('.eyebrow').textContent=scenes[index][0];caption.querySelector('h2').innerHTML=scenes[index][1];caption.querySelector('p').textContent=scenes[index][2];document.querySelector('.scene-counter').textContent=`0${index+1} / 03`;}}
+function update(){queued=false;const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.reading-progress').style.width=(max>0?scrollY/max*100:0)+'%';if(!story||reduced.matches)return;const r=story.getBoundingClientRect();const p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));const expand=Math.min(1,p/.22);const edge=innerWidth<=720?7:14;frame.style.left=frame.style.right=(edge*(1-expand))+'%';frame.style.top=10*(1-expand)+'%';frame.style.bottom=14*(1-expand)+'%';frame.style.setProperty('--frame-radius',18*(1-expand)+'px');document.querySelectorAll('.scene-image').forEach((img,i)=>{let alpha=i===0?1-clampBlend((p-.32)/.1):i===1?clampBlend((p-.32)/.1)*(1-clampBlend((p-.65)/.1)):clampBlend((p-.65)/.1);img.style.opacity=alpha;img.style.transform='scale('+(1.06-.06*expand)+')';});caption.style.opacity=Math.max(0,Math.min(1,(p-.04)*7));caption.style.transform=`translateY(${(1-expand)*20}px)`;const index=p<.38?0:p<.7?1:2;if(index!==current){current=index;document.querySelectorAll('.scene-image').forEach((el,i)=>el.classList.toggle('active',i===index));sceneDots.forEach((el,i)=>el.setAttribute('aria-current',String(i===index)));caption.querySelector('.eyebrow').textContent=scenes[index][0];caption.querySelector('h2').innerHTML=scenes[index][1];caption.querySelector('p').textContent=scenes[index][2];document.querySelector('.scene-counter').textContent=`0${index+1} / 03`;}}
 function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update);}}addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',requestUpdate);reduced.addEventListener('change',()=>location.reload());update();
 if(!reduced.matches&&'IntersectionObserver'in window){document.documentElement.classList.add('js-motion');const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.manifesto,.chapter').forEach(el=>{el.classList.add('reveal');io.observe(el);});}
 // Locally rendered blue silk. No external animation or image requests.
@@ -43,3 +52,48 @@ if(landingTabs){
   addEventListener('scroll',syncTabs,{passive:true});
   wide.addEventListener('change',syncTabs);syncTabs();
 }
+
+// ── 滚动吸附：停手一秒后收拢到最近的落点 ──────────────────────────
+// 页面上只有四幕原档写了 scroll-snap-align:start，而页面从来没有
+// scroll-snap-type——那一条一直空转（原站也是），所以「吸附约等于没有」。
+//
+// 这里不用 CSS 的 scroll-snap-type，两个原因：它一停手就吸附，人还在读的时候
+// 就把画面拽走；它也没有「隔一秒」这个档。改成空闲触发，同一条规则顺带把
+// scroll-snap-align 原本想要的落点补上。
+//
+// 落点 = 每个区块的顶部；滚动驱动的区段另算——序章三幕、原稿叠层四页、
+// 环形展台八件、逐字展开两页，各自取分段中点或等分点，因此相邻落点很近，
+// 一次吸附最多挪大半屏，不会把人甩到别处去。
+// prefers-reduced-motion 下整个不启用：自动滚动属于用户没有要求的运动。
+const SNAP_RATIOS=[['.scroll-story',[.19,.54,.85]],['.word-scroll',[0,1]]];
+function snapBeats(){
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight),beats=[];
+  const add=y=>{if(y>=0&&y<=max)beats.push(y);};
+  // 减去页眉高度：区块顶部要停在新版页眉的下沿，而不是被页眉盖住。
+  const header=document.querySelector('.md-header');
+  const offset=header?header.offsetHeight:0;
+  for(const el of document.querySelectorAll('#main > section')){
+    const top=scrollY+el.getBoundingClientRect().top-offset,span=Math.max(0,el.offsetHeight-innerHeight);
+    const rule=SNAP_RATIOS.find(([sel])=>el.matches(sel));
+    if(rule){rule[1].forEach(r=>add(top+span*r));continue;}
+    const cards=el.querySelectorAll('.orbit-card,.stack-card').length;
+    if(cards>1){for(let i=0;i<cards;i++)add(top+span*i/(cards-1));}
+    else add(top);
+  }
+  return beats;
+}
+let snapTimer=0,snapBusy=false;
+function settle(){
+  const y=scrollY;let best=null,bestD=Infinity;
+  for(const b of snapBeats()){const d=Math.abs(b-y);if(d<bestD){bestD=d;best=b;}}
+  if(best===null||bestD<6)return;             // 已经落在落点上，不动
+  snapBusy=true;window.scrollTo({top:best,behavior:'smooth'});
+  setTimeout(()=>{snapBusy=false;},900);      // 程序化滚动期间不再排下一轮
+}
+addEventListener('scroll',e=>{
+  // 嵌套滚动容器（四幕原档那条轨道自带吸附）不该牵动整页。
+  if(e.target!==document&&e.target!==document.scrollingElement)return;
+  clearTimeout(snapTimer);
+  if(reduced.matches)return;
+  snapTimer=setTimeout(()=>{if(!snapBusy)settle();},1000);
+},{passive:true});
