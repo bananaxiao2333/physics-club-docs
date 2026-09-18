@@ -47,8 +47,9 @@ const orbitData=[...document.querySelectorAll('.orbit-scroll')].map(section=>({s
 /* 四幕原档。原先它是一只自带吸附的内层滚动盒（overflow:auto + scroll-snap），
    要先把指针移进盒子里滚——和页面滚动是两套动作，读者只会以为「滚不动」。
    现在改成与「一页，一页，留下来」同一套：整段拉高、舞台吸顶、由页面滚动
-   推动四幕依次上移，底下那条轨道负责跳转。 */
-const snapShows=[...document.querySelectorAll('.snap-shell')].map(section=>({section,cards:[...section.querySelectorAll('.snap-scene')],dots:[...section.querySelectorAll('.snap-controls [data-snap-index]')],index:-1}));
+   推动四幕依次上移。底部那条四格切换栏已按使用反馈删除，四幕只由页面滚动
+   推进；随滚动把当前幕之外的链接移出 Tab 顺序（与叠层那一段同一处理）。 */
+const snapShows=[...document.querySelectorAll('.snap-shell')].map(section=>({section,cards:[...section.querySelectorAll('.snap-scene')]}));
 const stacks=[...document.querySelectorAll('.stack-scroll')].map(section=>({section,cards:[...section.querySelectorAll('.stack-card')],dots:[...section.querySelectorAll('.stack-track [data-stack-index]')]}));
 function sectionProgress(section){const r=section.getBoundingClientRect();return clamp(-r.top/Math.max(1,r.height-innerHeight));}
 function layoutOrbits(){for(const o of orbitData){const width=Math.min(innerWidth*.44,innerHeight*.245,255);const height=width*1.444;const radius=width/(2*Math.tan(Math.PI/o.cards.length))+36;o.ring.style.setProperty('--card-width',width+'px');o.ring.style.setProperty('--card-height',height+'px');o.ring.style.setProperty('--radius',radius+'px');}}
@@ -60,13 +61,12 @@ function seekTo(section,ratio){const y=scrollY+section.getBoundingClientRect().t
 function seekOrbit(o,index){index=clamp(index,0,o.cards.length-1);seekTo(o.section,index/(o.cards.length-1));}
 for(const o of orbitData){o.section.querySelector('.orbit-prev').addEventListener('click',()=>seekOrbit(o,Math.max(0,o.index-1)));o.section.querySelector('.orbit-next').addEventListener('click',()=>seekOrbit(o,Math.min(o.cards.length-1,o.index+1)));}
 for(const s of stacks)groupNav(s.dots,i=>seekTo(s.section,i/(s.cards.length-1)));
-for(const s of snapShows)groupNav(s.dots,i=>seekTo(s.section,i/(s.cards.length-1)));
 let scheduled=false;
 function update(){scheduled=false;if(reduce.matches)return;
  for(const w of words){const p=sectionProgress(w.section);const count=w.chars.length;w.chars.forEach((char,i)=>{const local=clamp((p*1.3-i/count)*7);char.style.opacity=.1+local*.9;char.style.transform=`translateY(${(1-local)*10}px)`;});}
  for(const o of orbitData){const p=sectionProgress(o.section);o.progress=p;const angle=p*(o.cards.length-1)*45;o.ring.style.transform=`rotateX(-6deg) rotateY(${-angle}deg)`;const current=Math.round(p*(o.cards.length-1));if(current!==o.index){o.index=current;o.cards.forEach((card,i)=>{card.classList.toggle('front',i===current);card.querySelector('a').tabIndex=i===current?0:-1;});const currentCard=o.cards[current];o.section.querySelector('.orbit-count').textContent=String(current+1).padStart(2,'0')+' / '+String(o.cards.length).padStart(2,'0');o.section.querySelector('.orbit-title').textContent=currentCard.querySelector('a').dataset.title;o.section.querySelector('.orbit-source').textContent=currentCard.lastElementChild.textContent.split(' / ').slice(1).join(' / ');o.section.querySelector('.orbit-prev').disabled=current===0;o.section.querySelector('.orbit-next').disabled=current===o.cards.length-1;}}
  for(const s of stacks){const p=sectionProgress(s.section)*(s.cards.length-1);s.cards.forEach((card,i)=>{const arrived=clamp(p-i+1);const covered=clamp(p-i);const y=i===0?0:(1-arrived)*112;const scale=1-covered*.045;card.style.transform=`translateY(${y}%) scale(${scale}) translateZ(${-covered*25}px)`;card.style.opacity=1;card.style.pointerEvents=Math.round(p)===i?'auto':'none';card.querySelectorAll('a').forEach(a=>a.tabIndex=Math.round(p)===i?0:-1);});const n=Math.min(s.cards.length-1,Math.round(p));s.section.querySelector('.stack-count').textContent=String(n+1).padStart(2,'0')+' / 0'+s.cards.length;s.dots.forEach((d,i)=>d.setAttribute('aria-current',String(i===n)));}
- for(const s of snapShows){const p=sectionProgress(s.section)*(s.cards.length-1);s.cards.forEach((card,i)=>{const arrived=clamp(p-i+1);card.style.transform=`translateY(${i===0?0:(1-arrived)*112}%)`;card.style.pointerEvents=i===Math.round(p)?'auto':'none';});const n=Math.min(s.cards.length-1,Math.round(p));if(n!==s.index){s.index=n;s.dots.forEach((d,i)=>d.setAttribute('aria-pressed',String(i===n)));}}
+ for(const s of snapShows){const p=sectionProgress(s.section)*(s.cards.length-1);const n=Math.min(s.cards.length-1,Math.round(p));s.cards.forEach((card,i)=>{const arrived=clamp(p-i+1);card.style.transform=`translateY(${i===0?0:(1-arrived)*112}%)`;card.style.pointerEvents=i===n?'auto':'none';card.querySelectorAll('a').forEach(a=>a.tabIndex=i===n?0:-1);});}
 }
 function request(){if(!scheduled){scheduled=true;requestAnimationFrame(update);}}
 addEventListener('scroll',request,{passive:true});addEventListener('resize',()=>{layoutOrbits();request();});layoutOrbits();update();
