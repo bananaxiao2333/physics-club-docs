@@ -125,11 +125,15 @@
        靠的是「紧贴页眉、背后就是页面底色」：.md-tabs 只有
        color:var(--md-default-fg-color) 和一条 inset 细线，没有 background。
        一旦固定到页眉之下、悬在落地页的照片上，这条规矩就断了：
-       .md-tabs__link 本身还是 opacity:.7 的浅色字，压在明亮照片上
-       对比度不到 1.2:1，只剩下一块阴影和一条下划线——看起来就是
-       「一排框、没有字」。这里把文档页标签栏实际所在的那层底色补回来，
-       于是它和每个内容页的标签栏长得一模一样。 */
-    background-color: var(--md-default-bg-color);
+       浅色字直接压在照片上，只剩下一块阴影和一条下划线——看起来就是
+       「一排框、没有字」。
+
+       这里的取值与主题给 .md-header 的完全相同（--md-default-bg-color--light
+       加 0.4rem 模糊），所以滑出来之后与页眉是同一种材质、上下连成一条，
+       而不是凭空多出一块实心板。 */
+    background-color: var(--md-default-bg-color--light);
+    -webkit-backdrop-filter: blur(0.4rem);
+    backdrop-filter: blur(0.4rem);
     /* 收起：推到视口上方。除了位移再关掉不透明度与命中，
        免得它只是「藏在页眉后面」——那样仍然能点到、也可能漏出边。 */
     transform: translateY(-130%);
