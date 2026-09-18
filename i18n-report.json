@@ -68,7 +68,7 @@
       "target": "content/gatherings/0421.en.md",
       "source_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
       "recorded_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
-      "cjk_ratio": 0.0513,
+      "cjk_ratio": 0.0975,
       "problems": [],
       "status": "ok",
       "next": ""
@@ -78,7 +78,7 @@
       "target": "content/gatherings/0427.en.md",
       "source_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
       "recorded_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
-      "cjk_ratio": 0.0114,
+      "cjk_ratio": 0.063,
       "problems": [],
       "status": "ok",
       "next": ""
@@ -88,7 +88,7 @@
       "target": "content/gatherings/0512.en.md",
       "source_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
       "recorded_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
-      "cjk_ratio": 0.071,
+      "cjk_ratio": 0.0807,
       "problems": [],
       "status": "ok",
       "next": ""

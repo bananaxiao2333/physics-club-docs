@@ -24,16 +24,25 @@ originals.querySelector('.original-close').addEventListener('click',()=>original
 originals.querySelector('.original-size').addEventListener('click',e=>{const zoom=originals.querySelector('.original-dialog-image').classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoom));e.currentTarget.textContent=zoom?fitLabel:zoomLabel;});
 originals.addEventListener('close',()=>{document.body.style.overflow='';opener?.focus({preventScroll:true});});
 originals.addEventListener('click',e=>{if(e.target===originals){const r=originals.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)originals.close();}});
+/* 逐字动画的切分规则：中文按字，拉丁文按词。
+   原因：这些字符会被包成 display:inline-block 的 span（零宽的空格会被吞掉，
+   因此整句英文会挤成一坨）；而空格本身必须留作普通文本节点，
+   否则行内块之间没有换行机会，长句会溢出容器。
+   中文没有词间空格，逐字包裹的行为与原来完全一致。 */
+const CJK_RE=/[\u3400-\u4dbf\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]/;
+const WS_RE=/^\s+$/;
+const tokenize=(text)=>text.match(/\s+|[^\s]+/g)||[];
+const unitsOf=(token)=>CJK_RE.test(token)?[...token]:[token];
 // Preserve accessible sentences while each visual character receives its own timing.
 const enterObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('entered');enterObserver.unobserve(e.target);}}),{threshold:.15});
 for(const el of document.querySelectorAll('[data-enter],.opening h1,.page-intro h1')){
  if(reduce.matches)continue;
  el.setAttribute('aria-label',el.textContent);let index=0;
  const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const texts=[];while(walker.nextNode())texts.push(walker.currentNode);
- for(const text of texts){const fragment=document.createDocumentFragment();for(const char of text.textContent){if(char==='\n'){fragment.append(char);continue;}const span=document.createElement('span');span.className='enter-char';span.style.setProperty('--i',index++);span.setAttribute('aria-hidden','true');span.textContent=char;fragment.append(span);}text.replaceWith(fragment);}
+ for(const text of texts){const fragment=document.createDocumentFragment();for(const token of tokenize(text.textContent)){if(WS_RE.test(token)){fragment.append(document.createTextNode(token));continue;}for(const unit of unitsOf(token)){const span=document.createElement('span');span.className='enter-char';span.style.setProperty('--i',index++);span.setAttribute('aria-hidden','true');span.textContent=unit;fragment.append(span);}}text.replaceWith(fragment);}
  enterObserver.observe(el);
 }
-const words=[...document.querySelectorAll('[data-split]')].map(el=>{el.setAttribute('aria-label',el.textContent);const text=el.textContent;el.textContent='';for(const char of text){const span=document.createElement('span');span.className='char';span.setAttribute('aria-hidden','true');span.textContent=char;el.append(span);}return {el,section:el.closest('.word-scroll'),chars:[...el.children]};});
+const words=[...document.querySelectorAll('[data-split]')].map(el=>{el.setAttribute('aria-label',el.textContent);const text=el.textContent;el.textContent='';for(const token of tokenize(text)){if(WS_RE.test(token)){el.append(document.createTextNode(token));continue;}for(const unit of unitsOf(token)){const span=document.createElement('span');span.className='char';span.setAttribute('aria-hidden','true');span.textContent=unit;el.append(span);}}return {el,section:el.closest('.word-scroll'),chars:[...el.children]};});
 const orbitData=[...document.querySelectorAll('.orbit-scroll')].map(section=>({section,stage:section.querySelector('.orbit-stage'),ring:section.querySelector('.orbit-ring'),cards:[...section.querySelectorAll('.orbit-card')],index:-1,progress:0}));
 const stacks=[...document.querySelectorAll('.stack-scroll')].map(section=>({section,cards:[...section.querySelectorAll('.stack-card')],dots:[...section.querySelectorAll('.stack-track i')]}));
 function sectionProgress(section){const r=section.getBoundingClientRect();return clamp(-r.top/Math.max(1,r.height-innerHeight));}
