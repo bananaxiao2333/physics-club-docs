@@ -1,7 +1,7 @@
 ---
 title: "Member-Facing Rules, in Full"
 description: The twelve sections of the member public white paper — positioning, concepts, accounts, earning, use, settlement, rewards, the ledger, refunds, rights, obligations, FAQ.
-source_sha256: 46654eda8219f163f546342f695fdb70a87cb1915ee6517592258f93a2de6393
+source_sha256: 0310e90bdfe64a78fc0c989914230b84dc308afd532b5ea638e973b38ce50653
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/system/merit/member-rules.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -11,7 +11,7 @@ translated: 2026-09-18
 <p class="memorial-kicker">MEMBER-FACING RULES</p>
 
 !!! info "Sources and publication scope"
-    This page is compiled from `资料/物理社功勋系统会员公开白皮书_正式版第一版.docx`.
+    This page is compiled from [Member white paper](../../about/sources/index.md#merit-whitepaper-member).
     That file is marked “Applies to: all members of the Physics Club” and “**Circulated internally | Not to be used for commercial promotion outside the club**”.
 
     The white paper itself states that material concerning system security, back-office approval, supplier negotiations, undisclosed cooperation,

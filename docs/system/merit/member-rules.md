@@ -9,7 +9,7 @@ description: 会员公开白皮书十二节 —— 定位、概念、账户、�
 <p class="memorial-kicker">MEMBER-FACING RULES</p>
 
 !!! info "资料出处与公开范围"
-    本页据 `资料/物理社功勋系统会员公开白皮书_正式版第一版.docx` 整理。
+    本页据 [会员公开白皮书](../../about/sources/index.md#merit-whitepaper-member) 整理。
     该文件标注「适用对象：物理社全体会员」「**内部公开传阅｜不得用于社团外商业宣传**」。
 
     该白皮书自身声明：涉及系统安全、后台审批、供应商谈判、未公开合作事项、

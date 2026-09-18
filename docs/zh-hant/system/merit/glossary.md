@@ -8,7 +8,7 @@ description: 功勳系統術語的紀念版解釋。
 
 <p class="memorial-kicker">GLOSSARY</p>
 
-以下解釋採用 `资料/物理社功勋系统对话史料整理_纪念网站版.docx` 附錄 B 的**紀念版口徑**，
+以下解釋採用 [功勳系統史料整理](../../about/sources/index.md#merit-history) 附錄 B 的**紀念版口徑**，
 以會員側理解為主，不涉及後臺內部執行參數。
 
 功勳

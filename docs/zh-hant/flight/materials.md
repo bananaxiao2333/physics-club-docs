@@ -11,9 +11,9 @@ tags:
 <p class="memorial-kicker">PROCUREMENT & MATERIALS</p>
 
 !!! info "資料出處"
-    - **採購記錄**：`资料/纸飞机采购表.xlsx`（唯一一份帶單價的清單）
-    - **準備物料**：`资料/A4纸飞行节活动执行流程(1).docx` 末段「準備材料」11 項
-    - **現場表單**：`资料/紙飛機挑戰賽 报名表／成績表／签到表.docx` 三份空白模板
+    - **採購記錄**：[紙飛機採購表](../about/sources/index.md#flight-purchases)（唯一一份帶單價的清單）
+    - **準備物料**：[A4 紙飛行節執行流程](../about/sources/index.md#flight-runbook) 末段「準備材料」11 項
+    - **現場表單**：[挑戰賽現場表單](../about/sources/index.md#flight-forms) 三份空白模板
 
 ## 採購記錄
 

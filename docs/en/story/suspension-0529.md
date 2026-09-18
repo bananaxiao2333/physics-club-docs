@@ -1,7 +1,7 @@
 ---
 title: "Suspension"
 description: "The surviving material ends on 12 May 2026. This page is the last frame of this record."
-source_sha256: bd6a0a87da12337ef7c7c8655e0e330c0fb7b0c5fc02382ceaa3bca53ef7ba5f
+source_sha256: 011f8c4a6d2ef23fbf077ef22eab48d8566316e5f17aa6c07e9daac6cf0f5395
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/story/suspension-0529.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -32,7 +32,7 @@ The content file with the latest modification time in the material directory is 
 | `演示文稿1.pptx` | 2026-05-12 20:05 |
 | `第一版设计饮料杯.svg` | 2026-05-07 19:36 |
 | `batch_页面 1–2.png` | 2026-05-07 19:26 |
-| `物理社集会0427.pptx` | 2026-04-27 13:47 |
+| [27 April assembly deck](../about/sources/index.md#deck-0427) | 2026-04-27 13:47 |
 
 **The surviving material ends at 12 May.** After that there is no record of any new activity,
 assembly or purchase.

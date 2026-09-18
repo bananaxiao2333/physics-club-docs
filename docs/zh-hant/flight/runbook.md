@@ -11,9 +11,9 @@ tags:
 <p class="memorial-kicker">THE RUNBOOK · 從籌備到收尾</p>
 
 !!! info "資料出處"
-    本頁據 `资料/A4纸飞行节活动执行流程(1).docx` 整理，**這是留存材料中最完整的一份執行方案**：
+    本頁據 [A4 紙飛行節執行流程](../about/sources/index.md#flight-runbook) 整理，**這是留存材料中最完整的一份執行方案**：
     籌備期四周節奏、上午場與下午場逐時段安排、五個專項組的全員定崗定責、獎項設置與物料清單。
-    另參 `资料/飞行节分工安排 2.docx`（簡版分工與另一套賽制）與 `资料/副本A4纸飞行节活动执行流程.docx`。
+    另參 [飛行節分工安排](../about/sources/index.md#flight-roles)（簡版分工與另一套賽制）與 [執行流程（另一版本）](../about/sources/index.md#flight-runbook-copy)。
 
 ## 基礎信息
 
@@ -120,7 +120,7 @@ tags:
 11. 總負責人 + 副社長全場把控節奏，對接評委嘉賓，處理突發爭議
 
 !!! note "賽制存在第二個版本"
-    `资料/飞行节分工安排 2.docx` 記載的是 **1 次預飛 + 2 次正式飛行**、
+    [飛行節分工安排](../about/sources/index.md#flight-roles) 記載的是 **1 次預飛 + 2 次正式飛行**、
     8 強決賽 **3 次**飛行。兩份原始件不一致，此處並列保留、不合併。
     見 [資料出處](../about/sources/index.md)。
 
@@ -265,7 +265,7 @@ tags:
 10. 警戒線、隔離樁
 11. 引導牌若干
 
-採購明細與單價見 `资料/纸飞机采购表.xlsx`，原件清單見 [資料出處](../about/sources/index.md)。
+採購明細與單價見 [紙飛機採購表](../about/sources/index.md#flight-purchases)，原件清單見 [資料出處](../about/sources/index.md)。
 
 ## 相關章節
 

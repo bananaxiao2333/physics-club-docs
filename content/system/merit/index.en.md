@@ -3,7 +3,7 @@ nav_label: "The Merit System"
 title: "The Merit System"
 description: The Physics Club's internal dues, contribution and reward accounting mechanism in its late period — an organisational experiment.
 nav: ["member-rules", "ledger", "glossary", "whitepapers"]
-source_sha256: 3016d61a3f62e6700cfb7e2422109459fc2ee5b1fcaa8abf050f9b56ec689969
+source_sha256: 764975580d0d45c2fb62592200c2fcb083c9a8b9e9eff93d1cf66542a0c3632f
 translated: 2026-09-18
 icon: lucide/award
 ---
@@ -13,8 +13,8 @@ icon: lucide/award
 <p class="memorial-kicker">LATE STAGE · THE MERIT SYSTEM</p>
 
 !!! info "Sources"
-    This page is compiled from `资料/物理社功勋系统对话史料整理_纪念网站版.docx` and
-    `资料/物理社功勋系统会员公开白皮书_正式版第一版.docx`.
+    This page is compiled from [Merit system historical record](../../about/sources/index.md#merit-history) and
+    [Member white paper](../../about/sources/index.md#merit-whitepaper-member).
 
     The first is a **compilation of historical material written specifically for this memorial site** (compiled 18 September 2026),
     and it sets out explicitly the three-tier publication boundary this site should adopt.

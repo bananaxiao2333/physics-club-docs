@@ -3,14 +3,14 @@ title: Membership Dues and the Contribution Credit System
 description: The club dues and contribution-credit rules explained at the 27 April 2026 assembly — fund pools, credit boundaries, the public ledger and dispute handling.
 date: 2026-04-27
 translated: 2026-09-18
-source_sha256: 8d6ea2e8c472fc0bc326d457fa3e97848ac38abd758f19fb43b50c250b8674cf
+source_sha256: 8e1fb550ec9c8235c7ac01c76b686f714b00845e0c972cc6f122960b574da179
 # ⚠️ 由 tools/docsgen.py 从 content/system/governance/fees.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 !!! info "Sources"
-    This page is compiled from `资料/物理社集会0427.pptx` pages 6–14 (the explanation of the club dues and contribution credit system)
-    and `资料/物理社会费使用说明.docx`. The former is the system design; the latter is the explanation of costs aimed at students.
-    See also `资料/物理社招新调查问卷final.wps` (intentions regarding club dues).
+    This page is compiled from [27 April assembly deck](../../about/sources/index.md#deck-0427) pages 6–14 (the explanation of the club dues and contribution credit system)
+    and [Notes on how dues were used](../../about/sources/index.md#dues-usage). The former is the system design; the latter is the explanation of costs aimed at students.
+    See also [Recruitment survey](../../about/sources/index.md#recruitment-survey) (intentions regarding club dues).
 
 ## Position
 

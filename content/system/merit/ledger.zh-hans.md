@@ -8,8 +8,8 @@ description: 固定资金池、流动资金池、个人账户、总账恒等式�
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "资料出处"
-    本页据 `资料/物理社功勋系统资金流转白皮书_正式版第一版.docx` 的核心逻辑，
-    以 `资料/物理社功勋系统对话史料整理_纪念网站版.docx` 第 6–7 章的
+    本页据 [资金流转白皮书（正式版）](../../about/sources/index.md#merit-whitepaper-funds) 的核心逻辑，
+    以 [功勋系统史料整理](../../about/sources/index.md#merit-history) 第 6–7 章的
     **纪念版口径**整理。具体的后台执行参数不在本站公开范围内。
 
 ## 账户结构

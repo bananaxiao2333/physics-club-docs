@@ -13,10 +13,10 @@ description: 管理層、組別與顧問 —— 全部據 資料/ 原始件整�
 
     | 內容 | 原始件 |
     | --- | --- |
-    | 管理層 14 人職務與英文名 | `资料/物理社工牌/source/物理社管理层填充名单.csv` |
-    | 組別名稱、代號、色值 | `资料/物理社工牌/source/物理社成员组填充名单.csv` |
-    | 各組組員與班級 | `资料/演示文稿1.pptx` 第 2 頁「PHYSIC CLUB分組」表格 |
-    | 顧問名單 | `资料/物理集会4.21final.pptx` 第 4 頁 |
+    | 管理層 14 人職務與英文名 | [管理層填充名單](../../about/sources/index.md#badge-roster-management) |
+    | 組別名稱、代號、色值 | [成員組填充名單](../../about/sources/index.md#badge-roster-members) |
+    | 各組組員與班級 | [5 月 12 日集會演示文稿](../../about/sources/index.md#deck-0512) 第 2 頁「PHYSIC CLUB分組」表格 |
+    | 顧問名單 | [4 月 21 日集會演示文稿（定稿）](../../about/sources/index.md#deck-0421-final) 第 4 頁 |
 
 !!! warning "繁簡與口徑說明"
     原始 CSV 與演示文稿為**繁體原文**（如「孔耀聰」「脈衝星」）。
@@ -60,12 +60,12 @@ description: 管理層、組別與顧問 —— 全部據 資料/ 原始件整�
 | 榮譽顧問 | 李佳佳 | Cathy | 4.21 集會第 4 頁 |
 
 !!! note "一處原始件筆誤"
-    `资料/颁牌稿子.wps` 將教師顧問寫作「姚**弛**」，
+    [授牌環節文稿](../../about/sources/index.md#script-badge-ceremony) 將教師顧問寫作「姚**弛**」，
     而 4.21 集會演示文稿與在線文檔均為「姚**池**」。本頁從多數原始件，記作「姚池」。
 
 ## 四個小組
 
-出處：`资料/物理社工牌/source/物理社成员组填充名单.csv`
+出處：[成員組填充名單](../../about/sources/index.md#badge-roster-members)
 
 | 組別 | Singularity | 代號 | 顏色 |
 | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ description: 管理層、組別與顧問 —— 全部據 資料/ 原始件整�
 
 ## 組別成員
 
-出處：`资料/演示文稿1.pptx` 第 2 頁表格。名單按原表**逐格錄入**，班級沿用同列上一個已標註的班級。
+出處：[5 月 12 日集會演示文稿](../../about/sources/index.md#deck-0512) 第 2 頁表格。名單按原表**逐格錄入**，班級沿用同列上一個已標註的班級。
 
 === "奇點 · Singularity"
 

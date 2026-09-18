@@ -12,14 +12,14 @@ tags:
 <p class="memorial-kicker">05 / THE MEMORY COLLECTION · DESIGN ARCHIVE</p>
 
 !!! info "资料出处"
-    社牌是一套**参数化设计工程**，不只是几张图。原始工程见 `资料/物理社工牌/`：
+    社牌是一套**参数化设计工程**，不只是几张图。原始工程见 [社牌设计工程](../../about/sources/index.md#badge-readme)：
 
-    - `README.txt` —— 设计流程说明：以 Inkscape 修改 `物理社工牌设计全部模板.svgz`，
+    - [社牌设计工程说明](../../about/sources/index.md#badge-readme) —— 设计流程说明：以 Inkscape 修改 `物理社工牌设计全部模板.svgz`，
       批量导出所有页面，再用 NextGenerator 按填充名单逐页生成，产物放入 `dist`
     - `source/物理社工牌设计全部模板.svgz` —— 全部模板的源工程
-    - `source/物理社成员组填充名单.csv` —— 组别名称、代号 `S/N/P/M` 与色值
-    - `source/物理社管理层填充名单.csv` —— 14 位管理层的职务与英文名
-    - `source/*.svg` —— 成员组／管理层正反面矢量模板
+    - [成员组填充名单](../../about/sources/index.md#badge-roster-members) —— 组别名称、代号 `S/N/P/M` 与色值
+    - [管理层填充名单](../../about/sources/index.md#badge-roster-management) —— 14 位管理层的职务与英文名
+    - [社牌矢量模板](../../about/sources/index.md#badge-templates) —— 成员组／管理层正反面矢量模板
     - `material/*.ttc` —— 字体（微软雅黑系列 + BMDOHYEON）
 
     过滤掉这些，社牌就只是图片；保留下来，它才是可复现的设计。

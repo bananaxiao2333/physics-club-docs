@@ -4,7 +4,7 @@ title: "A4 Paper Flight Festival · Event Overview"
 subtitle: "Paper for sails, a flight path over Yingdong"
 tagline: "How far can one sheet of A4 paper fly? Come and find out."
 description: "Overview of the A4 Paper Flight Festival: basic information, the three planned moments, the site layout, the awards, and what the surviving material does not record."
-source_sha256: b3ef933c8e53637e07851633af9ce6a14afe7ebe867f302ff7c49499838d8863
+source_sha256: 72996071829702229ff9b4a7906332f40a921fe245eb12bee439735363756628
 translated: 2026-09-18
 nav: ["runbook", "materials"]
 icon: lucide/send
@@ -18,9 +18,9 @@ tags:
 <p class="memorial-kicker">03 / THE MEMORY COLLECTION · THE FLIGHT PROJECT</p>
 
 !!! info "Sources"
-    Compiled from `资料/物理集会4.21final.pptx` (page 6), `资料/物理社集会0427.pptx`,
-    `资料/物理社飞行节集会宣传稿.wps`, `资料/A4纸飞行节活动执行流程(1).docx`
-    and `资料/纸飞机采购表.xlsx`.
+    Compiled from [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final) (page 6), [27 April assembly deck](../about/sources/index.md#deck-0427),
+    [Flight festival promotion script](../about/sources/index.md#flight-promo-script), [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
+    and [Paper plane purchase list](../about/sources/index.md#flight-purchases).
 
 ## In one sentence
 
@@ -70,7 +70,7 @@ the entrance, the start baseline, the test-flight area and the direction of the 
 
 - [Site layout map](../../assets/flight-map.jpg)
 - The original guide signs are in the [Design Archive](../collection/design/index.md)
-- Vector original `资料/飞行比赛地图.svgz`
+- Vector original [Competition venue map](../about/sources/index.md#flight-map)
 
 ## Awards
 
@@ -92,7 +92,7 @@ The morning **achievement award has no quota**: reaching any of the **10 m / 20 
 The 11 items of preparation material listed in the original document, along with the purchasing details and unit prices,
 are in [Run of Show · Preparation materials](runbook.md#materials).
 
-Confirmed purchasing records (`资料/纸飞机采购表.xlsx`):
+Confirmed purchasing records ([Paper plane purchase list](../about/sources/index.md#flight-purchases)):
 
 | Item | Unit price | Quantity | Purpose |
 | --- | --- | --- | --- |

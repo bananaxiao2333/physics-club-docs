@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 description: Memorial-edition explanations of merit system terms.
-source_sha256: 72dfbb10b02b02533f4d0ce4937071fa8f9673d58e3ddf7cac35a22fd44fb7a1
+source_sha256: 57374169b8af69f2a6f08b422a24033dd1679f1008604be8417634c8ba36832c
 translated: 2026-09-18
 ---
 
@@ -9,7 +9,7 @@ translated: 2026-09-18
 
 <p class="memorial-kicker">GLOSSARY</p>
 
-The explanations below use the **memorial-edition wording** of appendix B of `资料/物理社功勋系统对话史料整理_纪念网站版.docx`;
+The explanations below use the **memorial-edition wording** of appendix B of [Merit system historical record](../../about/sources/index.md#merit-history);
 they are centred on how members understood things, and do not cover internal back-office operating parameters.
 The Chinese headwords are kept so that terms can be matched against the original documents.
 

@@ -19,7 +19,7 @@ tags:
 口语稿里写定的固定顺序是：
 **发牌 → 纸飞机活动 → 竞赛成果 → 招新 → 自媒体部门 → 会费说明**。
 
-出处：`资料/物理社团开场集会口语稿_.docx`、`资料/物理集会4.21final.pptx`（12 页）。
+出处：[开场集会口语稿](../about/sources/index.md#script-opening)、[4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final)（12 页）。
 
 ## 一 · 授牌
 

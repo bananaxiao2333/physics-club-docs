@@ -3,7 +3,7 @@ nav_label: "Photo Archive"
 title: Photo Archive
 description: Some moments never disperse — ten frames from the surviving material.
 translated: 2026-09-18
-source_sha256: 3ee7c8fc45d6209d112ce800ce6de2f72fed40f840391893306b5c8058666a21
+source_sha256: ef33f4ebc2bba2a635cf2db8f572c9d663c2347cdd5c8a6d4e933c4edba8dce1
 icon: lucide/images
 tags:
   - Primary-Source
@@ -147,7 +147,7 @@ Original design drafts and vector materials are in the [Design Archive](../desig
 
 ## List of Originals
 
-The materials directory `资料/微信assets/` holds **19 image files** in total.
+The materials directory [Original on-site photographs](../../about/sources/index.md#photo-assets) holds **19 image files** in total.
 The filenames keep their WeChat timestamps, so **every single one has a verifiable exact time**.
 
 !!! warning "What these times mean"

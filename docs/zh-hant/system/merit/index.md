@@ -12,8 +12,8 @@ icon: lucide/award
 <p class="memorial-kicker">LATE STAGE · THE MERIT SYSTEM</p>
 
 !!! info "資料出處"
-    本頁據 `资料/物理社功勋系统对话史料整理_纪念网站版.docx` 與
-    `资料/物理社功勋系统会员公开白皮书_正式版第一版.docx` 整理。
+    本頁據 [功勳系統史料整理](../../about/sources/index.md#merit-history) 與
+    [會員公開白皮書](../../about/sources/index.md#merit-whitepaper-member) 整理。
 
     前者是**專門為這座紀念網站編寫的史料整理稿**（整理日期 2026 年 9 月 18 日），
     並明確給出了本站應採用的三層公開邊界。

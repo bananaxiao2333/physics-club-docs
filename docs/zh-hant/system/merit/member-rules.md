@@ -9,7 +9,7 @@ description: 會員公開白皮書十二節 —— 定位、概念、賬戶、�
 <p class="memorial-kicker">MEMBER-FACING RULES</p>
 
 !!! info "資料出處與公開範圍"
-    本頁據 `资料/物理社功勋系统会员公开白皮书_正式版第一版.docx` 整理。
+    本頁據 [會員公開白皮書](../../about/sources/index.md#merit-whitepaper-member) 整理。
     該文件標註「適用對象：物理社全體會員」「**內部公開傳閱｜不得用於社團外商業宣傳**」。
 
     該白皮書自身聲明：涉及系統安全、後臺審批、供應商談判、未公開合作事項、

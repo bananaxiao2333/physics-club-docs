@@ -1,7 +1,7 @@
 ---
 title: "Egg Drop"
 description: "Structural design and shock absorption — dropping the most fragile thing, an egg, from a height and having it land intact."
-source_sha256: 34a53995270a0956b36011a9daa946e9f66475af8b8e10e0adaa10ff0044c2c3
+source_sha256: f3bb1f11f56e669344f7a267adb4f010d4312adc63a97df0d958e4877e4f60bf
 translated: 2026-09-18
 ---
 
@@ -10,7 +10,7 @@ translated: 2026-09-18
 <p class="memorial-kicker">THE FIRST EXPERIMENT</p>
 
 !!! note "What this page rests on"
-    `资料/物理社招新宣讲稿.wps` lists “Egg Drop” among the physics club's activities of the past year,
+    [Recruitment talk script](../about/sources/index.md#recruitment-script) lists “Egg Drop” among the physics club's activities of the past year,
     and states its significance as “a test of hands-on ability, and still more a display of engineering
     thinking and physical modelling ability”.
 
@@ -40,7 +40,7 @@ with a cushioning layer. What is fragile is not the egg; a structure without des
 > a fall from a height; the process is not only a test of hands-on ability, but a display of engineering
 > thinking and physical modelling ability.
 
-—— `资料/物理社招新宣讲稿.wps`
+—— [Recruitment talk script](../about/sources/index.md#recruitment-script)
 
 ## Why it kept being told
 

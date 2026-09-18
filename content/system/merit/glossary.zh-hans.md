@@ -7,7 +7,7 @@ description: 功勋系统术语的纪念版解释。
 
 <p class="memorial-kicker">GLOSSARY</p>
 
-以下解释采用 `资料/物理社功勋系统对话史料整理_纪念网站版.docx` 附录 B 的**纪念版口径**，
+以下解释采用 [功勋系统史料整理](../../about/sources/index.md#merit-history) 附录 B 的**纪念版口径**，
 以会员侧理解为主，不涉及后台内部执行参数。
 
 功勋

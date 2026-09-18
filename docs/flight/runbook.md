@@ -11,9 +11,9 @@ tags:
 <p class="memorial-kicker">THE RUNBOOK · 从筹备到收尾</p>
 
 !!! info "资料出处"
-    本页据 `资料/A4纸飞行节活动执行流程(1).docx` 整理，**这是留存材料中最完整的一份执行方案**：
+    本页据 [A4 纸飞行节执行流程](../about/sources/index.md#flight-runbook) 整理，**这是留存材料中最完整的一份执行方案**：
     筹备期四周节奏、上午场与下午场逐时段安排、五个专项组的全员定岗定责、奖项设置与物料清单。
-    另参 `资料/飞行节分工安排 2.docx`（简版分工与另一套赛制）与 `资料/副本A4纸飞行节活动执行流程.docx`。
+    另参 [飞行节分工安排](../about/sources/index.md#flight-roles)（简版分工与另一套赛制）与 [执行流程（另一版本）](../about/sources/index.md#flight-runbook-copy)。
 
 ## 基础信息
 
@@ -120,7 +120,7 @@ tags:
 11. 总负责人 + 副社长全场把控节奏，对接评委嘉宾，处理突发争议
 
 !!! note "赛制存在第二个版本"
-    `资料/飞行节分工安排 2.docx` 记载的是 **1 次预飞 + 2 次正式飞行**、
+    [飞行节分工安排](../about/sources/index.md#flight-roles) 记载的是 **1 次预飞 + 2 次正式飞行**、
     8 强决赛 **3 次**飞行。两份原始件不一致，此处并列保留、不合并。
     见 [资料出处](../about/sources/index.md)。
 
@@ -265,7 +265,7 @@ tags:
 10. 警戒线、隔离桩
 11. 引导牌若干
 
-采购明细与单价见 `资料/纸飞机采购表.xlsx`，原件清单见 [资料出处](../about/sources/index.md)。
+采购明细与单价见 [纸飞机采购表](../about/sources/index.md#flight-purchases)，原件清单见 [资料出处](../about/sources/index.md)。
 
 ## 相关章节
 

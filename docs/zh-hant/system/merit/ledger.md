@@ -9,8 +9,8 @@ description: 固定資金池、流動資金池、個人賬戶、總賬恆等式�
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "資料出處"
-    本頁據 `资料/物理社功勋系统资金流转白皮书_正式版第一版.docx` 的核心邏輯，
-    以 `资料/物理社功勋系统对话史料整理_纪念网站版.docx` 第 6–7 章的
+    本頁據 [資金流轉白皮書（正式版）](../../about/sources/index.md#merit-whitepaper-funds) 的核心邏輯，
+    以 [功勳系統史料整理](../../about/sources/index.md#merit-history) 第 6–7 章的
     **紀念版口徑**整理。具體的後臺執行參數不在本站公開範圍內。
 
 ## 賬戶結構

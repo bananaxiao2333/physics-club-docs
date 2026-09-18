@@ -2,7 +2,7 @@
 nav_label: "Design Archive"
 title: "Design Archive"
 description: "Letting the original designs speak for themselves — the blue club emblem and the whole visual system around it."
-source_sha256: b7c2989916ebb090de19ef9ee25fe968f0461f09db31642d82bc18db4af01c71
+source_sha256: f57ac5dff2481681e7f1ad5692a9a2d482900874ee165583fc612f5059ed9e50
 translated: 2026-09-18
 icon: lucide/palette
 tags:
@@ -14,14 +14,14 @@ tags:
 <p class="memorial-kicker">05 / THE MEMORY COLLECTION · DESIGN ARCHIVE</p>
 
 !!! info "Sources"
-    The club badge is a **parametric design project**, not just a few images. The original project is in `资料/物理社工牌/`:
+    The club badge is a **parametric design project**, not just a few images. The original project is in [Badge design project](../../about/sources/index.md#badge-readme):
 
-    - `README.txt` — notes on the design process: edit `物理社工牌设计全部模板.svgz` in Inkscape,
+    - [Badge design project readme](../../about/sources/index.md#badge-readme) — notes on the design process: edit `物理社工牌设计全部模板.svgz` in Inkscape,
       export every page in batch, then use NextGenerator to generate page by page from the fill-in roster, with the output placed in `dist`
     - `source/物理社工牌设计全部模板.svgz` — the source project behind all the templates
-    - `source/物理社成员组填充名单.csv` — group names, the codes `S/N/P/M` and colour values
-    - `source/物理社管理层填充名单.csv` — the roles and English names of the 14 officers
-    - `source/*.svg` — front and back vector templates for the member groups and the officers
+    - [Member group roster](../../about/sources/index.md#badge-roster-members) — group names, the codes `S/N/P/M` and colour values
+    - [Management roster](../../about/sources/index.md#badge-roster-management) — the roles and English names of the 14 officers
+    - [Badge vector templates](../../about/sources/index.md#badge-templates) — front and back vector templates for the member groups and the officers
     - `material/*.ttc` — fonts (the Microsoft YaHei family + BMDOHYEON)
 
     Filter these out and the badge is just an image; keep them and it is a reproducible design.

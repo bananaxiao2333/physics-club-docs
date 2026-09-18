@@ -1,7 +1,7 @@
 ---
 title: "The Ledger Model"
 description: The fixed fund pool, the circulating fund pool, individual accounts, the ledger identity and the multi-signature rules for the reward pool.
-source_sha256: ec4e89bafe1e0c957b4d26c02de1a2c2d05505542329f2ab32ee6dc5162e776b
+source_sha256: 292eac135dbba1b64ad4fca5371a1bcdf723dd1269ecd693a63975417d374157
 translated: 2026-09-18
 ---
 
@@ -10,8 +10,8 @@ translated: 2026-09-18
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "Sources"
-    This page is compiled from the core logic of `资料/物理社功勋系统资金流转白皮书_正式版第一版.docx`,
-    using the **memorial-edition wording** of chapters 6–7 of `资料/物理社功勋系统对话史料整理_纪念网站版.docx`.
+    This page is compiled from the core logic of [Funds white paper (formal version)](../../about/sources/index.md#merit-whitepaper-funds),
+    using the **memorial-edition wording** of chapters 6–7 of [Merit system historical record](../../about/sources/index.md#merit-history).
     The specific back-office operating parameters are not within this site's publication scope.
 
 ## Account structure

@@ -6,7 +6,7 @@ description: Officers, groups and advisors — all compiled from the originals i
 # original traditional-character forms (「孔耀聰」「脈衝星」) are kept for the same reason.
 allow_cjk: true
 translated: 2026-09-18
-source_sha256: b4b7c9c758cedc7cb7503feac32bc7e76af583e0e14aa2e632cb773d4e87a24b
+source_sha256: dbffd969322c5cfb44f0eac93f4938c9225c9c6f6b4476f2152419fbae1dd16f
 # ⚠️ 由 tools/docsgen.py 从 content/system/governance/roster.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
@@ -19,10 +19,10 @@ source_sha256: b4b7c9c758cedc7cb7503feac32bc7e76af583e0e14aa2e632cb773d4e87a24b
 
     | Content | Original |
     | --- | --- |
-    | Positions and English names of the 14 officers | `资料/物理社工牌/source/物理社管理层填充名单.csv` |
-    | Group names, codes, colour values | `资料/物理社工牌/source/物理社成员组填充名单.csv` |
-    | Group members and their classes | `资料/演示文稿1.pptx` page 2, the “PHYSIC CLUB分组” table |
-    | List of advisors | `资料/物理集会4.21final.pptx` page 4 |
+    | Positions and English names of the 14 officers | [Management roster](../../about/sources/index.md#badge-roster-management) |
+    | Group names, codes, colour values | [Member group roster](../../about/sources/index.md#badge-roster-members) |
+    | Group members and their classes | [12 May assembly deck](../../about/sources/index.md#deck-0512) page 2, the “PHYSIC CLUB分组” table |
+    | List of advisors | [21 April assembly deck (final)](../../about/sources/index.md#deck-0421-final) page 4 |
 
 !!! warning "A note on traditional/simplified characters and conventions"
     The original CSVs and slide decks are in **traditional Chinese characters** (for example 「孔耀聰」「脈衝星」).
@@ -66,12 +66,12 @@ source_sha256: b4b7c9c758cedc7cb7503feac32bc7e76af583e0e14aa2e632cb773d4e87a24b
 | 荣誉顾问 | 李佳佳 | Cathy | 4.21 集会第 4 页 |
 
 !!! note "A typo in one original"
-    `资料/颁牌稿子.wps` writes the teacher advisor as 「姚**弛**」,
+    [Badge ceremony speech](../../about/sources/index.md#script-badge-ceremony) writes the teacher advisor as 「姚**弛**」,
     while the 4.21 assembly slide deck and the online document both give 「姚**池**」. This page follows the majority of the originals and records it as 「姚池」.
 
 ## The Four Groups
 
-Source: `资料/物理社工牌/source/物理社成员组填充名单.csv`
+Source: [Member group roster](../../about/sources/index.md#badge-roster-members)
 
 | Group 组别 | Singularity | Code 代号 | Colour 颜色 |
 | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ These four colour values are the source of the palette for the club badge and th
 
 ## Group Members
 
-Source: the table on page 2 of `资料/演示文稿1.pptx`. The roster is transcribed **cell by cell** from the original table, and a class carries over from the last marked class in the same column.
+Source: the table on page 2 of [12 May assembly deck](../../about/sources/index.md#deck-0512). The roster is transcribed **cell by cell** from the original table, and a class carries over from the last marked class in the same column.
 
 === "奇点 · Singularity"
 

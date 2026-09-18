@@ -1,7 +1,7 @@
 ---
 title: "A4 Paper Flight Festival"
 description: "Preparation for a whole-school paper plane challenge — folding lessons, a school-wide guessing contest, laser ranging, live projection, awards and the release of the record."
-source_sha256: 3bb471fd3e0f37e2eef8675728b87f07b1e696a588904b9c7271f05ba4168a9c
+source_sha256: 93cb53d559d2fa97490aa972b71de24848fbafb5eaeb56075dc59d2bcb9d6aa4
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -36,7 +36,7 @@ The assembly publicity script put it this way:
 
 ## Timeline (final version from the 4.21 assembly)
 
-Source: `资料/物理集会4.21final.pptx`, page 6
+Source: [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final), page 6
 
 | Time | Segment |
 | --- | --- |
@@ -57,7 +57,7 @@ Source: `资料/物理集会4.21final.pptx`, page 6
 
 ## How the official competition was run
 
-**Version A** — source: `资料/A4纸飞行节活动执行流程(1).docx`
+**Version A** — source: [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
 
 - **Group stage**: 1 trial flight + **3** official flights; the best score selects the **last 8**
 - **Final of the last 8**: **5** flights; added to the group stage score and taking the best, deciding
@@ -65,7 +65,7 @@ Source: `资料/物理集会4.21final.pptx`, page 6
 - **Student–teacher challenge**: student groups arranged their own match against teachers, teachers could
   use the physics club's equipment, and **an award was given win or lose**
 
-**Version B** — source: `资料/飞行节分工安排 2.docx`
+**Version B** — source: [Flight festival role assignments](../about/sources/index.md#flight-roles)
 
 - **Group stage**: 1 trial flight + **2** official flights; the best score selects the last 8
 - **Final of the last 8**: **3** flights; added to the group stage score and taking the best
@@ -76,13 +76,13 @@ The two versions disagree on the number of flights; they are not merged here.
 
 | Stated rule | Source |
 | --- | --- |
-| Register as a group, **2–6 people** per group, with a registration desk open on the day | `物理社飞行节集会宣传稿.wps` |
+| Register as a group, **2–6 people** per group, with a registration desk open on the day | [Flight festival promotion script](../about/sources/index.md#flight-promo-script) |
 | **4–6 people** per group | `紙飛機挑戰賽 签到表.docx` (file name in traditional characters) |
-| **At most six people** per group, awards given by group | `A4纸飞行节活动执行流程(1).docx` |
+| **At most six people** per group, awards given by group | [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook) |
 
 The scoring rule was consistent: **the final result is the straight-line distance between the start point
 and where the paper plane lands**
-(`物理社集会0427.pptx`, page 2, “Measurement notes”).
+([27 April assembly deck](../about/sources/index.md#deck-0427), page 2, “Measurement notes”).
 
 ## How the field made sure the results could be verified
 

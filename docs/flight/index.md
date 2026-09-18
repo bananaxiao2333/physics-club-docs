@@ -15,9 +15,9 @@ tags:
 <p class="memorial-kicker">03 / THE MEMORY COLLECTION · THE FLIGHT PROJECT</p>
 
 !!! info "资料出处"
-    本页据 `资料/物理集会4.21final.pptx`（第 6 页）、`资料/物理社集会0427.pptx`、
-    `资料/物理社飞行节集会宣传稿.wps`、`资料/A4纸飞行节活动执行流程(1).docx`
-    与 `资料/纸飞机采购表.xlsx` 整理。
+    本页据 [4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final)（第 6 页）、[4 月 27 日集会演示文稿](../about/sources/index.md#deck-0427)、
+    [飞行节集会宣传稿](../about/sources/index.md#flight-promo-script)、[A4 纸飞行节执行流程](../about/sources/index.md#flight-runbook)
+    与 [纸飞机采购表](../about/sources/index.md#flight-purchases) 整理。
 
 ## 一句话说明
 
@@ -67,7 +67,7 @@ tags:
 
 - [场地布局图](../assets/flight-map.jpg)
 - 引导牌原件见 [设计原档](../collection/design/index.md)
-- 矢量原件 `资料/飞行比赛地图.svgz`
+- 矢量原件 [比赛场地图](../about/sources/index.md#flight-map)
 
 ## 奖项设置
 
@@ -89,7 +89,7 @@ tags:
 原文档列出的 11 项准备物料、以及采购明细与单价，
 见 [执行流程 · 准备物料](runbook.md#materials)。
 
-已确认的采购记录（`资料/纸飞机采购表.xlsx`）：
+已确认的采购记录（[纸飞机采购表](../about/sources/index.md#flight-purchases)）：
 
 | 项目 | 单价 | 数量 | 用途 |
 | --- | --- | --- | --- |

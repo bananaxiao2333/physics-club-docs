@@ -1,7 +1,7 @@
 ---
 title: "Purchasing and Materials List"
 description: "The A4 Paper Flight Festival · the surviving purchasing records and the on-site materials list."
-source_sha256: c957c37ed861bd44fbd757e0b7b3bc325fe8458ff7006d2baad6bd059fab6525
+source_sha256: 9bfad4603af11a3676908f8c2d27097d10e54392a35e4fca03fc61f7e5dcf7eb
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -12,9 +12,9 @@ tags:
 <p class="memorial-kicker">PROCUREMENT & MATERIALS</p>
 
 !!! info "Sources"
-    - **Purchasing records**: `资料/纸飞机采购表.xlsx` (the only list with unit prices)
-    - **Preparation materials**: the 11 items of “preparation materials” in the final section of `资料/A4纸飞行节活动执行流程(1).docx`
-    - **On-site forms**: three blank templates, `资料/紙飛機挑戰賽 报名表／成績表／签到表.docx`
+    - **Purchasing records**: [Paper plane purchase list](../about/sources/index.md#flight-purchases) (the only list with unit prices)
+    - **Preparation materials**: the 11 items of “preparation materials” in the final section of [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
+    - **On-site forms**: three blank templates, [Challenge on-site forms](../about/sources/index.md#flight-forms)
 
 ## Purchasing records
 
