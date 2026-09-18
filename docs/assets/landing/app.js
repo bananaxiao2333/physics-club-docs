@@ -35,7 +35,11 @@ document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);last
 // 15000px 之外——读者滚完首页也不知道这个站有十个分区。这里按滚动位置揭开它。
 // 窄屏不做：那里靠页眉的抽屉进导航（CSS 里 .landing-tabs 直接 display:none）。
 const landingTabs=document.querySelector('[data-landing-tabs]');
-if(landingTabs&&matchMedia('(min-width: 60em)')){
-  const syncTabs=()=>{landingTabs.toggleAttribute('data-visible',scrollY>innerHeight*.7);};
-  addEventListener('scroll',syncTabs,{passive:true});syncTabs();
+if(landingTabs){
+  // 宽度每次判断，不只在加载时判断一次——窗口是可以中途变宽变窄的。
+  // 窄屏另有 CSS 的 display:none 兜着，多设一个 data-visible 也不会露出来。
+  const wide=matchMedia('(min-width: 60em)');
+  const syncTabs=()=>{landingTabs.toggleAttribute('data-visible',wide.matches&&scrollY>innerHeight*.7);};
+  addEventListener('scroll',syncTabs,{passive:true});
+  wide.addEventListener('change',syncTabs);syncTabs();
 }

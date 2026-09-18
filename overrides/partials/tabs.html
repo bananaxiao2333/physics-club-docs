@@ -11,13 +11,28 @@
     其余语言           → 对应语言分区里的子项
 
   本文件其余部分与主题自带的 partials/tabs.html 保持一致，主题升级时需同步。
+
+  另一处与主题原版不同的地方：落地页的 <nav> 不带 data-md-component="tabs"。
+
+  主题的 JS 会订阅 [data-md-component=tabs]，按「这个元素的视口位置」给
+  <nav> 加 hidden 属性（bundle 里的 Oc/of：offset.y >= 10 就 hidden）。
+  而 .md-tabs[hidden] .md-tabs__link{opacity:0}——标签文字直接变透明。
+  文档页里这个判断是对的（标签栏滚走了就该收），落地页里则不然：
+  那一条标签栏由 overrides/main.html 包进 .landing-tabs，位置由我们自己的
+  data-visible 决定，主题量到的位置永远不是它以为的那个，于是它一直挂 hidden。
+  后果是标签栏滑下来却没有字，只剩一排框——正是「看不到，只看到一个个框」。
+  落地页不挂这个钩子，等于把这条标签栏的所有权完整交给我们。
+
+  这一条也顺带落在 404 页上：它的 page.url 同样是空串，所以同样不挂钩子。
+  那里标签栏就在正常文档流里、本来也没被主题收起来过，行为不变。
 -#}
 {% import "partials/tabs-item.html" as item with context %}
 {% set here = page.url | default("", true) %}
 {% set is_en = here[:3] == "en/" %}
 {% set is_hant = here[:8] == "zh-hant/" %}
+{% set is_landing = here in ("", "en/", "zh-hant/") %}
 {% set lang_dir = "zh-hant" if is_hant else ("en" if is_en else "") %}
-<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}"{% if not is_landing %} data-md-component="tabs"{% endif %}>
   <div class="md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav.items %}

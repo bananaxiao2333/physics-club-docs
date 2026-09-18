@@ -441,6 +441,16 @@ SMOKE = [
     ("story/index.html", "md-path__link", "面包屑"),
 ]
 
+#: 首页标签栏的归属：它被 .landing-tabs 包住、位置由我们自己的 JS 决定，
+#: 所以**不能**带 data-md-component="tabs"。主题的 JS 会据此订阅这个元素、
+#: 按它的视口位置给它挂 hidden 属性；而 .md-tabs[hidden] .md-tabs__link
+#: {opacity:0}——整排标签的字直接变透明。同样是静默失败：构建不报错、标签栏
+#: 也照滑出来，只是没有字，看起来「只看到一个个框」。
+#: 内容页反过来，必须保留这个属性，否则主题不再替它们收起滚走的标签栏。
+LANDING_TABS_OWNED = ("index.html", "en/index.html", "zh-hant/index.html")
+CONTENT_TABS_OWNED = ("story/index.html", "en/story/index.html", "zh-hant/story/index.html")
+TABS_COMPONENT_RE = re.compile(r'<nav class="md-tabs"[^>]*data-md-component="tabs"')
+
 
 def inspect_rendered_output() -> dict:
     """对构建产物做一组「该有的东西真的在」的断言。"""
@@ -464,6 +474,25 @@ def inspect_rendered_output() -> dict:
             missing.append(f"{rel} 不存在，无法检查{label}")
         elif needle not in page.read_text(encoding="utf-8"):
             missing.append(f"{rel} 缺少{label}（模板里的条件可能恒为假）")
+
+    # 首页标签栏的归属（见 LANDING_TABS_OWNED 的说明）。两种错法都是静默的：
+    # 一是首页那一条被主题接管、字全体透明；二是内容页那一条被我们顺手剥掉了钩子。
+    for rel in LANDING_TABS_OWNED:
+        page = site / rel
+        if not page.exists():
+            missing.append(f"{rel} 不存在，无法检查首页标签栏的归属")
+            continue
+        html = page.read_text(encoding="utf-8")
+        if 'class="landing-tabs"' not in html:
+            missing.append(f"{rel} 的标签栏没有被 .landing-tabs 包住")
+        if TABS_COMPONENT_RE.search(html):
+            missing.append(f'{rel} 的标签栏仍带 data-md-component="tabs"，主题会把整排标签的字收成透明')
+    for rel in CONTENT_TABS_OWNED:
+        page = site / rel
+        if not page.exists():
+            missing.append(f"{rel} 不存在，无法检查内容页标签栏的归属")
+        elif not TABS_COMPONENT_RE.search(page.read_text(encoding="utf-8")):
+            missing.append(f'{rel} 的标签栏丢了 data-md-component="tabs"，主题不再替它收起滚走的标签栏')
 
     # 全站内部链接：把每一条 href/src 解析成绝对路径，看文件在不在。
     # 这一类 bug（模板里相对路径写错、`~ x | url` 少了括号、派生语种深一层…）
