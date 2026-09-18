@@ -6,48 +6,20 @@ site_author = "英东物理社"
 
 copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 
-nav = [
-  { "序章" = "index.md" },
-  { "社团故事" = [
-    { "概览" = "story/index.md" },
-    { "鸡蛋撞地球" = "story/egg-drop.md" },
-    { "物理竞赛 · 100% 获奖率" = "story/ipc-2026.md" },
-    { "第一次集会暨招新" = "story/gathering-0421.md" },
-    { "A4 纸飞行节" = "story/festival-0430.md" },
-    { "停摆" = "story/suspension-0529.md" },
-  ] },
-  { "飞行计划" = [
-    { "活动总览" = "flight/index.md" },
-    { "执行流程" = "flight/runbook.md" },
-    { "采购与物料明细" = "flight/materials.md" },
-  ] },
-  { "集会原稿" = [
-    { "概览" = "gatherings/index.md" },
-    { "04.21 逐页实录" = "gatherings/0421.md" },
-    { "04.27 逐页实录" = "gatherings/0427.md" },
-    { "05.12 逐页实录" = "gatherings/0512.md" },
-  ] },
-  { "设计原档" = "design/index.md" },
-  { "影像档案" = "archive/index.md" },
-  { "制度与名单" = [
-    { "会费与贡献积分" = "governance/fees.md" },
-    { "组织架构与名单" = "governance/roster.md" },
-  ] },
-  { "功勋系统" = [
-    { "概览" = "merit/index.md" },
-    { "会员侧规则全文" = "merit/member-rules.md" },
-    { "资金流转模型" = "merit/ledger.md" },
-    { "术语表" = "merit/glossary.md" },
-    { "白皮书与留存边界" = "merit/whitepapers.md" },
-  ] },
-  { "资料出处" = "sources/index.md" },
-  { "致谢与后记" = "thanks/index.md" },
-]
 
 # extra_css / extra_javascript 必须在任何 [[project.*]] 表之前，
 # 否则会被 TOML 归入该表，导致 project.extra_css 为空。
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
+
+# 分语种的外观文案。
+# Zensical 的 site_name / copyright 是全站唯一的，而本站中英共用一次构建，
+# 所以英文站名与版权行放在这里，由模板按页面语言取用
+# （见 overrides/partials/header.html、footer.html、main.html）。
+# ⚠️ 同样必须在 [[project.extra.alternate]] 之前，否则会被归入该表。
+[project.extra]
+site_name_en = "Freedom Was Here"
+copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 
 [[project.extra.alternate]]
 name = "English"
@@ -61,6 +33,7 @@ lang = "zh"
 
 
 [project.plugins]
+awesome-nav = {}
 # 图片灯箱：原档与照片页点击放大
 glightbox = {}
 # 输出压缩

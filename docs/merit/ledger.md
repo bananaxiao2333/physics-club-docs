@@ -1,6 +1,7 @@
 ---
 title: 资金流转模型
 description: 固定资金池、流动资金池、个人账户、总账恒等式与奖励池多签规则。
+# ⚠️ 由 tools/docsgen.py 从 content/merit/ledger.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 资金流转模型

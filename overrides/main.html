@@ -1,18 +1,25 @@
 {#-
-  模板覆盖：首页使用文档站的主题外壳（页眉、导航、页脚），
-  正文位置注入原站的沉浸式落地页内容。
+  模板覆盖：让落地页使用文档站的主题外壳（页眉、导航、页脚）。
+
+  正文位置注入原站的沉浸式落地页，中英各一份：
+    /        → partials/landing.html      （中文）
+    /en/     → partials/landing.en.html   （英文）
 
   其余页面不受影响。
 
   注意：Zensical 的模板上下文里 `page.is_homepage` 未定义
-  （主题 base.html 自己也依赖它为空），因此用 `page.url` 为空判别首页。
+  （主题 base.html 自己也依赖它为空），因此用 `page.url` 判别：
+  中文首页为 ''，英文首页为 'en/'。
 -#}
 {% extends "base.html" %}
 
 {% set is_home = not page.url %}
+{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+{% set is_landing = is_home or page.url == "en/" %}
+{% set site_name = config.extra.site_name_en | d(config.site_name, true) if is_en else config.site_name %}
 
 {% block extrahead %}
-  {% if is_home %}
+  {% if is_landing %}
     {# 原站落地页的版式与动效样式；配色与字体由 landing.css 接管为主题变量 #}
     <link rel="stylesheet" href="{{ 'assets/landing/style.css' | url }}">
     <link rel="stylesheet" href="{{ 'assets/landing/exhibition.css' | url }}">
@@ -20,19 +27,38 @@
   {% endif %}
 {% endblock %}
 
-{# 落地页内容放在页眉之下、正文区之上 #}
-{% block hero %}
-  {% if is_home %}{% include "partials/landing.html" %}{% endif %}
+{# <title>：站名按页面语言取；落地页只留站名，不重复 #}
+{% block htmltitle %}
+  {% if is_landing %}
+    <title>{{ site_name }}</title>
+  {% elif page.meta and page.meta.title %}
+    <title>{{ page.meta.title }} - {{ site_name }}</title>
+  {% elif page.title %}
+    <title>{{ page.title | striptags }} - {{ site_name }}</title>
+  {% else %}
+    <title>{{ site_name }}</title>
+  {% endif %}
 {% endblock %}
 
-{# 首页不渲染 index.md 的正文（其内容已由落地页承载） #}
+{# 落地页内容放在页眉之下、正文区之上 #}
+{% block hero %}
+  {% if is_landing %}
+    {% if is_en %}
+      {% include "partials/landing.en.html" %}
+    {% else %}
+      {% include "partials/landing.html" %}
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{# 落地页不渲染 index.md 的正文（其内容已由落地页承载） #}
 {% block container %}
-  {% if not is_home %}{{ super() }}{% endif %}
+  {% if not is_landing %}{{ super() }}{% endif %}
 {% endblock %}
 
 {% block scripts %}
   {{ super() }}
-  {% if is_home %}
+  {% if is_landing %}
     <script src="{{ 'assets/landing/app.js' | url }}" defer></script>
     <script src="{{ 'assets/landing/exhibition.js' | url }}" defer></script>
   {% endif %}

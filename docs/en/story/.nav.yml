@@ -1,0 +1,10 @@
+# ⚠️ 本文件由 tools/navgen.py 自动生成，请勿手改。
+# 顺序与显示名来自同目录 index.md 的 YAML 前置元数据（nav / nav_label / title）。
+# 重新生成： uv run python tools/navgen.py
+nav:
+- The Club's Story: index.md
+- TODO: egg-drop.md
+- TODO: ipc-2026.md
+- TODO: gathering-0421.md
+- TODO: festival-0430.md
+- TODO: suspension-0529.md

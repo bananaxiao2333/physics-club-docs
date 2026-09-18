@@ -2,6 +2,7 @@
 title: 会费与贡献积分制度
 subtitle: 让制度服务社团建设
 date: 2026-04-27
+# ⚠️ 由 tools/docsgen.py 从 content/governance/fees.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 !!! info "资料出处"

@@ -4,6 +4,7 @@ kind: end
 order: 5
 place: ——
 summary: 留存资料截止于 2026 年 5 月 12 日。本页是这场纪事的最后一格。
+# ⚠️ 由 tools/docsgen.py 从 content/story/suspension-0529.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 停摆

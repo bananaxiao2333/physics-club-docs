@@ -5,6 +5,7 @@ kind: major
 order: 3
 place: 学校礼堂
 summary: 授牌、竞赛成果、招新、自媒体部门、会费说明 —— 一晚讲完全部家底。
+# ⚠️ 由 tools/docsgen.py 从 content/story/gathering-0421.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 本学期第一次集会暨招新

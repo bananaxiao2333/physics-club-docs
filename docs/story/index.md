@@ -1,6 +1,9 @@
 ---
+nav_label: "社团故事"
 title: 社团故事 · 概览
 description: 从一个「为什么」开始 —— 英东物理社的理念与足迹。
+nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
+# ⚠️ 由 tools/docsgen.py 从 content/story/index.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 社团故事

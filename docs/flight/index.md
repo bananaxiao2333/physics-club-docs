@@ -1,7 +1,10 @@
 ---
+nav_label: "飞行计划"
 title: A4 纸飞行节 · 活动总览
 subtitle: 以纸为帆，航迹英东
 tagline: 一张 A4 纸能飞多远？来了你就知道了。
+nav: ["runbook", "materials"]
+# ⚠️ 由 tools/docsgen.py 从 content/flight/index.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # A4 纸飞行节 · 活动总览

@@ -3,7 +3,12 @@
   并在其上方保留主题的「上一页 / 下一页」导航。
 
   全站统一使用本模板（覆盖主题的 partials/footer.html）。
+  页脚文案分中英两份，按 page.url 取用；站名与版权来自
+  zensical.toml 的 [project.extra]（Zensical 的 site_name 是全站唯一的）。
 -#}
+{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+{% set site_name = config.extra.site_name_en | d(config.site_name, true) if is_en else config.site_name %}
+{% set home_url = "en/" if is_en else nav.homepage.url %}
 <footer class="md-footer">
   {% if "navigation.footer" in features %}
     {% if page.previous_page or page.next_page %}
@@ -52,20 +57,21 @@
   {#- 纪念站页脚：原站落地页的三段式版式 -#}
   <div class="memorial-footer">
     <div class="memorial-footer__brand">
-      <a class="memorial-footer__title" href="{{ nav.homepage.url | url }}">
-        <img class="memorial-footer__logo" src="{{ 'assets/club-logo.png' | url }}" alt="ASJ 英东物理社社徽">
-        自由曾在此<span>↗</span>
+      <a class="memorial-footer__title" href="{{ home_url | url }}">
+        <img class="memorial-footer__logo" src="{{ 'assets/club-logo.png' | url }}"
+             alt="{{ 'ASJ Yingdong Physics Club emblem' if is_en else 'ASJ 英东物理社社徽' }}">
+        {{ site_name }}<span>↗</span>
       </a>
-      <p>献给 ASJ 英东物理社，和每一个曾经在这里发问的人。</p>
+      <p>{% if is_en %}For the ASJ Yingdong Physics Club, and for everyone who once came here to ask.{% else %}献给 ASJ 英东物理社，和每一个曾经在这里发问的人。{% endif %}</p>
     </div>
     <div class="memorial-footer__meta">
       THE CLUB HAS ENDED.<br>
       THE CURIOSITY HAS NOT.<br>
-      <a href="{{ 'sources/' | url }}">资料与编后说明 ↗</a>
+      <a href="{{ 'sources/' | url }}">{% if is_en %}Sources &amp; editorial notes ↗{% else %}资料与编后说明 ↗{% endif %}</a>
     </div>
     <div class="memorial-footer__bottom">
-      <span>ASJ YINGDONG PHYSICS CLUB · 纪念站</span>
-      <a href="#top">回到顶部 ↑</a>
+      <span>ASJ YINGDONG PHYSICS CLUB · {% if is_en %}MEMORIAL{% else %}纪念站{% endif %}</span>
+      <a href="#top">{% if is_en %}Back to top ↑{% else %}回到顶部 ↑{% endif %}</a>
     </div>
   </div>
 </footer>

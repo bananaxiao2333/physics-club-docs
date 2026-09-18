@@ -1,6 +1,7 @@
 ---
 title: 会员侧规则全文
 description: 会员公开白皮书十二节 —— 定位、概念、账户、取得、使用、结算、奖励、账本、退款、权利、义务、常见问题。
+# ⚠️ 由 tools/docsgen.py 从 content/merit/member-rules.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 会员侧规则全文

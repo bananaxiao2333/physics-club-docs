@@ -1,0 +1,40 @@
+{#-
+  模板覆盖：语言切换器指向**对应页面**，而不是语言首页。
+
+  中文与英文的目录结构完全镜像（content/ 下同名不同后缀视为同一篇，
+  由 tools/docsgen.py 生成 docs/ 与 docs/en/ 两棵树），所以对应页
+  就是同一个路径换一个语言前缀：
+      /story/       ↔  /en/story/
+      /merit/ledger/ ↔  /en/merit/ledger/
+
+  主题原版直接用 config.extra.alternate 里的 link（语言首页），
+  这里按当前页面推算对应页。hreflang 仍沿用配置里的语言首页。
+
+  本文件其余部分与主题的 partials/alternate.html 保持一致。
+-#}
+{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+{% set here = page.url | default("", true) %}
+{% set counterpart = here[3:] if is_en else "en/" ~ here %}
+{% if not counterpart %}{% set counterpart = nav.homepage.url %}{% endif %}
+<div class="md-header__option">
+  <div class="md-select">
+    {% set icon = config.theme.icon.alternate or "material/translate" %}
+    <button class="md-header__button md-icon" aria-label="{{ lang.t('select.language') }}">
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        {% for alt in config.extra.alternate %}
+          {#- 当前语言指向本页，另一种语言指向对应页 -#}
+          {% set is_current = (alt.lang == "en") == is_en %}
+          <li class="md-select__item">
+            <a href="{{ './' if is_current else (counterpart | url) }}" hreflang="{{ alt.lang }}"
+               class="md-select__link"{% if is_current %} aria-current="true"{% endif %}>
+              {{ alt.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

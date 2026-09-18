@@ -1,6 +1,9 @@
 ---
+nav_label: "功勋系统"
 title: 功勋系统
 description: 物理社后期的内部会费、贡献与奖励记录机制 —— 一项组织实验。
+nav: ["member-rules", "ledger", "glossary", "whitepapers"]
+# ⚠️ 由 tools/docsgen.py 从 content/merit/index.zh.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 # 功勋系统

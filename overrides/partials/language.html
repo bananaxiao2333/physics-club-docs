@@ -1,0 +1,18 @@
+{#-
+  模板覆盖：语言包按页面选，而不是按全站选。
+
+  为什么需要它：
+  Zensical 的界面文案语言是**全站唯一**的（config.theme.language），
+  而本站中英双语共用一次构建，需要一个页面一个语言包。
+  主题的 base.html 通过 {% raw %}{% import "partials/language.html" as lang with context %}{% endraw %}
+  取文案，所以覆盖这一个文件就够：界面文案与 <html lang> 都会跟着页面走
+  —— base.html 里写的是 <html lang="{{ lang.t('language') }}">。
+
+  语言判定沿用 page.url 前缀（中文首页为 ''，英文首页为 'en/'）。
+  回退链保持主题原样：当前语言包 → 英文包 → 键名本身。
+-#}
+{% set fallback_language = config.theme.language | d("en", true) %}
+{% set page_language = "en" if (page.url | default("", true))[:3] == "en/" else fallback_language %}
+{% import "partials/languages/" ~ page_language ~ ".html" as lang %}
+{% import "partials/languages/en.html" as fallback %}
+{% macro t(key) %}{{ lang.t(key) or fallback.t(key) or key }}{% endmacro %}
