@@ -79,6 +79,15 @@ def first_h1(path: Path) -> str | None:
     return None
 
 
+def nav_hidden(md: Path) -> bool:
+    """该页是否声明要从导航里隐去（前置元数据 nav_hidden: true）。
+
+    用于那些「由页面内链与页脚到达、但不占一格导航」的页，例如标签页——
+    本站分区已有十一格标签，再塞一格会把标签栏挤成横向滚动。
+    """
+    return bool(read_front_matter(md).get("nav_hidden"))
+
+
 def nav_label(md: Path) -> str:
     """该页在**上一级**导航里显示的名字。"""
     fm = read_front_matter(md)
@@ -105,7 +114,8 @@ def discover(directory: Path, *, root: bool) -> list[Path]:
         if entry.is_dir():
             if root and entry in OTHER_LANG_DIRS:
                 continue
-            if (entry / "index.md").exists():
+            index = entry / "index.md"
+            if index.exists() and not nav_hidden(index):
                 found.append(entry)
         elif entry.is_file() and entry.suffix == ".md" and entry.name != "index.md":
             found.append(entry)

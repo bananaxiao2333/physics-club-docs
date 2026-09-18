@@ -1,8 +1,10 @@
 ---
 title: "A4 Paper Flight Festival"
 description: "Preparation for a whole-school paper plane challenge — folding lessons, a school-wide guessing contest, laser ranging, live projection, awards and the release of the record."
-source_sha256: 2b15498e709e576627f3536f01b031387c2b0cd254f73903f9382b50533ce0a5
+source_sha256: d599c913dad04c9a8249dc1e7146955de0cbb73a4f586bc86ce4e8db28900476
 translated: 2026-09-18
+tags:
+  - A4-Flight
 ---
 
 # A4 Paper Flight Festival

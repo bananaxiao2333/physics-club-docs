@@ -3,6 +3,8 @@ nav_label: "影像档案"
 title: 影像档案
 description: 有些瞬间，不会散场 —— 来自留存资料的十帧记忆。
 icon: lucide/images
+tags:
+  - Primary-Source
 # ⚠️ 由 tools/docsgen.py 从 content/archive/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

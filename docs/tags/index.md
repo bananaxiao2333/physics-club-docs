@@ -1,0 +1,22 @@
+---
+nav_label: "标签"
+title: 标签 · 按线索浏览
+description: 按集会日期、项目代号与原件类别浏览本站各页。
+icon: lucide/tags
+nav: []
+nav_hidden: true
+# ⚠️ 由 tools/docsgen.py 从 content/tags/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
+---
+
+# 标签
+
+<p class="memorial-kicker">TAGS · 按线索横着走</p>
+
+本站的分区是纵向的（故事、飞行、集会、设计……）。标签是横向的线索：
+一次集会散落在好几个分区里，一个项目也跨了好几页。
+
+标签用**语言中立的标识符**——日期与项目代号。原因是标签索引全站只有一份
+（三种语言共用），若各语言各写一套中文/英文标签，索引里会同时出现
+「动手做」和「動手做」两份，只是噪音。
+
+<!-- material/tags -->

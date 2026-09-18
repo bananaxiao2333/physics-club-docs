@@ -4,10 +4,12 @@ title: "A4 Paper Flight Festival · Event Overview"
 subtitle: "Paper for sails, a flight path over Yingdong"
 tagline: "How far can one sheet of A4 paper fly? Come and find out."
 description: "Overview of the A4 Paper Flight Festival: basic information, the three planned moments, the site layout, the awards, and what the surviving material does not record."
-source_sha256: f54a386c2155f9ece1668befeea03b350d1fbce5e6326548b966f77018eaf59c
+source_sha256: c21ed80c12be96201b1969f713aa9c7b2a871cc2175be3ea82af73f4c1020c99
 translated: 2026-09-18
 nav: ["runbook", "materials"]
 icon: lucide/send
+tags:
+  - A4-Flight
 # ⚠️ 由 tools/docsgen.py 从 content/flight/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

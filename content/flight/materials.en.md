@@ -1,8 +1,10 @@
 ---
 title: "Purchasing and Materials List"
 description: "The A4 Paper Flight Festival · the surviving purchasing records and the on-site materials list."
-source_sha256: 3a3e3b9d19e018d269432be544074448cf25665d8f006d7ccc91c06f607a8d00
+source_sha256: 0b8ea510cb27a70c0265bdaa3a2e44fd9e813eded35bd87324e5aa30d2ea7465
 translated: 2026-09-18
+tags:
+  - A4-Flight
 ---
 
 # Purchasing and Materials List

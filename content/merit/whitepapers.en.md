@@ -1,8 +1,11 @@
 ---
 title: "White Papers and the Retention Boundary"
 description: The document lineage of the merit system, and why this site publishes only part of it.
-source_sha256: ebbe417547f5c3096b05b30b180a0edc09ab9d78cfebd09d443231299edffc0e
+source_sha256: cde15df0ac6ce43aa6b78d0d47b5be1f21d246f9f224441885bc5ef9c62e310c
 translated: 2026-09-18
+tags:
+  - Primary-Source
+  - 2026-05-12
 ---
 
 # White Papers and the Retention Boundary

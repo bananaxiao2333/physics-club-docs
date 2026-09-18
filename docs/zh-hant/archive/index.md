@@ -3,6 +3,8 @@ nav_label: "影像檔案"
 title: 影像檔案
 description: 有些瞬間，不會散場 —— 來自留存資料的十幀記憶。
 icon: lucide/images
+tags:
+  - Primary-Source
 # ⚠️ 由 tools/docsgen.py 從 content/archive/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

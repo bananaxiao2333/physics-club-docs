@@ -4,6 +4,10 @@ title: 集會原稿
 description: 把時間翻回那一頁 —— 2026 年春季的三份集會演示文稿。
 nav: ["0421", "0427", "0512"]
 icon: lucide/presentation
+tags:
+  - 2026-04-21
+  - 2026-04-27
+  - 2026-05-12
 # ⚠️ 由 tools/docsgen.py 從 content/gatherings/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

@@ -37,6 +37,7 @@ import hashlib
 import json
 import re
 import sys
+import urllib.parse
 from datetime import date
 from pathlib import Path
 
@@ -467,6 +468,28 @@ def inspect_rendered_output() -> dict:
             missing.append(f"{rel} 不存在，无法检查{label}")
         elif needle not in page.read_text(encoding="utf-8"):
             missing.append(f"{rel} 缺少{label}（模板里的条件可能恒为假）")
+
+    # 全站内部链接：把每一条 href/src 解析成绝对路径，看文件在不在。
+    # 这一类 bug（模板里相对路径写错、`~ x | url` 少了括号、派生语种深一层…）
+    # 已经出现过三次，而构建阶段一律不报错，只在读者点到时才 404，所以在这里兜住。
+    broken: list[str] = []
+    for page in sorted(site.rglob("*.html")):
+        rel = page.relative_to(site).as_posix()
+        base = "/" + (rel[: -len("index.html")] if rel.endswith("index.html") else rel)
+        for match in re.finditer(r'(?:href|src)="([^"]+)"', page.read_text(encoding="utf-8", errors="ignore")):
+            raw = match.group(1)
+            if not raw or raw[0] in "#?" or raw.startswith(("http://", "https://", "mailto:", "data:", "javascript:")):
+                continue
+            target = urllib.parse.urljoin(base, urllib.parse.unquote(raw.split("#")[0].split("?")[0]))
+            fs = site / target.lstrip("/")
+            if fs.is_dir():
+                fs = fs / "index.html"
+            if not fs.exists() and not (site / target.lstrip("/")).with_suffix(".html").exists():
+                broken.append(f"{rel} → {raw}")
+
+    if broken:
+        shown = sorted(set(broken))[:8]
+        missing.append(f"站内有 {len(broken)} 条内部链接取不到：" + "；".join(shown))
 
     record["status"] = "drift" if missing else "ok"
     record["next"] = "；".join(missing)

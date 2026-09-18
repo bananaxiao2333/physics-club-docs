@@ -1,6 +1,8 @@
 ---
 title: 执行流程
 description: A4 纸飞行节 · 从筹备到收尾的定岗定责（据执行流程原始文档）。
+tags:
+  - A4-Flight
 ---
 
 # 执行流程

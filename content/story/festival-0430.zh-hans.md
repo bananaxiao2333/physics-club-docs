@@ -5,6 +5,8 @@ kind: major
 order: 4
 place: 学校大操场
 summary: 全校性的纸飞机挑战赛筹备 —— 折纸教学、全校竞猜、激光测距、实时投屏、颁奖与纪录发布。
+tags:
+  - A4-Flight
 ---
 
 # A4 纸飞行节

@@ -2,9 +2,11 @@
 nav_label: "Sources"
 title: "Sources"
 description: "The full list of original material behind every page on this site, with editorial notes."
-source_sha256: 419e3b7d40f88bb44ca91882c9bbfeb60ee6743e14c98b4811225c116c20740f
+source_sha256: 10c5f7dabac7db7c0135255448f36d38a1612332c5f7585ed6066133340c961f
 translated: 2026-09-18
 icon: lucide/file-text
+tags:
+  - Primary-Source
 # ⚠️ 由 tools/docsgen.py 从 content/sources/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

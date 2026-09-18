@@ -5,6 +5,8 @@ kind: major
 order: 4
 place: 學校大操場
 summary: 全校性的紙飛機挑戰賽籌備 —— 摺紙教學、全校競猜、激光測距、實時投屏、頒獎與紀錄發布。
+tags:
+  - A4-Flight
 # ⚠️ 由 tools/docsgen.py 從 content/story/festival-0430.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

@@ -5,6 +5,8 @@ subtitle: 以紙為帆，航跡英東
 tagline: 一張 A4 紙能飛多遠？來了你就知道了。
 nav: ["runbook", "materials"]
 icon: lucide/send
+tags:
+  - A4-Flight
 # ⚠️ 由 tools/docsgen.py 從 content/flight/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

@@ -3,9 +3,13 @@ nav_label: "The Assembly Room"
 title: Assembly Scripts
 description: Turning back to that page — three assembly slide decks from spring 2026.
 nav: ["0421", "0427", "0512"]
-source_sha256: e78ea2f3d9c693b21792a897e16b8efa2f53393bff0f5ffdf18ed9bc574eaded
+source_sha256: 927143b76e8c7cdbb4d6d0c0f5a235d3ad81a1336ef02fb4c32a216f8ad27ee9
 translated: 2026-09-18
 icon: lucide/presentation
+tags:
+  - 2026-04-21
+  - 2026-04-27
+  - 2026-05-12
 # ⚠️ 由 tools/docsgen.py 从 content/gatherings/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

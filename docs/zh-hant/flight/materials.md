@@ -1,6 +1,8 @@
 ---
 title: 採購與物料明細
 description: A4 紙飛行節 · 留存採購記錄與現場物料清單。
+tags:
+  - A4-Flight
 # ⚠️ 由 tools/docsgen.py 從 content/flight/materials.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

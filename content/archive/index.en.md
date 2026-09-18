@@ -3,8 +3,10 @@ nav_label: "Photo Archive"
 title: Photo Archive
 description: Some moments never disperse — ten frames from the surviving material.
 translated: 2026-09-18
-source_sha256: 88645f2ff5850c3f827a3916858c53cc8007af1fa4a10b8d3c4a7f7e3b4e6f0e
+source_sha256: 435a45272686cd0323b6020d3a2b72697c0c55fc3dadb83b82476bf9c04a1893
 icon: lucide/images
+tags:
+  - Primary-Source
 ---
 
 # Photo Archive

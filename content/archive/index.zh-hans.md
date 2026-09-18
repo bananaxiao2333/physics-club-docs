@@ -3,6 +3,8 @@ nav_label: "影像档案"
 title: 影像档案
 description: 有些瞬间，不会散场 —— 来自留存资料的十帧记忆。
 icon: lucide/images
+tags:
+  - Primary-Source
 ---
 
 # 影像档案

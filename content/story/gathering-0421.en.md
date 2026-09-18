@@ -1,8 +1,10 @@
 ---
 title: "The First Assembly and Recruitment of the Term"
 description: "Badges, competition results, recruitment, the social media department, membership dues — the club's whole hand laid out in one evening."
-source_sha256: 0b78543bf64303f210874c7b4e74b586dda48caee603b9e793f82390583f19e9
+source_sha256: 0a114d858ffc87ee7dec3eae115b4e4dcc69019c8c5b2526d9e410cac225c5e4
 translated: 2026-09-18
+tags:
+  - 2026-04-21
 ---
 
 # The First Assembly and Recruitment of the Term

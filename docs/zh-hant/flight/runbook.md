@@ -1,6 +1,8 @@
 ---
 title: 執行流程
 description: A4 紙飛行節 · 從籌備到收尾的定崗定責（據執行流程原始文檔）。
+tags:
+  - A4-Flight
 # ⚠️ 由 tools/docsgen.py 從 content/flight/runbook.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

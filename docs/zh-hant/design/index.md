@@ -3,6 +3,8 @@ nav_label: "設計原檔"
 title: 設計原檔
 description: 讓原設計，自己講述 —— 藍色社徽與它周圍的整套視覺。
 icon: lucide/palette
+tags:
+  - Badge
 # ⚠️ 由 tools/docsgen.py 從 content/design/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

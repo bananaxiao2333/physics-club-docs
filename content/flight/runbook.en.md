@@ -1,8 +1,10 @@
 ---
 title: "Run of Show"
 description: "The A4 Paper Flight Festival · who was responsible for what, from preparation to wrap-up (based on the original run of show document)."
-source_sha256: 726d746e92b2f3d6401bfc07a64acd7e070f2138b4bb19007623ec0192eb8fcf
+source_sha256: 8df71c00ec8325eabb959ca87221822d75291362e9ba067a870265f2c0d7468b
 translated: 2026-09-18
+tags:
+  - A4-Flight
 ---
 
 # Run of Show

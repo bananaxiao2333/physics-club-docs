@@ -5,6 +5,8 @@ kind: major
 order: 3
 place: 學校禮堂
 summary: 授牌、競賽成果、招新、自媒體部門、會費說明 —— 一晚講完全部家底。
+tags:
+  - 2026-04-21
 # ⚠️ 由 tools/docsgen.py 從 content/story/gathering-0421.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

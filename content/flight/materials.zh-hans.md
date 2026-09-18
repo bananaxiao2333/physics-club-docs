@@ -1,6 +1,8 @@
 ---
 title: 采购与物料明细
 description: A4 纸飞行节 · 留存采购记录与现场物料清单。
+tags:
+  - A4-Flight
 ---
 
 # 采购与物料明细

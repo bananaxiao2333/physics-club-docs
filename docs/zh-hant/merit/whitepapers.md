@@ -1,6 +1,9 @@
 ---
 title: 白皮書與留存邊界
 description: 功勳系統的文檔譜系，以及本站為什麼只公開其中一部分。
+tags:
+  - Primary-Source
+  - 2026-05-12
 # ⚠️ 由 tools/docsgen.py 從 content/merit/whitepapers.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 
