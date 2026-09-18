@@ -2,7 +2,7 @@
 nav_label: "序章"
 icon: lucide/sparkles
 description: 英东物理社数字纪念馆 —— 一张社牌，一页讲稿，一次把想法交给双手的尝试。
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks", "privacy"]
+nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
 ---
 
 # 自由曾在此

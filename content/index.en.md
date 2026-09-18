@@ -3,8 +3,8 @@ nav_label: "Prologue"
 icon: lucide/sparkles
 title: Freedom Was Here
 description: A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands.
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks", "privacy"]
-source_sha256: acbf94435b6b10699f4fb6f1aa149c20b3eb11c7efec93b6a816f1fd57081357
+nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
+source_sha256: 5f8cf3440b9555d06b426eb20d99b1341e07eccd370f60c73c1a47f7897d999d
 translated: 2026-09-18
 ---
 

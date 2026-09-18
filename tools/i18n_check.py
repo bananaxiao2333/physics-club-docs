@@ -43,7 +43,7 @@ from pathlib import Path
 
 import yaml
 
-from docsgen import depth_of, is_multilingual, rewrite_shared
+from docsgen import depth_of, rewrite_shared
 from hant import to_hant
 from langs import CONTENT, DEFAULT_LANG, DERIVATIONS, LANG_RE, ROOT, other_languages
 
@@ -245,12 +245,8 @@ def inspect_derived(source: Path, lang: str) -> dict:
     # 期望值要按 docsgen 的同一条流水线算：先补共享资产的相对层级，再转换
     base = source.parent.relative_to(CONTENT).as_posix()
     base = "" if base == "." else base
-    body = source.read_text(encoding="utf-8")
-    if is_multilingual(source):
-        # 三语并排的页面：产物应逐字等于原文（既不移层级，也不做脚本转换）
-        expected = strip_banner(rewrite_shared(body, base, 0))
-    else:
-        expected = strip_banner(to_hant(rewrite_shared(body, base, depth_of(lang))))
+    expected = strip_banner(to_hant(rewrite_shared(
+        source.read_text(encoding="utf-8"), base, depth_of(lang))))
     actual = strip_banner(target.read_text(encoding="utf-8"))
     if expected == actual:
         record["status"] = "ok"
