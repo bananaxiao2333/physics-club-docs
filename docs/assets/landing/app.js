@@ -1,27 +1,15 @@
 const clampBlend=v=>Math.max(0,Math.min(1,v));
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('nav');
-menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);menu.querySelector('span').textContent=open?'−':'＋';});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){menu.click();menu.focus();}});
+// 落地页没有自己的页眉与移动端菜单了——一律用 Material 的页眉，
+// 所以原先那套 .menu-toggle / nav.open / Escape 收起菜单的逻辑已随之删除。
 const story=document.querySelector('.scroll-story'),frame=document.querySelector('.expanding-frame'),caption=document.querySelector('.stage-caption');
 const scenes=(()=>{const n=document.querySelector('script[type="application/json"][data-scene-captions]');if(!n)return [];try{return JSON.parse(n.textContent)||[]}catch{return []}})();
 let current=-1,queued=false;
 function update(){queued=false;const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.reading-progress').style.width=(max>0?scrollY/max*100:0)+'%';if(!story||reduced.matches)return;const r=story.getBoundingClientRect();const p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));const expand=Math.min(1,p/.22);const edge=innerWidth<=720?7:14;frame.style.left=frame.style.right=(edge*(1-expand))+'%';frame.style.top=10*(1-expand)+'%';frame.style.bottom=14*(1-expand)+'%';frame.style.setProperty('--frame-radius',18*(1-expand)+'px');document.querySelectorAll('.scene-image').forEach((img,i)=>{let alpha=i===0?1-clampBlend((p-.32)/.1):i===1?clampBlend((p-.32)/.1)*(1-clampBlend((p-.65)/.1)):clampBlend((p-.65)/.1);img.style.opacity=alpha;img.style.transform='scale('+(1.06-.06*expand)+')';});caption.style.opacity=Math.max(0,Math.min(1,(p-.04)*7));caption.style.transform=`translateY(${(1-expand)*20}px)`;const index=p<.38?0:p<.7?1:2;if(index!==current){current=index;document.querySelectorAll('.scene-image').forEach((el,i)=>el.classList.toggle('active',i===index));document.querySelectorAll('.scene-rail i').forEach((el,i)=>el.classList.toggle('active',i===index));caption.querySelector('.eyebrow').textContent=scenes[index][0];caption.querySelector('h2').innerHTML=scenes[index][1];caption.querySelector('p').textContent=scenes[index][2];document.querySelector('.scene-counter').textContent=`0${index+1} / 03`;}}
 function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update);}}addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',requestUpdate);reduced.addEventListener('change',()=>location.reload());update();
-if(!reduced.matches&&'IntersectionObserver'in window){document.documentElement.classList.add('js-motion');const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.manifesto,.chapter,.timeline-row,.detail-block,.thanks-person,.gallery-card').forEach(el=>{el.classList.add('reveal');io.observe(el);});}
-const filterButtons=[...document.querySelectorAll('[data-filter]')],cards=[...document.querySelectorAll('.gallery-card')];
-filterButtons.forEach(button=>button.addEventListener('click',()=>{filterButtons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));cards.forEach(card=>{card.hidden=button.dataset.filter!==allFilter&&card.dataset.category!==button.dataset.filter;card.classList.add('visible');});document.querySelector('.gallery-count').textContent=cards.filter(c=>!c.hidden).length+(galleryCount.dataset.suffix||'');}));
-/* 画廊筛选的「全部」标签与计数后缀从页面读，避免在 JS 里写死语言 */
-const filtersRoot=document.querySelector('.filters');
-const allFilter=filtersRoot?(filtersRoot.querySelector('button[aria-pressed="true"]')?.dataset.filter||''):'';
-const galleryCount=document.querySelector('.gallery-count');
-const dialog=document.querySelector('.lightbox');let photoIndex=0,visiblePhotos=[];
-function showPhoto(){const b=visiblePhotos[photoIndex];dialog.querySelector('img').src=b.dataset.photo;dialog.querySelector('img').alt=b.querySelector('img').alt;dialog.querySelector('.lightbox-caption').textContent=b.dataset.caption;dialog.querySelector('.lightbox-count').textContent=`${photoIndex+1} / ${visiblePhotos.length}`;}
-function step(n){photoIndex=(photoIndex+n+visiblePhotos.length)%visiblePhotos.length;showPhoto();}
-document.querySelectorAll('.photo-button').forEach(b=>b.addEventListener('click',()=>{visiblePhotos=cards.filter(c=>!c.hidden).map(c=>c.querySelector('button'));photoIndex=visiblePhotos.indexOf(b);showPhoto();dialog.showModal();document.body.style.overflow='hidden';}));
-dialog?.querySelector('.lightbox-close').addEventListener('click',()=>dialog.close());dialog?.querySelector('.prev').addEventListener('click',()=>step(-1));dialog?.querySelector('.next').addEventListener('click',()=>step(1));dialog?.addEventListener('close',()=>document.body.style.overflow='');dialog?.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});dialog?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1);}if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}});
+if(!reduced.matches&&'IntersectionObserver'in window){document.documentElement.classList.add('js-motion');const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.manifesto,.chapter').forEach(el=>{el.classList.add('reveal');io.observe(el);});}
 // Locally rendered blue silk. No external animation or image requests.
-const silkTargets=[...document.querySelectorAll('.opening,.page-intro,.closing,.afterword,.groups')];
+const silkTargets=[...document.querySelectorAll('.opening,.closing')];
 const vertex='attribute vec2 position;void main(){gl_Position=vec4(position,0.,1.);}';
 const fragment=`precision mediump float;
 uniform vec2 resolution;uniform float time;
