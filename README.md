@@ -41,23 +41,91 @@ uv add <package>
 
 ```
 physics-club-docs/
-├── zensical.toml            # 站点配置：身份、导航、主题、Markdown 扩展
+├── zensical.toml            # 站点配置：身份、导航、主题、插件、Markdown 扩展
 ├── pyproject.toml           # Python 依赖声明（uv）
 ├── uv.lock                  # 锁定版本
+├── overrides/               # 主题模板覆盖（custom_dir）
+│   ├── main.html            #   首页接管为落地页；其余页面沿用主题
+│   └── partials/landing.html#   落地页正文（原站首页 markup，链接已改写）
 ├── docs/                    # 内容根目录（docs_dir）
-│   ├── index.md             # 序章
+│   ├── index.md             # 序章（内容由落地页承载）
+│   ├── en/                  # 英文读本（10 页）
 │   ├── story/               # 社团故事
-│   ├── flight/              # 飞行计划
-│   ├── gatherings/          # 集会原稿
+│   ├── flight/              # 飞行计划：总览 / 执行流程 / 采购与物料
+│   ├── gatherings/          # 集会原稿：概览 + 三份逐页实录
 │   ├── design/              # 设计原档
 │   ├── archive/             # 影像档案
 │   ├── governance/          # 制度与名单
+│   ├── merit/               # 功勋系统：概览 / 会员规则 / 模型 / 术语 / 边界
+│   ├── sources/             # 资料出处
 │   ├── thanks/              # 致谢与后记
-│   ├── stylesheets/extra.css
+│   ├── includes/            # snippets 片段（英文页共用导航条）
+│   ├── stylesheets/
+│   │   ├── extra.css        #   文档站微调（不覆盖配色与字体体系）
+│   │   └── landing.css      #   落地页融入文档站的适配层
 │   ├── javascripts/mathjax.js
-│   └── assets/              # 图片、PDF、SVG、视频等原件
+│   └── assets/
+│       ├── landing/         #   原站落地页 CSS/JS
+│       │   └── original/    #     主题化转换前的原始文件
+│       ├── originals/       #   社牌 / 海报 / 逐页 PPT 导出图
+│       └── downloads/       #   功勋系统史料整理文档
 └── site/                    # 构建产物（已 gitignore）
 ```
+
+## 主题与落地页
+
+**站点主体使用 Material 默认主题**：浅色优先、跟随系统、无衬线字体。
+不自定义配色，不改字体体系。
+
+**首页**通过 `overrides/main.html` 注入原站的沉浸式落地页，
+但**沿用文档站的页眉、导航、页脚与配色**——落地页自带的 header/footer 已移除。
+
+融合方式见 `docs/stylesheets/landing.css`：
+
+1. 把落地页的设计令牌 `--ink / --paper / --accent / --muted / --line` 映射到
+   `--md-*` 主题变量，因此落地页**跟随深浅色切换**；
+2. 字体统一为文档站的无衬线栈（取消原站的宋体标题）；
+3. 抹掉主题在首页残留的布局约束。
+
+原站两张样式表里的深色写死色值已**机械映射为主题变量**（原件保留在
+`docs/assets/landing/original/`）。图片上的遮罩色有意保留深色，以保证白字可读。
+
+!!! 注意
+    在 Zensical 0.0.62 中，模板上下文里 **`page.is_homepage` 未定义**
+    （主题 `base.html` 自己也依赖它为空）。判别首页请用 **`page.url` 为空**，
+    见 `overrides/main.html`。
+
+## 多语言
+
+Zensical 没有 i18n 插件；多语言由 **`extra.alternate`** 机制实现：
+一个页眉语言选择器 + 一组独立的内容目录。
+
+- 语言定义写在 `zensical.toml` 的 `[[project.extra.alternate]]`
+- 英文内容位于 `docs/en/`，共 10 页，构成一条完整读本路径
+- 英文页在页首通过 `pymdownx.snippets` 引入共用导航条
+  （`docs/includes/en-nav.txt`）
+
+!!! 注意
+    snippets 的片段文件若用 `.md` 后缀，会被当成页面构建到 `/includes/`。
+    这里使用 **`.txt`** 后缀避免该问题。
+
+## 已启用插件
+
+`[project.plugins]` 中启用了 Zensical 支持的插件：
+
+| 插件 | 作用 |
+| --- | --- |
+| `glightbox` | 图片灯箱：原档与照片点击放大 |
+| `minify` | 构建产物压缩 |
+
+`search` 默认启用。Zensical 会**静默丢弃**不认识的插件名
+（见 `config.py` 的 `_PLUGIN_UNSUPPORTED_OPTIONS`），
+因此写错插件名不会报错，只是无效。
+
+!!! 注意
+    `redirects` 插件在承接原站的扁平 URL（`story.html`）时会报
+    `redirect output collides with a page`，因为 `/story.html` 会被规范化成
+    `/story/index.html`。本站改用**静态跳转桩**：`docs/*.html` 六个 meta-refresh 文件。
 
 ## 站点信息架构
 
@@ -65,14 +133,14 @@ physics-club-docs/
 
 | # | 章节 | 说明 |
 | --- | --- | --- |
-| 01 | 序章 | 纪念馆入口与记述原则 |
+| 01 | 序章 | 纪念站入口（沉浸式落地页） |
 | 02 | 社团故事 | 理念、时间线、五篇正文 |
-| 03 | 飞行计划 | A4 纸飞行节总览与执行流程 |
-| 04 | 影像档案 | 留存照片，按场景归类 |
-| 05 | 设计原档 | 社牌、组别标识、SVG 模板 |
-| 06 | 集会原稿 | 04.21 / 04.27 / 05.12 三份演示文稿 |
+| 03 | 飞行计划 | 活动总览、执行流程、采购与物料 |
+| 04 | 影像档案 | 留存照片，按场景归类 + 19 张原始件时间清单 |
+| 05 | 设计原档 | 社牌参数化设计工程、组别标识、SVG 模板 |
+| 06 | 集会原稿 | 概览 + 04.21 / 04.27 / 05.12 三份逐页实录 |
 | 07 | 制度与名单 | 会费与贡献积分、组织架构与 85 人分组名单 |
-| 08 | 功勋系统 | 资金流转模型、术语表、白皮书谱系与公开边界 |
+| 08 | 功勋系统 | 会员侧规则全文、资金流转模型、术语表、公开边界 |
 | 09 | 资料出处 | 逐份原始件清单与编后说明 |
 | 10 | 致谢与后记 | 致谢名单与资料编后说明 |
 

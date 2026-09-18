@@ -1,0 +1,119 @@
+/**
+ * 落地页融入文档站的适配层
+ *
+ * 本文件在 assets/landing/style.css 与 exhibition.css **之后**加载，
+ * 因此可以覆盖它们。
+ *
+ * 做三件事：
+ *   1. 把落地页的设计令牌（--ink / --paper / --accent / …）映射到
+ *      Material 主题变量 —— 落地页因此跟随文档站的配色与深浅色切换；
+ *   2. 字体统一为文档站的无衬线栈（原站用的宋体标题在此取消）；
+ *   3. 抹掉主题在首页残留的布局约束，使落地页段落可以占满宽度。
+ *
+ * 文档页不加载本文件。
+ */
+
+/* ══════════════════════════════════════════════════════════════
+   1. 设计令牌 → 主题变量
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ink: var(--md-default-bg-color);
+  --paper: var(--md-default-fg-color);
+  --accent: var(--md-accent-fg-color);
+  --muted: var(--md-default-fg-color--light);
+  --line: var(--md-default-fg-color--lightest);
+
+  /* 原站用宋体做标题；这里统一为文档站字体，取消衬线 */
+  --serif: var(--md-text-font-family, sans-serif);
+  --sans: var(--md-text-font-family, sans-serif);
+}
+
+/* 主题字体栈（base.html 在 :root 上设过 --md-text-font） */
+:root {
+  --md-text-font-family: var(--md-text-font), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. 页面基调交给主题
+   ══════════════════════════════════════════════════════════════ */
+
+body {
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: var(--md-text-font-family);
+}
+
+/* 主题的排版规则会渗入落地页容器，回退掉 */
+.md-container .md-typeset {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.md-container .md-typeset h1,
+.md-container .md-typeset h2,
+.md-container .md-typeset h3 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.md-container .md-typeset img {
+  margin: 0;
+  background: none;
+  border-radius: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3. 与文档站外壳对接
+   ══════════════════════════════════════════════════════════════ */
+
+/* 首页正文区为空（内容由落地页承载），隐藏以免留下空白 */
+.md-container > .md-main {
+  display: none;
+}
+
+.md-container {
+  padding: 0;
+}
+
+/* 落地页段落紧贴页眉，去掉原站为自有 header 预留的高度 */
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+/* 原站为自有 header 写的定位规则已无对应元素，此处仅兜底处理
+   落地页内部可能残留的 header（不要误伤主题的 <footer class="md-footer">） */
+.md-container > .opening > header,
+.md-container .md-typeset > header {
+  display: none;
+}
+
+/* 落地页首屏：原按满屏设计，这里减去文档站页眉高度 */
+.opening {
+  min-height: calc(100svh - 4.5rem);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4. 细节：与原站的深色底相比，浅色底需要收敛部分装饰
+   ══════════════════════════════════════════════════════════════ */
+
+/* 图片上的文字浮层仍需深底衬托，保持可读性 */
+.opening-meta,
+.exhibit-route,
+.reading-progress {
+  color: var(--md-default-fg-color--light);
+}
+
+/* 原站的焦点环颜色跟随强调色 */
+a:focus-visible,
+button:focus-visible {
+  outline-color: var(--md-accent-fg-color);
+}
+
+/* 原件查看器需要在主题弹层之上 */
+.original-dialog {
+  z-index: 60;
+}

@@ -4,7 +4,7 @@ site_name = "自由曾在此"
 site_description = "英东物理社数字纪念馆 —— 一张社牌，一页讲稿，一次把想法交给双手的尝试。"
 site_author = "英东物理社"
 
-copyright = "英东物理社 · 自由曾在此"
+copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 
 nav = [
   { "序章" = "index.md" },
@@ -19,8 +19,14 @@ nav = [
   { "飞行计划" = [
     { "活动总览" = "flight/index.md" },
     { "执行流程" = "flight/runbook.md" },
+    { "采购与物料明细" = "flight/materials.md" },
   ] },
-  { "集会原稿" = "gatherings/index.md" },
+  { "集会原稿" = [
+    { "概览" = "gatherings/index.md" },
+    { "04.21 逐页实录" = "gatherings/0421.md" },
+    { "04.27 逐页实录" = "gatherings/0427.md" },
+    { "05.12 逐页实录" = "gatherings/0512.md" },
+  ] },
   { "设计原档" = "design/index.md" },
   { "影像档案" = "archive/index.md" },
   { "制度与名单" = [
@@ -29,6 +35,7 @@ nav = [
   ] },
   { "功勋系统" = [
     { "概览" = "merit/index.md" },
+    { "会员侧规则全文" = "merit/member-rules.md" },
     { "资金流转模型" = "merit/ledger.md" },
     { "术语表" = "merit/glossary.md" },
     { "白皮书与留存边界" = "merit/whitepapers.md" },
@@ -37,10 +44,27 @@ nav = [
   { "致谢与后记" = "thanks/index.md" },
 ]
 
+[[project.extra.alternate]]
+name = "English"
+link = "en/"
+lang = "en"
+
+[[project.extra.alternate]]
+name = "中文"
+link = "./"
+lang = "zh"
+
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
 
+[project.plugins]
+# 图片灯箱：原档与照片页点击放大
+glightbox = {}
+# 输出压缩
+minify = {}
+
 [project.theme]
+custom_dir = "overrides"
 variant = "modern"
 language = "zh"
 logo = "assets/club-logo.png"
@@ -56,8 +80,6 @@ features = [
   "navigation.expand",
   "navigation.footer",
   "navigation.indexes",
-  "navigation.instant",
-  "navigation.instant.prefetch",
   "navigation.path",
   "navigation.sections",
   "navigation.top",
@@ -66,6 +88,8 @@ features = [
   "toc.follow",
 ]
 
+# Material 默认配色：跟随系统，浅色优先，无衬线字体。
+# 落地页不另立一套主题，而是直接使用这些变量（见 stylesheets/landing.css）。
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
 toggle.icon = "lucide/sun-moon"
@@ -105,6 +129,7 @@ pymdownx.keys = {}
 pymdownx.magiclink = {}
 pymdownx.mark = {}
 pymdownx.smartsymbols = {}
+pymdownx.snippets.base_path = "includes"
 pymdownx.superfences.custom_fences = [
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
 ]
