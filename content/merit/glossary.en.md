@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 description: Memorial-edition explanations of merit system terms.
-source_sha256: b27bc5b009f9edceeeba95b9d53e4ede0802a3f303471852002e08c7ded87977
+source_sha256: 72dfbb10b02b02533f4d0ce4937071fa8f9673d58e3ddf7cac35a22fd44fb7a1
 translated: 2026-09-18
 ---
 
@@ -13,16 +13,30 @@ The explanations below use the **memorial-edition wording** of appendix B of `�
 they are centred on how members understood things, and do not cover internal back-office operating parameters.
 The Chinese headwords are kept so that terms can be matched against the original documents.
 
-| Term | Memorial-edition explanation |
-| --- | --- |
-| **Merit** (功勋) | The unit in which the Physics Club records internal dues, activities, contributions and rewards. |
-| **Fixed fund pool** (固定资金池) | A fund pool managed by the club as a whole, used for public operations, activity support and as a source of rewards. |
-| **Circulating fund pool** (流动资金池) | The part that enters members' individual accounts and can be used for activities and resources within the club. |
-| **Master account** (总账户) | The general ledger recording changes in the club's fund pools as a whole. |
-| **Individual account** (个人账户) | The account recording a single member's crediting, use, rewards, balance and refund status. |
-| **Reward pool** (奖励池) | A reward amount set aside from activity profit or the fixed fund pool, which may be paid out to members after multi-signature. |
-| **Pending project settlement** (项目待结算) | The intermediate state of an activity, food order, materials pack or other project between income and the write-off of costs. |
-| **grant multi-signature** (grant 多签) | The reward pool may be paid out formally only after at least three administrators have confirmed. |
+Merit (功勋)
+:   The unit in which the Physics Club records internal dues, activities, contributions and rewards.
+
+Fixed fund pool (固定资金池)
+:   A fund pool managed by the club as a whole, used for public operations, activity support and as a source of rewards.
+
+Circulating fund pool (流动资金池)
+:   The part that enters members' individual accounts and can be used for activities and resources within the club.
+
+Master account (总账户)
+:   The general ledger recording changes in the club's fund pools as a whole.
+
+Individual account (个人账户)
+:   The account recording a single member's crediting, use, rewards, balance and refund status.
+
+Reward pool (奖励池)
+:   A reward amount set aside from activity profit or the fixed fund pool, which may be paid out to members after multi-signature.
+
+Pending project settlement (项目待结算)
+:   The intermediate state of an activity, food order, materials pack or other project between income and the write-off of costs.
+
+grant multi-signature (grant 多签)
+:   The reward pool may be paid out formally only after at least three administrators have confirmed.
+
 
 ## What merit can do
 

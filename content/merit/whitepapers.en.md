@@ -1,7 +1,7 @@
 ---
 title: "White Papers and the Retention Boundary"
 description: The document lineage of the merit system, and why this site publishes only part of it.
-source_sha256: cde15df0ac6ce43aa6b78d0d47b5be1f21d246f9f224441885bc5ef9c62e310c
+source_sha256: b27613c73d795120ec3e2bd5f9dab65de916133b723f197b1dec9e5e0bfceba4
 translated: 2026-09-18
 tags:
   - Primary-Source
@@ -68,8 +68,7 @@ By the authorisation of the historical compilation file, the complete public edi
 
     Memorial-site public edition v1.0 · compiled 18 September 2026 · `.docx`
 
-    [:octicons-download-24: Download](../assets/downloads/物理社功勋系统对话史料整理_纪念网站版.docx)
-
+    [:octicons-download-24: Download](../assets/downloads/物理社功勋系统对话史料整理_纪念网站版.docx){ .md-button .md-button--primary }
 </div>
 
 !!! info "What this document says about itself"

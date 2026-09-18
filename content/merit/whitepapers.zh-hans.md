@@ -66,8 +66,7 @@ tags:
 
     纪念网站公开版 v1.0 · 2026 年 9 月 18 日整理 · `.docx`
 
-    [:octicons-download-24: 下载](../assets/downloads/物理社功勋系统对话史料整理_纪念网站版.docx)
-
+    [:octicons-download-24: 下载](../assets/downloads/物理社功勋系统对话史料整理_纪念网站版.docx){ .md-button .md-button--primary }
 </div>
 
 !!! info "关于这份文件的自我说明"
