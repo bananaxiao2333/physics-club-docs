@@ -84,7 +84,10 @@ function snapBeats(){
     const top=scrollY+el.getBoundingClientRect().top-offset,span=Math.max(0,el.offsetHeight-innerHeight);
     const rule=SNAP_RATIOS.find(([sel])=>el.matches(sel));
     if(rule){rule[1].forEach(r=>add(top+span*r));continue;}
-    const cards=el.querySelectorAll('.orbit-card,.stack-card').length;
+    // 有分幕/分件/分页的区段，按它自己的步数等分落点。选择器必须与
+    // exhibition.js 里驱动该区段的那个保持同一套——少一个，那一段就只剩
+    // 一个落点（区块顶部），看上去就是「这一节没有吸附」。
+    const cards=el.querySelectorAll('.orbit-card,.stack-card,.snap-scene').length;
     if(cards>1){for(let i=0;i<cards;i++)add(top+span*i/(cards-1));}
     else add(top);
   }
