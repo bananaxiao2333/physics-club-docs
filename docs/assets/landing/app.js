@@ -53,17 +53,25 @@ if(landingTabs){
   wide.addEventListener('change',syncTabs);syncTabs();
 }
 
-// ── 滚动吸附：停手一秒后收拢到最近的落点 ──────────────────────────
+// ── 滚动吸附：停手后收拢到最近的落点 ──────────────────────────────
 // 页面上只有四幕原档写了 scroll-snap-align:start，而页面从来没有
 // scroll-snap-type——那一条一直空转（原站也是），所以「吸附约等于没有」。
-//
-// 这里不用 CSS 的 scroll-snap-type，两个原因：它一停手就吸附，人还在读的时候
-// 就把画面拽走；它也没有「隔一秒」这个档。改成空闲触发，同一条规则顺带把
-// scroll-snap-align 原本想要的落点补上。
+// 不用 CSS 的 scroll-snap-type：它一停手就吸附，人还在读就把画面拽走。
 //
 // 落点 = 每个区块的顶部；滚动驱动的区段另算——序章三幕、原稿叠层四页、
 // 环形展台八件、逐字展开两页，各自取分段中点或等分点，因此相邻落点很近，
 // 一次吸附最多挪大半屏，不会把人甩到别处去。
+//
+// 手感按「跟手」来定（Apple《Designing Fluid Interfaces》的几条）：
+//   · 延迟要短。停手后先等一秒再动，是输入路径上的纯延迟——直接感就是
+//     在这一类等待里掉下去的。这里 220ms 起步（触控板的惯性本身还要
+//     再走一段，所以体感上紧接着就动）。
+//   · 收拢由自己驱动，时长随距离 160–320ms、ease-out，不用
+//     behavior:'smooth'——它的时长随距离线性增长，远距离能拖过半秒。
+//   · 随时可打断：任何真实输入（滚轮、触摸、按键、指针）立刻停手，
+//     把控制权交还用户，绝不在动画期间屏蔽输入。
+//   · 每次都从当前的 scrollY 起步，不从上次记下的目标值起步，
+//     所以被打断后再收拢不会跳。
 // prefers-reduced-motion 下整个不启用：自动滚动属于用户没有要求的运动。
 const SNAP_RATIOS=[['.scroll-story',[.19,.54,.85]],['.word-scroll',[0,1]]];
 function snapBeats(){
@@ -82,18 +90,37 @@ function snapBeats(){
   }
   return beats;
 }
-let snapTimer=0,snapBusy=false;
+const SNAP_IDLE=220;
+let snapTimer=0,snapRaf=0,gliding=false;
+function stopGlide(){if(snapRaf){cancelAnimationFrame(snapRaf);snapRaf=0;}gliding=false;}
+function glideTo(target){
+  const start=scrollY,delta=target-start;
+  if(Math.abs(delta)<1)return;
+  const duration=Math.max(160,Math.min(320,160+Math.abs(delta)*.25)),t0=performance.now();
+  gliding=true;
+  const step=now=>{
+    const p=Math.min(1,(now-t0)/duration),eased=1-Math.pow(1-p,3);
+    // behavior:'instant' 不能省：页面设了 scroll-behavior:smooth，
+    // 两参数写法会被那条规则接管，变成一段时长不可控的动画。
+    window.scrollTo({top:start+delta*eased,behavior:'instant'});
+    snapRaf=p<1?requestAnimationFrame(step):0;
+    if(p>=1)gliding=false;
+  };
+  snapRaf=requestAnimationFrame(step);
+}
 function settle(){
   const y=scrollY;let best=null,bestD=Infinity;
   for(const b of snapBeats()){const d=Math.abs(b-y);if(d<bestD){bestD=d;best=b;}}
   if(best===null||bestD<6)return;             // 已经落在落点上，不动
-  snapBusy=true;window.scrollTo({top:best,behavior:'smooth'});
-  setTimeout(()=>{snapBusy=false;},900);      // 程序化滚动期间不再排下一轮
+  glideTo(best);
 }
+// 任何真实输入都立刻中断收拢——动画期间绝不扣住输入。
+for(const type of ['wheel','touchstart','pointerdown','keydown'])addEventListener(type,()=>{stopGlide();clearTimeout(snapTimer);},{passive:true});
 addEventListener('scroll',e=>{
-  // 嵌套滚动容器（四幕原档那条轨道自带吸附）不该牵动整页。
+  // 嵌套滚动容器不该牵动整页；自己驱动的收拢也不该给自己排下一轮。
   if(e.target!==document&&e.target!==document.scrollingElement)return;
+  if(gliding)return;
   clearTimeout(snapTimer);
   if(reduced.matches)return;
-  snapTimer=setTimeout(()=>{if(!snapBusy)settle();},1000);
+  snapTimer=setTimeout(settle,SNAP_IDLE);
 },{passive:true});
