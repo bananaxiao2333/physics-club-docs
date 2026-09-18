@@ -152,7 +152,9 @@ def build_nav(directory: Path, *, root: bool) -> tuple[list, list[str]]:
             nav.append({nav_label(child): child.name})
 
     # 英文分区挂在中文树的末尾，具体显示哪一支由模板按页面语言决定
-    # （见 overrides/partials/nav.html）
+    # （见 overrides/partials/nav.html）。
+    # ⚠️ 这一项的标题固定为 English：overrides/partials/path.html 靠它把
+    # 语言分区那一层从面包屑里去掉。改名要同时改那处。
     if root and EN_DIR.is_dir():
         nav.append({"English": "en"})
 

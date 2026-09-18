@@ -92,7 +92,7 @@ nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-052
 
 各自发光，也曾相聚。
 
-| 组别 | Singularity | 代号 | 颜色 |
+| 组别 | 英文名 | 代号 | 颜色 |
 | --- | --- | --- | --- |
 | 奇点 | Singularity | `S` | <span style="color:#910000">■</span> `#910000` |
 | 星云 | Nebula | `N` | <span style="color:#3b229f">■</span> `#3b229f` |

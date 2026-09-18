@@ -3,6 +3,6 @@
 # 重新生成： uv run python tools/navgen.py
 nav:
 - The Assembly Room: index.md
-- TODO: 0421.md
-- TODO: 0427.md
+- 04.21 Assembly and recruitment · Page-by-page record: 0421.md
+- 04.27 Assembly · Page-by-page record: 0427.md
 - TODO: 0512.md

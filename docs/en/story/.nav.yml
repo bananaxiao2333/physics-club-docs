@@ -3,8 +3,8 @@
 # 重新生成： uv run python tools/navgen.py
 nav:
 - The Club's Story: index.md
-- TODO: egg-drop.md
-- TODO: ipc-2026.md
-- TODO: gathering-0421.md
-- TODO: festival-0430.md
-- TODO: suspension-0529.md
+- Egg Drop: egg-drop.md
+- Physics Competition · A 100% Award Rate: ipc-2026.md
+- The First Assembly and Recruitment of the Term: gathering-0421.md
+- A4 Paper Flight Festival: festival-0430.md
+- Suspension: suspension-0529.md

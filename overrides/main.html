@@ -27,6 +27,48 @@
   {% endif %}
 {% endblock %}
 
+{# 站点 meta：描述、作者、hreflang 与 prev/next 都按页面语言取，
+   并避免上一页/下一页跨语言串台（中英文是两棵独立的树） #}
+{% block site_meta %}
+  {% set here = page.url | default("", true) %}
+  {% set counterpart = here[3:] if is_en else "en/" ~ here %}
+  {% if not counterpart %}{% set counterpart = nav.homepage.url %}{% endif %}
+  {% set prev_page = page.previous_page if page.previous_page and ((page.previous_page.url | default("", true))[:3] == "en/") == is_en else none %}
+  {% set next_page = page.next_page if page.next_page and ((page.next_page.url | default("", true))[:3] == "en/") == is_en else none %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {% if page.meta and page.meta.description %}
+    <meta name="description" content="{{ page.meta.description }}">
+  {% elif is_en %}
+    <meta name="description" content="{{ config.extra.site_description_en | d(config.site_description, true) }}">
+  {% elif config.site_description %}
+    <meta name="description" content="{{ config.site_description }}">
+  {% endif %}
+  {% if page.meta and page.meta.author %}
+    <meta name="author" content="{{ page.meta.author }}">
+  {% elif is_en %}
+    <meta name="author" content="{{ config.extra.site_author_en | d(config.site_author, true) }}">
+  {% elif config.site_author %}
+    <meta name="author" content="{{ config.site_author }}">
+  {% endif %}
+  {% if page.canonical_url %}
+    <link rel="canonical" href="{{ page.canonical_url }}">
+  {% endif %}
+  {% if prev_page %}
+    <link rel="prev" href="{{ prev_page.url | url }}">
+  {% endif %}
+  {% if next_page %}
+    <link rel="next" href="{{ next_page.url | url }}">
+  {% endif %}
+  {#- hreflang 指向对应页，而不是语言首页 #}
+  {% for alt in config.extra.alternate %}
+    <link rel="alternate" href="{{ './' if (alt.lang == "en") == is_en else (counterpart | url) }}" hreflang="{{ alt.lang }}">
+  {% endfor %}
+  {% set href = config.theme.favicon | d("assets/images/favicon.png") %}
+  <link rel="icon" href="{{ href | url }}">
+  <meta name="generator" content="{{ generator }}">
+{% endblock %}
+
 {# <title>：站名按页面语言取；落地页只留站名，不重复 #}
 {% block htmltitle %}
   {% if is_landing %}

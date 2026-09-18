@@ -3,5 +3,5 @@
 # 重新生成： uv run python tools/navgen.py
 nav:
 - Governance & Roster: index.md
-- TODO: fees.md
-- TODO: roster.md
+- Membership Dues and the Contribution Credit System: fees.md
+- Organisational Structure and Roster: roster.md

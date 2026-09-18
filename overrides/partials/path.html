@@ -1,0 +1,52 @@
+{#-
+  模板覆盖：面包屑按页面语言走。
+
+  主题原版第一格永远渲染 nav.homepage——那是**中文**首页（序章 → /），
+  英文页因此会看到「序章 › English › The Club's Story」这样一串：
+  根是中文的，中间还夹着语言分区那一层。
+
+  这里对英文页做两件事：
+    1. 根改成指向 /en/ 的「Prologue」（文案见 config.extra.nav_root_label_en）；
+    2. 跳过语言分区那一层——它是挂了 en 子树的空 url 节点，不是页面。
+
+  中文页保持主题原样。
+
+  本文件其余部分与主题的 partials/path.html 保持一致。
+-#}
+{% import "partials/path-item.html" as item with context %}
+{% if page.meta and page.meta.hide %}
+  {% set hidden = "hidden" if "path" in page.meta.hide %}
+{% endif %}
+{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+{% set depth = page.ancestors | length %}
+{% if nav.homepage %}
+  {% set depth = depth + 1 %}
+{% endif %}
+{% if depth > 1 %}
+  <nav class="md-path" aria-label="{{ lang.t('nav') }}" {{ hidden }}>
+    <ol class="md-path__list">
+      {% if is_en %}
+        <li class="md-path__item">
+          <a href="{{ 'en/' | url }}" class="md-path__link">
+            <span class="md-ellipsis">{{ config.extra.nav_root_label_en | d(config.site_name, true) }}</span>
+          </a>
+        </li>
+        {% for nav_item in page.ancestors | reverse %}
+          {#- 跳过语言分区那一层。注意不能按「没有 url」判断：
+             分区节点本身也没有 url，path-item.html 会下潜到它的 index 子页。
+             语言分区是 navgen 生成的根导航末尾那一项，标题固定为 English。 -#}
+          {% if nav_item.title != "English" %}
+            {{ item.render(nav_item) }}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if nav.homepage %}
+          {{ item.render(nav.homepage) }}
+        {% endif %}
+        {% for nav_item in page.ancestors | reverse %}
+          {{ item.render(nav_item) }}
+        {% endfor %}
+      {% endif %}
+    </ol>
+  </nav>
+{% endif %}

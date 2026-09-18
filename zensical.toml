@@ -20,6 +20,14 @@ extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/t
 [project.extra]
 site_name_en = "Freedom Was Here"
 copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
+site_author_en = "ASJ Yingdong Physics Club"
+# 英文页面包屑的根（对应中文的「序章」）
+nav_root_label_en = "Prologue"
+site_description_en = "A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands."
+# 主题切换按钮的提示文案（config.theme.palette 里的 toggle.name 是全站唯一的）
+palette_toggle_auto_en = "Toggle light/dark"
+palette_toggle_light_en = "Switch to dark"
+palette_toggle_dark_en = "Switch to light"
 
 [[project.extra.alternate]]
 name = "English"

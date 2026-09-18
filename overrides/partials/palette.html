@@ -1,0 +1,36 @@
+{#-
+  模板覆盖：深浅色切换按钮的提示文案按页面语言显示。
+
+  config.theme.palette 是全站唯一的配置，toggle.name 写死为中文；
+  英文站的文案放在 config.extra.palette_toggle_*_en 里。
+  三个 palette 条目靠 toggle.icon 区分（sun-moon / sun / moon），
+  这里按图标名取对应的英文文案——注意先判 sun-moon，
+  否则 "sun" 会命中 "sun-moon"。
+
+  本文件其余部分与主题的 partials/palette.html 保持一致。
+-#}
+{% set is_en = (page.url | default("", true))[:3] == "en/" %}
+<form class="md-header__option" data-md-component="palette">
+  {% for option in config.theme.palette %}
+    {% set scheme  = option.scheme  | d("default", true) %}
+    {% set primary = option.primary | d("indigo", true) %}
+    {% set accent  = option.accent  | d("indigo", true) %}
+    {% set toggle_name = option.toggle.name if option.toggle else "" %}
+    {% set icon_name = option.toggle.icon | d("", true) if option.toggle else "" %}
+    {% if is_en and option.toggle %}
+      {% if "sun-moon" in icon_name %}
+        {% set toggle_name = config.extra.palette_toggle_auto_en | d(toggle_name, true) %}
+      {% elif "sun" in icon_name %}
+        {% set toggle_name = config.extra.palette_toggle_light_en | d(toggle_name, true) %}
+      {% elif "moon" in icon_name %}
+        {% set toggle_name = config.extra.palette_toggle_dark_en | d(toggle_name, true) %}
+      {% endif %}
+    {% endif %}
+    <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ primary | replace(' ', '-') }}" data-md-color-accent="{{ accent | replace(' ', '-') }}" {% if option.toggle %} aria-label="{{ toggle_name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index0 }}">
+    {% if option.toggle %}
+      <label class="md-header__button md-icon" title="{{ toggle_name }}" for="__palette_{{ loop.index % loop.length }}" hidden>
+        {% include ".icons/" ~ icon_name ~ ".svg" %}
+      </label>
+    {% endif %}
+  {% endfor %}
+</form>
