@@ -1,0 +1,89 @@
+/**
+ * 自由曾在此 · 纪念站自定义样式
+ *
+ * 基调取自原站视觉：深蓝底 #0a1523、天蓝强调 #69c5f3、宋体标题。
+ * 主题变量沿用 Zensical / Material 的 --md-* 命名。
+ */
+
+:root {
+  --memorial-ink: #0a1523;
+  --memorial-accent: #69c5f3;
+  --memorial-paper: #e7f0f8;
+  --memorial-serif: "Songti SC", "Noto Serif CJK SC", "STSong", "SimSun", serif;
+}
+
+/* ── 标题使用宋体，贴近原站的文献感 ───────────────────────────── */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--memorial-serif);
+  letter-spacing: 0.01em;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+}
+
+/* ── 强调色 ──────────────────────────────────────────────────── */
+:root > * {
+  --md-accent-fg-color: #0b7fc4;
+  --md-typeset-a-color: #0b7fc4;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--memorial-ink);
+  --md-default-bg-color--light: #12203a;
+  --md-default-bg-color--lighter: #16273f;
+  --md-code-bg-color: #10203a;
+  --md-accent-fg-color: var(--memorial-accent);
+  --md-typeset-a-color: var(--memorial-accent);
+}
+
+/* ── 章节导语小标 ────────────────────────────────────────────── */
+.md-typeset .memorial-kicker {
+  margin: -0.4em 0 1.6em;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── 首页社徽 ────────────────────────────────────────────────── */
+.md-typeset .memorial-mark {
+  float: right;
+  margin: 0 0 1em 1.4em;
+  border-radius: 0.3rem;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .memorial-mark {
+    float: none;
+    display: block;
+    margin: 0 auto 1.4em;
+  }
+}
+
+/* ── 卡片：图片型卡片去掉多余内边距，让原件铺满 ───────────────── */
+.md-typeset .grid.cards > ul > li > p:only-child > img,
+.md-typeset .grid.cards > ol > li > p:only-child > img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.2rem;
+}
+
+/* ── 引用块：原站的一句话立场 ────────────────────────────────── */
+.md-typeset blockquote {
+  border-left: 0.2rem solid var(--memorial-accent);
+}
+
+/* ── 表格：资料性表格紧凑一些 ────────────────────────────────── */
+.md-typeset table:not([class]) {
+  font-size: 0.72rem;
+}
+
+/* ── 图片说明 ────────────────────────────────────────────────── */
+.md-typeset figcaption {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.68rem;
+}
