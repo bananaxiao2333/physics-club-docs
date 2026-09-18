@@ -9,8 +9,12 @@ copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIO
 
 # extra_css / extra_javascript 必须在任何 [[project.*]] 表之前，
 # 否则会被 TOML 归入该表，导致 project.extra_css 为空。
-extra_css = ["stylesheets/extra.css"]
-extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
+extra_css = ["stylesheets/fonts.css", "stylesheets/extra.css"]
+# 刻意留空：本站不引任何外部脚本或字体，全部自托管。
+# 原先这里挂了 unpkg 上的 MathJax，但站内没有一篇用到数学，
+# 却让每个访客在每次浏览时都向 unpkg 暴露一次 IP —— 与「数据隐私」页的
+# 声明直接冲突，故整个移除（见 docs/stylesheets/fonts.css 的同类说明）。
+extra_javascript = []
 
 # 链接与锚点校验：构建时就把断链/失效锚点报出来，而不是等读者点到。
 # Zensical 只支持链接相关的这几项（导航类的会被忽略）。
@@ -90,6 +94,9 @@ listings = true
 
 [project.theme]
 custom_dir = "overrides"
+# false = 不引 Google Fonts。字体自托管在 assets/fonts/，
+# 变量在 stylesheets/fonts.css 里给出（主题在这个分支下不再设置变量）。
+font = false
 variant = "modern"
 language = "zh"
 logo = "assets/club-logo.png"
@@ -150,7 +157,6 @@ def_list = {}
 footnotes = {}
 md_in_html = {}
 toc.permalink = true
-pymdownx.arithmatex.generic = true
 pymdownx.betterem = {}
 pymdownx.caret = {}
 pymdownx.details = {}

@@ -70,6 +70,7 @@ SHARED_PREFIXES = ("assets/",)
 
 BANNER_FMT = "# ⚠️ 由 tools/docsgen.py 从 {source} 生成，请勿手改；要改请改 content/ 下的源文件。"
 DERIVED_BANNER = "（本页由 {source_lang} 版脚本转换而来，不是另译）"
+VERBATIM_BANNER = "（本页三语并排，各语种逐字相同，不做转换）"
 
 #: 「这一份是生成物」的判据。横幅插在前置元数据里（`#` 是 YAML 注释，不会渲染成
 #: 正文），它本来就写着「这是生成的、别手改」——身份与出处是同一件事。
@@ -159,6 +160,17 @@ def output_of(name: str, lang: str) -> Path:
     return prefix / f"{name}.md"
 
 
+#: 前置元数据里的开关：本页**自身就并列了所有语言**，因此不做脚本转换，
+#: 各语种产物逐字相同。典型例子是「数据隐私」——三语并排的一页，
+#: 若按常规把简体转成繁体，简体那一栏也会变成繁体，并排就没有意义了。
+#: 只读文件开头一小段来判，免得为这一件事引入 YAML 依赖。
+MULTILINGUAL_RE = re.compile(r"^multilingual:\s*true\s*$", re.M)
+
+
+def is_multilingual(source: Path) -> bool:
+    return bool(MULTILINGUAL_RE.search(source.read_text(encoding="utf-8")[:800]))
+
+
 def previously_generated() -> set[str]:
     """上一次生成留下的产物：带生成横幅的 docs/**/*.md。
 
@@ -223,7 +235,12 @@ def main() -> int:
         for dst_lang, src_lang, convert in DERIVATIONS:
             if lang != src_lang:
                 continue
-            note = " " + DERIVED_BANNER.format(source_lang=src_lang)
+            if is_multilingual(source):
+                # 三语并排的一页：照抄，不转换（否则简体那一栏也会被转成繁体）
+                note = " " + VERBATIM_BANNER.format(source_lang=src_lang)
+                convert = None
+            else:
+                note = " " + DERIVED_BANNER.format(source_lang=src_lang)
             emit(
                 output_of(name, dst_lang),
                 render(source, lang, depth=depth_of(dst_lang), convert=convert, note=note),

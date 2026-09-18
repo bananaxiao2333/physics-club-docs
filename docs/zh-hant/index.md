@@ -2,7 +2,7 @@
 nav_label: "序章"
 icon: lucide/sparkles
 description: 英東物理社數字紀念館 —— 一張社牌，一頁講稿，一次把想法交給雙手的嘗試。
-nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks"]
+nav: ["story", "flight", "gatherings", "design", "archive", "governance", "merit", "sources", "thanks", "privacy"]
 # ⚠️ 由 tools/docsgen.py 從 content/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 
