@@ -1,0 +1,71 @@
+{#-
+  页脚：沿用原站落地页的三段式版式，
+  并在其上方保留主题的「上一页 / 下一页」导航。
+
+  全站统一使用本模板（覆盖主题的 partials/footer.html）。
+-#}
+<footer class="md-footer">
+  {% if "navigation.footer" in features %}
+    {% if page.previous_page or page.next_page %}
+      {% if page.meta and page.meta.hide %}
+        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+      {% endif %}
+      <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer') }}" {{ hidden }}>
+        {% if page.previous_page %}
+          {% set direction = lang.t("footer.previous") %}
+          <a href="{{ page.previous_page.url | url }}" class="md-footer__link md-footer__link--prev" aria-label="{{ direction }}: {{ page.previous_page.title | e }}">
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ page.previous_page.title }}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+        {% if page.next_page %}
+          {% set direction = lang.t("footer.next") %}
+          <a href="{{ page.next_page.url | url }}" class="md-footer__link md-footer__link--next" aria-label="{{ direction }}: {{ page.next_page.title | e }}">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ page.next_page.title }}
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.next or "material/arrow-right" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+          </a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% endif %}
+
+  {#- 纪念站页脚：原站落地页的三段式版式 -#}
+  <div class="memorial-footer">
+    <div class="memorial-footer__brand">
+      <a class="memorial-footer__title" href="{{ nav.homepage.url | url }}">
+        <img class="memorial-footer__logo" src="{{ 'assets/club-logo.png' | url }}" alt="ASJ 英东物理社社徽">
+        自由曾在此<span>↗</span>
+      </a>
+      <p>献给 ASJ 英东物理社，和每一个曾经在这里发问的人。</p>
+    </div>
+    <div class="memorial-footer__meta">
+      THE CLUB HAS ENDED.<br>
+      THE CURIOSITY HAS NOT.<br>
+      <a href="{{ 'sources/' | url }}">资料与编后说明 ↗</a>
+    </div>
+    <div class="memorial-footer__bottom">
+      <span>ASJ YINGDONG PHYSICS CLUB · 纪念站</span>
+      <a href="#top">回到顶部 ↑</a>
+    </div>
+  </div>
+</footer>

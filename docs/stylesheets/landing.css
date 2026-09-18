@@ -15,14 +15,38 @@
 
 /* ══════════════════════════════════════════════════════════════
    1. 设计令牌 → 主题变量
+
+   ⚠️ 必须声明在**带 data-md-color-scheme 属性的元素**（body）上，
+   不能声明在 :root 上。
+
+   原因：自定义属性里的 var() 是在**声明它的元素**处完成替换的，
+   之后原样继承。声明在 :root 时，`--md-default-fg-color--light` 取到的是
+   主题定义在 :root 的**浅色**值，深色模式下不会更新——
+   `--muted` 会永远是 #0000008c，次级文字在深色底上不可见。
+
+   声明在 body 上，替换就以 body 自身的主题变量为准，深浅色都能取对。
    ══════════════════════════════════════════════════════════════ */
 
+/* :root 兜底：JS 未执行或属性缺失时的回退 */
 :root {
+  --ink: #fff;
+  --paper: #000000de;
+  --accent: #526cfe;
+  --muted: #0000008c;
+  --line: #0000000d;
+  --serif: var(--md-text-font-family, sans-serif);
+  --sans: var(--md-text-font-family, sans-serif);
+}
+
+[data-md-color-scheme] {
   --ink: var(--md-default-bg-color);
   --paper: var(--md-default-fg-color);
   --accent: var(--md-accent-fg-color);
-  --muted: var(--md-default-fg-color--light);
-  --line: var(--md-default-fg-color--lightest);
+  --line: color-mix(in srgb, var(--md-default-fg-color) 16%, transparent);
+
+  /* 次级文字：原站取 #97aabe（近白），主题的 --light 在深色下偏暗，
+     这里按前景/背景混合出中间调，两种 scheme 下都保证可读 */
+  --muted: color-mix(in srgb, var(--md-default-fg-color) 72%, var(--md-default-bg-color));
 
   /* 原站用宋体做标题；这里统一为文档站字体，取消衬线 */
   --serif: var(--md-text-font-family, sans-serif);
@@ -97,14 +121,29 @@ html {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   4. 细节：与原站的深色底相比，浅色底需要收敛部分装饰
+   4. 详情
    ══════════════════════════════════════════════════════════════ */
 
-/* 图片上的文字浮层仍需深底衬托，保持可读性 */
+/* 页眉在首页取不透明底色。
+   主题页眉是半透明 + backdrop-blur，叠在首屏的深色光晕上会出现色差接缝，
+   文字对比度也随之漂移。首页固定为实色，颜色始终由主题变量决定。 */
+.md-header {
+  background-color: var(--md-default-bg-color);
+}
+
+/* 次级文字统一走 --muted，保证深浅色下都可读 */
 .opening-meta,
 .exhibit-route,
-.reading-progress {
-  color: var(--md-default-fg-color--light);
+.reading-progress,
+.opening-bottom,
+.opening-bottom small,
+.stage-caption p,
+.orbit-card > span,
+.word-note,
+.section-heading > span,
+.gateway-art + p,
+.chapter p {
+  color: var(--muted);
 }
 
 /* 原站的焦点环颜色跟随强调色 */
