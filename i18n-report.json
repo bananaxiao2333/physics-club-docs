@@ -7,25 +7,11 @@
   "summary": {
     "total": 27,
     "counts": {
-      "partial": 2,
-      "ok": 25
+      "ok": 27
     },
-    "complete": false
+    "complete": true
   },
-  "todo": [
-    {
-      "source": "content/gatherings/0427.zh.md",
-      "target": "content/gatherings/0427.en.md",
-      "status": "partial",
-      "next": "正文中文字符占比 13%，疑似未翻译"
-    },
-    {
-      "source": "content/gatherings/0512.zh.md",
-      "target": "content/gatherings/0512.en.md",
-      "status": "partial",
-      "next": "正文中文字符占比 8%，疑似未翻译"
-    }
-  ],
+  "todo": [],
   "pages": [
     {
       "source": "content/archive/index.zh.md",
@@ -82,7 +68,7 @@
       "target": "content/gatherings/0421.en.md",
       "source_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
       "recorded_sha256": "bdf47ff082d8018cf7fe1191d1d0f25c3fb37514130ab8bf21147c9e82fd5baa",
-      "cjk_ratio": 0.0699,
+      "cjk_ratio": 0.0513,
       "problems": [],
       "status": "ok",
       "next": ""
@@ -92,24 +78,20 @@
       "target": "content/gatherings/0427.en.md",
       "source_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
       "recorded_sha256": "c34610b31967f25884fb1c24b820c65665c231e926569cb2a1bd79db6ef1d216",
-      "cjk_ratio": 0.1265,
-      "problems": [
-        "正文中文字符占比 13%，疑似未翻译"
-      ],
-      "status": "partial",
-      "next": "正文中文字符占比 13%，疑似未翻译"
+      "cjk_ratio": 0.0114,
+      "problems": [],
+      "status": "ok",
+      "next": ""
     },
     {
       "source": "content/gatherings/0512.zh.md",
       "target": "content/gatherings/0512.en.md",
       "source_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
       "recorded_sha256": "6f212578a1c15e02c562f12c7eb47e8c846ac651bedbc6595d55b4294430b593",
-      "cjk_ratio": 0.0807,
-      "problems": [
-        "正文中文字符占比 8%，疑似未翻译"
-      ],
-      "status": "partial",
-      "next": "正文中文字符占比 8%，疑似未翻译"
+      "cjk_ratio": 0.071,
+      "problems": [],
+      "status": "ok",
+      "next": ""
     },
     {
       "source": "content/gatherings/index.zh.md",
