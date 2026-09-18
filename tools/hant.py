@@ -15,6 +15,11 @@
    因为它不知道这里该是「簽到」。）
 3. **代码块**内的整段内容。
 
+另加一处：**链接与图片的目标**（`](…)`、`src=`、`href=`、裸 URL、参考式定义）。
+目标里的中文是**路径**，磁盘上的文件名是简体，转换它等于把链接指向不存在的文件。
+（曾如此：zh-hant 的下载链接被转成「物理社功勳系統对话史料整理_纪念网站版.docx」，
+而文件实际叫「物理社功勋系统对话史料整理_纪念网站版.docx」，链接直接取不到。）
+
 另外把几个「古体异写」归一为现代通行的繁体写法。这些差异不是地区差异
 （两岸三地都更常用右边那个），只是转换表偏古：
     爲→為  羣→群  啓→啟  祕→秘  峯→峰  衆→眾
@@ -26,6 +31,16 @@ from __future__ import annotations
 import re
 
 import zhconv
+
+#: 不能转换的「路径位」。中文出现在这些地方是文件名/网址，不是文案。
+PROTECTED = re.compile(
+    r"\]\([^)\n]*\)"                      # 行内链接与图片的目标
+    r"|\b(?:src|href|poster)=\"[^\"]*\""  # HTML 属性里的路径
+    r"|^\s{0,3}\[[^\]]+\]:\s*\S+"         # 参考式链接定义
+    r"|https?://\S+"                      # 裸 URL
+    r"|\bdata-(?:photo|caption|original)=\"[^\"]*\"",
+    re.M,
+)
 
 #: 转换表里偏古或前后不一致的写法，统一到现代通行繁体。
 #: 这些都不是地区差异（两岸三地通用），只是正字法与一致性问题：
@@ -53,8 +68,19 @@ def convert_span(text: str) -> str:
 
 
 def convert_line(line: str) -> str:
-    """转换一行，跳过反引号内的内容。"""
-    parts = line.split("`")
+    """转换一行：跳过后引号内容，以及落在「路径位」上的片段。"""
+    out: list[str] = []
+    pos = 0
+    for match in PROTECTED.finditer(line):
+        out.append(_convert_backticks(line[pos:match.start()]))
+        out.append(match.group(0))  # 路径原样保留
+        pos = match.end()
+    out.append(_convert_backticks(line[pos:]))
+    return "".join(out)
+
+
+def _convert_backticks(chunk: str) -> str:
+    parts = chunk.split("`")
     return "`".join(part if i % 2 else convert_span(part) for i, part in enumerate(parts))
 
 

@@ -205,7 +205,7 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 | 文件 | 为什么需要 |
 | --- | --- |
 | `main.html` | 注入落地页（中英各一份）、分语言的 `<title>` 与站点 meta、接管首页容器 |
-| `partials/landing.html` / `landing.en.html` | 落地页正文，两份逐标签同构 |
+| `partials/landing.html` / `landing.en.html` | 落地页正文（简体／英文手写；繁中由 docsgen 派生），三份逐标签同构，由 i18n_check 把关 |
 | `partials/language.html` | **界面文案按页面选语言包**（连 `<html lang>` 都跟着走） |
 | `partials/nav.html` | 按语言过滤主导航 |
 | `partials/header.html` | 页眉里的站名与徽标落点分语言 |
@@ -257,10 +257,21 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 
 **站点主体使用 Material 默认主题**：浅色优先、跟随系统、无衬线字体。
 
-**落地页**（`/` 与 `/en/`）通过 `overrides/main.html` 注入原站的沉浸式内容，
+**落地页**（`/`、`/zh-hant/`、`/en/`）通过 `overrides/main.html` 注入原站的沉浸式内容，
 但**沿用文档站的页眉、导航、页脚与配色**——落地页自带的 header/footer 已移除。
-两份落地页 partial 标签结构逐一致，只有文案与资源路径不同；资源路径走
-`{{ 'assets/…' | url }}` 过滤器，因此在任意深度都能解析正确。
+三份落地页 partial（`landing.html` 简体手写、`landing.en.html` 英文手写、
+`landing.zh-hant.html` 由 `docsgen` 从简体派生）元素序列逐一对应，只有文案不同。
+
+**路径有两条规则，别混** —— 两条都踩过坑，现在由 `i18n_check.py` 的
+「落地页一致性」条目逐条查：
+
+| 引用对象 | 写法 | 为什么 |
+| --- | --- | --- |
+| 共享资产 `assets/…` | `{{ 'assets/…' \| url }}` | 三种语言只有一份，`url` 按页面深度回退。写裸相对路径的话，`/zh-hant/`、`/en/` 下会 404（曾如此：繁体落地页 22 张图里 21 张取不到） |
+| 站内页面链接 `story/`、`flight/`… | 裸相对路径，**不要** `\| url` | 链接该留在**当前语言**那棵树里。包了 `url` 的话，`/en/` 下会退成 `../story/`，把英文读者送到中文页（曾如此：英文落地页 6 个入口全部串台） |
+
+同一条检查还比对三份模板的标签骨架（语言相关属性只比属性名不比值），
+所以「改了一份结构、漏了另一份」也会当场报错，而不是在某一语言里悄悄少一块版面。
 
 融合方式见 `docs/stylesheets/landing.css`，它做四件事：
 

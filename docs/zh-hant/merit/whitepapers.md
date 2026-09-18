@@ -64,7 +64,7 @@ description: 功勳系統的文檔譜系，以及本站為什麼只公開其中�
 
     紀念網站公開版 v1.0 · 2026 年 9 月 18 日整理 · `.docx`
 
-    [:octicons-download-24: 下載](../../assets/downloads/物理社功勳系統對話史料整理_紀念網站版.docx)
+    [:octicons-download-24: 下載](../../assets/downloads/物理社功勋系统对话史料整理_纪念网站版.docx)
 
 </div>
 

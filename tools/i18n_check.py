@@ -331,6 +331,100 @@ def inspect_landing(lang: str) -> dict:
     return record
 
 
+# ── 落地页：结构一致性与路径规则 ──────────────────────────────────────────
+
+#: 取值本就随语言变化的属性。比对骨架时只比属性名与出现顺序，不比取值；
+#: 其余属性（class / href / src / id …）是结构，必须逐字符相同。
+LANG_ATTRS = {"aria-label", "alt", "data-title", "data-label-zoom", "data-label-fit"}
+
+_TAG = re.compile(r"<[^>]+>")
+_ATTR = re.compile(r"\s([\w-]+)=([\"'])(.*?)\2", re.S)
+_HEADER = re.compile(r"^\s*\{#-.*?-#\}\n", re.S)
+#: 包了 `| url` 的引用；组 2 是目标路径
+_URL_REF = re.compile(r"([\w-]+)=\"\{\{ '([^']*)' \| url \}\}\"")
+#: 裸相对路径写法
+_BARE_ASSET = re.compile(r"[\w-]+=\"(assets/[^\"]*)\"")
+_PAGE_LINK = re.compile(r'href="([a-z][\w-]*/)"')
+
+
+def _tag_shape(tag: str) -> str:
+    """一个标签的骨架：标签名 + 属性名与顺序；语言相关属性不取值。"""
+    name = re.match(r"</?(\w+)", tag)
+    parts = [name.group(1) if name else tag[:4]]
+    for match in _ATTR.finditer(tag):
+        attr, value = match.group(1), match.group(3)
+        parts.append(attr if attr in LANG_ATTRS else f"{attr}={value}")
+    return "|".join(parts)
+
+
+def inspect_landing_consistency() -> dict:
+    """三种语言的落地页必须共用一副骨架，并遵守同一条路径规则。
+
+    为什么要单独查这两件事：
+    * **骨架**：三份模板是手写的，此前没有任何检查保证它们的元素序列一致；
+      改了一处结构而漏了另一处，只会在某一语言里悄悄少一块版面。
+    * **路径**：共享资产只有一份，必须用 `| url` 按页面深度回退；站内页面链接
+      必须留在当前语言那棵树里，**不能**用 `| url`。这两条此前都踩过：
+      `/zh-hant/` 的落地页图全 404（裸相对路径少退了一层），`/en/` 的落地面板
+      全指向中文页（`| url` 退成了 `../story/`）。
+    """
+    files = {"zh-hans": LANDING_SRC, **LANDING_TARGETS}
+    problems: list[str] = []
+    shapes: dict[str, list[str]] = {}
+
+    for lang, path in files.items():
+        if not path.exists():
+            problems.append(f"{path.name} 不存在")
+            continue
+        text = _HEADER.sub("", path.read_text(encoding="utf-8"), count=1)
+        shapes[lang] = [_tag_shape(t) for t in _TAG.findall(text)]
+
+        for match in _URL_REF.finditer(text):
+            target = match.group(2)
+            if not target.startswith("assets/"):
+                problems.append(
+                    f"{path.name}：`{target}` 是站内页面链接，不该包 | url"
+                    "（在 /en/ 下会退成 ../，把读者送到别的语言）"
+                )
+        for match in _BARE_ASSET.finditer(text):
+            problems.append(
+                f"{path.name}：共享资产 `{match.group(1)}` 没有包 | url"
+                "（在 /zh-hant/、/en/ 这类子目录下会 404）"
+            )
+        for target in sorted(set(m.group(2) for m in _URL_REF.finditer(text))):
+            if target.startswith("assets/") and not (DOCS / target).exists():
+                problems.append(f"{path.name}：资产 `{target}` 在 docs/ 下不存在")
+
+    reference = shapes.get(DEFAULT_LANG, [])
+    if reference:
+        for lang, shape in shapes.items():
+            if lang == DEFAULT_LANG:
+                continue
+            name = files[lang].name
+            if len(shape) != len(reference):
+                problems.append(
+                    f"{name} 与 {LANDING_SRC.name} 元素数不同：{len(shape)} vs {len(reference)}"
+                )
+                continue
+            off = [i for i, (a, b) in enumerate(zip(reference, shape)) if a != b]
+            if off:
+                first = off[0]
+                problems.append(
+                    f"{name} 与 {LANDING_SRC.name} 结构自第 {first} 个元素起不同（共 {len(off)} 处）："
+                    f"{reference[first][:70]} ≠ {shape[first][:70]}"
+                )
+
+    record = {
+        "source": str(LANDING_SRC.relative_to(ROOT)),
+        "target": "、".join(str(p.relative_to(ROOT)) for p in files.values()),
+        "lang": "·".join(files),
+        "kind": "consistency",
+        "status": "drift" if problems else "ok",
+        "next": "；".join(problems),
+    }
+    return record
+
+
 ORDER = ["missing", "placeholder", "created", "drift", "stale", "untracked", "partial", "ok"]
 LABEL = {
     "missing": "缺失",
@@ -362,6 +456,7 @@ def main() -> int:
                 pages.append(inspect_derived(source, lang))
     for lang in languages:
         pages.append(inspect_landing(lang))
+    pages.append(inspect_landing_consistency())
 
     counts: dict[str, int] = {}
     for page in pages:
