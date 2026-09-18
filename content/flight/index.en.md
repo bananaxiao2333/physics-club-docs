@@ -4,9 +4,10 @@ title: "A4 Paper Flight Festival · Event Overview"
 subtitle: "Paper for sails, a flight path over Yingdong"
 tagline: "How far can one sheet of A4 paper fly? Come and find out."
 description: "Overview of the A4 Paper Flight Festival: basic information, the three planned moments, the site layout, the awards, and what the surviving material does not record."
-source_sha256: 2519c9f1e15a881a56a0d5e57ea73aadd3fde61b6f5a92904fd1be2191b068ff
+source_sha256: f54a386c2155f9ece1668befeea03b350d1fbce5e6326548b966f77018eaf59c
 translated: 2026-09-18
 nav: ["runbook", "materials"]
+icon: lucide/send
 ---
 
 # A4 Paper Flight Festival · Event Overview

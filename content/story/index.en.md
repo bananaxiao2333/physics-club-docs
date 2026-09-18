@@ -3,8 +3,9 @@ nav_label: "The Club's Story"
 title: "The Club's Story · Overview"
 description: "It begins with a “why” — the ideas and the trail of the ASJ Yingdong Physics Club."
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
-source_sha256: 1eeb024d36c4e0b4c778f88d05dbba371866db6c809b1143be5ea0e294d2221e
+source_sha256: 1bd89dca6d025c57bfa09b642db26fcd8584bad1c3149718990a168b3eb2d047
 translated: 2026-09-18
+icon: lucide/book-open
 ---
 
 # The Club's Story

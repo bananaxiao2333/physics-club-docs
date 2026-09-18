@@ -12,6 +12,12 @@ copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIO
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"]
 
+# 链接与锚点校验：构建时就把断链/失效锚点报出来，而不是等读者点到。
+# Zensical 只支持链接相关的这几项（导航类的会被忽略）。
+[project.validation]
+invalid_links = true
+invalid_link_anchors = true
+
 # 分语种的外观文案。
 # Zensical 的 site_name / copyright 是全站唯一的，而本站中英共用一次构建，
 # 所以英文站名与版权行放在这里，由模板按页面语言取用
@@ -20,6 +26,10 @@ extra_javascript = ["javascripts/mathjax.js", "https://unpkg.com/mathjax@3/es5/t
 # 键名后缀：默认语言（zh-hans）留空，其余语言用 _en / _zh_hant。
 # 模板里用 `config.extra["site_name" ~ L]` 取用，L 由页面语言决定。
 [project.extra]
+# 页眉站名下的副题。原站页眉就是「站名 + 英文社名」两行；
+# 罗马字三语同形，所以这一个键三语共用，不做分语种。
+site_subtitle = "ASJ YINGDONG · PHYSICS CLUB"
+
 site_name_en = "Freedom Was Here"
 copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 site_author_en = "ASJ Yingdong Physics Club"
@@ -65,6 +75,19 @@ glightbox = {}
 # 输出压缩
 minify = {}
 
+# 搜索。Zensical 只认 enabled / separator 两个选项（没有 lang）。
+# 默认分隔符是 [\s\-_,:!=\[\]()\\"`/]+|\.(?!\d) —— 它不切中文标点，
+# 于是「社团故事。飞行计划」会变成一个整词，中文检索基本失效。
+# 这里在默认集合上补进中文/全角标点，中英混排都能切。
+[project.plugins.search]
+enabled = true
+separator = '[\s\-_,:!=\[\]()\\"`/。，、；：！？…·「」『』（）【】《》〈〉—～]+|\.(?!\d)'
+
+# 标签：给页面打 tags，并在 docs/tags.md 里用 <!-- material/tags --> 汇成一页。
+[project.plugins.tags]
+enabled = true
+listings = true
+
 [project.theme]
 custom_dir = "overrides"
 variant = "modern"
@@ -84,6 +107,7 @@ features = [
   "navigation.indexes",
   "navigation.path",
   "navigation.sections",
+  "navigation.tabs",
   "navigation.top",
   "navigation.tracking",
   "search.highlight",

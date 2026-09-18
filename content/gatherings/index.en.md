@@ -3,8 +3,9 @@ nav_label: "The Assembly Room"
 title: Assembly Scripts
 description: Turning back to that page — three assembly slide decks from spring 2026.
 nav: ["0421", "0427", "0512"]
-source_sha256: 917f4d5eda342c30d6f4b83adf98090d698a485b7243e77405b7e7eec348d653
+source_sha256: e78ea2f3d9c693b21792a897e16b8efa2f53393bff0f5ffdf18ed9bc574eaded
 translated: 2026-09-18
+icon: lucide/presentation
 ---
 
 # Assembly Scripts

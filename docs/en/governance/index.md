@@ -4,7 +4,8 @@ title: Governance & Roster · Overview
 description: Membership dues and contribution credits, organisational structure and rosters — all compiled from the originals in 资料/, with no second-hand retelling.
 nav: ["fees", "roster"]
 translated: 2026-09-18
-source_sha256: 8c5403cab1f1a2a2da40e8520fed2bfb1b14e71353afe15beb820876dab550b3
+source_sha256: 3719c5f494d056eaaea23ba850ef59ef2dc67d15d4ddc6023ac67721d98de4e3
+icon: lucide/users
 # ⚠️ 由 tools/docsgen.py 从 content/governance/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

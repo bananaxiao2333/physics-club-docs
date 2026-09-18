@@ -3,6 +3,7 @@ nav_label: "集会原稿"
 title: 集会原稿
 description: 把时间翻回那一页 —— 2026 年春季的三份集会演示文稿。
 nav: ["0421", "0427", "0512"]
+icon: lucide/presentation
 ---
 
 # 集会原稿

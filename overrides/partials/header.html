@@ -35,6 +35,9 @@
         <div class="md-header__topic">
           <span class="md-ellipsis">
             {{ site_name }}
+            {%- if config.extra.site_subtitle %}
+              <small class="memorial-brand__sub">{{ config.extra.site_subtitle }}</small>
+            {%- endif %}
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">

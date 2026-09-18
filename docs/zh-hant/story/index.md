@@ -3,6 +3,7 @@ nav_label: "社團故事"
 title: 社團故事 · 概覽
 description: 從一個「為什麼」開始 —— 英東物理社的理念與足跡。
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
+icon: lucide/book-open
 # ⚠️ 由 tools/docsgen.py 從 content/story/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

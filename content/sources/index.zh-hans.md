@@ -2,6 +2,7 @@
 nav_label: "资料出处"
 title: 资料出处
 description: 本站全部内容的原始材料清单与编后说明。
+icon: lucide/file-text
 ---
 
 # 资料出处

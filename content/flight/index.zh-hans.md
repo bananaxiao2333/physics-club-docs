@@ -4,6 +4,7 @@ title: A4 纸飞行节 · 活动总览
 subtitle: 以纸为帆，航迹英东
 tagline: 一张 A4 纸能飞多远？来了你就知道了。
 nav: ["runbook", "materials"]
+icon: lucide/send
 ---
 
 # A4 纸飞行节 · 活动总览

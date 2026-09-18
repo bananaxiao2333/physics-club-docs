@@ -2,6 +2,7 @@
 nav_label: "致谢与后记"
 title: 致谢与后记
 description: 谢谢你，曾在此 —— 以及本站的资料与编后说明。
+icon: lucide/heart-handshake
 ---
 
 # 致谢与后记

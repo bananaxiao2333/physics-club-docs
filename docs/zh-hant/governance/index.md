@@ -3,6 +3,7 @@ nav_label: 制度與名單
 title: 制度與名單 · 概覽
 description: 會費與貢獻積分制度、組織架構與名單 —— 全部據 資料/ 原始件整理，不使用二手轉述。
 nav: ["fees", "roster"]
+icon: lucide/users
 # ⚠️ 由 tools/docsgen.py 從 content/governance/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

@@ -2,6 +2,7 @@
 nav_label: "致谢与后记"
 title: 致谢与后记
 description: 谢谢你，曾在此 —— 以及本站的资料与编后说明。
+icon: lucide/heart-handshake
 # ⚠️ 由 tools/docsgen.py 从 content/thanks/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 

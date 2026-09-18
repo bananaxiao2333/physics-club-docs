@@ -3,6 +3,7 @@ nav_label: "功勳系統"
 title: 功勳系統
 description: 物理社後期的內部會費、貢獻與獎勵記錄機制 —— 一項組織實驗。
 nav: ["member-rules", "ledger", "glossary", "whitepapers"]
+icon: lucide/award
 # ⚠️ 由 tools/docsgen.py 從 content/merit/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

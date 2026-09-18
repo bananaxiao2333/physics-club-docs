@@ -2,8 +2,9 @@
 nav_label: "Sources"
 title: "Sources"
 description: "The full list of original material behind every page on this site, with editorial notes."
-source_sha256: d6fd58b23964cc7188418355251a9fbd3c5a361e3f7be6ddb05b6c7cfe3baf64
+source_sha256: 419e3b7d40f88bb44ca91882c9bbfeb60ee6743e14c98b4811225c116c20740f
 translated: 2026-09-18
+icon: lucide/file-text
 ---
 
 # Sources

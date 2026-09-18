@@ -3,6 +3,7 @@ nav_label: 制度与名单
 title: 制度与名单 · 概览
 description: 会费与贡献积分制度、组织架构与名单 —— 全部据 资料/ 原始件整理，不使用二手转述。
 nav: ["fees", "roster"]
+icon: lucide/users
 ---
 
 # 制度与名单

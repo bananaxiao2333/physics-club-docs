@@ -2,8 +2,9 @@
 nav_label: "Design Archive"
 title: "Design Archive"
 description: "Letting the original designs speak for themselves — the blue club emblem and the whole visual system around it."
-source_sha256: 1f3034249fcb1ba01282d1d9f7dbe7a75dbadbfe97bd356f6b51310c97aa4deb
+source_sha256: 0436ae5d967f09e1b2e95a868935e846d5a4d1f1cf295f8b4a3fc3149595c491
 translated: 2026-09-18
+icon: lucide/palette
 ---
 
 # Design Archive

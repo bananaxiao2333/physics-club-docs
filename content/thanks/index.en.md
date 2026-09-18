@@ -2,8 +2,9 @@
 nav_label: "Thanks & Afterword"
 title: "Thanks and Afterword"
 description: "Thank you for having been here — and the sources and editorial notes behind this site."
-source_sha256: 7e28e1382dc8e1109b3942a04a0fff98e6ba3f63eb94ece31f351be34de87275
+source_sha256: 7566bf1ccd436339d7104615fb4a50cca9d3ded8bb8c1115b092945a1e76ed23
 translated: 2026-09-18
+icon: lucide/heart-handshake
 ---
 
 # Thanks and Afterword

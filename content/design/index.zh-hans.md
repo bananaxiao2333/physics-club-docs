@@ -2,6 +2,7 @@
 nav_label: "设计原档"
 title: 设计原档
 description: 让原设计，自己讲述 —— 蓝色社徽与它周围的整套视觉。
+icon: lucide/palette
 ---
 
 # 设计原档

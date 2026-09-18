@@ -2,6 +2,7 @@
 nav_label: "資料出處"
 title: 資料出處
 description: 本站全部內容的原始材料清單與編後說明。
+icon: lucide/file-text
 # ⚠️ 由 tools/docsgen.py 從 content/sources/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 

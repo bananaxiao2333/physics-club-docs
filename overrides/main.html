@@ -22,6 +22,57 @@
 {% set is_landing = here in ("", "en/", "zh-hant/") %}
 
 {% block extrahead %}
+  {#- ── 社交分享与结构化数据 ─────────────────────────────────────────
+     og:locale 按 OG 规范本该写成 language_TERRITORY（zh_CN / zh_TW 之类），
+     但那是**地区**标记，与本站「语言代码只到文字一级」的政策冲突——地区标签
+     会把用词一起改掉。这里用 BCP-47 的文字子标签（zh_Hans / zh_Hant / en），
+     换取与 <html lang>、hreflang 的一致。个别抓取器可能忽略它。
+
+     分享图默认用一张留存合影；单页可用前置元数据 image: 覆盖。 -#}
+  {% set page_title = page.meta.title if page.meta and page.meta.title else (page.title | default(site_name, true) | striptags) %}
+  {% set page_desc = page.meta.description if page.meta and page.meta.description else (config.extra["site_description" ~ L] | d(config.site_description, true)) %}
+  {% set og_locale = "zh_Hant" if is_hant else ("en" if is_en else "zh_Hans") %}
+  {% set og_inlang = "zh-Hant" if is_hant else ("en" if is_en else "zh-Hans") %}
+  {% set share_image = page.meta.image if page.meta and page.meta.image else "assets/gathering.jpg" %}
+  {% set share_abs = share_image if share_image[:4] == "http" else (config.site_url ~ share_image) %}
+  <meta property="og:type" content="{{ 'website' if is_landing else 'article' }}">
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_desc }}">
+  {% if page.canonical_url %}<meta property="og:url" content="{{ page.canonical_url }}">{% endif %}
+  <meta property="og:locale" content="{{ og_locale }}">
+  {% for other in (["zh_Hans", "en"] if is_hant else (["zh_Hans", "zh_Hant"] if is_en else ["zh_Hant", "en"])) %}
+  <meta property="og:locale:alternate" content="{{ other }}">
+  {% endfor %}
+  <meta property="og:image" content="{{ share_abs }}">
+  <meta property="og:image:alt" content="{{ page_title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_desc }}">
+  <meta name="twitter:image" content="{{ share_abs }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": {{ config.site_url | tojson }},
+        "url": {{ config.site_url | tojson }},
+        "name": {{ site_name | tojson }},
+        "alternateName": {{ config.extra.site_subtitle | d("", true) | tojson }},
+        "description": {{ page_desc | tojson }},
+        "inLanguage": {{ og_inlang | tojson }}
+      },
+      {
+        "@type": "Organization",
+        "name": {{ config.extra["site_author" ~ L] | d(config.site_author, true) | tojson }},
+        "alternateName": "ASJ Yingdong Physics Club",
+        "url": {{ config.site_url | tojson }},
+        "logo": {{ (config.site_url ~ "assets/club-logo.png") | tojson }}
+      }
+    ]
+  }
+  </script>
   {% if is_landing %}
     {# 原站落地页的版式与动效样式；配色与字体由 landing.css 接管为主题变量 #}
     <link rel="stylesheet" href="{{ 'assets/landing/style.css' | url }}">
@@ -79,14 +130,15 @@
   <meta name="generator" content="{{ generator }}">
 {% endblock %}
 
-{# <title>：站名按页面语言取；落地页只留站名，不重复 #}
+{# <title>：站名按页面语言取；落地页只留站名，不重复。
+   分隔符沿用原站的「 · 」——原站是「序章 · 自由曾在此」。 #}
 {% block htmltitle %}
   {% if is_landing %}
     <title>{{ site_name }}</title>
   {% elif page.meta and page.meta.title %}
-    <title>{{ page.meta.title }} - {{ site_name }}</title>
+    <title>{{ page.meta.title }} · {{ site_name }}</title>
   {% elif page.title %}
-    <title>{{ page.title | striptags }} - {{ site_name }}</title>
+    <title>{{ page.title | striptags }} · {{ site_name }}</title>
   {% else %}
     <title>{{ site_name }}</title>
   {% endif %}

@@ -3,8 +3,9 @@ nav_label: "The Merit System"
 title: "The Merit System"
 description: The Physics Club's internal dues, contribution and reward accounting mechanism in its late period — an organisational experiment.
 nav: ["member-rules", "ledger", "glossary", "whitepapers"]
-source_sha256: ffea03b81b91c1970b4c16ff1e43a3afcdfa59cd2c961e3f818d46649ee0daff
+source_sha256: cfaaa1548bc0f2ee8fa0c2c836bb3fd9febad7d5a9a13b676403fa662765bfee
 translated: 2026-09-18
+icon: lucide/award
 ---
 
 # The Merit System
