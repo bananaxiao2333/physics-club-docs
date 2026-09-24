@@ -1,0 +1,10 @@
+# ⚠️ 本文件由 tools/navgen.py 自动生成，请勿手改。
+# 顺序与显示名来自同目录 index.md 的 YAML 前置元数据（nav / nav_label / title）。
+# 重新生成： uv run python tools/navgen.py
+nav:
+- 序章: index.md
+- 社團故事: story
+- 飛行計劃: flight
+- 留存的原檔: collection
+- 制度與功勳: system
+- 關於本站: about

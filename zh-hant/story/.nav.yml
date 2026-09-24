@@ -1,0 +1,10 @@
+# ⚠️ 本文件由 tools/navgen.py 自动生成，请勿手改。
+# 顺序与显示名来自同目录 index.md 的 YAML 前置元数据（nav / nav_label / title）。
+# 重新生成： uv run python tools/navgen.py
+nav:
+- 社團故事: index.md
+- 雞蛋撞地球: egg-drop.md
+- 物理競賽 · 100% 獲獎率: ipc-2026.md
+- 本學期第一次集會暨招新: gathering-0421.md
+- A4 紙飛行節: festival-0430.md
+- 停擺: suspension-0529.md

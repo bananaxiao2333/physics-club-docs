@@ -1,0 +1,302 @@
+/**
+ * 落地页融入文档站的适配层
+ *
+ * 本文件在 assets/landing/style.css 与 exhibition.css **之后**加载，
+ * 因此可以覆盖它们。
+ *
+ * 做三件事：
+ *   1. 把落地页的设计令牌（--ink / --paper / --accent / …）映射到
+ *      Material 主题变量 —— 落地页因此跟随文档站的配色与深浅色切换；
+ *   2. 字体统一为文档站的无衬线栈（原站用的宋体标题在此取消）；
+ *   3. 抹掉主题在首页残留的布局约束，使落地页段落可以占满宽度。
+ *
+ * 文档页不加载本文件。
+ */
+
+/* ══════════════════════════════════════════════════════════════
+   1. 设计令牌 → 主题变量
+
+   ⚠️ 必须声明在**带 data-md-color-scheme 属性的元素**（body）上，
+   不能声明在 :root 上。
+
+   原因：自定义属性里的 var() 是在**声明它的元素**处完成替换的，
+   之后原样继承。声明在 :root 时，`--md-default-fg-color--light` 取到的是
+   主题定义在 :root 的**浅色**值，深色模式下不会更新——
+   `--muted` 会永远是 #0000008c，次级文字在深色底上不可见。
+
+   声明在 body 上，替换就以 body 自身的主题变量为准，深浅色都能取对。
+   ══════════════════════════════════════════════════════════════ */
+
+/* :root 兜底：JS 未执行或属性缺失时的回退 */
+:root {
+  --ink: #fff;
+  --paper: #000000de;
+  --accent: #526cfe;
+  --muted: #0000008c;
+  --line: #0000000d;
+  --serif: var(--md-text-font-family, sans-serif);
+  --sans: var(--md-text-font-family, sans-serif);
+}
+
+[data-md-color-scheme] {
+  --ink: var(--md-default-bg-color);
+  --paper: var(--md-default-fg-color);
+  --accent: var(--md-accent-fg-color);
+  --line: color-mix(in srgb, var(--md-default-fg-color) 16%, transparent);
+
+  /* 次级文字：原站取 #97aabe（近白），主题的 --light 在深色下偏暗，
+     这里按前景/背景混合出中间调，两种 scheme 下都保证可读 */
+  --muted: color-mix(in srgb, var(--md-default-fg-color) 72%, var(--md-default-bg-color));
+
+  /* 原站用宋体做标题；这里统一为文档站字体，取消衬线 */
+  --serif: var(--md-text-font-family, sans-serif);
+  --sans: var(--md-text-font-family, sans-serif);
+
+  /* 反相表面（.paper / .stack-card / .snap-paper …）上的文字令牌。
+     这些卡片的底色是 --md-default-fg-color，也就是「前景色当底」，
+     所以它们上面的文字必须反过来用背景色系，否则两种色调下都会同色不可读
+     （浅色下深字压深底，深色下浅字压浅底）。 */
+  --on-paper: var(--md-default-bg-color);
+  --on-paper-muted: color-mix(in srgb, var(--md-default-bg-color) 76%, var(--md-default-fg-color));
+  --on-paper-line: color-mix(in srgb, var(--md-default-bg-color) 22%, transparent);
+
+  /* 标题色：浅色下就是前景色；深色下 Material 会额外把标题提亮到纯白
+     （palette 里的 [data-md-color-scheme=slate] h1…h6 规则）。
+     落地页把标题色收进令牌自己管，否则那条全局规则会击穿反相表面和
+     绸面段落里的标题，变成白字压浅底。 */
+  --heading: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] {
+  --heading: hsla(var(--md-hue), 0%, 100%, 1);
+}
+
+/* 落地页的标题一律走 --heading，由所在区域决定明暗 */
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6 {
+  color: var(--heading);
+}
+
+/* 主题字体栈（base.html 在 :root 上设过 --md-text-font） */
+:root {
+  --md-text-font-family: var(--md-text-font), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. 页面基调交给主题
+   ══════════════════════════════════════════════════════════════ */
+
+body {
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: var(--md-text-font-family);
+}
+
+/* 主题的排版规则会渗入落地页容器，回退掉 */
+.md-container .md-typeset {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.md-container .md-typeset h1,
+.md-container .md-typeset h2,
+.md-container .md-typeset h3 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.md-container .md-typeset img {
+  margin: 0;
+  background: none;
+  border-radius: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3. 与文档站外壳对接
+   ══════════════════════════════════════════════════════════════ */
+
+/* 首页正文区是空的（内容由 hero 承载），但要**留住侧栏**——不能整块
+   `display: none .md-main`。
+
+   ⚠️ 这里踩过一次，且只在窄屏上看得出来：移动端的抽屉导航
+   （`.md-sidebar--primary`）就长在 `.md-main__inner` 里面，把它一起隐藏，
+   汉堡按钮点开就是一只**空面板**——宽屏上毫无异样，窄屏上整站只剩落地页
+   那几个走马灯段落，点不进任何一章。
+
+   两条侧栏在窄屏都是 `position: fixed`（抽屉与覆盖层），不占流内空间，
+   所以留着它们不会改变版面高度；宽屏下它们会变成常驻栏，而首页要的是
+   整幅版面，因此只在宽屏隐藏。正文区自身的 30px 顶边距也一并清零。
+
+   断点与主题一致：主题在 `min-width: 76.25em` 起把侧栏变成常驻栏，
+   其补集写法是 `max-width: 76.234375em`。 */
+.md-container > .md-main > .md-main__inner {
+  margin: 0;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-container > .md-main > .md-main__inner > .md-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  /* 窄屏抽屉只留主导航：首页没有与目录侧栏对应的正文 */
+  .md-container > .md-main > .md-main__inner > .md-sidebar--secondary {
+    display: none;
+  }
+}
+
+.md-container {
+  padding: 0;
+}
+
+/* 落地页段落紧贴页眉，去掉原站为自有 header 预留的高度 */
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+/* 原站为自有 header 写的定位规则已无对应元素，此处仅兜底处理
+   落地页内部可能残留的 header（不要误伤主题的 <footer class="md-footer">） */
+.md-container > .opening > header,
+.md-container .md-typeset > header {
+  display: none;
+}
+
+/* 落地页首屏：原按满屏设计，这里减去文档站页眉高度 */
+.opening {
+  min-height: calc(100svh - 4.5rem);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4. 详情
+   ══════════════════════════════════════════════════════════════ */
+
+/* 页眉在首页沿用主题的默认样式：
+   半透明底 + backdrop-blur，这是文档站本来的样子，不需要改。
+   高度也不再被污染——原站 style.css 里的 header{height:96px} 已删除。 */
+
+/* 次级文字统一走 --muted，保证深浅色下都可读 */
+.opening-meta,
+.exhibit-route,
+.reading-progress,
+.opening-bottom,
+.opening-bottom small,
+.stage-caption p,
+.orbit-card > span,
+.word-note,
+.section-heading > span,
+.gateway-art + p,
+.chapter p {
+  color: var(--muted);
+}
+
+/* 原站的焦点环颜色跟随强调色 */
+a:focus-visible,
+button:focus-visible {
+  outline-color: var(--md-accent-fg-color);
+}
+
+/* 原件查看器需要在主题弹层之上 */
+.original-dialog {
+  z-index: 60;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5. 反色段落与卡片
+
+   落地页有两类「底色与页面相反」的区域，它们的文字不能跟随主题前景色，
+   否则会出现同色叠同色。两类分别处理：
+     a. 绸面段落：WebGL 深蓝画布（.silk-canvas）在两种色调下都是深底；
+     b. 反相卡片：底色就是 --md-default-fg-color。
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── a. 绸面与影像段落 ───────────────────────────────────────
+   绸面：WebGL 深蓝画布（.silk-canvas）在两种色调下都是深底，
+   基色取自 app.js 里的着色器常量 vec3(.018,.044,.083) ≈ #050b15。
+   影像段落：幕字压在高亮照片上，亮度完全不可控。
+   两者都固定为深底浅字，不再跟随主题前景色。
+
+   这里整组替换令牌（而不只是 --md-*）：--accent 之类的落地页令牌
+   是在 body 上就完成 var() 替换的，不在这里重新指向就不会跟着变。
+   同时覆盖 --md-default-fg-color 系列，使段落内所有后代规则
+   （包括原站里写死 --md-default-fg-color--light 的那些）自动取到反相值。 */
+#main .opening,
+#main .closing,
+#main .story-stage {
+  --silk-bg: #050b15;
+  --silk-fg: #e8ebf5;       /* 对深底 16.3:1 */
+  --silk-fg-muted: #b9c0d2; /* 10.4:1 */
+  --silk-accent: #9fb0ff;   /* 7.9:1 */
+
+  background: var(--silk-bg);
+  color: var(--silk-fg);
+
+  --ink: var(--silk-bg);
+  --paper: var(--silk-fg);
+  --muted: var(--silk-fg-muted);
+  --line: color-mix(in srgb, var(--silk-fg) 16%, transparent);
+  --accent: var(--silk-accent);
+
+  --md-default-fg-color: var(--silk-fg);
+  --md-default-fg-color--light: var(--silk-fg-muted);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--silk-fg) 16%, transparent);
+  --md-accent-fg-color: var(--silk-accent);
+
+  --heading: var(--silk-fg);
+}
+
+/* 影像段落的底部遮罩：原稿只压到 75% 处且起点 alpha 仅 .85，
+   幕字整体（约画面下方 19%–52%）落在半透明区，压到亮照片上就不够对比。
+   实测要在纯白照片上也达到 4.5:1，遮罩 alpha 需 ≥ .55，
+   所以把深色区抬到画面中部再收尾。 */
+#main .image-shade {
+  background: linear-gradient(
+    0deg,
+    #06111e 0%,
+    #06111ef7 30%,
+    #06111ee8 52%,
+    #06111eb8 70%,
+    transparent 94%
+  );
+}
+
+/* ── b. 反相卡片 ─────────────────────────────────────────────
+   下面这些卡片自带「前景色当底」，内部文字改走反相令牌。
+   只改令牌，不动卡片自己的 background。 */
+#main .paper,
+#main .stack-card,
+#main .snap-paper,
+#main .snap-white,
+#main .flight-feature,
+#main .chapter-image > span {
+  --heading: var(--on-paper);
+}
+
+/* 段落文字：原站写死 --md-default-fg-color--light，在反相底上会变成同色系。
+   选择器需要 #main 前缀才压得过原站的 #main .stack-copy p 这一级权重。 */
+#main .stack-copy .eyebrow,
+#main .stack-copy p,
+#main .stack-copy .text-link,
+#main .snap-paper .eyebrow,
+#main .snap-paper p:not(.eyebrow),
+#main .snap-white .eyebrow,
+#main .snap-white p:not(.eyebrow) {
+  color: var(--on-paper-muted);
+}
+
+#main .stack-copy .text-link {
+  border-color: var(--on-paper-line);
+}
+
+/* 卡片左上角的编号：反相底上的文字 */
+.chapter-image > span {
+  color: var(--on-paper);
+  border-color: var(--on-paper-line);
+}
