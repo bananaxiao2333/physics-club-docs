@@ -14,6 +14,10 @@ site_author = "英东物理社"
 # [project.extra.consent.cookies] 里把 github 显式关掉（见那里的注释）：
 # 同意表单照旧一个勾选项都没有，仓库图标也就只显示仓库名，不显示任何计数。
 repo_url = "https://github.com/bananaxiao2333/physics-club-docs"
+# 不设 repo_name 的话，Zensical 会拿 URL 的域名推断，页眉那行字就只剩「GitHub」——
+# 读者看不出点进去是哪个仓库。这里写仓库名，页眉就是「图标 GitHub 品牌标 + physics-club-docs」。
+# 不写 owner 前缀：带 owner 的完整 slug 要占满 210px，会把页眉撑得很挤。
+repo_name = "physics-club-docs"
 
 copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 
