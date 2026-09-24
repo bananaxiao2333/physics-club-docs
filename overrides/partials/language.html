@@ -38,7 +38,8 @@
 
     同意表单的原意是让人选第三方 cookie，按钮写「同意」是合适的。
     但本站没有任何可选项（见 zensical.toml 的 [project.extra.consent]）——
-    对一个只是把话说清楚的说明框，「同意」在语义上是错的，改成「知道了」。
+    对一个只是把话说清楚的说明框，「同意」在语义上是错的。
+    改用公告体里表示「已阅知」的说法，不用「知道了」这类口语答复。
     其余按键（管理设定 / 拒绝）本站在 actions 里没有启用，不改。 -#}
-{% set consent_ok = "Got it" if is_en else ("知道了" if not is_hant else "知道了") %}
+{% set consent_ok = "Acknowledged" if is_en else "我已知悉" %}
 {% macro t(key) %}{{ lang_tag if key == "language" else (consent_ok if key == "consent.accept" else (lang.t(key) or fallback.t(key) or key)) }}{% endmacro %}

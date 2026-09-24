@@ -122,9 +122,35 @@ body {
    3. 与文档站外壳对接
    ══════════════════════════════════════════════════════════════ */
 
-/* 首页正文区为空（内容由落地页承载），隐藏以免留下空白 */
-.md-container > .md-main {
-  display: none;
+/* 首页正文区是空的（内容由 hero 承载），但要**留住侧栏**——不能整块
+   `display: none .md-main`。
+
+   ⚠️ 这里踩过一次，且只在窄屏上看得出来：移动端的抽屉导航
+   （`.md-sidebar--primary`）就长在 `.md-main__inner` 里面，把它一起隐藏，
+   汉堡按钮点开就是一只**空面板**——宽屏上毫无异样，窄屏上整站只剩落地页
+   那几个走马灯段落，点不进任何一章。
+
+   两条侧栏在窄屏都是 `position: fixed`（抽屉与覆盖层），不占流内空间，
+   所以留着它们不会改变版面高度；宽屏下它们会变成常驻栏，而首页要的是
+   整幅版面，因此只在宽屏隐藏。正文区自身的 30px 顶边距也一并清零。
+
+   断点与主题一致：主题在 `min-width: 76.25em` 起把侧栏变成常驻栏，
+   其补集写法是 `max-width: 76.234375em`。 */
+.md-container > .md-main > .md-main__inner {
+  margin: 0;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-container > .md-main > .md-main__inner > .md-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  /* 窄屏抽屉只留主导航：首页没有与目录侧栏对应的正文 */
+  .md-container > .md-main > .md-main__inner > .md-sidebar--secondary {
+    display: none;
+  }
 }
 
 .md-container {

@@ -5,3 +5,30 @@
 @media(max-width:1050px){#main .opening-note{bottom:4%}#main .manifesto{gap:30px 50px}#main .chapter h3{font-size:16px}}
 @media(max-width:720px){#main nav a[aria-current]:after{bottom:8px}#main .opening{padding:22px 6% 30px;min-height:590px;height:calc(90svh - 80px)}#main .opening-meta{font-size:10px}#main .opening-meta span:last-child{display:none}#main .opening-title h1{font-size:23vw;line-height:1.22;white-space:normal;margin-top:20px}#main .opening-title h1 span{display:block;margin-left:0}#main .opening-title h1 i{position:absolute;left:70%;bottom:28%;font-size:21vw}#main .opening-note{position:static;font-size:13px;margin-top:20px}#main .opening-title .eyebrow{margin-top:15px}#main .opening-bottom>span{display:none}#main .scroll-story{height:300vh}#main .expanding-frame{inset:0 6% 9%}#main .stage-caption{left:7%;right:7%;bottom:20%}#main .stage-caption p{font-size:14px}#main .scene-rail{left:7%;right:7%;font-size:9px;letter-spacing:0}#main .scene-rail button{width:23px}#main .section-pad{padding:80px 7%}#main .manifesto{display:block}#main .manifesto h2{margin:30px 0 15px}#main .manifesto-copy{padding:0}#main .chapter-grid{grid-template-columns:1fr;gap:45px}#main .chapter:nth-child(2){margin-top:0}#main .chapter-image{aspect-ratio:5/4}#main .chapters{padding-top:0}#main .chapter h3{font-size:20px}#main .section-heading{padding-bottom:30px}#main .closing h2{font-size:36px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,#main *:before,#main *:after{animation:none!important;transition:none!important}#main .scroll-story{height:auto}#main .story-stage{height:85svh;position:relative}#main .stage-caption{opacity:1!important;transform:none!important}#main .expanding-frame{inset:0}#main .scene-image{transition:none}#main .reveal{opacity:1!important;transform:none!important}}#main figcaption{font-size:12px;line-height:1.8;color:var(--muted);margin-top:14px}#main .opening,#main .closing{position:relative;isolation:isolate;overflow:hidden}#main .silk-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.52}#main .opening .silk-canvas{opacity:.82}#main .closing{background:var(--md-default-bg-color--light);color:var(--paper)}#main .closing .eyebrow{color:var(--accent)}#main .closing .pill{border-color:var(--md-accent-fg-color)}#main .closing h2 span{color:var(--accent)}#main .closing .silk-canvas{opacity:.85}#main .silk-fallback{background-image:radial-gradient(ellipse at 80% 25%,transparent,transparent 65%)}
+
+/* ── 文稿中心入口 ──────────────────────────────────────────────────────
+   首页是落地页，正文全在文档树里。这一格明确告诉读者「门里面还有东西」，
+   并给一个足够醒目的按钮。版式沿用 manifesto 的两栏，读起来是一家人。
+   ──────────────────────────────────────────────────────────────────── */
+#main .doc-centre{display:grid;grid-template-columns:1.2fr 1fr;gap:40px 100px;border-top:1px solid var(--line)}
+#main .doc-centre>.eyebrow{grid-column:1/-1}
+#main .doc-centre h2{font-size:clamp(32px,3.8vw,60px);line-height:1.5;font-family:var(--serif);margin:0}
+#main .doc-centre h2 span{color:var(--accent)}
+#main .doc-centre-copy{padding-top:20px;max-width:470px;color:var(--md-default-fg-color--light)}
+#main .doc-centre-copy p{margin:0 0 30px}
+#main .doc-centre .pill{border-color:var(--md-accent-fg-color);color:var(--md-accent-fg-color)}
+#main .doc-centre .pill:hover{background:var(--accent);border-color:var(--accent);color:var(--md-default-bg-color)}
+
+@media(max-width:1050px){
+  #main .doc-centre{grid-template-columns:1fr;gap:30px 50px}
+}
+
+/* ── 首屏的「直接进入内容」─────────────────────────────────────────────
+   展陈是看完的，文档是直接用的。两种意图给两条并排的入口：
+   上一条跳进文档树，下一条才向下滚。用强调色把「进去」和「往下看」分开。
+   ──────────────────────────────────────────────────────────────────── */
+#main .opening-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+#main .enter-link{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--md-accent-fg-color)}
+#main .enter-link .circle{border-color:var(--md-accent-fg-color);color:var(--md-accent-fg-color);transition:background .2s,color .2s}
+#main .enter-link:hover .circle{background:var(--accent);border-color:var(--accent);color:var(--md-default-bg-color)}
+#main .enter-link:hover{text-decoration:underline;text-underline-offset:3px}

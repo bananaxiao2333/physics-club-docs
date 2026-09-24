@@ -4,17 +4,42 @@ site_name = "自由曾在此"
 site_description = "英东物理社数字纪念馆 —— 一张社牌，一页讲稿，一次把想法交给双手的尝试。"
 site_author = "英东物理社"
 
+# 仓库入口：页眉搜索框旁显示一个 GitHub 图标 + 仓库名（见 overrides/partials/header.html
+# 末尾那段 `config.repo_url` 判断，以及主题的 partials/source.html）。
+#
+# ⚠️ 这里只是一个**链接**，不是一次请求——点之前谁的浏览器都不会连到 GitHub。
+# 但 Zensical 对公开的 GitHub 仓库会自动去 api.github.com 取 star / fork / 最新
+# release 数并渲染在图标旁边，那就是每个访客一次第三方请求，直接推翻
+# docs/about/index.md 里「不发起任何第三方请求」的声明。故在
+# [project.extra.consent.cookies] 里把 github 显式关掉（见那里的注释）：
+# 同意表单照旧一个勾选项都没有，仓库图标也就只显示仓库名，不显示任何计数。
+repo_url = "https://github.com/bananaxiao2333/physics-club-docs"
+
 copyright = "英东物理社 · 自由曾在此<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 
 
 # extra_css / extra_javascript 必须在任何 [[project.*]] 表之前，
 # 否则会被 TOML 归入该表，导致 project.extra_css 为空。
-extra_css = ["stylesheets/fonts.css", "stylesheets/extra.css"]
-# 刻意留空：本站不引任何外部脚本或字体，全部自托管。
+# glightbox 的自有副本排在最前，好让 extra.css 里的覆盖仍然压得住它。
+extra_css = [
+  "stylesheets/glightbox.min.css",
+  "stylesheets/fonts.css",
+  "stylesheets/extra.css",
+]
+# 原则：本站不引任何外部脚本或字体，全部自托管。
 # 原先这里挂了 unpkg 上的 MathJax，但站内没有一篇用到数学，
 # 却让每个访客在每次浏览时都向 unpkg 暴露一次 IP —— 与「数据隐私」页的
 # 声明直接冲突，故整个移除（见 docs/stylesheets/fonts.css 的同类说明）。
-extra_javascript = []
+#
+# 同样的账，图片灯箱也欠着：glightbox 插件在点开图片时默认从 unpkg 取
+# glightbox.min.js 与 .css（见 zensical/templates 里 bundle 的 Wp()/Dp()）。
+# 也就是说「脚本全部由本站自托管」这句话，此前在图片页上是不成立的。
+# 下面挂的是这两个文件的**本站副本**：bundle 里那两处都在下载前先看
+# typeof GLightbox，只要它已经存在就跳过网络请求、直接用现成的全局对象。
+# extra_javascript 在 bundle 之后、document$ 初始化之前执行，
+# 所以灯箱初始化时这个全局已经就位，无需改动主题。
+# ⚠️ 升级 glightbox 插件版本时要同步换掉这两个文件。
+extra_javascript = ["javascripts/glightbox.min.js"]
 
 # 链接与锚点校验：构建时就把断链/失效锚点报出来，而不是等读者点到。
 # Zensical 只支持链接相关的这几项（导航类的会被忽略）。
@@ -39,13 +64,13 @@ site_subtitle = "ASJ YINGDONG · PHYSICS CLUB"
 site_name_en = "Freedom Was Here"
 copyright_en = "ASJ Yingdong Physics Club · Freedom Was Here<br>THE CLUB HAS ENDED. THE CURIOSITY HAS NOT."
 site_author_en = "ASJ Yingdong Physics Club"
-# 页面包屑的根（对应中文的「序章」）
 consent_title_en = "Data & privacy"
-consent_description_en = "This site collects no usage information: no analytics, no advertising, no third-party tracking, and no cookies at all. Fonts, styles and scripts are all served from this site's own origin, so opening any page contacts one domain only. The single thing stored in your browser is your light/dark preference (browser local storage, not a cookie); clearing your browser data removes it."
+consent_description_en = "This site collects no visitor data. There is no analytics, no advertising, no cookie and no third-party request of any kind. Fonts, styles and scripts are all self-hosted, so any page contacts this site’s domain only. A single light/dark display preference is stored locally by the browser, and is removed when browser data is cleared."
 
 consent_title_zh_hant = "資料隱私"
-consent_description_zh_hant = "本站不收集任何使用資訊：沒有統計腳本、沒有廣告、沒有第三方追蹤，也不設置任何 cookie。頁面的字型、樣式與腳本全部由本站自託管，打開任意一頁只會聯繫本站一個網域。唯一保存在你瀏覽器裡的是深淺色偏好（瀏覽器本機儲存，不是 cookie），清除瀏覽器資料即可抹掉。"
+consent_description_zh_hant = "本站不收集任何存取資料：無統計、無廣告，亦不設定 cookie 或發起任何第三方請求。字型、樣式與腳本均由本站自行託管，存取任何頁面只連接本站一個網域。瀏覽器本機僅儲存一項深淺色顯示偏好，清除瀏覽器資料後即被移除。"
 
+# 页面包屑的根（对应中文的「序章」）
 nav_root_label_en = "Prologue"
 site_description_en = "A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands."
 # 主题切换按钮的提示文案（config.theme.palette 里的 toggle.name 是全站唯一的）
@@ -67,18 +92,29 @@ palette_toggle_dark_zh_hant = "切換到淺色"
 # Google Analytics / GitHub 这类 cookie。
 #
 # ⚠️ 本站**没有任何需要同意的第三方请求**：字体、样式、脚本全部自托管，
-# 不设任何 cookie（见 content/privacy/，那里还给了三条自验方法）。
+# 不设任何 cookie。文案按公告体写：陈述事实，不作排比宣传，不用口语动词。
+# 篇幅仍从短——这是人人都会看到的浮层，不是隐私政策的正文位。
 # 所以下面**刻意不列任何 cookie 勾选项**——把不存在的东西列进同意表单，
 # 才是真正的不诚实。这个表单在这里承担两件事：
 #   1. 首次访问时把「本站不收集什么」当面讲清楚；
 #   2. 提供 #__consent 这个锚点，让人随时能回到这份说明
-#      （页脚与隐私页都链过去）。
+#      （页脚链过去）。
 # 将来若真的引入统计，再把对应的 cookie 加进 [project.extra.consent.cookies]。
 [project.extra.consent]
 title = "数据隐私"
-description = "本站不收集任何使用信息：没有统计脚本、没有广告、没有第三方跟踪，也不设置任何 cookie。页面的字体、样式与脚本全部由本站自托管，打开任意一页只会联系本站一个域名。唯一保存在你浏览器里的是深浅色偏好（浏览器本地存储，不是 cookie），清除浏览器数据即可抹掉。"
+description = "本站不收集任何访问数据：无统计、无广告，亦不设置 cookie 或发起任何第三方请求。字体、样式与脚本均由本站自行托管，访问任何页面只连接本站一个域名。浏览器本机仅保存一项深浅色显示偏好，清除浏览器数据后即被移除。"
 # 只有一个按钮：这里没有可选项，给「拒绝」按钮是不诚实的。
 actions = ["accept"]
+
+# 上面刚配了 repo_url，而 overrides/partials/consent.html 的既有逻辑是
+# 「repo_url 里有 github.com 就自动补一个 GitHub 勾选项」——那一项管的正是
+# api.github.com 取 star / fork 的那次请求。本站不要那次请求（理由见文件开头
+# repo_url 处的注释），于是这里把它显式关掉：键存在且为 false，
+# consent.html 既不自动补这一项，也不会把它渲染出来。
+# 结果是同意表单里**依然一个勾选项都没有**，上面那句「不发起任何第三方请求」
+# 句句为真，不必改文案。
+[project.extra.consent.cookies]
+github = false
 
 # 同上：config 里的这套文案是全站唯一的，其余语种按 _en / _zh_hant 取用
 # （见 overrides/partials/consent.html）。
@@ -128,8 +164,12 @@ custom_dir = "overrides"
 font = false
 variant = "modern"
 language = "zh"
-logo = "assets/club-logo.png"
-favicon = "assets/club-logo.png"
+logo = "assets/club-logo.webp"
+favicon = "assets/favicon.png"
+# 仓库图标的默认值是通用 git 图标（fontawesome/brands/git-alt），
+# 而本站链的确实是 GitHub，用它的品牌标记更好认。
+# 图标是构建期内联进 HTML 的 SVG，不产生任何字体或图标请求。
+icon.repo = "fontawesome/brands/github"
 features = [
   "announce.dismiss",
   "content.code.annotate",
@@ -178,6 +218,25 @@ accent = "indigo"
 toggle.icon = "lucide/moon"
 toggle.name = "切换到浅色"
 
+# 页面前置元数据里的 status:，会在导航侧栏上显示一枚标签。
+# ⚠️ 标识符只能用字母数字、连字符与下划线。
+# 这两个都描述「这份材料本身处在什么状态」，而不是它重不重要：
+#   draft   —— 原件就停在草案阶段，本站照原样存档，未定稿
+#   partial —— 原件本身残缺（只写到月份、只有一句提及），不是本站漏抄
+[project.extra.status]
+draft = "草案"
+partial = "残缺"
+
+# 分语种的状态文案。Zensical 的 extra.status 是全站唯一的，
+# 与 site_name / copyright 同理，由模板按页面语言取用（见 overrides/partials/nav.html）。
+# ⚠️ 必须另起一张表：键名若留在 [project.extra.status] 里，
+#    会被当成新的 status 标识符注册进去。
+[project.extra.status_label]
+draft_en = "Draft"
+partial_en = "Incomplete"
+draft_zh_hant = "草案"
+partial_zh_hant = "殘缺"
+
 [project.markdown_extensions]
 abbr = {}
 admonition = {}
@@ -187,6 +246,9 @@ footnotes = {}
 md_in_html = {}
 toc.permalink = true
 pymdownx.betterem = {}
+# 图片/表格题注：让「图 + 图说」成为一个 figure，而不是一行裸图。
+# 原档与社牌两组图都靠它来带图说（/// caption）。
+pymdownx.blocks.caption = {}
 pymdownx.caret = {}
 pymdownx.details = {}
 pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
