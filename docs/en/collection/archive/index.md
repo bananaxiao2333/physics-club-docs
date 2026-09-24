@@ -1,9 +1,9 @@
 ---
 nav_label: "Photo Archive"
 title: Photo Archive
-description: Some moments never disperse — ten frames from the surviving material.
+description: Ten photographic records from the surviving material.
 translated: 2026-09-18
-source_sha256: ef33f4ebc2bba2a635cf2db8f572c9d663c2347cdd5c8a6d4e933c4edba8dce1
+source_sha256: 1ee7b6e07ebc469186ddf70c14e20c1654c96dab5701535006f09ef25d0d8d6d
 icon: lucide/images
 tags:
   - Primary-Source
@@ -14,7 +14,7 @@ tags:
 
 <p class="memorial-kicker">04 / THE MEMORY COLLECTION · THE PHOTO ARCHIVE</p>
 
-## Some Moments Never Disperse
+## Some moments never disperse
 
 Every photograph here comes from the surviving material.
 **We do not write a story for each one; we record only what we can see.**
@@ -35,25 +35,31 @@ One classroom, one blackboard, a group of people who were not satisfied with the
 
     ---
 
-    ![Teachers and students photographed together in a lecture hall](../../../assets/gathering.jpg)
+    ![Teachers and students photographed together in a lecture hall](../../../assets/gathering.jpg){ loading=lazy }
 
+    /// caption
     Teachers and students photographed together in a lecture hall
+    ///
 
 -   __06 / The Moment We Stood Together__
 
     ---
 
-    ![A group photograph in the auditorium](../../../assets/ceremony.jpg)
+    ![A group photograph in the auditorium](../../../assets/ceremony.jpg){ loading=lazy }
 
+    /// caption
     A group photograph in the auditorium
+    ///
 
 -   __07 / Letting What We Love Be Heard__
 
     ---
 
-    ![A speech in front of the podium](../../../assets/speech.jpg)
+    ![A speech in front of the podium](../../../assets/speech.jpg){ loading=lazy }
 
+    /// caption
     A speech in front of the podium
+    ///
 
 </div>
 
@@ -67,17 +73,21 @@ Answers have to be tried with your own hands.
 
     ---
 
-    ![Students discussing at a lab bench](../../../assets/experiment.jpg)
+    ![Students discussing at a lab bench](../../../assets/experiment.jpg){ loading=lazy }
 
+    /// caption
     Students discussing at a lab bench
+    ///
 
 -   __05 / Answers Have to Be Tried with Your Own Hands__
 
     ---
 
-    ![Students observing an experimental setup](../../../assets/lab.jpg)
+    ![Students observing an experimental setup](../../../assets/lab.jpg){ loading=lazy }
 
+    /// caption
     Students observing an experimental setup
+    ///
 
 </div>
 
@@ -91,25 +101,31 @@ Writing the line of thought on the blackboard.
 
     ---
 
-    ![A physics explanation in front of the blackboard](../../../assets/blackboard.jpg)
+    ![A physics explanation in front of the blackboard](../../../assets/blackboard.jpg){ loading=lazy }
 
+    /// caption
     A physics explanation in front of the blackboard
+    ///
 
 -   __04 / A Piece of Thinking Shared__
 
     ---
 
-    ![A sharing session in the classroom](../../../assets/classroom.jpg)
+    ![A sharing session in the classroom](../../../assets/classroom.jpg){ loading=lazy }
 
+    /// caption
     A sharing session in the classroom
+    ///
 
 -   __10 / Explaining and Listening in Class__
 
     ---
 
-    ![Explaining and listening in class](../../../assets/lecture.jpg)
+    ![Explaining and listening in class](../../../assets/lecture.jpg){ loading=lazy }
 
+    /// caption
     Explaining and listening in class
+    ///
 
 </div>
 
@@ -123,21 +139,25 @@ A small sense of belonging.
 
     ---
 
-    ![A club member badge kept in hand](../../../assets/badge.jpg)
+    ![A club member badge kept in hand](../../../assets/badge.jpg){ loading=lazy }
 
+    /// caption
     A club member badge kept in hand
+    ///
 
 -   __09 / Keeping the Record on the Wall__
 
     ---
 
-    ![A display board made of activity photographs and text](../../../assets/board.jpg)
+    ![A display board made of activity photographs and text](../../../assets/board.jpg){ loading=lazy }
 
+    /// caption
     A display board made of activity photographs and text
+    ///
 
 </div>
 
-## About These Photographs
+## About these photographs
 
 The photographs come from the `微信assets` folder in the materials directory.
 The images have been optimised in size and format for web viewing; **no stock imagery was used to stand in for club activities**.
@@ -146,9 +166,9 @@ Original design drafts and vector materials are in the [Design Archive](../desig
 
 ---
 
-## List of Originals
+## List of originals
 
-The materials directory [Original on-site photographs](../../about/sources/index.md#photo-assets) holds **19 image files** in total.
+The materials directory [Original on-site photographs](../../about/sources/index.md#photo-assets "微信assets/") holds **19 image files** in total.
 The filenames keep their WeChat timestamps, so **every single one has a verifiable exact time**.
 
 !!! warning "What these times mean"
@@ -218,9 +238,9 @@ The filenames keep their WeChat timestamps, so **every single one has a verifiab
 
 ### On the correspondence between page photographs and originals
 
-The photographs on this site's pages are **re-encoded versions** of these originals (resized for web viewing).
+The photographs on this site's pages are **re-encoded versions**[^recode] of these originals.
 
-!!! note "Why we do not label the source file of each one"
+???+ note "Why the source file is not labelled for each one"
     Several photographs in the surviving material have **exactly the same dimensions**
     (for example `20260421123547`, `20260421123548` and `20260421130606`
     are all 1280 × 853), and after re-encoding the correspondence cannot be determined
@@ -228,3 +248,5 @@ The photographs on this site's pages are **re-encoded versions** of these origin
 
     This site therefore **does not label each page photograph with its original filename** —
     giving a definite answer when the evidence is insufficient is worse than giving none.
+
+[^recode]: Resized and reformatted for comfortable viewing in a browser.

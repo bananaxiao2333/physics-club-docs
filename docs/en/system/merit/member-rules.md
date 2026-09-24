@@ -1,7 +1,7 @@
 ---
 title: "Member-Facing Rules, in Full"
 description: The twelve sections of the member public white paper — positioning, concepts, accounts, earning, use, settlement, rewards, the ledger, refunds, rights, obligations, FAQ.
-source_sha256: 0310e90bdfe64a78fc0c989914230b84dc308afd532b5ea638e973b38ce50653
+source_sha256: 4cd3784603a0947d44d53c4fd4ce67ab888906e747fdce18bfc8d3cc47601943
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/system/merit/member-rules.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -11,7 +11,7 @@ translated: 2026-09-18
 <p class="memorial-kicker">MEMBER-FACING RULES</p>
 
 !!! info "Sources and publication scope"
-    This page is compiled from [Member white paper](../../about/sources/index.md#merit-whitepaper-member).
+    This page is compiled from [Member white paper](../../about/sources/index.md#merit-whitepaper-member "物理社功勋系统会员公开白皮书_正式版第一版.docx").
     That file is marked “Applies to: all members of the Physics Club” and “**Circulated internally | Not to be used for commercial promotion outside the club**”.
 
     The white paper itself states that material concerning system security, back-office approval, supplier negotiations, undisclosed cooperation,
@@ -109,16 +109,16 @@ the circulating fund pool mainly carries the needs of members' day-to-day activi
 
 To make this easier for members to understand, the system's simplified relations can be written as:
 
-```text
+```text title="Simplified ledger relations"
 L = Σ Aᵢ
 ```
 
 - `L` —— the total balance in the circulating fund pool that relates to individual accounts
-- `Aᵢ` —— the individual account balance of the i-th member
+- A~i~ —— the individual account balance of the i-th member
 
 When a payment or crediting of amount `x` enters the system and, under the rules in force, a use ratio `r` is counted into the fixed fund pool:
 
-```text
+```text title="Crediting into the fixed fund pool"
 Fixed fund pool increase   = x × r
 Individual account increase = x × (1 − r)
 ```
@@ -325,3 +325,5 @@ Breach of the obligations above may lead to restriction of the account or handli
 - [The Ledger Model](ledger.md)
 - [Glossary](glossary.md)
 - [White Papers and the Retention Boundary](whitepapers.md)
+
+*[grant]: The English word used in the original; the payout of the reward pool once multi-signature confirmation is complete.

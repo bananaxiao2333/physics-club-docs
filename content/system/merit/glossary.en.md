@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 description: Memorial-edition explanations of merit system terms.
-source_sha256: 57374169b8af69f2a6f08b422a24033dd1679f1008604be8417634c8ba36832c
+source_sha256: 58286c919a26afea47453f50bb39449a933f83061b4fcb76c433df34ff7b3754
 translated: 2026-09-18
 ---
 
@@ -9,7 +9,7 @@ translated: 2026-09-18
 
 <p class="memorial-kicker">GLOSSARY</p>
 
-The explanations below use the **memorial-edition wording** of appendix B of [Merit system historical record](../../about/sources/index.md#merit-history);
+The explanations below use the **memorial-edition wording** of appendix B of [Merit system historical record](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx");
 they are centred on how members understood things, and do not cover internal back-office operating parameters.
 The Chinese headwords are kept so that terms can be matched against the original documents.
 
@@ -38,7 +38,7 @@ grant multi-signature (grant 多签)
 :   The reward pool may be paid out formally only after at least three administrators have confirmed.
 
 
-## What merit can do
+## The uses of merit
 
 According to the member public white paper, merit may be used within the club's rules for:
 
@@ -50,10 +50,10 @@ According to the member public white paper, merit may be used within the club's 
 | Club merchandise | Badges, stickers, notebooks, commemorative items and so on |
 | Other matters | Governed by the activity description, system announcement or rules confirmed by the management team |
 
-## What merit cannot do
+## Prohibited uses of merit
 
 !!! warning "The boundary of use"
-    | Cannot | Explanation |
+    | Prohibited | Explanation |
     | --- | --- |
     | Free transfer between members | Not supported |
     | Private buying and selling | Not supported |

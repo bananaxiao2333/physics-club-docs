@@ -1,7 +1,7 @@
 ---
 title: "Suspension"
-description: "The surviving material ends on 12 May 2026. This page is the last frame of this record."
-source_sha256: 011f8c4a6d2ef23fbf077ef22eab48d8566316e5f17aa6c07e9daac6cf0f5395
+description: "The surviving material ends on 12 May 2026; the date of suspension rests on the commissioning note."
+source_sha256: 55a10a0077c0994d4f5a427a1d6c2d5bf38e50825fd4395dc1e0caa4dfe1a6b2
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/story/suspension-0529.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -32,7 +32,7 @@ The content file with the latest modification time in the material directory is 
 | `演示文稿1.pptx` | 2026-05-12 20:05 |
 | `第一版设计饮料杯.svg` | 2026-05-07 19:36 |
 | `batch_页面 1–2.png` | 2026-05-07 19:26 |
-| [27 April assembly deck](../about/sources/index.md#deck-0427) | 2026-04-27 13:47 |
+| [27 April assembly deck](../about/sources/index.md#deck-0427 "物理社集会0427.pptx") | 2026-04-27 13:47 |
 
 **The surviving material ends at 12 May.** After that there is no record of any new activity,
 assembly or purchase.
@@ -45,7 +45,7 @@ entries, the purchasing list stopped gaining rows, and club badges stopped reach
 
 ## We chose to record it as it was
 
-This site does not intend to turn the suspension into a drama. Something quite ordinary happened:
+This site does not narrate the suspension as a drama. It is simply an ordinary fact:
 a group of people made some things together over a stretch of time, and then that stretch of time ended.
 
 In the 27 April version of the assembly slides, the time of the paper plane challenge had just been
@@ -53,11 +53,11 @@ changed to 15:20–16:20; the 21 April recruitment questionnaire was still askin
 a 50-yuan club fee”; in the 12 May slides the four groups had just been divided, and the demo video for
 the merit system had just been finished. All of it is still here, nothing cleared away.
 
-## What was left behind
+## What survives
 
 <div class="grid cards" markdown>
 
--   __A run of show that works__
+-   __A complete run of show that can be executed__
 
     ---
 
@@ -73,7 +73,7 @@ the merit system had just been finished. All of it is still here, nothing cleare
 
     [:octicons-arrow-right-24: Design Archive](../collection/design/index.md)
 
--   __A competition plan that can prove itself__
+-   __A competition plan that can evidence itself__
 
     ---
 
@@ -81,7 +81,7 @@ the merit system had just been finished. All of it is still here, nothing cleare
 
     [:octicons-arrow-right-24: Activity Overview](../flight/index.md)
 
--   __A set of rules that spells out its own boundaries__
+-   __A body of rules with explicit boundaries__
 
     ---
 
@@ -105,12 +105,12 @@ the merit system had just been finished. All of it is still here, nothing cleare
 
     [:octicons-arrow-right-24: The First Assembly and Recruitment of the Term](gathering-0421.md)
 
--   __A merit system they built themselves__
+-   __A merit system built in-house__
 
     ---
 
-    Membership dues records, the fund pool, a public ledger and multi-signature on rewards — and they
-    **actually built the electronic system**.
+    Membership dues records, the fund pool, a public ledger and multi-signature on rewards — implemented
+    as an electronic system.
 
     [:octicons-arrow-right-24: Merit System](../system/merit/index.md)
 

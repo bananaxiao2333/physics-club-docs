@@ -1,7 +1,7 @@
 ---
 nav_label: "集會原稿"
 title: 集會原稿
-description: 把時間翻回那一頁 —— 2026 年春季的三份集會演示文稿。
+description: 2026 年春季三份集會演示文稿的逐頁記錄。
 nav: ["0421", "0427", "0512"]
 icon: lucide/presentation
 tags:
@@ -25,7 +25,8 @@ tags:
 
 === "04.21 · 集會暨招新"
 
-    **完整 PDF · 12 頁** —— [打開原稿](../../../assets/originals/assembly-421.pdf){ target=_blank }
+    **12 頁** —— [下載逐頁 PDF](../../../assets/originals/assembly-421.pdf){ target=_blank }
+    **本 PDF 由本站據下方 12 張逐頁圖合成**，不是原始導出件：留存的那份 PDF 導出件中途截斷、無法打開。
 
     流程是固定的：發牌 → 紙飛機活動 → 競賽成果 → 招新 → 自媒體部門 → 會費說明。
 
@@ -86,18 +87,77 @@ tags:
 
 <div class="grid cards" markdown>
 
-- ![集會封面](../../../assets/originals/assembly-421-01.jpg)
-- ![關於社團](../../../assets/originals/assembly-421-02.jpg)
-- ![運營人員頒牌](../../../assets/originals/assembly-421-03.jpg)
-- ![教師社牌頒發](../../../assets/originals/assembly-421-04.jpg)
-- ![會費說明](../../../assets/originals/assembly-421-05.jpg)
-- ![科技節紙飛機](../../../assets/originals/assembly-421-06.jpg)
-- ![關於招新](../../../assets/originals/assembly-421-07.jpg)
-- ![活動照片](../../../assets/originals/assembly-421-08.jpg)
-- ![自媒體部門](../../../assets/originals/assembly-421-09.jpg)
-- ![競賽成果展示](../../../assets/originals/assembly-421-10.jpg)
-- ![Q&A](../../../assets/originals/assembly-421-11.jpg)
-- ![感謝聆聽](../../../assets/originals/assembly-421-12.jpg)
+-   ![集會封面](../../../assets/originals/assembly-421-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · 集會封面
+    ///
+
+-   ![關於社團](../../../assets/originals/assembly-421-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · 關於社團
+    ///
+
+-   ![運營人員頒牌](../../../assets/originals/assembly-421-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · 運營人員頒牌
+    ///
+
+-   ![教師社牌頒發](../../../assets/originals/assembly-421-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · 教師社牌頒發
+    ///
+
+-   ![會費說明](../../../assets/originals/assembly-421-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · 會費說明
+    ///
+
+-   ![科技節紙飛機](../../../assets/originals/assembly-421-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · 科技節紙飛機
+    ///
+
+-   ![關於招新](../../../assets/originals/assembly-421-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · 關於招新
+    ///
+
+-   ![活動照片](../../../assets/originals/assembly-421-08.jpg){ loading=lazy }
+
+    /// caption
+    08 · 活動照片
+    ///
+
+-   ![自媒體部門](../../../assets/originals/assembly-421-09.jpg){ loading=lazy }
+
+    /// caption
+    09 · 自媒體部門
+    ///
+
+-   ![競賽成果展示](../../../assets/originals/assembly-421-10.jpg){ loading=lazy }
+
+    /// caption
+    10 · 競賽成果展示
+    ///
+
+-   ![Q&A](../../../assets/originals/assembly-421-11.jpg){ loading=lazy }
+
+    /// caption
+    11 · Q&A
+    ///
+
+-   ![感謝聆聽](../../../assets/originals/assembly-421-12.jpg){ loading=lazy }
+
+    /// caption
+    12 · 感謝聆聽
+    ///
 
 </div>
 
@@ -105,13 +165,47 @@ tags:
 
 <div class="grid cards" markdown>
 
-- ![紙飛機活動更新](../../../assets/originals/assembly-427-01.jpg)
-- ![場地布局](../../../assets/originals/assembly-427-02.jpg)
-- ![折法教學展示](../../../assets/originals/assembly-427-03.jpg)
-- ![自媒體部門競選](../../../assets/originals/assembly-427-04.jpg)
-- ![積分系統簡介](../../../assets/originals/assembly-427-05.jpg)
-- ![社費與貢獻積分說明](../../../assets/originals/assembly-427-06.jpg)
-- ![為什麼需要制度](../../../assets/originals/assembly-427-07.jpg)
+-   ![紙飛機活動更新](../../../assets/originals/assembly-427-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · 紙飛機活動更新
+    ///
+
+-   ![場地布局](../../../assets/originals/assembly-427-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · 場地布局
+    ///
+
+-   ![折法教學展示](../../../assets/originals/assembly-427-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · 折法教學展示
+    ///
+
+-   ![自媒體部門競選](../../../assets/originals/assembly-427-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · 自媒體部門競選
+    ///
+
+-   ![積分系統簡介](../../../assets/originals/assembly-427-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · 積分系統簡介
+    ///
+
+-   ![社費與貢獻積分說明](../../../assets/originals/assembly-427-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · 社費與貢獻積分說明
+    ///
+
+-   ![為什麼需要制度](../../../assets/originals/assembly-427-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · 為什麼需要制度
+    ///
 
 </div>
 

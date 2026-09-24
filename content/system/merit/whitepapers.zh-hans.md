@@ -1,6 +1,6 @@
 ---
 title: 白皮书与留存边界
-description: 功勋系统的文档谱系，以及本站为什么只公开其中一部分。
+description: 功勋系统的文档谱系，以及本站只公开其中一部分的原因。
 tags:
   - Primary-Source
   - 2026-05-12
@@ -12,7 +12,7 @@ tags:
 
 ## 文档谱系
 
-功勋系统从零散想法逐步形成了一组完整文档。按 [功勋系统史料整理](../../about/sources/index.md#merit-history) 第 9 章记载：
+功勋系统从零散想法逐步形成了一组完整文档。按 [功勋系统史料整理](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") 第 9 章记载：
 
 | 文档 | 面向对象 | 内容 |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ tags:
 ## 公开边界
 
 !!! warning "本站为什么只公开一部分"
-    [功勋系统史料整理](../../about/sources/index.md#merit-history) 附录 C 明确提出**三层留存建议**，
+    [功勋系统史料整理](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") 附录 C 明确提出**三层留存建议**，
     本站**严格按此执行**：
 
     | 层级 | 该文件的要求 | 本站的处理 |

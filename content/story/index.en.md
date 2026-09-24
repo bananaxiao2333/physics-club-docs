@@ -1,9 +1,9 @@
 ---
 nav_label: "The Club's Story"
 title: "The Club's Story · Overview"
-description: "It begins with a “why” — the ideas and the trail of the ASJ Yingdong Physics Club."
+description: "The ideas, activities and trail of the ASJ Yingdong Physics Club."
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
-source_sha256: c9180cb9843d771165f9641fe286142e390c5966cac2c7f9dbb6c3b956e9337e
+source_sha256: 3be68ebe2e0e28e28dd2b22a2e1500c335badf1b938b04dfb6d766afd58788ee
 translated: 2026-09-18
 icon: lucide/book-open
 ---
@@ -54,7 +54,7 @@ Only dates **for which an original can be checked** are listed below:
 
     ---
 
-    Drop an egg from a height and have it come down intact.
+    Keeping the egg intact after it is dropped from a height.
 
     [:octicons-arrow-right-24: Read](egg-drop.md)
 
@@ -62,7 +62,7 @@ Only dates **for which an original can be checked** are listed below:
 
     ---
 
-    Taking problems apart, building models, training a real way of thinking in physics.
+    Taking problems apart, building models, training a way of thinking in physics.
 
     [:octicons-arrow-right-24: Read](ipc-2026.md)
 
@@ -86,13 +86,13 @@ Only dates **for which an original can be checked** are listed below:
 
     ---
 
-    The last frame of this record.
+    The surviving material ends on 12 May 2026; the date of suspension rests on the commissioning note.
 
     [:octicons-arrow-right-24: Read](suspension-0529.md)
 
 </div>
 
-## The group names that remain
+## Group names
 
 Each with its own light, and once gathered together.
 
@@ -105,6 +105,6 @@ Each with its own light, and once gathered together.
 
 !!! note "When the groups first appear"
     In the surviving material the groups **first appear at the assembly of 12 May 2026**
-    (the group table on page 2 of [12 May assembly deck](../about/sources/index.md#deck-0512)). At the 4.21 assembly there was no division into groups yet.
+    (the group table on page 2 of [12 May assembly deck](../about/sources/index.md#deck-0512 "演示文稿1.pptx")). At the 4.21 assembly there was no division into groups yet.
 
 The full list of group members and classes is in [Governance and Roster](../system/governance/roster.md).

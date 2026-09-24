@@ -4,7 +4,7 @@ title: Governance & Roster · Overview
 description: Membership dues and contribution credits, organisational structure and rosters — all compiled from the originals in 资料/, with no second-hand retelling.
 nav: ["fees", "roster"]
 translated: 2026-09-18
-source_sha256: 3719c5f494d056eaaea23ba850ef59ef2dc67d15d4ddc6023ac67721d98de4e3
+source_sha256: 7746ec9b498fe686e8bde3e20a5e0f1f61f058ce1a210c37a2fb1d83984ee686
 icon: lucide/users
 # ⚠️ 由 tools/docsgen.py 从 content/system/governance/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -22,5 +22,5 @@ Both pages take the originals in the `资料/` directory as their authority:
 - [Organisational Structure and Roster](roster.md) — 14 officers, four groups, and the list of advisors
 
 !!! warning "A note on conventions"
-    The original CSVs and slide decks are in traditional Chinese characters; this site presents them in the conventional simplified forms, and where proper names are concerned the original text prevails.
+    The original CSVs and slide decks are in traditional Chinese characters; this site gives the whole page in the conventional simplified forms, quotations and personal and group names included.
     Where the pages find contradictions in the material (dates, amounts, headcounts), they **keep the versions side by side** and neither merge them nor draw inferences.

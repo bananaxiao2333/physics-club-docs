@@ -16,7 +16,7 @@ nav: ["story", "flight", "collection", "system", "about"]
 
     留給過去，也留給以後。
 
-<img src="../assets/club-logo.png" alt="ASJ 英東物理社社徽" width="180" class="memorial-mark">
+<img src="../assets/club-logo.webp" alt="ASJ 英東物理社社徽" width="180" class="memorial-mark">
 
 ## 物理之外，是自由探索的我們
 
@@ -52,7 +52,7 @@ ASJ 英東物理社曾希望創造一個平臺：**讓學生用自己的方式�
 
     [:octicons-arrow-right-24: 翻開留存的原檔](collection/index.md)
 
--   __錢怎麼收，誰在什麼位置__
+-   __會費與職務安排__
 
     ---
 
@@ -60,7 +60,7 @@ ASJ 英東物理社曾希望創造一個平臺：**讓學生用自己的方式�
 
     [:octicons-arrow-right-24: 查看制度與功勳](system/index.md)
 
--   __這份記述是怎麼來的__
+-   __本站的記述來源__
 
     ---
 

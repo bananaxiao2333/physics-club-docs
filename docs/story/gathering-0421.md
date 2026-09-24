@@ -4,7 +4,7 @@ date: 2026-04-21
 kind: major
 order: 3
 place: 学校礼堂
-summary: 授牌、竞赛成果、招新、自媒体部门、会费说明 —— 一晚讲完全部家底。
+summary: 授牌、竞赛成果、招新、自媒体部门与会费说明，共五项议程。
 tags:
   - 2026-04-21
 # ⚠️ 由 tools/docsgen.py 从 content/story/gathering-0421.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
@@ -19,7 +19,7 @@ tags:
 口语稿里写定的固定顺序是：
 **发牌 → 纸飞机活动 → 竞赛成果 → 招新 → 自媒体部门 → 会费说明**。
 
-出处：[开场集会口语稿](../about/sources/index.md#script-opening)、[4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final)（12 页）。
+出处：[开场集会口语稿](../about/sources/index.md#script-opening "物理社团开场集会口语稿_.docx")、[4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx")（12 页）。
 
 ## 一 · 授牌
 

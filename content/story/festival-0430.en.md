@@ -1,7 +1,7 @@
 ---
 title: "A4 Paper Flight Festival"
-description: "Preparation for a whole-school paper plane challenge — folding lessons, a school-wide guessing contest, laser ranging, live projection, awards and the release of the record."
-source_sha256: 93cb53d559d2fa97490aa972b71de24848fbafb5eaeb56075dc59d2bcb9d6aa4
+description: "Preparation for a whole-school paper plane challenge: folding lessons, a school-wide guessing contest, laser ranging, live projection, awards and the release of the record."
+source_sha256: 00b7484c22ea20d06e81f5d0d9ee700591b154e5b84c21189a8b41edd28d6730
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -22,11 +22,11 @@ tags:
     this site keeps them side by side, see
     [Sources · Conflicting statements of time](../about/sources/index.md).
 
-## What kind of event this was meant to be
+## The nature of the event
 
-This is not a “paper folding activity”. It puts physics, engineering, competition and invention onto
+The event was not an origami activity alone. It put physics, engineering, competition and invention onto
 the same patch of ground: **registration, trial flights, laser ranging, live projection, awards, a record
-attempt**, all run from start to finish by a student club itself.
+attempt**, all organised and carried through by the student club itself.
 
 The assembly publicity script put it this way:
 
@@ -36,7 +36,7 @@ The assembly publicity script put it this way:
 
 ## Timeline (final version from the 4.21 assembly)
 
-Source: [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final), page 6
+Source: [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx"), page 6
 
 | Time | Segment |
 | --- | --- |
@@ -55,9 +55,9 @@ Source: [21 April assembly deck (final)](../about/sources/index.md#deck-0421-fin
     The publicity script is also inconsistent in itself: it writes “2 o'clock to 4:30”,
     but a breakdown further down writes “the official flight competition 15:30–17:00”.
 
-## How the official competition was run
+## Competition procedure
 
-**Version A** — source: [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
+**Version A** — source: [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx")
 
 - **Group stage**: 1 trial flight + **3** official flights; the best score selects the **last 8**
 - **Final of the last 8**: **5** flights; added to the group stage score and taking the best, deciding
@@ -65,7 +65,7 @@ Source: [21 April assembly deck (final)](../about/sources/index.md#deck-0421-fin
 - **Student–teacher challenge**: student groups arranged their own match against teachers, teachers could
   use the physics club's equipment, and **an award was given win or lose**
 
-**Version B** — source: [Flight festival role assignments](../about/sources/index.md#flight-roles)
+**Version B** — source: [Flight festival role assignments](../about/sources/index.md#flight-roles "飞行节分工安排 2.docx")
 
 - **Group stage**: 1 trial flight + **2** official flights; the best score selects the last 8
 - **Final of the last 8**: **3** flights; added to the group stage score and taking the best
@@ -76,15 +76,15 @@ The two versions disagree on the number of flights; they are not merged here.
 
 | Stated rule | Source |
 | --- | --- |
-| Register as a group, **2–6 people** per group, with a registration desk open on the day | [Flight festival promotion script](../about/sources/index.md#flight-promo-script) |
+| Register as a group, **2–6 people** per group, with a registration desk open on the day | [Flight festival promotion script](../about/sources/index.md#flight-promo-script "物理社飞行节集会宣传稿.wps") |
 | **4–6 people** per group | `紙飛機挑戰賽 签到表.docx` (file name in traditional characters) |
-| **At most six people** per group, awards given by group | [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook) |
+| **At most six people** per group, awards given by group | [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx") |
 
 The scoring rule was consistent: **the final result is the straight-line distance between the start point
 and where the paper plane lands**
-([27 April assembly deck](../about/sources/index.md#deck-0427), page 2, “Measurement notes”).
+([27 April assembly deck](../about/sources/index.md#deck-0427 "物理社集会0427.pptx"), page 2, “Measurement notes”).
 
-## How the field made sure the results could be verified
+## How results were verified on site
 
 This was the most technical part of the whole event:
 
@@ -99,7 +99,7 @@ This was the most technical part of the whole event:
 Laser ranging was chosen over a tape measure because the rule of “straight-line distance” calls for a
 measurement that can be reproduced and re-checked when it is disputed.
 
-## What was left after that day
+## What survived from that day
 
 The value of an event is not only in the day itself. The wrap-up plan also included:
 

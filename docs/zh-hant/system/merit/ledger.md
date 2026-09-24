@@ -9,8 +9,8 @@ description: 固定資金池、流動資金池、個人賬戶、總賬恆等式�
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "資料出處"
-    本頁據 [資金流轉白皮書（正式版）](../../about/sources/index.md#merit-whitepaper-funds) 的核心邏輯，
-    以 [功勳系統史料整理](../../about/sources/index.md#merit-history) 第 6–7 章的
+    本頁據 [資金流轉白皮書（正式版）](../../about/sources/index.md#merit-whitepaper-funds "物理社功勋系统资金流转白皮书_正式版第一版.docx") 的核心邏輯，
+    以 [功勳系統史料整理](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") 第 6–7 章的
     **紀念版口徑**整理。具體的後臺執行參數不在本站公開範圍內。
 
 ## 賬戶結構
@@ -29,7 +29,7 @@ description: 固定資金池、流動資金池、個人賬戶、總賬恆等式�
 
 系統總記錄由三部分構成：
 
-```text
+```text title="系統總記錄"
 T = F + L + P
 ```
 
@@ -40,19 +40,19 @@ T = F + L + P
 
 個人賬戶合計對應流動資金池：
 
-```text
+```text title="個人賬戶合計"
 L = Σ Aᵢ
 ```
 
-`Aᵢ` 表示第 i 位會員的個人賬戶餘額。
+A~i~ 表示第 i 位會員的個人賬戶餘額。
 
 ## 首期社費的 30 / 70 拆分
 
 會員繳費進入系統後，按當期規則分配：
 
-```text
-固定资金池增加 = x × r
-个人账户增加   = x × (1 − r)
+```text title="當期分配規則"
+固定資金池增加 = x × r
+個人賬戶增加   = x × (1 − r)
 ```
 
 **首期收費的公示比例為：30% 進入固定資金池，70% 進入流動資金池並計入個人賬戶。**

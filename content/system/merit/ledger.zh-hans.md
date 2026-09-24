@@ -8,8 +8,8 @@ description: 固定资金池、流动资金池、个人账户、总账恒等式�
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "资料出处"
-    本页据 [资金流转白皮书（正式版）](../../about/sources/index.md#merit-whitepaper-funds) 的核心逻辑，
-    以 [功勋系统史料整理](../../about/sources/index.md#merit-history) 第 6–7 章的
+    本页据 [资金流转白皮书（正式版）](../../about/sources/index.md#merit-whitepaper-funds "物理社功勋系统资金流转白皮书_正式版第一版.docx") 的核心逻辑，
+    以 [功勋系统史料整理](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") 第 6–7 章的
     **纪念版口径**整理。具体的后台执行参数不在本站公开范围内。
 
 ## 账户结构
@@ -28,7 +28,7 @@ description: 固定资金池、流动资金池、个人账户、总账恒等式�
 
 系统总记录由三部分构成：
 
-```text
+```text title="系统总记录"
 T = F + L + P
 ```
 
@@ -39,17 +39,17 @@ T = F + L + P
 
 个人账户合计对应流动资金池：
 
-```text
+```text title="个人账户合计"
 L = Σ Aᵢ
 ```
 
-`Aᵢ` 表示第 i 位会员的个人账户余额。
+A~i~ 表示第 i 位会员的个人账户余额。
 
 ## 首期社费的 30 / 70 拆分
 
 会员缴费进入系统后，按当期规则分配：
 
-```text
+```text title="当期分配规则"
 固定资金池增加 = x × r
 个人账户增加   = x × (1 − r)
 ```

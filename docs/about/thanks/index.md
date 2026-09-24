@@ -1,7 +1,7 @@
 ---
 nav_label: "致谢与后记"
 title: 致谢与后记
-description: 谢谢你，曾在此 —— 以及本站的资料与编后说明。
+description: 致谢名单、记述口径与编后说明。
 icon: lucide/heart-handshake
 # ⚠️ 由 tools/docsgen.py 从 content/about/thanks/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -69,7 +69,7 @@ icon: lucide/heart-handshake
 - 《物理社团开场集会口语稿_.docx》·《各位老师.docx》·《颁牌稿子.wps》
 - 《A4纸飞行节活动执行流程(1).docx》·《飞行节分工安排 2.docx》·《副本…执行流程.docx》
 - 《物理社会费使用说明.docx》·《物理社飞行节集会宣传稿.wps》·《物理社招新宣讲稿.wps》
-- 《纸飞机采购表.xlsx》·《紙飛機挑戰賽 报名表／成績表／签到表.docx》
+- 《纸飞机采购表.xlsx》·《纸飞机挑战赛 报名表／成绩表／签到表.docx》
 - 《物理社工牌》设计工程（含填充名单 CSV 与 SVG 模板）· 场地图／海报／引导牌矢量原件
 - 功勋系统文档组：《资金流转白皮书 v1.0》·《资金流转白皮书 正式版第一版》·
   《会员公开白皮书 正式版第一版》·《功勋系统对话史料整理 纪念网站版》

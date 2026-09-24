@@ -2,7 +2,7 @@
 nav_label: "飛行計劃"
 title: A4 紙飛行節 · 活動總覽
 subtitle: 以紙為帆，航跡英東
-tagline: 一張 A4 紙能飛多遠？來了你就知道了。
+tagline: 一張 A4 紙能飛多遠。
 nav: ["runbook", "materials"]
 icon: lucide/send
 tags:
@@ -15,16 +15,16 @@ tags:
 <p class="memorial-kicker">03 / THE MEMORY COLLECTION · THE FLIGHT PROJECT</p>
 
 !!! info "資料出處"
-    本頁據 [4 月 21 日集會演示文稿（定稿）](../about/sources/index.md#deck-0421-final)（第 6 頁）、[4 月 27 日集會演示文稿](../about/sources/index.md#deck-0427)、
-    [飛行節集會宣傳稿](../about/sources/index.md#flight-promo-script)、[A4 紙飛行節執行流程](../about/sources/index.md#flight-runbook)
-    與 [紙飛機採購表](../about/sources/index.md#flight-purchases) 整理。
+    本頁據 [4 月 21 日集會演示文稿（定稿）](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx")（第 6 頁）、[4 月 27 日集會演示文稿](../about/sources/index.md#deck-0427 "物理社集会0427.pptx")、
+    [飛行節集會宣傳稿](../about/sources/index.md#flight-promo-script "物理社飞行节集会宣传稿.wps")、[A4 紙飛行節執行流程](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx")
+    與 [紙飛機採購表](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx") 整理。
 
-## 一句話說明
+## 活動性質
 
-這不是一次「摺紙活動」。它把物理、工程、競賽與創意放進同一塊場地：
-**報名、試飛、激光測距、實時投屏、頒獎、破紀錄**，全部由一個學生社團自己跑完。
+本活動並非一次單純的摺紙活動。它把物理、工程、競賽與創意放進同一塊場地：
+**報名、試飛、激光測距、實時投屏、頒獎、破紀錄**，全部由學生社團自行組織完成。
 
-> 以纸为帆，航迹英东。
+> 以紙為帆，航跡英東。
 
 ## 活動基礎信息
 
@@ -67,7 +67,7 @@ tags:
 
 - [場地布局圖](../../assets/flight-map.jpg)
 - 引導牌原件見 [設計原檔](../collection/design/index.md)
-- 矢量原件 [比賽場地圖](../about/sources/index.md#flight-map)
+- 矢量原件 [比賽場地圖](../about/sources/index.md#flight-map "飞行比赛地图.svgz")
 
 ## 獎項設置
 
@@ -89,7 +89,7 @@ tags:
 原文檔列出的 11 項準備物料、以及採購明細與單價，
 見 [執行流程 · 準備物料](runbook.md#materials)。
 
-已確認的採購記錄（[紙飛機採購表](../about/sources/index.md#flight-purchases)）：
+已確認的採購記錄（[紙飛機採購表](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx")）：
 
 | 項目 | 單價 | 數量 | 用途 |
 | --- | --- | --- | --- |
@@ -101,16 +101,16 @@ tags:
 ## 教學：6 種折法
 
 教學角由物理社成員全程在崗（執行流程指派 **胡益成、肖子揚** 為教學專員），
-手把手教學 **6 種高性能紙飛機折法**並現場發放圖紙。
+現場示範教學 **6 種高性能紙飛機折法**並發放圖紙。
 
-> 从基础结构到飞行优化，让每一个人都能快速上手。
+> 從基礎結構到飛行優化，讓每一個人都能快速上手。
 
-## 我們真正想看到的東西
+## 策劃意圖
 
-比賽當然要比出誰飛得最遠。但口語稿裡更想看到的是：
+競賽名次由飛行距離決定。口語稿所強調的側重另有其三：
 
-> 谁的设计最有想法，谁最会用物理思维解决问题，
-> 谁能把一个简单的纸飞机，真正做出一点科技感。
+> 誰的設計最有想法，誰最會用物理思維解決問題，
+> 誰能把一個簡單的紙飛機，真正做出一點科技感。
 
 因為飛出去的初速度從哪裡來、飛行過程中能量怎樣轉化、
 機翼形狀與重心位置如何共同決定它的表現——

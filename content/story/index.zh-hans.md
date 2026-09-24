@@ -1,7 +1,7 @@
 ---
 nav_label: "社团故事"
 title: 社团故事 · 概览
-description: 从一个「为什么」开始 —— 英东物理社的理念与足迹。
+description: 英东物理社的理念、活动与足迹。
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
 icon: lucide/book-open
 ---
@@ -51,7 +51,7 @@ icon: lucide/book-open
 
     ---
 
-    让一枚鸡蛋从高处落下来，然后完好无损。
+    使鸡蛋自高处落下后保持完好。
 
     [:octicons-arrow-right-24: 阅读](egg-drop.md)
 
@@ -59,7 +59,7 @@ icon: lucide/book-open
 
     ---
 
-    拆解思路、构建模型、训练真正的物理思维方式。
+    拆解思路、构建模型、训练物理思维方式。
 
     [:octicons-arrow-right-24: 阅读](ipc-2026.md)
 
@@ -83,13 +83,13 @@ icon: lucide/book-open
 
     ---
 
-    这场纪事的最后一格。
+    留存资料截止于 2026 年 5 月 12 日；停摆时间依据委托说明。
 
     [:octicons-arrow-right-24: 阅读](suspension-0529.md)
 
 </div>
 
-## 留下的小组名字
+## 小组名称
 
 各自发光，也曾相聚。
 
@@ -102,6 +102,6 @@ icon: lucide/book-open
 
 !!! note "组别出现的时间"
     组别在留存材料中**首次出现于 2026 年 5 月 12 日的集会**
-    （[5 月 12 日集会演示文稿](../about/sources/index.md#deck-0512) 第 2 页分组表）。4.21 集会时还没有组别划分。
+    （[5 月 12 日集会演示文稿](../about/sources/index.md#deck-0512 "演示文稿1.pptx") 第 2 页分组表）。4.21 集会时还没有组别划分。
 
 完整组员与班级名单见 [组织架构与名单](../system/governance/roster.md)。

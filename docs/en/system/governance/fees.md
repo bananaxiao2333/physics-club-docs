@@ -3,18 +3,18 @@ title: Membership Dues and the Contribution Credit System
 description: The club dues and contribution-credit rules explained at the 27 April 2026 assembly — fund pools, credit boundaries, the public ledger and dispute handling.
 date: 2026-04-27
 translated: 2026-09-18
-source_sha256: 8e1fb550ec9c8235c7ac01c76b686f714b00845e0c972cc6f122960b574da179
+source_sha256: fd58729f4f8331827ff46d2b2deb6cae5dbebb8f92964d23770d222ba5fe4b4a
 # ⚠️ 由 tools/docsgen.py 从 content/system/governance/fees.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
 !!! info "Sources"
-    This page is compiled from [27 April assembly deck](../../about/sources/index.md#deck-0427) pages 6–14 (the explanation of the club dues and contribution credit system)
-    and [Notes on how dues were used](../../about/sources/index.md#dues-usage). The former is the system design; the latter is the explanation of costs aimed at students.
-    See also [Recruitment survey](../../about/sources/index.md#recruitment-survey) (intentions regarding club dues).
+    This page is compiled from [27 April assembly deck](../../about/sources/index.md#deck-0427 "物理社集会0427.pptx") pages 6–14 (the explanation of the club dues and contribution credit system)
+    and [Notes on how dues were used](../../about/sources/index.md#dues-usage "物理社会费使用说明.docx"). The former is the system design; the latter is the explanation of costs aimed at students.
+    See also [Recruitment survey](../../about/sources/index.md#recruitment-survey "物理社招新调查问卷.wps") (intentions regarding club dues).
 
 ## Position
 
-The system is not there to "collect money", but to solve real problems in the running of club activities.
+The system is not there to “collect money”, but to solve real problems in the running of club activities.
 At the assembly on 27 April 2026, the physics club laid out the rules on club dues and credits in full:
 
 - **Open and transparent** —— sources of income, uses of expenditure, vouchers and balances are all open to inspection
@@ -24,7 +24,7 @@ At the assembly on 27 April 2026, the physics club laid out the rules on club du
 
 Supporting documents: “Draft Club Dues”, “Legal Clauses and Definitions”, “Stablecoin / Token Risk Advisory Document”.
 
-## Why This System Is Needed
+## Why this system is needed
 
 | Practical problem | How it shows up |
 | --- | --- |
@@ -32,7 +32,7 @@ Supporting documents: “Draft Club Dues”, “Legal Clauses and Definitions”
 | Varied activity spending | Experiments, competitions, regular meetings and welfare activities all generate costs, and some spending falls outside unified reimbursement, so the purpose of funds must be clearly distinguished |
 | Trust and rules | Club dues and credits invite misunderstanding when the rules are unclear; an opaque ledger creates a crisis of trust; setting the rules early reduces disputes |
 
-## Fund Pool Design
+## Fund pool design
 
 The funds are split into two pools with clear purposes, which is the basis for later public oversight and risk control.
 
@@ -45,7 +45,7 @@ and the amount, purpose and approval process are public.
 
 > Guiding principles: club dues voluntary, purposes clear, vouchers complete, disclosed regularly.
 
-## Where Contribution Credits Stand
+## Where contribution credits stand
 
 Credits record contribution, but they **must never be packaged as a currency, an investment, or a certificate of return**.
 
@@ -60,9 +60,9 @@ ultimately forming a record of contribution under public rules.
 
 There is only one limit on their use: they are confined to welfare activities or records of entitlement within the club,
 they may not be transferred, traded, cashed out, or made to promise an economic return,
-and credits may not be used to create the expectation that "the more you put in, the more you get back".
+and credits may not be used to create the expectation that “the more you put in, the more you get back”.
 
-## Dispute Handling Mechanism
+## Dispute handling mechanism
 
 The clearer the rules, the better they protect club members, club officers and supervising teachers.
 
@@ -73,10 +73,10 @@ The clearer the rules, the better they protect club members, club officers and s
 
 Damage to equipment is handled on the basis of facts, evidence and the clauses of the constitution;
 a simple deduction of credits is not used in place of formal compensation, and room is kept for explanation, negotiation and appeal.
-At the same time the club actively avoids one-sided clauses such as "the club holds the final right of interpretation",
-replacing them with "interpreted according to the constitution, open to oversight and appeal".
+At the same time the club actively avoids one-sided clauses such as “the club holds the final right of interpretation”,
+replacing them with “interpreted according to the constitution, open to oversight and appeal”.
 
-## Public Ledger and the Right to Know
+## Public ledger and the right to know
 
 Transparency is not a burden; it is a mechanism for reducing misunderstanding and protecting club officers.
 
@@ -85,7 +85,7 @@ Transparency is not a burden; it is a mechanism for reducing misunderstanding an
 - **Original vouchers**: payment screenshots, invoices or receipts, purchasing lists
 - **Oversight mechanism**: member enquiries, teacher guidance, raising objections
 
-## Putting It into Practice
+## Putting it into practice
 
 1. Publish the draft —— explain the purpose of the system to members and teachers, and gather opinions
 2. Revise the detailed rules —— clarify the rules on dues, credits, oversight and dispute handling
@@ -94,15 +94,15 @@ Transparency is not a burden; it is a mechanism for reducing misunderstanding an
 
 > Every sum of money is spent in the open, every contribution is recorded fairly.
 
-## What the Dues Are Used For
+## Uses of the dues
 
 1. **Enriching what the club does** —— themed events, fun experiments, challenges, showcase activities
-2. **Buying and building experimental equipment** —— so that club activities do not stop at "listening" and "watching"
+2. **Buying and building experimental equipment** —— so that club activities do not stop at “listening” and “watching”
 3. **Supporting distinctive projects and creative activities** —— small science and engineering builds, fun competitions, aircraft / model activities
 4. **Activity prizes and incentives** —— awards for excellent participation, competition prizes, activity mementos
 5. **Keeping the club running steadily over the long term** —— so that more new activities can go ahead later
 
-## What Recruitment Asked About
+## What recruitment asked about
 
 At the recruitment stage the club used a questionnaire to learn what people actually intended, rather than assuming everyone was willing to pay:
 the range of dues they would accept (50 / 100 / 200 yuan or another amount),

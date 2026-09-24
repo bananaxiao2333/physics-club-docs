@@ -1,7 +1,7 @@
 ---
 title: "Run of Show"
 description: "The A4 Paper Flight Festival · who was responsible for what, from preparation to wrap-up (based on the original run of show document)."
-source_sha256: 953905e13cc62764111e0af27a918ebc0207bafa9f2487c20821eb88421e5aa3
+source_sha256: 086c53a6a2b5378834b1e281a13aa315fe3e18113854118ab5d59814f39e1dbc
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -12,9 +12,9 @@ tags:
 <p class="memorial-kicker">THE RUNBOOK · FROM PREPARATION TO WRAP-UP</p>
 
 !!! info "Sources"
-    This page is compiled from [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook), **the most complete execution plan among the surviving material**:
+    This page is compiled from [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx"), **the most complete execution plan among the surviving material**:
     the rhythm of four preparation weeks, the hour-by-hour arrangements of the morning and afternoon sessions, the posts and responsibilities of all staff across five dedicated groups, the awards and the materials list.
-    See also [Flight festival role assignments](../about/sources/index.md#flight-roles) (an abbreviated division of labour and a second competition format) and [Runbook (another version)](../about/sources/index.md#flight-runbook-copy).
+    See also [Flight festival role assignments](../about/sources/index.md#flight-roles "飞行节分工安排 2.docx") (an abbreviated division of labour and a second competition format) and [Runbook (another version)](../about/sources/index.md#flight-runbook-copy "副本A4纸飞行节活动执行流程.docx").
 
 ## Basic information
 
@@ -32,30 +32,34 @@ tags:
 
 ## Preparation period (3 weeks to 1 day before the event)
 
+!!! note "About the checkboxes"
+    The preparation period is a to-do schedule in the original document, so this site presents it as a checklist.
+    **Every box is empty** — the original never moved past the planning stage, and no item records having been carried out.
+
 ### 3 weeks before
 
-1. The overall lead finalises the final event plan and the overall budget, and completes school approval and the venue / equipment applications
-2. The coordination group compiles the full-process event document, clarifies the division of labour between the groups, and collects competition registration information
+- [ ] The overall lead finalises the final event plan and the overall budget, and completes school approval and the venue / equipment applications
+- [ ] The coordination group compiles the full-process event document, clarifies the division of labour between the groups, and collects competition registration information
 
 ### 2 weeks before
 
-1. The logistics group gathers material requirements, compiles the purchasing list and gets it approved
-2. The publicity and filming group produces the warm-up poster, the folding diagrams, the check-in wall and the warm-up post, and publishes them through the school's channels
-3. The competition operations and design group draws up the competition rules / scoring criteria, sets up the registration channel and answers competitors' questions
+- [ ] The logistics group gathers material requirements, compiles the purchasing list and gets it approved
+- [ ] The publicity and filming group produces the warm-up poster, the folding diagrams, the check-in wall and the warm-up post, and publishes them through the school's channels
+- [ ] The competition operations and design group draws up the competition rules / scoring criteria, sets up the registration channel and answers competitors' questions
 
 ### 1 week before (Monday)
 
-1. The overall lead completes the invitations and liaison for **3 principals** and the participating teachers
-2. The competition operations and design group collects registration information, completes the grouping of competitors and produces the schedule / score sheet / competitor numbers
-3. The competition operations and design group runs pre-duty training for referees, distance measurers and recorders
-4. The logistics group completes all material purchasing, sets up a ledger and keeps everything classified
+- [ ] The overall lead completes the invitations and liaison for **3 principals** and the participating teachers
+- [ ] The competition operations and design group collects registration information, completes the grouping of competitors and produces the schedule / score sheet / competitor numbers
+- [ ] The competition operations and design group runs pre-duty training for referees, distance measurers and recorders
+- [ ] The logistics group completes all material purchasing, sets up a ledger and keeps everything classified
 
 ### 1 day before
 
-1. The logistics group + the on-site execution group complete the zoning and marking of the venue and test equipment such as the laser rangefinder
-2. The overall lead + the vice-president organise all staff for a full run-through, simulating how emergencies would be handled
-3. Each group holds an internal meeting to reconfirm the next day's post duties and requirements
-4. The logistics group distributes all materials to their places and completes the final count
+- [ ] The logistics group + the on-site execution group complete the zoning and marking of the venue and test equipment such as the laser rangefinder
+- [ ] The overall lead + the vice-president organise all staff for a full run-through, simulating how emergencies would be handled
+- [ ] Each group holds an internal meeting to reconfirm the next day's post duties and requirements
+- [ ] The logistics group distributes all materials to their places and completes the final count
 
 ## Event day · Morning session (indoor gymnasium 08:00–12:30)
 
@@ -121,7 +125,7 @@ tags:
 11. The overall lead + the vice-president keep the pace of the whole event, receive the judges and guests and handle sudden disputes
 
 !!! note "There is a second version of the competition format"
-    [Flight festival role assignments](../about/sources/index.md#flight-roles) records **1 preliminary flight + 2 official flights**, and **3** flights in the final for the top 8.
+    [Flight festival role assignments](../about/sources/index.md#flight-roles "飞行节分工安排 2.docx") records **1 preliminary flight + 2 official flights**, and **3** flights in the final for the top 8.
     The two original documents disagree; they are kept side by side here and not merged.
     See [Sources](../about/sources/index.md).
 
@@ -266,7 +270,7 @@ The 11 items listed in the original document:
 10. Warning tape, isolation posts
 11. Several guide signs
 
-Purchasing details and unit prices are in [Paper plane purchase list](../about/sources/index.md#flight-purchases); the list of originals is in [Sources](../about/sources/index.md).
+Purchasing details and unit prices are in [Paper plane purchase list](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx"); the list of originals is in [Sources](../about/sources/index.md).
 
 ## Related pages
 

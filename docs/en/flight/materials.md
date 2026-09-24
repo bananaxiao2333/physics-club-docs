@@ -1,7 +1,7 @@
 ---
 title: "Purchasing and Materials List"
 description: "The A4 Paper Flight Festival · the surviving purchasing records and the on-site materials list."
-source_sha256: 9bfad4603af11a3676908f8c2d27097d10e54392a35e4fca03fc61f7e5dcf7eb
+source_sha256: 4caccd26b462345bb91d7ff9577a7f7f4801735f53dd796feddecc03f61d5b32
 translated: 2026-09-18
 tags:
   - A4-Flight
@@ -13,9 +13,9 @@ tags:
 <p class="memorial-kicker">PROCUREMENT & MATERIALS</p>
 
 !!! info "Sources"
-    - **Purchasing records**: [Paper plane purchase list](../about/sources/index.md#flight-purchases) (the only list with unit prices)
-    - **Preparation materials**: the 11 items of “preparation materials” in the final section of [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
-    - **On-site forms**: three blank templates, [Challenge on-site forms](../about/sources/index.md#flight-forms)
+    - **Purchasing records**: [Paper plane purchase list](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx") (the only list with unit prices)
+    - **Preparation materials**: the 11 items of “preparation materials” in the final section of [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx")
+    - **On-site forms**: three blank templates, [Challenge on-site forms](../about/sources/index.md#flight-forms "紙飛機挑戰賽 报名表/成績表/签到表.docx")
 
 ## Purchasing records
 
@@ -38,6 +38,10 @@ The surviving purchasing list has **4 entries**, all marked “main sports field
 
 ### Two key pieces of equipment
 
+!!! info inline end "Rangefinder spec"
+
+    500 m range · ¥159 · one unit purchased
+
 **Laser rangefinder (500 m, ¥159)** — the highest unit price in the list, and the only one with a single purpose.
 Its presence corresponds directly to the scoring basis established at the [04.27 assembly](../collection/gatherings/0427.md):
 
@@ -45,7 +49,7 @@ Its presence corresponds directly to the scoring basis established at the [04.27
 
 A straight-line distance calls for a measurement that can be reproduced and re-checked when disputed; that is why laser ranging was used rather than a tape measure.
 
-**Custom signature board (2.3 m × 3.5 m, ¥158)** — an area of about **8.05 m²**,
+**Custom signature board (2.3 m × 3.5 m, ¥158)** — an area of about **8.05 m^2^**,
 the only item on the list that had to be custom-made, and second only to the rangefinder in unit price.
 
 ## On-site preparation materials
@@ -122,9 +126,9 @@ The competition prepared **3** blank forms. All are in Traditional Chinese, and 
     | `編號（工作人員填寫）` | The number, filled in by staff |
 
     !!! warning "“4–6 people” conflicts with other material"
-        The sign-in sheet prints “**4-6人**” in its header;
-        the assembly publicity draft says “registration by group, **2-6 people**”;
-        the run of show document says “groups of **at most six**”.
+        The sign-in sheet prints “==4-6人==” in its header;
+        the assembly publicity draft says “registration by group, ==2-6 people==”;
+        the run of show document says “groups of ==at most six==”.
 
         All three versions are kept side by side; this site does not merge them.
 

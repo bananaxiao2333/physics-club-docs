@@ -1,7 +1,7 @@
 ---
 nav_label: "影像檔案"
 title: 影像檔案
-description: 有些瞬間，不會散場 —— 來自留存資料的十幀記憶。
+description: 留存資料中的十幀影像記錄。
 icon: lucide/images
 tags:
   - Primary-Source
@@ -32,25 +32,31 @@ tags:
 
     ---
 
-    ![階梯教室中的師生合影](../../../assets/gathering.jpg)
+    ![階梯教室中的師生合影](../../../assets/gathering.jpg){ loading=lazy }
 
+    /// caption
     階梯教室中的師生合影
+    ///
 
 -   __06 / 站在一起的時刻__
 
     ---
 
-    ![禮堂中的合影](../../../assets/ceremony.jpg)
+    ![禮堂中的合影](../../../assets/ceremony.jpg){ loading=lazy }
 
+    /// caption
     禮堂中的合影
+    ///
 
 -   __07 / 讓熱愛被聽見__
 
     ---
 
-    ![講臺前的發言](../../../assets/speech.jpg)
+    ![講臺前的發言](../../../assets/speech.jpg){ loading=lazy }
 
+    /// caption
     講臺前的發言
+    ///
 
 </div>
 
@@ -64,17 +70,21 @@ tags:
 
     ---
 
-    ![同學們在實驗桌邊討論](../../../assets/experiment.jpg)
+    ![同學們在實驗桌邊討論](../../../assets/experiment.jpg){ loading=lazy }
 
+    /// caption
     同學們在實驗桌邊討論
+    ///
 
 -   __05 / 答案要親手試過__
 
     ---
 
-    ![同學們觀察實驗裝置](../../../assets/lab.jpg)
+    ![同學們觀察實驗裝置](../../../assets/lab.jpg){ loading=lazy }
 
+    /// caption
     同學們觀察實驗裝置
+    ///
 
 </div>
 
@@ -88,25 +98,31 @@ tags:
 
     ---
 
-    ![黑板前的物理講解](../../../assets/blackboard.jpg)
+    ![黑板前的物理講解](../../../assets/blackboard.jpg){ loading=lazy }
 
+    /// caption
     黑板前的物理講解
+    ///
 
 -   __04 / 一段被分享的思考__
 
     ---
 
-    ![教室裡的分享場景](../../../assets/classroom.jpg)
+    ![教室裡的分享場景](../../../assets/classroom.jpg){ loading=lazy }
 
+    /// caption
     教室裡的分享場景
+    ///
 
 -   __10 / 課堂上的講解與聆聽__
 
     ---
 
-    ![課堂上的講解與聆聽](../../../assets/lecture.jpg)
+    ![課堂上的講解與聆聽](../../../assets/lecture.jpg){ loading=lazy }
 
+    /// caption
     課堂上的講解與聆聽
+    ///
 
 </div>
 
@@ -120,17 +136,21 @@ tags:
 
     ---
 
-    ![手中留存的社團成員牌](../../../assets/badge.jpg)
+    ![手中留存的社團成員牌](../../../assets/badge.jpg){ loading=lazy }
 
+    /// caption
     手中留存的社團成員牌
+    ///
 
 -   __09 / 讓記錄留在牆上__
 
     ---
 
-    ![活動照片與文字組成的展示板](../../../assets/board.jpg)
+    ![活動照片與文字組成的展示板](../../../assets/board.jpg){ loading=lazy }
 
+    /// caption
     活動照片與文字組成的展示板
+    ///
 
 </div>
 
@@ -145,7 +165,7 @@ tags:
 
 ## 原始件清單
 
-資料目錄 [現場照片原圖](../../about/sources/index.md#photo-assets) 共留存 **19 個圖片文件**。
+資料目錄 [現場照片原圖](../../about/sources/index.md#photo-assets "微信assets/") 共留存 **19 個圖片文件**。
 文件名保留了微信的時間戳，因此**每一張都有可考的精確時間**。
 
 !!! warning "這些時間的含義"
@@ -214,12 +234,14 @@ tags:
 
 ### 關於頁面照片與原始件的對應
 
-本站頁面上的照片是這批原始件的**再編碼版本**（已按網頁瀏覽優化尺寸）。
+本站頁面上的照片是這批原始件的**再編碼版本**[^recode]。
 
-!!! note "為什麼不逐一標註來源文件"
+???+ note "未逐一標註來源文件的理由"
     留存件中有多張照片的**尺寸完全相同**
     （例如 `20260421123547`、`20260421123548`、`20260421130606`
     均為 1280 × 853），再編碼後無法僅憑文件屬性確定唯一的對應關係。
 
     因此本站**不為每張頁面照片標註原始文件名**——
     在證據不足時給出確定答案，比不給答案更糟。
+
+[^recode]: 已按適合網頁瀏覽的尺寸與格式優化。

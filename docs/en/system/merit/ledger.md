@@ -1,7 +1,7 @@
 ---
 title: "The Ledger Model"
 description: The fixed fund pool, the circulating fund pool, individual accounts, the ledger identity and the multi-signature rules for the reward pool.
-source_sha256: 292eac135dbba1b64ad4fca5371a1bcdf723dd1269ecd693a63975417d374157
+source_sha256: deaad5a45c3a7c7a1e0186fb2329b3beada0b05a01d13bb34b87b28ea778e3fe
 translated: 2026-09-18
 # ⚠️ 由 tools/docsgen.py 从 content/system/merit/ledger.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
@@ -11,8 +11,8 @@ translated: 2026-09-18
 <p class="memorial-kicker">THE LEDGER MODEL</p>
 
 !!! info "Sources"
-    This page is compiled from the core logic of [Funds white paper (formal version)](../../about/sources/index.md#merit-whitepaper-funds),
-    using the **memorial-edition wording** of chapters 6–7 of [Merit system historical record](../../about/sources/index.md#merit-history).
+    This page is compiled from the core logic of [Funds white paper (formal version)](../../about/sources/index.md#merit-whitepaper-funds "物理社功勋系统资金流转白皮书_正式版第一版.docx"),
+    using the **memorial-edition wording** of chapters 6–7 of [Merit system historical record](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx").
     The specific back-office operating parameters are not within this site's publication scope.
 
 ## Account structure
@@ -31,7 +31,7 @@ translated: 2026-09-18
 
 The system's overall record consists of three parts:
 
-```text
+```text title="Total system record"
 T = F + L + P
 ```
 
@@ -42,17 +42,17 @@ T = F + L + P
 
 The individual accounts together correspond to the circulating fund pool:
 
-```text
+```text title="Sum of individual accounts"
 L = Σ Aᵢ
 ```
 
-`Aᵢ` denotes the individual account balance of the i-th member.
+A~i~ denotes the individual account balance of the i-th member.
 
 ## The 30 / 70 split of the first round of club dues
 
 Once a member's payment enters the system, it is allocated under the rules in force:
 
-```text
+```text title="Allocation for the period"
 Fixed fund pool increase   = x × r
 Individual account increase = x × (1 − r)
 ```

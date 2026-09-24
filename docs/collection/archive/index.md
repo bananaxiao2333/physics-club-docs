@@ -1,7 +1,7 @@
 ---
 nav_label: "影像档案"
 title: 影像档案
-description: 有些瞬间，不会散场 —— 来自留存资料的十帧记忆。
+description: 留存资料中的十帧影像记录。
 icon: lucide/images
 tags:
   - Primary-Source
@@ -32,25 +32,31 @@ tags:
 
     ---
 
-    ![阶梯教室中的师生合影](../../assets/gathering.jpg)
+    ![阶梯教室中的师生合影](../../assets/gathering.jpg){ loading=lazy }
 
+    /// caption
     阶梯教室中的师生合影
+    ///
 
 -   __06 / 站在一起的时刻__
 
     ---
 
-    ![礼堂中的合影](../../assets/ceremony.jpg)
+    ![礼堂中的合影](../../assets/ceremony.jpg){ loading=lazy }
 
+    /// caption
     礼堂中的合影
+    ///
 
 -   __07 / 让热爱被听见__
 
     ---
 
-    ![讲台前的发言](../../assets/speech.jpg)
+    ![讲台前的发言](../../assets/speech.jpg){ loading=lazy }
 
+    /// caption
     讲台前的发言
+    ///
 
 </div>
 
@@ -64,17 +70,21 @@ tags:
 
     ---
 
-    ![同学们在实验桌边讨论](../../assets/experiment.jpg)
+    ![同学们在实验桌边讨论](../../assets/experiment.jpg){ loading=lazy }
 
+    /// caption
     同学们在实验桌边讨论
+    ///
 
 -   __05 / 答案要亲手试过__
 
     ---
 
-    ![同学们观察实验装置](../../assets/lab.jpg)
+    ![同学们观察实验装置](../../assets/lab.jpg){ loading=lazy }
 
+    /// caption
     同学们观察实验装置
+    ///
 
 </div>
 
@@ -88,25 +98,31 @@ tags:
 
     ---
 
-    ![黑板前的物理讲解](../../assets/blackboard.jpg)
+    ![黑板前的物理讲解](../../assets/blackboard.jpg){ loading=lazy }
 
+    /// caption
     黑板前的物理讲解
+    ///
 
 -   __04 / 一段被分享的思考__
 
     ---
 
-    ![教室里的分享场景](../../assets/classroom.jpg)
+    ![教室里的分享场景](../../assets/classroom.jpg){ loading=lazy }
 
+    /// caption
     教室里的分享场景
+    ///
 
 -   __10 / 课堂上的讲解与聆听__
 
     ---
 
-    ![课堂上的讲解与聆听](../../assets/lecture.jpg)
+    ![课堂上的讲解与聆听](../../assets/lecture.jpg){ loading=lazy }
 
+    /// caption
     课堂上的讲解与聆听
+    ///
 
 </div>
 
@@ -120,17 +136,21 @@ tags:
 
     ---
 
-    ![手中留存的社团成员牌](../../assets/badge.jpg)
+    ![手中留存的社团成员牌](../../assets/badge.jpg){ loading=lazy }
 
+    /// caption
     手中留存的社团成员牌
+    ///
 
 -   __09 / 让记录留在墙上__
 
     ---
 
-    ![活动照片与文字组成的展示板](../../assets/board.jpg)
+    ![活动照片与文字组成的展示板](../../assets/board.jpg){ loading=lazy }
 
+    /// caption
     活动照片与文字组成的展示板
+    ///
 
 </div>
 
@@ -145,7 +165,7 @@ tags:
 
 ## 原始件清单
 
-资料目录 [现场照片原图](../../about/sources/index.md#photo-assets) 共留存 **19 个图片文件**。
+资料目录 [现场照片原图](../../about/sources/index.md#photo-assets "微信assets/") 共留存 **19 个图片文件**。
 文件名保留了微信的时间戳，因此**每一张都有可考的精确时间**。
 
 !!! warning "这些时间的含义"
@@ -214,12 +234,14 @@ tags:
 
 ### 关于页面照片与原始件的对应
 
-本站页面上的照片是这批原始件的**再编码版本**（已按网页浏览优化尺寸）。
+本站页面上的照片是这批原始件的**再编码版本**[^recode]。
 
-!!! note "为什么不逐一标注来源文件"
+???+ note "未逐一标注来源文件的理由"
     留存件中有多张照片的**尺寸完全相同**
     （例如 `20260421123547`、`20260421123548`、`20260421130606`
     均为 1280 × 853），再编码后无法仅凭文件属性确定唯一的对应关系。
 
     因此本站**不为每张页面照片标注原始文件名**——
     在证据不足时给出确定答案，比不给答案更糟。
+
+[^recode]: 已按适合网页浏览的尺寸与格式优化。

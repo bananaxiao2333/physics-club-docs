@@ -1,7 +1,7 @@
 ---
 nav_label: "功勋系统"
 title: 功勋系统
-description: 物理社后期的内部会费、贡献与奖励记录机制 —— 一项组织实验。
+description: 物理社后期的内部会费、贡献与奖励记录机制。
 nav: ["member-rules", "ledger", "glossary", "whitepapers"]
 icon: lucide/award
 ---
@@ -11,8 +11,8 @@ icon: lucide/award
 <p class="memorial-kicker">LATE STAGE · THE MERIT SYSTEM</p>
 
 !!! info "资料出处"
-    本页据 [功勋系统史料整理](../../about/sources/index.md#merit-history) 与
-    [会员公开白皮书](../../about/sources/index.md#merit-whitepaper-member) 整理。
+    本页据 [功勋系统史料整理](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") 与
+    [会员公开白皮书](../../about/sources/index.md#merit-whitepaper-member "物理社功勋系统会员公开白皮书_正式版第一版.docx") 整理。
 
     前者是**专门为这座纪念网站编写的史料整理稿**（整理日期 2026 年 9 月 18 日），
     并明确给出了本站应采用的三层公开边界。
@@ -29,7 +29,7 @@ icon: lucide/award
 
 —— 该文件第 13 章「纪念网站可用短文」，按其授权原文引用
 
-## 为什么会出现这套系统
+## 系统的由来
 
 功勋系统的出现，源于物理社在实际运作中面临的几个具体问题：
 

@@ -2,7 +2,7 @@
 nav_label: "飞行计划"
 title: A4 纸飞行节 · 活动总览
 subtitle: 以纸为帆，航迹英东
-tagline: 一张 A4 纸能飞多远？来了你就知道了。
+tagline: 一张 A4 纸能飞多远。
 nav: ["runbook", "materials"]
 icon: lucide/send
 tags:
@@ -14,14 +14,14 @@ tags:
 <p class="memorial-kicker">03 / THE MEMORY COLLECTION · THE FLIGHT PROJECT</p>
 
 !!! info "资料出处"
-    本页据 [4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final)（第 6 页）、[4 月 27 日集会演示文稿](../about/sources/index.md#deck-0427)、
-    [飞行节集会宣传稿](../about/sources/index.md#flight-promo-script)、[A4 纸飞行节执行流程](../about/sources/index.md#flight-runbook)
-    与 [纸飞机采购表](../about/sources/index.md#flight-purchases) 整理。
+    本页据 [4 月 21 日集会演示文稿（定稿）](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx")（第 6 页）、[4 月 27 日集会演示文稿](../about/sources/index.md#deck-0427 "物理社集会0427.pptx")、
+    [飞行节集会宣传稿](../about/sources/index.md#flight-promo-script "物理社飞行节集会宣传稿.wps")、[A4 纸飞行节执行流程](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx")
+    与 [纸飞机采购表](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx") 整理。
 
-## 一句话说明
+## 活动性质
 
-这不是一次「折纸活动」。它把物理、工程、竞赛与创意放进同一块场地：
-**报名、试飞、激光测距、实时投屏、颁奖、破纪录**，全部由一个学生社团自己跑完。
+本活动并非一次单纯的折纸活动。它把物理、工程、竞赛与创意放进同一块场地：
+**报名、试飞、激光测距、实时投屏、颁奖、破纪录**，全部由学生社团自行组织完成。
 
 > 以纸为帆，航迹英东。
 
@@ -66,7 +66,7 @@ tags:
 
 - [场地布局图](../assets/flight-map.jpg)
 - 引导牌原件见 [设计原档](../collection/design/index.md)
-- 矢量原件 [比赛场地图](../about/sources/index.md#flight-map)
+- 矢量原件 [比赛场地图](../about/sources/index.md#flight-map "飞行比赛地图.svgz")
 
 ## 奖项设置
 
@@ -88,7 +88,7 @@ tags:
 原文档列出的 11 项准备物料、以及采购明细与单价，
 见 [执行流程 · 准备物料](runbook.md#materials)。
 
-已确认的采购记录（[纸飞机采购表](../about/sources/index.md#flight-purchases)）：
+已确认的采购记录（[纸飞机采购表](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx")）：
 
 | 项目 | 单价 | 数量 | 用途 |
 | --- | --- | --- | --- |
@@ -100,13 +100,13 @@ tags:
 ## 教学：6 种折法
 
 教学角由物理社成员全程在岗（执行流程指派 **胡益成、肖子扬** 为教学专员），
-手把手教学 **6 种高性能纸飞机折法**并现场发放图纸。
+现场示范教学 **6 种高性能纸飞机折法**并发放图纸。
 
 > 从基础结构到飞行优化，让每一个人都能快速上手。
 
-## 我们真正想看到的东西
+## 策划意图
 
-比赛当然要比出谁飞得最远。但口语稿里更想看到的是：
+竞赛名次由飞行距离决定。口语稿所强调的侧重另有其三：
 
 > 谁的设计最有想法，谁最会用物理思维解决问题，
 > 谁能把一个简单的纸飞机，真正做出一点科技感。

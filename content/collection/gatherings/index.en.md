@@ -1,9 +1,9 @@
 ---
 nav_label: "The Assembly Room"
 title: Assembly Scripts
-description: Turning back to that page — three assembly slide decks from spring 2026.
+description: A page-by-page record of three assembly slide decks from spring 2026.
 nav: ["0421", "0427", "0512"]
-source_sha256: 926a7b8da50c2be1fa821b2136f7c2f60e6fecb13a336cdf41c3358c1a6a3f41
+source_sha256: 38329947d4cf81be6bc99337cb67482ab512bdf639e5d33d4d21a63e2b9a1eab
 translated: 2026-09-18
 icon: lucide/presentation
 tags:
@@ -26,7 +26,8 @@ Three assembly slide decks from spring 2026. **31 pages of content**, kept in th
 
 === "04.21 · Assembly and recruitment"
 
-    **Full PDF · 12 pages** — [Open the original](../../assets/originals/assembly-421.pdf){ target=_blank }
+    **12 pages** — [Download the page-by-page PDF](../../assets/originals/assembly-421.pdf){ target=_blank }
+    **This PDF is compiled by this site** from the 12 page images below — it is not the original export: the surviving PDF export is truncated and cannot be opened.
 
     The running order was fixed: badges → paper plane activity → competition results → recruitment → social media department → membership dues.
 
@@ -87,18 +88,77 @@ Three assembly slide decks from spring 2026. **31 pages of content**, kept in th
 
 <div class="grid cards" markdown>
 
-- ![Assembly cover](../../assets/originals/assembly-421-01.jpg)
-- ![About the club](../../assets/originals/assembly-421-02.jpg)
-- ![Badges presented to the officers](../../assets/originals/assembly-421-03.jpg)
-- ![Club badges presented to teachers](../../assets/originals/assembly-421-04.jpg)
-- ![Membership dues](../../assets/originals/assembly-421-05.jpg)
-- ![Paper planes at the Science and Technology Festival](../../assets/originals/assembly-421-06.jpg)
-- ![About recruitment](../../assets/originals/assembly-421-07.jpg)
-- ![Event photographs](../../assets/originals/assembly-421-08.jpg)
-- ![Social media department](../../assets/originals/assembly-421-09.jpg)
-- ![Competition results](../../assets/originals/assembly-421-10.jpg)
-- ![Q&A](../../assets/originals/assembly-421-11.jpg)
-- ![Thank you for listening](../../assets/originals/assembly-421-12.jpg)
+-   ![Assembly cover](../../assets/originals/assembly-421-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · Assembly cover
+    ///
+
+-   ![About the club](../../assets/originals/assembly-421-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · About the club
+    ///
+
+-   ![Badges presented to the officers](../../assets/originals/assembly-421-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · Badges presented to the officers
+    ///
+
+-   ![Club badges presented to teachers](../../assets/originals/assembly-421-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · Club badges presented to teachers
+    ///
+
+-   ![Membership dues](../../assets/originals/assembly-421-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · Membership dues
+    ///
+
+-   ![Paper planes at the Science and Technology Festival](../../assets/originals/assembly-421-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · Paper planes at the Science and Technology Festival
+    ///
+
+-   ![About recruitment](../../assets/originals/assembly-421-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · About recruitment
+    ///
+
+-   ![Event photographs](../../assets/originals/assembly-421-08.jpg){ loading=lazy }
+
+    /// caption
+    08 · Event photographs
+    ///
+
+-   ![Social media department](../../assets/originals/assembly-421-09.jpg){ loading=lazy }
+
+    /// caption
+    09 · Social media department
+    ///
+
+-   ![Competition results](../../assets/originals/assembly-421-10.jpg){ loading=lazy }
+
+    /// caption
+    10 · Competition results
+    ///
+
+-   ![Q&A](../../assets/originals/assembly-421-11.jpg){ loading=lazy }
+
+    /// caption
+    11 · Q&A
+    ///
+
+-   ![Thank you for listening](../../assets/originals/assembly-421-12.jpg){ loading=lazy }
+
+    /// caption
+    12 · Thank you for listening
+    ///
 
 </div>
 
@@ -106,13 +166,47 @@ Three assembly slide decks from spring 2026. **31 pages of content**, kept in th
 
 <div class="grid cards" markdown>
 
-- ![Paper plane activity update](../../assets/originals/assembly-427-01.jpg)
-- ![Venue map](../../assets/originals/assembly-427-02.jpg)
-- ![Folding method demonstration](../../assets/originals/assembly-427-03.jpg)
-- ![Social media department election](../../assets/originals/assembly-427-04.jpg)
-- ![Introduction to the points system](../../assets/originals/assembly-427-05.jpg)
-- ![Club dues and contribution credits](../../assets/originals/assembly-427-06.jpg)
-- ![Why the system is needed](../../assets/originals/assembly-427-07.jpg)
+-   ![Paper plane activity update](../../assets/originals/assembly-427-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · Paper plane activity update
+    ///
+
+-   ![Venue map](../../assets/originals/assembly-427-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · Venue map
+    ///
+
+-   ![Folding method demonstration](../../assets/originals/assembly-427-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · Folding method demonstration
+    ///
+
+-   ![Social media department election](../../assets/originals/assembly-427-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · Social media department election
+    ///
+
+-   ![Introduction to the points system](../../assets/originals/assembly-427-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · Introduction to the points system
+    ///
+
+-   ![Club dues and contribution credits](../../assets/originals/assembly-427-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · Club dues and contribution credits
+    ///
+
+-   ![Why the system is needed](../../assets/originals/assembly-427-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · Why the system is needed
+    ///
 
 </div>
 

@@ -12,14 +12,14 @@ description: 管理层、组别与顾问 —— 全部据 资料/ 原始件整�
 
     | 内容 | 原始件 |
     | --- | --- |
-    | 管理层 14 人职务与英文名 | [管理层填充名单](../../about/sources/index.md#badge-roster-management) |
-    | 组别名称、代号、色值 | [成员组填充名单](../../about/sources/index.md#badge-roster-members) |
-    | 各组组员与班级 | [5 月 12 日集会演示文稿](../../about/sources/index.md#deck-0512) 第 2 页「PHYSIC CLUB分组」表格 |
-    | 顾问名单 | [4 月 21 日集会演示文稿（定稿）](../../about/sources/index.md#deck-0421-final) 第 4 页 |
+    | 管理层 14 人职务与英文名 | [管理层填充名单](../../about/sources/index.md#badge-roster-management "物理社工牌/source/*.csv") |
+    | 组别名称、代号、色值 | [成员组填充名单](../../about/sources/index.md#badge-roster-members "物理社工牌/source/*.csv") |
+    | 各组组员与班级 | [5 月 12 日集会演示文稿](../../about/sources/index.md#deck-0512 "演示文稿1.pptx") 第 2 页「PHYSIC CLUB分组」表格 |
+    | 顾问名单 | [4 月 21 日集会演示文稿（定稿）](../../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx") 第 4 页 |
 
 !!! warning "繁简与口径说明"
-    原始 CSV 与演示文稿为**繁体原文**（如「孔耀聰」「脈衝星」）。
-    本页按通行简体呈现，涉及专名时以原文为准。
+    原始 CSV 与演示文稿为**繁体原文**。
+    本页按通行简体呈现，人名与组名也不例外（引文一并转写）。
     组别归属取自 **05.12 集会**的分组页，是留存材料中唯一的一份完整分组表；
     4.21 集会尚未出现组别划分。
 
@@ -59,12 +59,12 @@ description: 管理层、组别与顾问 —— 全部据 资料/ 原始件整�
 | 荣誉顾问 | 李佳佳 | Cathy | 4.21 集会第 4 页 |
 
 !!! note "一处原始件笔误"
-    [授牌环节文稿](../../about/sources/index.md#script-badge-ceremony) 将教师顾问写作「姚**弛**」，
+    [授牌环节文稿](../../about/sources/index.md#script-badge-ceremony "颁牌稿子.wps") 将教师顾问写作「姚**弛**」，
     而 4.21 集会演示文稿与在线文档均为「姚**池**」。本页从多数原始件，记作「姚池」。
 
 ## 四个小组
 
-出处：[成员组填充名单](../../about/sources/index.md#badge-roster-members)
+出处：[成员组填充名单](../../about/sources/index.md#badge-roster-members "物理社工牌/source/*.csv")
 
 | 组别 | Singularity | 代号 | 颜色 |
 | --- | --- | --- | --- |
@@ -77,7 +77,7 @@ description: 管理层、组别与顾问 —— 全部据 资料/ 原始件整�
 
 ## 组别成员
 
-出处：[5 月 12 日集会演示文稿](../../about/sources/index.md#deck-0512) 第 2 页表格。名单按原表**逐格录入**，班级沿用同列上一个已标注的班级。
+出处：[5 月 12 日集会演示文稿](../../about/sources/index.md#deck-0512 "演示文稿1.pptx") 第 2 页表格。名单按原表**逐格录入**，班级沿用同列上一个已标注的班级。
 
 === "奇点 · Singularity"
 

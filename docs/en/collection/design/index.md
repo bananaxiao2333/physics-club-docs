@@ -1,12 +1,14 @@
 ---
 nav_label: "Design Archive"
 title: "Design Archive"
-description: "Letting the original designs speak for themselves — the blue club emblem and the whole visual system around it."
-source_sha256: f57ac5dff2481681e7f1ad5692a9a2d482900874ee165583fc612f5059ed9e50
+description: "The blue club emblem and the whole visual system around it: badges, guide signs, posters and cup design."
+source_sha256: c3ce297c6400adec4b1f527ce7406959d120274d2f9516ef20d78c8f03e83219
 translated: 2026-09-18
 icon: lucide/palette
 tags:
   - Badge
+status: draft
+
 # ⚠️ 由 tools/docsgen.py 从 content/collection/design/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
@@ -15,19 +17,19 @@ tags:
 <p class="memorial-kicker">05 / THE MEMORY COLLECTION · DESIGN ARCHIVE</p>
 
 !!! info "Sources"
-    The club badge is a **parametric design project**, not just a few images. The original project is in [Badge design project](../../about/sources/index.md#badge-readme):
+    The club badge is a **parametric design project**, not just a few images. The original project is in [Badge design project](../../about/sources/index.md#badge-readme "物理社工牌/README.txt"):
 
-    - [Badge design project readme](../../about/sources/index.md#badge-readme) — notes on the design process: edit `物理社工牌设计全部模板.svgz` in Inkscape,
+    - [Badge design project readme](../../about/sources/index.md#badge-readme "物理社工牌/README.txt") — notes on the design process: edit `物理社工牌设计全部模板.svgz` in Inkscape,
       export every page in batch, then use NextGenerator to generate page by page from the fill-in roster, with the output placed in `dist`
     - `source/物理社工牌设计全部模板.svgz` — the source project behind all the templates
-    - [Member group roster](../../about/sources/index.md#badge-roster-members) — group names, the codes `S/N/P/M` and colour values
-    - [Management roster](../../about/sources/index.md#badge-roster-management) — the roles and English names of the 14 officers
-    - [Badge vector templates](../../about/sources/index.md#badge-templates) — front and back vector templates for the member groups and the officers
+    - [Member group roster](../../about/sources/index.md#badge-roster-members "物理社工牌/source/*.csv") — group names, the codes `S/N/P/M` and colour values
+    - [Management roster](../../about/sources/index.md#badge-roster-management "物理社工牌/source/*.csv") — the roles and English names of the 14 officers
+    - [Badge vector templates](../../about/sources/index.md#badge-templates "物理社工牌/source/*.svg") — front and back vector templates for the member groups and the officers
     - `material/*.ttc` — fonts (the Microsoft YaHei family + BMDOHYEON)
 
     Filter these out and the badge is just an image; keep them and it is a reproducible design.
 
-## Letting the original designs speak for themselves
+## The original designs in full
 
 Those blues, those characters, those carefully arranged details.
 From club badge to guide signs, keeping them as they were.
@@ -45,65 +47,81 @@ badges, group marks, guide signs, posters — colour and type all grown from the
 
     ---
 
-    ![Blue Officers Badge](../../../assets/originals/badge-president.jpg)
+    ![Blue Officers Badge](../../../assets/originals/badge-president.jpg){ loading=lazy }
 
+    /// caption
     Officer template · original export
+    ///
 
 -   __Singularity Group Member Badge__
 
     ---
 
-    ![Singularity Group Member Badge](../../../assets/originals/badge-singularity.jpg)
+    ![Singularity Group Member Badge](../../../assets/originals/badge-singularity.jpg){ loading=lazy }
 
+    /// caption
     Group mark · original export
+    ///
 
 -   __The Back of a Club Emblem__
 
     ---
 
-    ![The Back of a Club Emblem](../../../assets/originals/badge-back.jpg)
+    ![The Back of a Club Emblem](../../../assets/originals/badge-back.jpg){ loading=lazy }
 
+    /// caption
     Blue reverse · original export
+    ///
 
 -   __Second-Version Officers Badge__
 
     ---
 
-    ![Second-Version Officers Badge](../../../assets/originals/badge-v2-president.jpg)
+    ![Second-Version Officers Badge](../../../assets/originals/badge-v2-president.jpg){ loading=lazy }
 
+    /// caption
     Second-version draft · original export
+    ///
 
 -   __Early Member Badge__
 
     ---
 
-    ![Early Member Badge](../../../assets/originals/badge-early-member.jpg)
+    ![Early Member Badge](../../../assets/originals/badge-early-member.jpg){ loading=lazy }
 
+    /// caption
     Member badge draft · original export
+    ///
 
 -   __Paper for Sails__
 
     ---
 
-    ![Flight festival poster](../../../assets/originals/flight-poster-original.svg)
+    ![Flight festival poster](../../../assets/originals/flight-poster-original.svg){ loading=lazy }
 
+    /// caption
     Flight festival poster · original SVG
+    ///
 
 -   __Second-Version Singularity Group Badge__
 
     ---
 
-    ![Second-Version Singularity Group Badge](../../../assets/originals/badge-v2-member.jpg)
+    ![Second-Version Singularity Group Badge](../../../assets/originals/badge-v2-member.jpg){ loading=lazy }
 
+    /// caption
     Second-version draft · original export
+    ///
 
 -   __Names Still to Be Filled In__
 
     ---
 
-    ![Member group front template](../../../assets/originals/member-front.svg)
+    ![Member group front template](../../../assets/originals/member-front.svg){ loading=lazy }
 
+    /// caption
     Member group front · original SVG template
+    ///
 
 </div>
 

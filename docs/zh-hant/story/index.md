@@ -1,7 +1,7 @@
 ---
 nav_label: "社團故事"
 title: 社團故事 · 概覽
-description: 從一個「為什麼」開始 —— 英東物理社的理念與足跡。
+description: 英東物理社的理念、活動與足跡。
 nav: ["egg-drop", "ipc-2026", "gathering-0421", "festival-0430", "suspension-0529"]
 icon: lucide/book-open
 # ⚠️ 由 tools/docsgen.py 從 content/story/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
@@ -52,7 +52,7 @@ icon: lucide/book-open
 
     ---
 
-    讓一枚雞蛋從高處落下來，然後完好無損。
+    使雞蛋自高處落下後保持完好。
 
     [:octicons-arrow-right-24: 閱讀](egg-drop.md)
 
@@ -60,7 +60,7 @@ icon: lucide/book-open
 
     ---
 
-    拆解思路、構建模型、訓練真正的物理思維方式。
+    拆解思路、構建模型、訓練物理思維方式。
 
     [:octicons-arrow-right-24: 閱讀](ipc-2026.md)
 
@@ -84,13 +84,13 @@ icon: lucide/book-open
 
     ---
 
-    這場紀事的最後一格。
+    留存資料截止於 2026 年 5 月 12 日；停擺時間依據委託說明。
 
     [:octicons-arrow-right-24: 閱讀](suspension-0529.md)
 
 </div>
 
-## 留下的小組名字
+## 小組名稱
 
 各自發光，也曾相聚。
 
@@ -103,6 +103,6 @@ icon: lucide/book-open
 
 !!! note "組別出現的時間"
     組別在留存材料中**首次出現於 2026 年 5 月 12 日的集會**
-    （[5 月 12 日集會演示文稿](../about/sources/index.md#deck-0512) 第 2 頁分組表）。4.21 集會時還沒有組別劃分。
+    （[5 月 12 日集會演示文稿](../about/sources/index.md#deck-0512 "演示文稿1.pptx") 第 2 頁分組表）。4.21 集會時還沒有組別劃分。
 
 完整組員與班級名單見 [組織架構與名單](../system/governance/roster.md)。

@@ -1,7 +1,7 @@
 ---
 title: "The First Assembly and Recruitment of the Term"
-description: "Badges, competition results, recruitment, the social media department, membership dues — the club's whole hand laid out in one evening."
-source_sha256: 1a5373a75366db999193d8bff01474d018843e0b6571d8c5dee9efd64411b817
+description: "Badges, competition results, recruitment, the social media department and membership dues: five agenda items."
+source_sha256: 3057f7c1533d170eb9144dddf9bc974e577c5108336cecb2589463e2545c5d34
 translated: 2026-09-18
 tags:
   - 2026-04-21
@@ -16,7 +16,7 @@ On 21 April 2026 the physics club laid out a whole term's worth of its hand at o
 The order fixed in the spoken script was:
 **badges → paper plane activity → competition results → recruitment → social media department → membership dues**.
 
-Sources: [Opening assembly speaker's script](../about/sources/index.md#script-opening), [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final) (12 pages).
+Sources: [Opening assembly speaker's script](../about/sources/index.md#script-opening "物理社团开场集会口语稿_.docx"), [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx") (12 pages).
 
 ## 1 · Badges
 

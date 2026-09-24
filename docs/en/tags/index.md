@@ -6,7 +6,7 @@ icon: lucide/tags
 nav: []
 nav_hidden: true
 translated: 2026-09-18
-source_sha256: 9793ee8f0ac2740eb6d56c9782c157825efc06b4fe69e2f354b6bdeb9f323a2f
+source_sha256: cfea327dcac8a9b8e10912afc4812f85b8f95a0538db054797a9b5e9eefb1177
 # ⚠️ 由 tools/docsgen.py 从 content/tags/index.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 # Tags
@@ -17,8 +17,11 @@ The sections of this site run one way — story, flight, assemblies, design, arc
 the tags cut across them. A single assembly is scattered over several sections; a single
 project spans several pages.
 
-Tags are **language-neutral identifiers**: dates and project codes. The tag index is one
-site-wide listing shared by all three language trees, so a per-language tag vocabulary
-would only put two copies of the same tag into it — 「动手做」 next to 「動手做」.
+Tags are **language-neutral identifiers**: dates and project codes. A per-language tag
+vocabulary would hang a different name on the same thing in each language, and the thread
+would break.
+
+Each language's tag page **lists only that language's pages**, so a Simplified page never
+picks up Traditional or English entries.
 
 <!-- material/tags -->

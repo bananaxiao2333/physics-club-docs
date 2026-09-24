@@ -1,7 +1,7 @@
 ---
 nav_label: "集会原稿"
 title: 集会原稿
-description: 把时间翻回那一页 —— 2026 年春季的三份集会演示文稿。
+description: 2026 年春季三份集会演示文稿的逐页记录。
 nav: ["0421", "0427", "0512"]
 icon: lucide/presentation
 tags:
@@ -25,7 +25,8 @@ tags:
 
 === "04.21 · 集会暨招新"
 
-    **完整 PDF · 12 页** —— [打开原稿](../../assets/originals/assembly-421.pdf){ target=_blank }
+    **12 页** —— [下载逐页 PDF](../../assets/originals/assembly-421.pdf){ target=_blank }
+    **本 PDF 由本站据下方 12 张逐页图合成**，不是原始导出件：留存的那份 PDF 导出件中途截断、无法打开。
 
     流程是固定的：发牌 → 纸飞机活动 → 竞赛成果 → 招新 → 自媒体部门 → 会费说明。
 
@@ -86,18 +87,77 @@ tags:
 
 <div class="grid cards" markdown>
 
-- ![集会封面](../../assets/originals/assembly-421-01.jpg)
-- ![关于社团](../../assets/originals/assembly-421-02.jpg)
-- ![运营人员颁牌](../../assets/originals/assembly-421-03.jpg)
-- ![教师社牌颁发](../../assets/originals/assembly-421-04.jpg)
-- ![会费说明](../../assets/originals/assembly-421-05.jpg)
-- ![科技节纸飞机](../../assets/originals/assembly-421-06.jpg)
-- ![关于招新](../../assets/originals/assembly-421-07.jpg)
-- ![活动照片](../../assets/originals/assembly-421-08.jpg)
-- ![自媒体部门](../../assets/originals/assembly-421-09.jpg)
-- ![竞赛成果展示](../../assets/originals/assembly-421-10.jpg)
-- ![Q&A](../../assets/originals/assembly-421-11.jpg)
-- ![感谢聆听](../../assets/originals/assembly-421-12.jpg)
+-   ![集会封面](../../assets/originals/assembly-421-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · 集会封面
+    ///
+
+-   ![关于社团](../../assets/originals/assembly-421-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · 关于社团
+    ///
+
+-   ![运营人员颁牌](../../assets/originals/assembly-421-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · 运营人员颁牌
+    ///
+
+-   ![教师社牌颁发](../../assets/originals/assembly-421-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · 教师社牌颁发
+    ///
+
+-   ![会费说明](../../assets/originals/assembly-421-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · 会费说明
+    ///
+
+-   ![科技节纸飞机](../../assets/originals/assembly-421-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · 科技节纸飞机
+    ///
+
+-   ![关于招新](../../assets/originals/assembly-421-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · 关于招新
+    ///
+
+-   ![活动照片](../../assets/originals/assembly-421-08.jpg){ loading=lazy }
+
+    /// caption
+    08 · 活动照片
+    ///
+
+-   ![自媒体部门](../../assets/originals/assembly-421-09.jpg){ loading=lazy }
+
+    /// caption
+    09 · 自媒体部门
+    ///
+
+-   ![竞赛成果展示](../../assets/originals/assembly-421-10.jpg){ loading=lazy }
+
+    /// caption
+    10 · 竞赛成果展示
+    ///
+
+-   ![Q&A](../../assets/originals/assembly-421-11.jpg){ loading=lazy }
+
+    /// caption
+    11 · Q&A
+    ///
+
+-   ![感谢聆听](../../assets/originals/assembly-421-12.jpg){ loading=lazy }
+
+    /// caption
+    12 · 感谢聆听
+    ///
 
 </div>
 
@@ -105,13 +165,47 @@ tags:
 
 <div class="grid cards" markdown>
 
-- ![纸飞机活动更新](../../assets/originals/assembly-427-01.jpg)
-- ![场地布局](../../assets/originals/assembly-427-02.jpg)
-- ![折法教学展示](../../assets/originals/assembly-427-03.jpg)
-- ![自媒体部门竞选](../../assets/originals/assembly-427-04.jpg)
-- ![积分系统简介](../../assets/originals/assembly-427-05.jpg)
-- ![社费与贡献积分说明](../../assets/originals/assembly-427-06.jpg)
-- ![为什么需要制度](../../assets/originals/assembly-427-07.jpg)
+-   ![纸飞机活动更新](../../assets/originals/assembly-427-01.jpg){ loading=lazy }
+
+    /// caption
+    01 · 纸飞机活动更新
+    ///
+
+-   ![场地布局](../../assets/originals/assembly-427-02.jpg){ loading=lazy }
+
+    /// caption
+    02 · 场地布局
+    ///
+
+-   ![折法教学展示](../../assets/originals/assembly-427-03.jpg){ loading=lazy }
+
+    /// caption
+    03 · 折法教学展示
+    ///
+
+-   ![自媒体部门竞选](../../assets/originals/assembly-427-04.jpg){ loading=lazy }
+
+    /// caption
+    04 · 自媒体部门竞选
+    ///
+
+-   ![积分系统简介](../../assets/originals/assembly-427-05.jpg){ loading=lazy }
+
+    /// caption
+    05 · 积分系统简介
+    ///
+
+-   ![社费与贡献积分说明](../../assets/originals/assembly-427-06.jpg){ loading=lazy }
+
+    /// caption
+    06 · 社费与贡献积分说明
+    ///
+
+-   ![为什么需要制度](../../assets/originals/assembly-427-07.jpg){ loading=lazy }
+
+    /// caption
+    07 · 为什么需要制度
+    ///
 
 </div>
 

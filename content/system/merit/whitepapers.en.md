@@ -1,7 +1,7 @@
 ---
 title: "White Papers and the Retention Boundary"
-description: The document lineage of the merit system, and why this site publishes only part of it.
-source_sha256: 77854e398d0fda843c4b271a346a2bba551aafe940dbd08f39bff221bf3fbd42
+description: The document lineage of the merit system, and the reasons this site publishes only part of it.
+source_sha256: d196920544697f8d4b28ea8b4792b657ff923339a1dd707c13b0317ff0550597
 translated: 2026-09-18
 tags:
   - Primary-Source
@@ -14,7 +14,7 @@ tags:
 
 ## Document lineage
 
-The merit system grew from scattered ideas into a complete set of documents. As recorded in chapter 9 of [Merit system historical record](../../about/sources/index.md#merit-history):
+The merit system grew from scattered ideas into a complete set of documents. As recorded in chapter 9 of [Merit system historical record](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx"):
 
 | Document | Audience | Content |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ publishing monthly financial reports and monitoring abnormal flows.
 ## The publication boundary
 
 !!! warning "Why this site publishes only part of it"
-    Appendix C of [Merit system historical record](../../about/sources/index.md#merit-history) sets out explicitly a **three-tier retention recommendation**,
+    Appendix C of [Merit system historical record](../../about/sources/index.md#merit-history "物理社功勋系统对话史料整理_纪念网站版.docx") sets out explicitly a **three-tier retention recommendation**,
     and this site **follows it strictly**:
 
     | Tier | What that file requires | What this site does |

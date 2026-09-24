@@ -1,8 +1,10 @@
 ---
 title: "Egg Drop"
-description: "Structural design and shock absorption — dropping the most fragile thing, an egg, from a height and having it land intact."
-source_sha256: f3bb1f11f56e669344f7a267adb4f010d4312adc63a97df0d958e4877e4f60bf
+description: "Structural design and shock absorption: keeping an egg intact after it is dropped from a height."
+source_sha256: 396d473b6eef81c8570cc3384fa32f0ecb2ccfddb11d44ef9f1af9eb3f019949
 translated: 2026-09-18
+status: partial
+
 # ⚠️ 由 tools/docsgen.py 从 content/story/egg-drop.en.md 生成，请勿手改；要改请改 content/ 下的源文件。
 ---
 
@@ -11,7 +13,7 @@ translated: 2026-09-18
 <p class="memorial-kicker">THE FIRST EXPERIMENT</p>
 
 !!! note "What this page rests on"
-    [Recruitment talk script](../about/sources/index.md#recruitment-script) lists “Egg Drop” among the physics club's activities of the past year,
+    [Recruitment talk script](../about/sources/index.md#recruitment-script "物理社招新宣讲稿.wps") lists “Egg Drop” among the physics club's activities of the past year,
     and states its significance as “a test of hands-on ability, and still more a display of engineering
     thinking and physical modelling ability”.
 
@@ -28,12 +30,12 @@ It sounds like a joke, but it is a complete engineering problem: spread the impa
 and space, trade structural deformation for a lower peak stress, stretch out the transfer of momentum
 with a cushioning layer. What is fragile is not the egg; a structure without design is.
 
-## What this kind of challenge is really asking
+## What this kind of challenge examines
 
 - How the impulse at the moment of landing can be absorbed by the structure rather than by the shell
 - How the thickness, stiffness and arrangement of the cushioning material affect the peak stress
-- How the position of the centre of mass affects the landing attitude: tilt the attitude and everything
-  calculated before it was wasted
+- How the position of the centre of mass affects the landing attitude: once the attitude is offset, everything
+  calculated before it is void
 
 ## What the recruitment script says
 
@@ -41,9 +43,9 @@ with a cushioning layer. What is fragile is not the egg; a structure without des
 > a fall from a height; the process is not only a test of hands-on ability, but a display of engineering
 > thinking and physical modelling ability.
 
-—— [Recruitment talk script](../about/sources/index.md#recruitment-script)
+—— [Recruitment talk script](../about/sources/index.md#recruitment-script "物理社招新宣讲稿.wps")
 
-## Why it kept being told
+## Why it was repeatedly cited
 
 The activity later became **the first story told** in the club's recruitment presentations —
 because it answers “what does this club actually do” most directly:

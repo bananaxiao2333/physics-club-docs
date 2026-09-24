@@ -1,10 +1,12 @@
 ---
 nav_label: "設計原檔"
 title: 設計原檔
-description: 讓原設計，自己講述 —— 藍色社徽與它周圍的整套視覺。
+description: 藍色社徽與圍繞它的整套視覺：社牌、導引牌、海報與杯身設計。
 icon: lucide/palette
 tags:
   - Badge
+status: draft
+
 # ⚠️ 由 tools/docsgen.py 從 content/collection/design/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
 ---
 
@@ -13,19 +15,19 @@ tags:
 <p class="memorial-kicker">05 / THE MEMORY COLLECTION · DESIGN ARCHIVE</p>
 
 !!! info "資料出處"
-    社牌是一套**參數化設計工程**，不只是幾張圖。原始工程見 [社牌設計工程](../../about/sources/index.md#badge-readme)：
+    社牌是一套**參數化設計工程**，不只是幾張圖。原始工程見 [社牌設計工程](../../about/sources/index.md#badge-readme "物理社工牌/README.txt")：
 
-    - [社牌設計工程說明](../../about/sources/index.md#badge-readme) —— 設計流程說明：以 Inkscape 修改 `物理社工牌设计全部模板.svgz`，
+    - [社牌設計工程說明](../../about/sources/index.md#badge-readme "物理社工牌/README.txt") —— 設計流程說明：以 Inkscape 修改 `物理社工牌设计全部模板.svgz`，
       批量導出所有頁面，再用 NextGenerator 按填充名單逐頁生成，產物放入 `dist`
     - `source/物理社工牌设计全部模板.svgz` —— 全部模板的源工程
-    - [成員組填充名單](../../about/sources/index.md#badge-roster-members) —— 組別名稱、代號 `S/N/P/M` 與色值
-    - [管理層填充名單](../../about/sources/index.md#badge-roster-management) —— 14 位管理層的職務與英文名
-    - [社牌矢量模板](../../about/sources/index.md#badge-templates) —— 成員組／管理層正反面矢量模板
+    - [成員組填充名單](../../about/sources/index.md#badge-roster-members "物理社工牌/source/*.csv") —— 組別名稱、代號 `S/N/P/M` 與色值
+    - [管理層填充名單](../../about/sources/index.md#badge-roster-management "物理社工牌/source/*.csv") —— 14 位管理層的職務與英文名
+    - [社牌矢量模板](../../about/sources/index.md#badge-templates "物理社工牌/source/*.svg") —— 成員組／管理層正反面矢量模板
     - `material/*.ttc` —— 字體（微軟雅黑系列 + BMDOHYEON）
 
     過濾掉這些，社牌就只是圖片；保留下來，它才是可復現的設計。
 
-## 讓原設計，自己講述
+## 原設計全貌
 
 那些藍色、那些字、那些仔細安排過的細節。
 從社牌到導引牌，保存當時的樣子。
@@ -43,65 +45,81 @@ tags:
 
     ---
 
-    ![藍色管理社牌](../../../assets/originals/badge-president.jpg)
+    ![藍色管理社牌](../../../assets/originals/badge-president.jpg){ loading=lazy }
 
+    /// caption
     管理模版 · 原始導出圖
+    ///
 
 -   __奇點組成員牌__
 
     ---
 
-    ![奇點組成員牌](../../../assets/originals/badge-singularity.jpg)
+    ![奇點組成員牌](../../../assets/originals/badge-singularity.jpg){ loading=lazy }
 
+    /// caption
     組別標識 · 原始導出圖
+    ///
 
 -   __一枚社徽的背面__
 
     ---
 
-    ![一枚社徽的背面](../../../assets/originals/badge-back.jpg)
+    ![一枚社徽的背面](../../../assets/originals/badge-back.jpg){ loading=lazy }
 
+    /// caption
     藍色背面 · 原始導出圖
+    ///
 
 -   __第二版管理牌__
 
     ---
 
-    ![第二版管理牌](../../../assets/originals/badge-v2-president.jpg)
+    ![第二版管理牌](../../../assets/originals/badge-v2-president.jpg){ loading=lazy }
 
+    /// caption
     第二版草案 · 原始導出圖
+    ///
 
 -   __早期成員牌__
 
     ---
 
-    ![早期成員牌](../../../assets/originals/badge-early-member.jpg)
+    ![早期成員牌](../../../assets/originals/badge-early-member.jpg){ loading=lazy }
 
+    /// caption
     成員牌草案 · 原始導出圖
+    ///
 
 -   __以紙為帆__
 
     ---
 
-    ![飛行節海報](../../../assets/originals/flight-poster-original.svg)
+    ![飛行節海報](../../../assets/originals/flight-poster-original.svg){ loading=lazy }
 
+    /// caption
     飛行節海報 · 原始 SVG
+    ///
 
 -   __第二版奇點組牌__
 
     ---
 
-    ![第二版奇點組牌](../../../assets/originals/badge-v2-member.jpg)
+    ![第二版奇點組牌](../../../assets/originals/badge-v2-member.jpg){ loading=lazy }
 
+    /// caption
     第二版草案 · 原始導出圖
+    ///
 
 -   __名字尚待填上__
 
     ---
 
-    ![成員組正面模板](../../../assets/originals/member-front.svg)
+    ![成員組正面模板](../../../assets/originals/member-front.svg){ loading=lazy }
 
+    /// caption
     成員組正面 · 原始 SVG 模板
+    ///
 
 </div>
 

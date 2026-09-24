@@ -4,7 +4,7 @@ icon: lucide/sparkles
 title: Freedom Was Here
 description: A digital memorial to the ASJ Yingdong Physics Club — a club badge, one page of a speech, and an attempt to put ideas into two hands.
 nav: ["story", "flight", "collection", "system", "about"]
-source_sha256: bbc5221c4c338992cb118736b0903a32db71c2a4a22ad4b988534f11315680ec
+source_sha256: 8716361ea271cc19d6bc6705b504e2b4aff2eeb8c3c335c7226d817a71a02849
 translated: 2026-09-18
 ---
 
@@ -18,19 +18,19 @@ translated: 2026-09-18
 
     Left to the past, and left for afterwards.
 
-<img src="assets/club-logo.png" alt="ASJ Yingdong Physics Club emblem" width="180" class="memorial-mark">
+<img src="assets/club-logo.webp" alt="ASJ Yingdong Physics Club emblem" width="180" class="memorial-mark">
 
 ## Beyond physics, there was us — exploring freely
 
 The ASJ Yingdong Physics Club set out to build a platform: **a place for students to understand physics, express physics, and practise physics in their own way.**
 
-What it left behind is collected here — speech scripts, event plans, design work, and photographs. The club no longer exists, but the things that were done in earnest deserve to be remembered.
+What it left behind is collected here — speech scripts, event plans, design work, and photographs. The club no longer exists, but the work that was done in earnest deserves to be remembered.
 
 ## The collection
 
 <div class="grid cards" markdown>
 
--   __It began with a "why"__
+-   __It began with a “why”__
 
     ---
 
@@ -54,7 +54,7 @@ What it left behind is collected here — speech scripts, event plans, design wo
 
     [:octicons-arrow-right-24: Open the surviving originals](collection/index.md)
 
--   __How the money worked, who stood where__
+-   __Dues and posts of responsibility__
 
     ---
 
@@ -62,7 +62,7 @@ What it left behind is collected here — speech scripts, event plans, design wo
 
     [:octicons-arrow-right-24: View rules and merit](system/index.md)
 
--   __How this account was put together__
+-   __Where this account comes from__
 
     ---
 

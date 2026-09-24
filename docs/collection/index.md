@@ -1,7 +1,7 @@
 ---
 nav_label: "留存的原档"
 title: 留存的原档 · 概览
-description: 影像、设计与集会原稿 —— 社团留下来的三类原始件。
+description: 影像、设计与集会原稿 —— 留存下来的三类原始件。
 nav: ["archive", "design", "gatherings"]
 icon: lucide/archive
 # ⚠️ 由 tools/docsgen.py 从 content/collection/index.zh-hans.md 生成，请勿手改；要改请改 content/ 下的源文件。
@@ -11,7 +11,7 @@ icon: lucide/archive
 
 <p class="memorial-kicker">THE MEMORY COLLECTION · SURVIVING ORIGINALS</p>
 
-## 社团留下的东西，大体是三类
+## 留存原始件的三个类别
 
 讲稿、设计稿与照片。它们不是为纪念馆准备的，是当时做事时留下的，
 所以保住了**当时的样子**——包括还没落地的设想、还没用完的模板、
@@ -19,13 +19,13 @@ icon: lucide/archive
 
 这一部分收拢三类原件：
 
-| 分区 | 是什么 | 规模 |
+| 分区 | 内容 | 规模 |
 | --- | --- | --- |
 | [影像档案](archive/index.md) | 来自留存资料的照片 | 十帧 |
 | [设计原档](design/index.md) | 社徽、社牌、导引牌、海报、杯身设计 | 一套参数化工程 |
 | [集会原稿](gatherings/index.md) | 2026 年春季三次集会的演示文稿 | 31 页，保留原有顺序 |
 
-## 为什么它们放在一起
+## 归入同一部分的理由
 
 三类的共同点是：**它们都是原件**，不是转述。
 
@@ -45,7 +45,7 @@ icon: lucide/archive
 
     ---
 
-    有些瞬间，不会散场。
+    留存资料中的十帧照片。
 
     [:octicons-arrow-right-24: 翻开影像档案](archive/index.md)
 
@@ -53,7 +53,7 @@ icon: lucide/archive
 
     ---
 
-    让原设计，自己讲述。
+    蓝色社徽与围绕它的整套视觉。
 
     [:octicons-arrow-right-24: 查看设计原档](design/index.md)
 
@@ -61,7 +61,7 @@ icon: lucide/archive
 
     ---
 
-    把时间，翻回那一页。
+    2026 年春季三份集会演示文稿，逐页保留。
 
     [:octicons-arrow-right-24: 走进集会原稿](gatherings/index.md)
 

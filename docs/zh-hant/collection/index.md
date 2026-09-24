@@ -1,7 +1,7 @@
 ---
 nav_label: "留存的原檔"
 title: 留存的原檔 · 概覽
-description: 影像、設計與集會原稿 —— 社團留下來的三類原始件。
+description: 影像、設計與集會原稿 —— 留存下來的三類原始件。
 nav: ["archive", "design", "gatherings"]
 icon: lucide/archive
 # ⚠️ 由 tools/docsgen.py 從 content/collection/index.zh-hans.md 生成，請勿手改；要改請改 content/ 下的源文件。 （本頁由 zh-hans 版腳本轉換而來，不是另譯）
@@ -11,7 +11,7 @@ icon: lucide/archive
 
 <p class="memorial-kicker">THE MEMORY COLLECTION · SURVIVING ORIGINALS</p>
 
-## 社團留下的東西，大體是三類
+## 留存原始件的三個類別
 
 講稿、設計稿與照片。它們不是為紀念館準備的，是當時做事時留下的，
 所以保住了**當時的樣子**——包括還沒落地的設想、還沒用完的模板、
@@ -19,13 +19,13 @@ icon: lucide/archive
 
 這一部分收攏三類原件：
 
-| 分區 | 是什麼 | 規模 |
+| 分區 | 內容 | 規模 |
 | --- | --- | --- |
 | [影像檔案](archive/index.md) | 來自留存資料的照片 | 十幀 |
 | [設計原檔](design/index.md) | 社徽、社牌、導引牌、海報、杯身設計 | 一套參數化工程 |
 | [集會原稿](gatherings/index.md) | 2026 年春季三次集會的演示文稿 | 31 頁，保留原有順序 |
 
-## 為什麼它們放在一起
+## 歸入同一部分的理由
 
 三類的共同點是：**它們都是原件**，不是轉述。
 
@@ -45,7 +45,7 @@ icon: lucide/archive
 
     ---
 
-    有些瞬間，不會散場。
+    留存資料中的十幀照片。
 
     [:octicons-arrow-right-24: 翻開影像檔案](archive/index.md)
 
@@ -53,7 +53,7 @@ icon: lucide/archive
 
     ---
 
-    讓原設計，自己講述。
+    藍色社徽與圍繞它的整套視覺。
 
     [:octicons-arrow-right-24: 查看設計原檔](design/index.md)
 
@@ -61,7 +61,7 @@ icon: lucide/archive
 
     ---
 
-    把時間，翻回那一頁。
+    2026 年春季三份集會演示文稿，逐頁保留。
 
     [:octicons-arrow-right-24: 走進集會原稿](gatherings/index.md)
 

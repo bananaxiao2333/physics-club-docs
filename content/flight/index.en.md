@@ -2,9 +2,9 @@
 nav_label: "The Flight Project"
 title: "A4 Paper Flight Festival · Event Overview"
 subtitle: "Paper for sails, a flight path over Yingdong"
-tagline: "How far can one sheet of A4 paper fly? Come and find out."
+tagline: "How far one sheet of A4 paper can fly."
 description: "Overview of the A4 Paper Flight Festival: basic information, the three planned moments, the site layout, the awards, and what the surviving material does not record."
-source_sha256: 72996071829702229ff9b4a7906332f40a921fe245eb12bee439735363756628
+source_sha256: c7f7b90834582221aa5454019544d70343e374f564abcb5902c232be45ab8984
 translated: 2026-09-18
 nav: ["runbook", "materials"]
 icon: lucide/send
@@ -17,14 +17,14 @@ tags:
 <p class="memorial-kicker">03 / THE MEMORY COLLECTION · THE FLIGHT PROJECT</p>
 
 !!! info "Sources"
-    Compiled from [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final) (page 6), [27 April assembly deck](../about/sources/index.md#deck-0427),
-    [Flight festival promotion script](../about/sources/index.md#flight-promo-script), [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook)
-    and [Paper plane purchase list](../about/sources/index.md#flight-purchases).
+    Compiled from [21 April assembly deck (final)](../about/sources/index.md#deck-0421-final "物理集会4.21final.pptx") (page 6), [27 April assembly deck](../about/sources/index.md#deck-0427 "物理社集会0427.pptx"),
+    [Flight festival promotion script](../about/sources/index.md#flight-promo-script "物理社飞行节集会宣传稿.wps"), [A4 Flight Festival runbook](../about/sources/index.md#flight-runbook "A4纸飞行节活动执行流程(1).docx")
+    and [Paper plane purchase list](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx").
 
-## In one sentence
+## The nature of the event
 
-This was not “an origami activity”. It put physics, engineering, competition and creativity on the same field:
-**registration, test flights, laser ranging, live projection, the awards, the record** — all of it carried through by a student club on its own.
+The event was not an origami activity alone. It put physics, engineering, competition and creativity on the same field:
+**registration, test flights, laser ranging, live projection, the awards, the record** — all of it organised and carried through by the student club itself.
 
 > Paper for sails, a flight path over Yingdong.
 
@@ -69,7 +69,7 @@ the entrance, the start baseline, the test-flight area and the direction of the 
 
 - [Site layout map](../assets/flight-map.jpg)
 - The original guide signs are in the [Design Archive](../collection/design/index.md)
-- Vector original [Competition venue map](../about/sources/index.md#flight-map)
+- Vector original [Competition venue map](../about/sources/index.md#flight-map "飞行比赛地图.svgz")
 
 ## Awards
 
@@ -91,7 +91,7 @@ The morning **achievement award has no quota**: reaching any of the **10 m / 20 
 The 11 items of preparation material listed in the original document, along with the purchasing details and unit prices,
 are in [Run of Show · Preparation materials](runbook.md#materials).
 
-Confirmed purchasing records ([Paper plane purchase list](../about/sources/index.md#flight-purchases)):
+Confirmed purchasing records ([Paper plane purchase list](../about/sources/index.md#flight-purchases "纸飞机采购表.xlsx")):
 
 | Item | Unit price | Quantity | Purpose |
 | --- | --- | --- | --- |
@@ -103,13 +103,13 @@ Confirmed purchasing records ([Paper plane purchase list](../about/sources/index
 ## Teaching: 6 folding patterns
 
 The teaching corner was staffed by club members throughout (the run of show names **胡益成、肖子扬** as teaching specialists),
-teaching **6 high-performance paper plane folding patterns** hand over hand and handing out the diagrams on site.
+demonstrating **6 high-performance paper plane folding patterns** on site and handing out the diagrams.
 
 > From basic structure to flight optimisation, so that everyone can pick it up quickly.
 
-## What we really wanted to see
+## Curatorial intent
 
-Of course the competition was about who flew the furthest. But what the spoken script wanted to see was more than that:
+The ranking was decided by flight distance. The spoken script stressed three further points:
 
 > Whose design has the most ideas, who is best at solving problems with physics thinking,
 > who can take a simple paper plane and really give it a bit of a technological feel.
