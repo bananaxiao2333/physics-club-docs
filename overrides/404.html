@@ -18,23 +18,26 @@
 
 {% block extrahead %}
   <meta name="robots" content="noindex">
+  {#- 404 是任意路径下的单页，同样可能以不带尾斜杠的目录地址被打开，
+      这条补正与本文件里的站内链接一样必须带上。 -#}
+  {% include "partials/trailing-slash.html" %}
 {% endblock %}
 
 {% block content %}
   <h1>404</h1>
-  <p>你找的这一页不在这里。</p>
-  <p>原站的页面在迁移后更换了网址：<code>story.html</code> 这类旧地址已改为
-     目录网址 <code>story/</code>，顶上导航可以逐级找到。</p>
-  <p><strong>This page is not here.</strong> Pages from the original site moved to
-     directory URLs (<code>story.html</code> → <code>story/</code>); the navigation above
-     will get you there.</p>
-  <p><strong>這一頁不在這裡。</strong>原站頁面在遷移後更換了網址
-     （<code>story.html</code> → <code>story/</code>），可由上方導覽逐級找到。</p>
+  <p>您请求的页面不存在。</p>
+  <p>原站页面在迁移后更换了网址：<code>story.html</code> 这类旧地址已改为
+     目录网址 <code>story/</code>，可经上方导航逐级查找。</p>
+  <p><strong>The page you requested does not exist.</strong> Pages from the original
+     site moved to directory URLs (<code>story.html</code> → <code>story/</code>); the
+     navigation above can lead you there.</p>
+  <p><strong>您請求的頁面不存在。</strong>原站頁面在遷移後更換了網址
+     （<code>story.html</code> → <code>story/</code>），可經上方導覽逐級查找。</p>
 
-  <h2>回到首页 / Start over</h2>
+  <h2>返回首页 / Start over</h2>
   <ul>
     <li><a href="{{ '' | url }}">简体中文 · 自由曾在此</a></li>
     <li><a href="{{ 'zh-hant/' | url }}">繁體中文 · 自由曾在此</a></li>
-    <li><a href="{{ 'en/' | url }}">English · Freedom Was Once Here</a></li>
+    <li><a href="{{ 'en/' | url }}">English · Freedom Was Here</a></li>
   </ul>
 {% endblock %}

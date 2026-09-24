@@ -24,8 +24,9 @@ ASJ 英东物理社数字纪念馆 —— 以 **Zensical** 为基层、以**文�
 uv sync                 # 按 uv.lock 建好 .venv
 
 make serve              # 生成内容树 → 本地预览 http://127.0.0.1:8000
-make build              # 生成 → 构建 → 翻译度检查
+make build              # 生成 → 构建 → 标签过滤 → 链接体检 → 翻译度检查
 make check              # 只跑翻译度检查
+make links              # 只跑产物链接体检
 make gen                # 只重新生成 docs/ 与导航
 ```
 
@@ -78,12 +79,12 @@ docs/             ← 构建层。.md 是生成物；assets/ 等仍是手写的
 （`landing.zh-hant.html` 由 `landing.html` 派生）。派生意味着不可能出现
 「简体改了、繁体没跟上」——这一点由 `i18n_check.py` 逐字节比对守着。
 
-转换刻意跳过两处，否则会篡改原件：
+**引文与正文一视同仁**：简体树一律呈现简体（读者选简体就该看到简体），
+繁体树因此也要把同样的文字转写回繁体——早先跳过块引用与代码块，
+结果是繁体树的引文和 `text` 代码块停在简体。
 
-- **逐字引文**（`>` 块引用）：中文页声明「引文一律保留原文」，那是原始幻灯片上的
-  繁体原文；
-- **反引号内的内容**：真实文件名必须逐字保留（转换表会把 `签到表` 转成`籤到表`，
-  连繁体都转错了）。
+只剩一处必须跳过：**反引号内的内容**，真实文件名要逐字保留
+（转换表会把 `签到表` 转成`籤到表`，连繁体都转错了）。
 
 另外把转换表里偏古或前后不一致的写法统一到现代通行繁体
 （`爲→為`、`羣→群`、`裏→裡`、`籤→簽` 等），并**刻意保留**确实存在地区分歧的字
@@ -128,7 +129,9 @@ URL 跳转桩）都是手写的，生成器不碰。
 | 工具 | 作用 |
 | --- | --- |
 | `tools/langs.py` | 语言清单与派生关系的**唯一出处**，从 `content/` 的文件名后缀推导 |
-| `tools/hant.py` | 简体→繁体脚本转换（跳过引文与文件名） |
+| `tools/hant.py` | 简体→繁体脚本转换（跳过文件名） |
+| `tools/tagfilter.py` | 标签索引分语种过滤：每个语言的标签页只列该语言的篇目 |
+| `tools/linkcheck.py` | 产物链接体检：站内引用是否落地、目录引用是否带尾斜杠、跳转桩目标是否存在、每页是否带目录地址补正脚本 |
 | `tools/docsgen.py` | 从 `content/` 生成 `docs/`（含派生语种）；改写共享资产路径；清理失效产物 |
 | `tools/navgen.py` | 从文件树生成各目录的 `.nav.yml` |
 | `tools/i18n_check.py` | 多语种检查，按需产出 `i18n-report.json` / `i18n-report.md`（已 gitignore，不入库） |
@@ -184,7 +187,7 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 | 页面 | 为什么 |
 | --- | --- |
 | `content/system/governance/roster.en.md` | 名单里的姓名是原文数据，没有可译的英文名 |
-| `content/collection/gatherings/0427.en.md`、`0512.en.md` | 逐页实录要逐字引用原幻灯片的繁体中文标题 |
+| `content/collection/gatherings/0427.en.md`、`0512.en.md` | 逐页实录引用了原幻灯片的中文标题 |
 
 这不是「翻译没做完」的遮羞布：写了这个标记的页面，`source_sha256` 与结构比对
 仍然照常生效。
@@ -214,6 +217,8 @@ uv run python tools/i18n_check.py --sync   # 为缺失的译文建立骨架
 | `partials/alternate.html` | 语言切换器指向**对应页**而非语言首页 |
 | `partials/palette.html` | 深浅色切换按钮的提示文案分语言 |
 | `partials/path.html` | 面包屑分语言：根指向 `/en/`，并去掉语言分区那一层 |
+| `partials/trailing-slash.html` | 目录地址补正：入口少一个尾斜杠时先补上，否则整页向下的相对链接会抬高一级（见「其他已知坑」） |
+| `404.html` | 404 不继承 `main.html`，否则会被判成落地页；三语并排给出，并带上目录地址补正 |
 
 ## 多语言
 
@@ -334,7 +339,7 @@ physics-club-docs/
 ├── overrides/               # 主题模板覆盖（custom_dir）
 │   ├── main.html            #   落地页注入、<title>、容器接管
 │   └── partials/            #   见下表「模板覆盖」
-├── tools/                   # docsgen / navgen / i18n_check
+├── tools/                   # docsgen / navgen / i18n_check / tagfilter / linkcheck
 └── site/                    # 构建产物（已 gitignore）
 ```
 
@@ -390,6 +395,44 @@ physics-club-docs/
 
 英文版必须保持同样的记述原则——翻译不是改写，见 `TRANSLATION-GUIDE.md`。
 
+### 文风：功能面公文化，文学面保留
+
+全站按**表面性质**分两套笔头，改稿时先判断落在哪一边：
+
+| | 范围 | 笔头 |
+| --- | --- | --- |
+| **功能面** | 同意浮层、界面文字、页脚、导航与卡片标签、`description` / `title` / `summary` / `tagline` / `subtitle`、表格表头、提示框标题、404 | **公告体**：陈述事实，不作排比宣传，不用口语动词与语气助词，不用「你／我们」称呼读者 |
+| **文学面** | 落地页大字、故事页的抒情句、原稿引文（`>` 引用块与 `!!! quote`） | 按纪念馆体裁保留，不公文化 |
+
+判断依据是**它出现在哪儿**，不是它写了什么：同样一句话出现在落地页大字里就保留，
+出现在卡片标签或 meta 描述里就公文化。落地页的导航性文案（`打开原图 ↗`、`关闭 ×`）
+算功能面。
+
+**功能面的禁用词**（已清理过一轮，勿回退）：口语动词（搞定／跑完／上手／手把手／白算）、
+语气助词（吧／呢／嘛／啦）、随口副词（其实／反正／真的／挺／差不多／干脆）、
+概括名词（东西／事儿），以及「一句话说明」「怎么读这个站」「为什么会出现这套系统」
+这类随口标题。英文功能面同时**用陈述句、不用第二人称祈使**，标题一律
+**句首大写（sentence case）**，不混用 title case。
+
+### ⚠️ 转录页的标题不许改
+
+`content/collection/gatherings/` 的逐页实录、`system/merit/member-rules`（白皮书全文）、
+`system/governance/fees`（按集会 PPT 第 6–14 页重组）这几页的 `##` 标题**是原始件的页面标题或
+章节标题，不是本站的小节名**。它们读起来像口语（`为什么需要这套制度`、
+`前言：为什么需要功勋系统`、`积分如何获得与使用`）也必须原样保留——改掉就等于篡改转录。
+
+核验方式（改之前先自查）：
+
+```bash
+uv run --no-project --with python-pptx python -c "
+from pptx import Presentation
+p=Presentation('../资料/物理社集会0427.pptx')
+print([sh.text_frame.text.split('\n')[0] for s in p.slides for sh in s.shapes if sh.has_text_frame][:20])"
+```
+
+`资料/*.wps` 其实是 OLE 复合文档（Word 二进制），`python-docx` 读不了；
+用 `olefile` 取 `WordDocument` 流再按 UTF-16LE 解码即可取到正文。
+
 ## 引用锚点
 
 中文标题自动生成的锚点是 `_1`、`_2` 这类不稳定值。
@@ -428,6 +471,22 @@ physics-club-docs/
 - **落地页的文案有一部分在 JS 里**（滚动幕字、原件查看器的缩放按钮）。这些
   已改为从 DOM / `data-` 属性读取，文案来源是两份 partial；在 JS 里写死任意
   一种语言都会导致另一种语言的页面被覆盖回中文。
+- **目录地址少一个尾斜杠，整页向下的相对链接会全体抬高一级。** 这是本站踩过
+  最隐蔽的一个坑：服务器对 `/zh-hant/story`（无尾斜杠）也回 **200 且不重定向**
+  （GitHub Pages 如此，`zensical serve` 与任何把目录当索引页的服务器也如此），
+  文档于是停在一个与它自己不一致的基址上——浏览器按「当前目录 = `/zh-hant/`」
+  解相对链接，而链接是按「当前目录 = `/zh-hant/story/`」生成的，于是
+
+      /zh-hant/story  +  href="./gathering-0421/"  →  /zh-hant/gathering-0421/   404
+
+  **只有向下的链接会坏**（`../../assets/…` 多出来的 `..` 在根上被丢掉，落点不变），
+  所以读者看到的是「有些链接能点、有些一点就 404」，而不是整页崩掉。
+  对策是 `overrides/partials/trailing-slash.html`：在 `<head>` 里先把地址栏补成
+  规范形式，正文解析时基址就是对的。改地址栏而不加 `<base>`，是因为 `<base>`
+  必须写绝对地址，会把本地预览的链接指回线上。
+  两条判据交给 `tools/linkcheck.py` 守着：站点自己不生成少斜杠的目录地址，
+  每一页也都带着这条补正（`id="__trailing-slash"`）。
+  想复现：`site/` 直接起一个静态服务器，访问 `/zh-hant/story`（不带斜杠）即可。
 
 ## 部署
 
@@ -435,3 +494,10 @@ physics-club-docs/
 仓库内已含 `.github/workflows/docs.yml`，推送到 `main` 后由 GitHub Actions
 自动构建并发布到 Pages。若在 CI 里做多语言校验，可以加一步
 `uv run python tools/i18n_check.py`（未完成时会以非零码退出）。
+
+**workflow 的步骤必须与 `make build` 逐条对齐。** 这里出过一次静默的错位：
+workflow 少了 `tagfilter.py` 那一步，于是线上发的一直是**没做过分语种过滤**的
+标签索引（简体页上列着繁体与英文的篇目），而本地 `make build` 的产物是干净的——
+「本地过得去就等于 CI 过得去」在当时并不成立。现在两边都是
+`gen → 校验生成物 → zensical build → tagfilter → linkcheck → i18n_check`。
+加步骤时请同时改 `Makefile` 与 `.github/workflows/docs.yml`，别只改一边。

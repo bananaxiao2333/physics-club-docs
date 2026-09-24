@@ -6,14 +6,17 @@
 地区标签会把词汇也改掉（激光→雷射、链接→連結、文件→檔案），
 那是替读者选了某一地的用法，本站不做这个选择。
 
-三处不转换
+转换范围
+--------
+**引文（块引用）与正文一视同仁。** 简体树已把原始件的繁体用字转写为通行简体
+（读者选简体就该看到简体，见 about/index 的记述原则），繁体树因此必须把同样的
+文字转写回繁体——否则 `zh-hant` 的引文会停在简体，比原来更糟。
+
+两处不转换
 ----------
-1. **逐字引文**（以 `>` 开头的块引用）：中文页声明「引文一律保留原文」，
-   这些是原始幻灯片上的繁体原文，改动它们等于篡改原件。
-2. **反引号内的内容**：那些是真实文件名，必须逐字保留。
+1. **反引号内的内容**：那些是真实文件名，必须逐字保留。
    （否则 zhconv 会把 `签到表` 转成 `籤到表`——连繁体都转错了，
    因为它不知道这里该是「簽到」。）
-3. **代码块**内的整段内容。
 
 另加一处：**链接与图片的目标**（`](…)`、`src=`、`href=`、裸 URL、参考式定义）。
 目标里的中文是**路径**，磁盘上的文件名是简体，转换它等于把链接指向不存在的文件。
@@ -36,7 +39,7 @@ import zhconv
 PROTECTED = re.compile(
     r"\]\([^)\n]*\)"                      # 行内链接与图片的目标
     r"|\b(?:src|href|poster)=\"[^\"]*\""  # HTML 属性里的路径
-    r"|^\s{0,3}\[[^\]]+\]:\s*\S+"         # 参考式链接定义
+    r"|^\s{0,3}\[(?!\^)[^\]]+\]:\s*\S+"    # 参考式链接定义（⚠️ 脚注定义 [^x]: 不是路径，见下）
     r"|https?://\S+"                      # 裸 URL
     r"|\bdata-(?:photo|caption|original)=\"[^\"]*\"",
     re.M,
@@ -60,15 +63,48 @@ NORMALIZE = str.maketrans({
 #: 转换表一律给「籤」，这里按下文改回来；「抽籤」保持不动。
 SIGN_FIX = re.compile(r"(?<!抽)籤")
 
+#: 逐字补漏时**必须跳过**的字：简繁同形、意思随上下文变，只能整词判断。
+#: 照着转换表单字硬转会把它们改错：
+#:     若干→若幹   公里→公裏   皇后→皇後   台北→臺北（这一处尚可，但同一个字
+#:     在「台甫」里又该是「台」）  开采→開採（对）／风采→風采（错）
+#: 词组表在这些词上是对的，所以交给它；逐字那一遍绕开这些字。
+AMBIGUOUS = set("干里后复采斗云划冲占咸尽只面系板表松谷制卷卜舍重台")
+
+#: 围栏行：```text title="…"
+FENCE_RE = re.compile(r"^(\s*`{3,})(.*)$")
+
+
+def _sweep_chars(chunk: str) -> str:
+    """逐字补漏：把上一遍没跟上的简体字补上。
+
+    转换表按词组切分，长句里会漏字——例如 `特别致谢` 整体转完 `别` 仍是简体，
+    而单独转 `特别` 却是对的。这里对无歧义的字再扫一遍；
+    歧义字见 AMBIGUOUS，一律不动。
+    """
+    return "".join(
+        chunk[i] if ch in AMBIGUOUS else zhconv.convert(ch, "zh-hant")
+        for i, ch in enumerate(chunk)
+    )
+
 
 def convert_span(text: str) -> str:
-    """转换一段不含代码与引文的文本。"""
-    converted = zhconv.convert(text, "zh-hant").translate(NORMALIZE)
+    """转换一段不含代码与路径的文本。
+
+    两遍：先让词组表整段转换，再逐字补漏，最后才做异写归一——
+    顺序不能反，否则补漏那遍会把归一好的 `群` `秘` `峰` 又打回 `羣` `祕` `峯`。
+    """
+    converted = _sweep_chars(zhconv.convert(text, "zh-hant")).translate(NORMALIZE)
     return SIGN_FIX.sub("簽", converted)
 
 
 def convert_line(line: str) -> str:
     """转换一行：跳过后引号内容，以及落在「路径位」上的片段。"""
+    fence = FENCE_RE.match(line)
+    if fence:
+        # 围栏行本身（```text title="…"）：反引号后面是语言短代码与代码块标题。
+        # 不能交给 _convert_backticks——它按反引号左右分段，会把这一整行
+        # 当成「行内代码」，于是代码块标题永远停在简体。
+        return fence.group(1) + convert_span(fence.group(2))
     out: list[str] = []
     pos = 0
     for match in PROTECTED.finditer(line):
@@ -85,20 +121,13 @@ def _convert_backticks(chunk: str) -> str:
 
 
 def to_hant(text: str) -> str:
-    """整份文件转换：跳过引文行与代码块。"""
-    out: list[str] = []
-    in_fence = False
-    for line in text.split("\n"):
-        stripped = line.lstrip()
-        if stripped.startswith("```"):
-            in_fence = not in_fence
-            out.append(line)
-            continue
-        if in_fence or stripped.startswith(">"):
-            out.append(line)
-            continue
-        out.append(convert_line(line))
-    return "\n".join(out)
+    """整份文件转换：逐行转写，引文与代码块一并处理。
+
+    早先这里跳过块引用与代码块，是因为简体树还保留着原始件的繁体引文，
+    转写会把它们改坏。现在简体树一律呈现简体，跳过反而会让繁体树停在简体，
+    所以两道豁免都去掉了；`convert_line` 仍会保住反引号里的文件名与链接目标。
+    """
+    return "\n".join(convert_line(line) for line in text.split("\n"))
 
 
 __all__ = ["to_hant", "convert_span", "convert_line"]

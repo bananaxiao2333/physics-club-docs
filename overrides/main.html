@@ -22,6 +22,9 @@
 {% set is_landing = here in ("", "en/", "zh-hant/") %}
 
 {% block extrahead %}
+  {#- 目录地址补正要排在 <head> 里最前面：它必须在正文被解析之前改掉地址栏。
+      理由与取舍见 partials/trailing-slash.html 的说明。 -#}
+  {% include "partials/trailing-slash.html" %}
   {#- ── 社交分享与结构化数据 ─────────────────────────────────────────
      og:locale 按 OG 规范本该写成 language_TERRITORY（zh_CN / zh_TW 之类），
      但那是**地区**标记，与本站「语言代码只到文字一级」的政策冲突——地区标签
