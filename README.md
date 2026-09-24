@@ -491,13 +491,34 @@ print([sh.text_frame.text.split('\n')[0] for s in p.slides for sh in s.shapes if
 ## 部署
 
 `make build` 产出的 `site/` 是纯静态文件，可直接部署到任意静态托管。
-仓库内已含 `.github/workflows/docs.yml`，推送到 `main` 后由 GitHub Actions
-自动构建并发布到 Pages。若在 CI 里做多语言校验，可以加一步
-`uv run python tools/i18n_check.py`（未完成时会以非零码退出）。
+线上（<https://pm.079682.xyz/>）由 **EdgeOne Pages** 托管，链路是：
 
-**workflow 的步骤必须与 `make build` 逐条对齐。** 这里出过一次静默的错位：
+```
+main ──push──► .github/workflows/deploy.yml
+                 ├─ 与 make build 同一条产线：gen → build → tagfilter → linkcheck → i18n
+                 └─ 把 site/ 的成品 force-push 到 deploy 分支（永远只有一个提交）
+                                    │
+                                    ▼
+                EdgeOne Pages 的 Production 环境盯 deploy 分支，只管搬运
+```
+
+**EdgeOne 那侧不构建。** 项目设置里编译命令与安装命令都留空；若留空仍会去跑
+`npm install`，就显式写成 `echo "产物分支，无需构建"`。输出目录留空（分支根目录
+就是站点根），Production 环境的分支关联选 `deploy`。
+
+这么分的理由：本站是 Python 站点（uv + Zensical），而 EdgeOne 的构建镜像只预装
+Node，安装命令只认 npm / yarn / pnpm。在它的容器里现装 uv、再拉一个 Python 3.14
+并非不行，只是把「这次能不能发出去」押在一个没有文档保证的环境上；GitHub 这边的
+构建则是 `docs.yml` 每次推送都在验的那条。
+
+`.github/workflows/docs.yml` 只做校验、**不发布**。它原先的后半段是发到 GitHub
+Pages，但仓库并未开启 Pages，于是每推一次必红一次——一个没有产物的部署步骤，把
+「校验过没过」这个唯一有用的信号埋掉了。
+
+**两个 workflow 的步骤都必须与 `make build` 逐条对齐。** 这里出过一次静默的错位：
 workflow 少了 `tagfilter.py` 那一步，于是线上发的一直是**没做过分语种过滤**的
 标签索引（简体页上列着繁体与英文的篇目），而本地 `make build` 的产物是干净的——
-「本地过得去就等于 CI 过得去」在当时并不成立。现在两边都是
-`gen → 校验生成物 → zensical build → tagfilter → linkcheck → i18n_check`。
-加步骤时请同时改 `Makefile` 与 `.github/workflows/docs.yml`，别只改一边。
+「本地过得去就等于 CI 过得去」在当时并不成立。现在三处都是
+`gen → zensical build → tagfilter → linkcheck → i18n_check`。
+加步骤时请同时改 `Makefile`、`.github/workflows/docs.yml` 与
+`.github/workflows/deploy.yml`，别只改一边。
